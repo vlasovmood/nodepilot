@@ -10,7 +10,7 @@ use crate::{App, Result};
 #[derive(Debug, Serialize, JsonSchema)]
 pub struct SecurityStatus {
     pub master_key: KeySource,
-    /// TPM 2.0 is present (`/dev/tpmrm0`).
+    /// TPM 2.0 is present. Detected via sysfs too, because the systemd unit hides `/dev` (`PrivateDevices=true`).
     pub tpm_available: bool,
     /// `systemd-creds` is installed (needed to seal the key into the TPM).
     pub systemd_creds_available: bool,
@@ -45,7 +45,7 @@ impl App {
         let audit = self.audit_settings().await;
         Ok(SecurityStatus {
             master_key: self.secrets.source.clone(),
-            tpm_available: Path::new("/dev/tpmrm0").exists() || Path::new("/dev/tpm0").exists(),
+            tpm_available: tpm_present(&self.secrets.source),
             systemd_creds_available: ["/usr/bin/systemd-creds", "/bin/systemd-creds"].iter().any(|p| Path::new(p).exists()),
             two_factor: self.two_factor_status(user_id).await?,
             panel_key_configured: pk.configured,
@@ -63,4 +63,10 @@ impl App {
             secure_cookies: self.config.secure_cookies,
         })
     }
+}
+
+/// The service runs with `PrivateDevices=true`, which hides `/dev/tpm*`, so sysfs is checked as well; a key that
+/// already came from a systemd credential also counts (it was sealed on this machine).
+fn tpm_present(source: &KeySource) -> bool {
+    ["/dev/tpmrm0", "/dev/tpm0", "/sys/class/tpm/tpm0"].iter().any(|p| Path::new(p).exists()) || source.kind == "systemd-credential"
 }

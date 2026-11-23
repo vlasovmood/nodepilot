@@ -18,6 +18,7 @@ futures = "0.3.34"
 getrandom = "0.4.3"
 hex = "0.4.3"
 hmac = "0.13.0"
+ipnet = "2.12.2"
 nodepilot-ssh = { version = "0.1.0", path = "../nodepilot-ssh" }
 object_store = { version = "0.14.2", features = ["aws"] }
 reqwest = { version = "0.13", default-features = false, features = ["rustls", "json", "stream", "http2"] }

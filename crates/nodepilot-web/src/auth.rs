@@ -37,16 +37,28 @@ pub fn token_from_parts(parts: &Parts) -> Option<String> {
     None
 }
 
-/// `X-Forwarded-For` is trusted only from a reverse proxy on this machine.
-pub fn client_ip(parts: &Parts) -> Option<String> {
-    let peer = parts.extensions.get::<ConnectInfo<SocketAddr>>().map(|c| c.0.ip());
-    if peer.is_some_and(|p| p.is_loopback())
-        && let Some(xff) = parts.headers.get("x-forwarded-for").and_then(|v| v.to_str().ok())
-        && let Some(first) = xff.split(',').next().map(str::trim).filter(|s| !s.is_empty())
-    {
-        return Some(first.to_owned());
+/// Client address for lockout and the audit log. `X-Forwarded-For` is used only when the peer is a trusted proxy
+/// (loopback or `--trusted-proxies`), and it is read from the right, skipping trusted hops, so a client cannot
+/// spoof its address by sending its own header through a proxy that appends to it.
+pub fn client_ip(app: &App, parts: &Parts) -> Option<String> {
+    let peer = parts.extensions.get::<ConnectInfo<SocketAddr>>().map(|c| c.0.ip())?;
+    let xff = parts.headers.get_all("x-forwarded-for").iter().filter_map(|v| v.to_str().ok()).collect::<Vec<_>>().join(",");
+    Some(forwarded_client(peer, &xff, |ip| app.config.is_trusted_proxy(ip)).to_string())
+}
+
+fn forwarded_client(peer: std::net::IpAddr, xff: &str, trusted: impl Fn(std::net::IpAddr) -> bool) -> std::net::IpAddr {
+    if !trusted(peer) {
+        return peer;
     }
-    peer.map(|p| p.to_string())
+    let mut client = peer;
+    for hop in xff.rsplit(',').map(str::trim).filter(|s| !s.is_empty()) {
+        let Ok(ip) = hop.parse::<std::net::IpAddr>() else { break };
+        client = ip;
+        if !trusted(ip) {
+            break;
+        }
+    }
+    client
 }
 
 fn severity_for(method: &str, path: &str) -> Severity {
@@ -122,7 +134,7 @@ pub async fn guard(State(app): State<App>, matched: Option<MatchedPath>, request
     }
 
     let (mut parts, body) = request.into_parts();
-    let ip = client_ip(&parts);
+    let ip = client_ip(&app, &parts);
     let mut principal = match token_from_parts(&parts) {
         Some(t) => match app.authenticate(&t).await {
             Ok(p) => p,
@@ -187,7 +199,7 @@ async fn setup(State(app): State<App>, parts: Parts, Json(creds): Json<Credentia
     let (token, user) = app.setup(&creds).await?;
     app.audit(AuditEvent {
         actor: user.username.clone(),
-        ip: client_ip(&parts),
+        ip: client_ip(&app, &parts),
         action: "auth:setup".into(),
         outcome: "ok".into(),
         severity: Severity::Critical,
@@ -197,7 +209,7 @@ async fn setup(State(app): State<App>, parts: Parts, Json(creds): Json<Credentia
 }
 
 async fn login(State(app): State<App>, parts: Parts, Json(creds): Json<Credentials>) -> ApiResult<Response> {
-    let ip = client_ip(&parts);
+    let ip = client_ip(&app, &parts);
     let ev = |outcome: &str, severity: Severity| AuditEvent {
         actor: creds.username.trim().to_owned(),
         ip: ip.clone(),
@@ -270,4 +282,27 @@ pub fn routes() -> Router<App> {
         .route("/api/auth/me", get(me))
         .route("/api/tokens", get(list_tokens).post(create_token))
         .route("/api/tokens/{id}", axum::routing::patch(update_token).delete(delete_token))
+}
+
+#[cfg(test)]
+mod tests {
+    use super::forwarded_client;
+    use std::net::IpAddr;
+
+    fn ip(s: &str) -> IpAddr {
+        s.parse().unwrap()
+    }
+
+    #[test]
+    fn forwarded_for_is_read_from_trusted_proxies_only() {
+        let proxy = |i: IpAddr| i.is_loopback() || i == ip("10.0.0.5");
+        // Direct client: the header is ignored.
+        assert_eq!(forwarded_client(ip("203.0.113.7"), "1.2.3.4", proxy), ip("203.0.113.7"));
+        // Through a trusted proxy that appends: a spoofed leading entry is ignored.
+        assert_eq!(forwarded_client(ip("10.0.0.5"), "6.6.6.6, 198.51.100.9", proxy), ip("198.51.100.9"));
+        // Two trusted hops (local proxy in front of a remote one).
+        assert_eq!(forwarded_client(ip("127.0.0.1"), "198.51.100.9, 10.0.0.5", proxy), ip("198.51.100.9"));
+        // Garbage stops the walk at the last good address.
+        assert_eq!(forwarded_client(ip("127.0.0.1"), "nonsense", proxy), ip("127.0.0.1"));
+    }
 }

@@ -139,6 +139,7 @@ docker build --target export --output dist .   # или статическая �
 
 Панель слушает `127.0.0.1:7780`. Наружу её лучше открывать через reverse proxy с TLS, например Caddy:
 `reverse_proxy 127.0.0.1:7780`. В этом случае включите `NODEPILOT_SECURE_COOKIES=true` в `/etc/nodepilot/nodepilot.env`.
+Если прокси стоит на другой машине, укажите его в `NODEPILOT_TRUSTED_PROXIES` (IP или подсети), чтобы панель видела реальные адреса клиентов.
 
 Чтобы открыть панель по подпути (например, `https://example.com/nodepilot/`), соберите панель из исходников с
 `NODEPILOT_BASE_PATH=/nodepilot/`, а прокси пусть срезает префикс (Caddy: `handle_path /nodepilot/* { reverse_proxy 127.0.0.1:7780 }`).

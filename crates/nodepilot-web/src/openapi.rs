@@ -20,16 +20,16 @@ fn level_str(l: Level) -> &'static str {
 
 fn area_doc(a: Area) -> &'static str {
     match a {
-        Area::Servers => "Серверы, их карточки и статистика",
-        Area::Projects => "Проекты и состав серверов",
-        Area::Identities => "Связка ключей (секреты не отдаются)",
-        Area::Exec => "Выполнение команд и терминальные сессии (только write)",
-        Area::System => "Процессы, systemd-сервисы, журналы, питание",
-        Area::Files => "Файлы на серверах (SFTP)",
-        Area::Notes => "Заметки",
-        Area::Graphs => "Графы инфраструктуры",
-        Area::Backups => "Хранилища, задания и архивы бекапов",
-        Area::Admin => "API-токены",
+        Area::Servers => "Servers, their details and stats",
+        Area::Projects => "Projects and their servers",
+        Area::Identities => "Identities in the keychain (secrets are never returned)",
+        Area::Exec => "Command execution and terminal sessions (write only)",
+        Area::System => "Processes, systemd services, logs, power",
+        Area::Files => "Files on servers (SFTP)",
+        Area::Notes => "Notes",
+        Area::Graphs => "Infrastructure graphs",
+        Area::Backups => "Backup storages, backup jobs and archives",
+        Area::Admin => "API tokens",
     }
 }
 
@@ -38,7 +38,7 @@ fn build() -> Value {
     settings.definitions_path = "/components/schemas".into();
     let mut generator = settings.into_generator();
 
-    let error = json!({ "description": "Ошибка", "content": { "application/json": { "schema": {
+    let error = json!({ "description": "Error", "content": { "application/json": { "schema": {
         "type": "object", "properties": { "error": { "type": "string" } }, "required": ["error"] } } } });
 
     let mut paths: Map<String, Value> = Map::new();
@@ -58,7 +58,7 @@ fn build() -> Value {
             Access::Scoped(a, l) => {
                 let perm = format!("{}:{}", a.as_str(), level_str(l));
                 op.insert("x-permission".into(), json!(perm));
-                op.insert("description".into(), json!(format!("Требуемые права токена: `{perm}`.")));
+                op.insert("description".into(), json!(format!("Required token permission: `{perm}`.")));
             }
         }
 
@@ -105,13 +105,13 @@ fn build() -> Value {
         }
 
         let ok = match e.reply {
-            Reply::NoContent => ("204", json!({ "description": "Готово" })),
+            Reply::NoContent => ("204", json!({ "description": "Done" })),
             Reply::Json(f) => ("200", json!({ "description": "OK", "content": { "application/json": { "schema": f(&mut generator) } } })),
             Reply::Binary => (
                 "200",
-                json!({ "description": "Файл", "content": { "application/octet-stream": { "schema": { "type": "string", "format": "binary" } } } }),
+                json!({ "description": "File", "content": { "application/octet-stream": { "schema": { "type": "string", "format": "binary" } } } }),
             ),
-            Reply::WebSocket => ("101", json!({ "description": "Переключение на WebSocket" })),
+            Reply::WebSocket => ("101", json!({ "description": "Switching to WebSocket" })),
         };
         let mut responses = Map::new();
         responses.insert(ok.0.into(), ok.1);
@@ -130,18 +130,18 @@ fn build() -> Value {
         "info": {
             "title": "NodePilot API",
             "version": env!("CARGO_PKG_VERSION"),
-            "description": "Полное управление панелью NodePilot: серверы, проекты, ключи, команды и терминалы, файлы, \
-                система, заметки, графы, бекапы. Авторизация: `Authorization: Bearer <API-токен>` (токены выпускаются \
-                в разделе «API» панели) или cookie сессии. Каждый эндпоинт требует права из `x-permission` \
-                (`<область>:read|write`; write включает чтение). Ошибки — JSON `{\"error\": \"...\"}`: \
-                400 неверный запрос, 401 нет входа, 403 нет прав, 404 не найдено, 409 конфликт, 502 ошибка SSH.",
+            "description": "Full control of the NodePilot panel: servers, projects, identities, commands and terminals, files, \
+                system, notes, graphs, backups. Authentication: `Authorization: Bearer <API token>` (tokens are issued \
+                in the panel's API section) or a session cookie. Each endpoint requires the permission in `x-permission` \
+                (`<area>:read|write`; write includes read). Errors are JSON `{\"error\": \"...\"}`: \
+                400 bad request, 401 not signed in, 403 permission denied, 404 not found, 409 conflict, 502 SSH error.",
         },
         "servers": [{ "url": "/api" }],
         "x-permission-areas": areas,
         "components": {
             "schemas": schemas,
             "securitySchemes": {
-                "bearer": { "type": "http", "scheme": "bearer", "description": "API-токен `np_…` или токен сессии" },
+                "bearer": { "type": "http", "scheme": "bearer", "description": "API token `np_…` or session token" },
                 "cookie": { "type": "apiKey", "in": "cookie", "name": "np_session" },
             },
         },

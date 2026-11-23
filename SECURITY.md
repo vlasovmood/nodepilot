@@ -50,10 +50,11 @@ your servers, and while it runs, those keys are in its memory. NodePilot aims fo
 ## Recommended setup
 
 1. **HTTPS and restricted access.** The panel listens on `127.0.0.1`. Expose it only through a reverse proxy with TLS,
-   preferably behind a VPN/WireGuard. Set `NODEPILOT_SECURE_COOKIES=true`.
+   preferably behind a VPN/WireGuard. Set `NODEPILOT_SECURE_COOKIES=true`. If the proxy runs on another host, list it in
+   `NODEPILOT_TRUSTED_PROXIES` so the login lockout sees real client addresses.
 2. **2FA** for every user: **Security → Two-factor authentication**. Store the recovery codes separately.
    If a user loses both the phone and the codes, run this on the panel server:
-   `nodepilot user reset-2fa <user> --data-dir /var/lib/nodepilot`.
+   `sudo nodepilot user reset-2fa <user> --data-dir /var/lib/nodepilot` (with a TPM-sealed key, `sudo` is required).
 3. **Master key in the TPM** (Ubuntu 24.04+, Debian 12+, systemd 250+; enable vTPM in a VM):
    ```sh
    sudo ./packaging/seal-master-key.sh --backup-to /root/nodepilot-master.key.backup

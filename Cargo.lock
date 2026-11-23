@@ -2227,6 +2227,7 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "clap",
+ "ipnet",
  "nodepilot-core",
  "nodepilot-mcp",
  "nodepilot-web",
@@ -2251,6 +2252,7 @@ dependencies = [
  "getrandom 0.4.3",
  "hex",
  "hmac 0.13.0",
+ "ipnet",
  "nodepilot-ssh",
  "object_store",
  "reqwest",

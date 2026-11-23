@@ -10,6 +10,8 @@ pub struct Config {
     pub secure_cookies: bool,
     /// Exact origins, e.g. `https://app.example.com`.
     pub cors_origins: Vec<String>,
+    /// Reverse proxies (besides loopback) whose `X-Forwarded-For` is trusted for the client address.
+    pub trusted_proxies: Vec<ipnet::IpNet>,
 }
 
 impl Default for Config {
@@ -21,11 +23,17 @@ impl Default for Config {
             metrics_retention_days: 7,
             secure_cookies: false,
             cors_origins: Vec::new(),
+            trusted_proxies: Vec::new(),
         }
     }
 }
 
 impl Config {
+    /// Loopback is always trusted; other proxies only when configured.
+    pub fn is_trusted_proxy(&self, ip: std::net::IpAddr) -> bool {
+        ip.is_loopback() || self.trusted_proxies.iter().any(|n| n.contains(&ip))
+    }
+
     pub fn db_path(&self) -> PathBuf {
         self.data_dir.join("nodepilot.db")
     }

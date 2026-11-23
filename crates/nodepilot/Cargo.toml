@@ -7,6 +7,7 @@ rust-version.workspace = true
 
 [dependencies]
 anyhow = "1.0.104"
+ipnet = "2.12.2"
 clap = { version = "4.6.9", features = ["derive", "env"] }
 nodepilot-core = { version = "0.1.0", path = "../nodepilot-core" }
 nodepilot-mcp = { version = "0.1.0", path = "../nodepilot-mcp" }

@@ -25,6 +25,7 @@ install -d -m 0755 /etc/nodepilot
 [ -f /etc/nodepilot/nodepilot.env ] || cat > /etc/nodepilot/nodepilot.env <<'EOF'
 # NODEPILOT_LISTEN=127.0.0.1:7780
 # NODEPILOT_SECURE_COOKIES=true
+# NODEPILOT_TRUSTED_PROXIES=10.0.0.5        # reverse proxy on another host (IPs or CIDRs)
 # NODEPILOT_STATS_INTERVAL=30
 # NODEPILOT_METRICS_RETENTION_DAYS=7
 EOF

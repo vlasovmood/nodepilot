@@ -148,6 +148,7 @@ docker build --target export --output dist .   # or the static Linux build with 
 
 The panel listens on `127.0.0.1:7780`. Expose it through a reverse proxy with TLS, for example Caddy:
 `reverse_proxy 127.0.0.1:7780`. In that case, set `NODEPILOT_SECURE_COOKIES=true` in `/etc/nodepilot/nodepilot.env`.
+If the proxy runs on another host, also list it in `NODEPILOT_TRUSTED_PROXIES` (IPs or CIDRs) so the panel sees real client addresses.
 
 To serve the panel under a sub-path (for example `https://example.com/nodepilot/`), build from source with
 `NODEPILOT_BASE_PATH=/nodepilot/` and have the proxy strip the prefix (Caddy: `handle_path /nodepilot/* { reverse_proxy 127.0.0.1:7780 }`).

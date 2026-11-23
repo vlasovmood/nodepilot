@@ -420,5 +420,5 @@ export function isPublic(op: Operation): boolean {
 
 /** Description without the auto-generated "required permission" sentence (shown as a badge instead). */
 export function cleanDescription(op: Operation): string {
-  return (op.description ?? '').replace(/Требуемые права токена:\s*`[^`]*`\.?/g, '').trim()
+  return (op.description ?? '').replace(/Required token permission:\s*`[^`]*`\.?/g, '').trim()
 }
