@@ -501,6 +501,15 @@ pub fn spawn_checker(app: App) {
 mod tests {
     use super::*;
 
+    /// The release workflow signs with PyNaCl; this vector was produced by it (throwaway seed `[7; 32]`).
+    #[test]
+    fn accepts_signatures_from_the_release_workflow() {
+        let key = "6kpsY+KcUgq+9VB7Ey7F+ZVHdq6+vnuSQh7qaRRG0iw=";
+        let sig = b"aQrOScicXjFjd+wjNvfEjG4N03sNjmFUEjAyRfAHJbMG13g8NQx4uMwD1lmlDCP2K87Iq7O9TWvNKm42jVjRDQ==";
+        assert!(verify_signature(key, b"nodepilot-release-test", sig).is_ok());
+        assert!(verify_signature(key, b"tampered", sig).is_err());
+    }
+
     #[test]
     fn versions_and_assets() {
         assert!(parse_version("v0.2.0").unwrap() > parse_version("0.1.9").unwrap());

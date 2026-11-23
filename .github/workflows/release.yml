@@ -105,6 +105,10 @@ jobs:
   release:
     needs: build
     runs-on: ubuntu-24.04
+    env:
+      # Job-level so step conditions can see them (a step's own env is not visible to its `if`).
+      SIGNING_KEY: ${{ secrets.NODEPILOT_SIGNING_KEY }}
+      UPDATE_PUBKEY: ${{ vars.NODEPILOT_UPDATE_PUBKEY }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/download-artifact@v5
@@ -118,21 +122,33 @@ jobs:
       - name: Checksums
         run: cd dist && sha256sum nodepilot-* > SHA256SUMS && cat SHA256SUMS
 
-      - name: Sign (optional)
-        env:
-          SIGNING_KEY: ${{ secrets.NODEPILOT_SIGNING_KEY }}
+      - name: Check signing setup
+        # Binaries embed UPDATE_PUBKEY; an unsigned release would then be rejected by every installed panel.
+        run: |
+          if [ -n "$UPDATE_PUBKEY" ] && [ -z "$SIGNING_KEY" ]; then
+            echo "::error::NODEPILOT_UPDATE_PUBKEY is set but the NODEPILOT_SIGNING_KEY secret is missing"
+            exit 1
+          fi
+
+      - name: Sign
         if: env.SIGNING_KEY != ''
         run: |
           python3 -m pip install --quiet pynacl
           python3 - <<'EOF'
           import base64, glob, os
-          from nacl.signing import SigningKey
+          from nacl.signing import SigningKey, VerifyKey
           key = SigningKey(base64.b64decode(os.environ["SIGNING_KEY"]))
-          for f in glob.glob("dist/nodepilot-*"):
+          pub = os.environ.get("UPDATE_PUBKEY", "")
+          if pub and bytes(key.verify_key) != base64.b64decode(pub):
+              raise SystemExit("::error::NODEPILOT_SIGNING_KEY does not match NODEPILOT_UPDATE_PUBKEY")
+          for f in sorted(glob.glob("dist/nodepilot-*")):
               if f.endswith(".sig"):
                   continue
-              sig = key.sign(open(f, "rb").read()).signature
+              data = open(f, "rb").read()
+              sig = key.sign(data).signature
+              VerifyKey(bytes(key.verify_key)).verify(data, sig)
               open(f + ".sig", "w").write(base64.b64encode(sig).decode())
+              print("signed", f)
           EOF
 
       - name: Release notes
