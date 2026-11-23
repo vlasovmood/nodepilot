@@ -1,0 +1,22 @@
+{
+  "units": {
+    "b": "B",
+    "kb": "KB",
+    "mb": "MB",
+    "gb": "GB",
+    "tb": "TB",
+    "pb": "PB"
+  },
+  "perSecond": "{{value}}/s",
+  "uptime": {
+    "dh": "{{d}} T. {{h}} Std.",
+    "hm": "{{h}} Std. {{m}} Min.",
+    "m": "{{m}} Min."
+  },
+  "duration": {
+    "ms": "{{v}} ms",
+    "s": "{{v}} s",
+    "ms2": "{{m}} Min. {{s}} s",
+    "hm": "{{h}} Std. {{m}} Min."
+  }
+}

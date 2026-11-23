@@ -1,0 +1,72 @@
+{
+  "sidebar": {
+    "expand": "توسيع القائمة",
+    "collapse": "طي القائمة",
+    "sections": {
+      "main": "التنقل",
+      "projects": "المشاريع",
+      "more": "المزيد"
+    },
+    "newProject": "مشروع جديد",
+    "createProject": "إنشاء مشروع",
+    "projectsLoadError": "تعذّر تحميل المشاريع",
+    "darkMode": "الوضع الداكن",
+    "nav": {
+      "customize": "تخصيص التنقل",
+      "done": "تم",
+      "add": "إضافة",
+      "reset": "إعادة تعيين",
+      "resetHint": "استعادة العناصر والترتيب الافتراضي",
+      "showAll": "عرض الكل",
+      "showLess": "عرض أقل",
+      "hide": "إخفاء",
+      "show": "إظهار",
+      "remove": "إزالة",
+      "missing": "محذوف",
+      "untitled": "بلا عنوان",
+      "reorderHint": "اسحب لإعادة الترتيب أو Alt+↑/↓",
+      "picker": {
+        "title": "إضافة إلى التنقل",
+        "servers": "الخوادم",
+        "graphs": "المخططات",
+        "notes": "الملاحظات",
+        "search": "بحث…",
+        "empty": "لم يُعثر على شيء",
+        "nodes_zero": "لا توجد عُقد",
+        "nodes_one": "عقدة واحدة",
+        "nodes_two": "عقدتان",
+        "nodes_few": "{{count}} عُقد",
+        "nodes_many": "{{count}} عقدة",
+        "nodes_other": "{{count}} عقدة"
+      }
+    }
+  },
+  "nav": {
+    "servers": "الخوادم",
+    "graph": "المخططات",
+    "terminal": "الطرفية",
+    "identities": "المفاتيح",
+    "backups": "النسخ الاحتياطية",
+    "notes": "الملاحظات",
+    "api": "API",
+    "settings": "الإعدادات",
+    "security": "الأمان",
+    "audit": "سجل التدقيق"
+  },
+  "user": {
+    "role": "مسؤول",
+    "settings": "الإعدادات",
+    "language": "اللغة",
+    "lightTheme": "السمة الفاتحة",
+    "darkTheme": "السمة الداكنة",
+    "logout": "تسجيل الخروج"
+  },
+  "search": {
+    "placeholder": "بحث…",
+    "hint": "Enter للفتح، ↑↓ للتحديد"
+  },
+  "notFound": {
+    "title": "الصفحة غير موجودة",
+    "toServers": "العودة إلى الخوادم"
+  }
+}

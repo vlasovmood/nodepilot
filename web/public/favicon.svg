@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    .d { fill: #0a0a0a; }
+    .t { fill: #ffffff; }
+    @media (prefers-color-scheme: dark) {
+      .d { fill: #f5f5f5; }
+      .t { fill: #0a0a0a; }
+    }
+  </style>
+  <rect class="d" x="13.6" y="13.6" width="36.8" height="36.8" rx="6.6" transform="rotate(45 32 32)" />
+  <path class="t" d="M23.5 21.5h5.3l7.3 11.6V21.5h4.9v21h-5.2l-7.4-11.7v11.7h-4.9z" />
+</svg>

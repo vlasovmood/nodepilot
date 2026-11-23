@@ -1,0 +1,50 @@
+{
+  "page": {
+    "title": "一括実行",
+    "subtitle": "SSH 経由で 1 つのコマンドを複数のサーバーで並列に実行します。"
+  },
+  "targets": {
+    "title": "対象",
+    "servers": "サーバー",
+    "project": "プロジェクト",
+    "selectProject": "— プロジェクトを選択 —",
+    "projectHint": "実行時点でプロジェクトに含まれるすべてのサーバーでコマンドを実行します。",
+    "search": "サーバーを検索",
+    "allTags": "すべてのタグ",
+    "onlyOnline": "オンラインのみ",
+    "selectVisible": "表示中を選択",
+    "clear": "クリア",
+    "selected": "{{n}} 件選択中",
+    "noServers": "サーバーがありません"
+  },
+  "runs": {
+    "empty": "結果はここに表示されます。直近 10 回分の実行結果は、ページを再読み込みするまで保持されます。",
+    "hide": "非表示"
+  },
+  "form": {
+    "placeholder": "コマンド（例: uptime && df -h /）",
+    "run_other": "{{count}} 台のサーバーで実行",
+    "timeout": "タイムアウト（秒）",
+    "history": "コマンド履歴",
+    "historyPlaceholder": "コマンド履歴…",
+    "running": "実行中… すべてのサーバーの処理が完了すると結果が表示されます。",
+    "confirm": {
+      "title": "コマンドを実行しますか？",
+      "message_other": "コマンドは {{count}} 台のサーバーで実行されます:",
+      "button": "実行"
+    }
+  },
+  "results": {
+    "success": "成功: {{n}}",
+    "failed": "失敗: {{n}}",
+    "filterAll": "すべて ({{n}})",
+    "filterOk": "成功",
+    "filterFail": "失敗",
+    "expandAll": "すべて展開",
+    "collapseAll": "すべて折りたたむ",
+    "copyAll": "すべてコピー",
+    "noResults": "このフィルターに該当する結果はありません",
+    "truncated": "出力は切り詰められました",
+    "emptyOutput": "出力なし"
+  }
+}

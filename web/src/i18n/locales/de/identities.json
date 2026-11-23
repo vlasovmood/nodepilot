@@ -1,0 +1,54 @@
+{
+  "title": "Schlüssel",
+  "subtitle": "Schlüsselbund: wiederverwendbare SSH-Zugangsdaten (Passwörter und private Schlüssel) für mehrere Server.",
+  "add": "Schlüssel hinzufügen",
+  "secretsInfo": "Geheimnisse werden nur auf dem Panel-Server gespeichert und nie an den Browser zurückgesendet. Lassen Sie beim Bearbeiten ein Feld leer, um den aktuellen Wert beizubehalten.",
+  "empty": {
+    "title": "Der Schlüsselbund ist leer",
+    "text": "Fügen Sie einen SSH-Schlüssel oder ein Passwort hinzu und verwenden Sie es beim Hinzufügen oder Importieren von Servern."
+  },
+  "table": {
+    "name": "Name",
+    "type": "Typ",
+    "servers": "Server",
+    "created": "Erstellt"
+  },
+  "kind": {
+    "key": "Privater Schlüssel",
+    "password": "Passwort"
+  },
+  "dialog": {
+    "newTitle": "Neuer Schlüssel",
+    "editTitle": "Schlüssel: {{name}}"
+  },
+  "form": {
+    "name": "Name",
+    "type": "Typ",
+    "password": "Passwort",
+    "privateKey": "Privater Schlüssel",
+    "keepEmpty": "Leer lassen, um nichts zu ändern",
+    "keyFormats": "OpenSSH / PEM",
+    "loadFromFile": "Aus Datei laden",
+    "passphrase": "Passphrase des Schlüssels",
+    "passphraseHint": "Falls der Schlüssel verschlüsselt ist"
+  },
+  "validation": {
+    "nameRequired": "Geben Sie einen Namen ein",
+    "passwordRequired": "Geben Sie ein Passwort ein",
+    "keyRequired": "Fügen Sie einen privaten Schlüssel ein"
+  },
+  "confirm": {
+    "deleteTitle": "Schlüssel löschen?",
+    "deleteMessage": "„{{name}}“ wird aus dem Schlüsselbund entfernt."
+  },
+  "toast": {
+    "inUse": "Schlüssel wird verwendet",
+    "inUseMessage_one": "Er wird von {{count}} Server verwendet. Ändern Sie zuerst die Authentifizierung auf diesem Server.",
+    "inUseMessage_other": "Er wird von {{count}} Servern verwendet. Ändern Sie zuerst die Authentifizierung auf diesen Servern.",
+    "deleted": "Schlüssel gelöscht",
+    "deleteFailed": "Schlüssel konnte nicht gelöscht werden",
+    "saved": "Schlüssel gespeichert",
+    "added": "Schlüssel hinzugefügt",
+    "fileTooLarge": "Die Datei ist zu groß für einen Schlüssel"
+  }
+}

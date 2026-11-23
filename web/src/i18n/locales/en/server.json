@@ -1,0 +1,147 @@
+{
+  "notFound": "Server not found",
+  "updated": "Updated {{time}}",
+  "tabs": {
+    "overview": "Overview",
+    "terminal": "Terminal",
+    "files": "Files",
+    "processes": "Processes",
+    "services": "Services",
+    "notes": "Notes",
+    "backups": "Backups"
+  },
+  "header": {
+    "back": "Back to servers",
+    "test": "Test"
+  },
+  "toast": {
+    "connected": "Connected",
+    "latency": "Latency {{latency}}",
+    "connectFailed": "Connection failed",
+    "testFailed": "Connection test failed",
+    "deleted": "Server deleted",
+    "deleteFailed": "Failed to delete server"
+  },
+  "confirm": {
+    "deleteTitle": "Delete server?",
+    "deleteMessage": "Server <b>{{name}}</b> will be removed from the panel along with its notes and backup jobs. The machine itself is not affected."
+  },
+  "overview": {
+    "loading": "Fetching metrics…",
+    "unavailable": "Metrics unavailable",
+    "lastError": "The last metrics collection failed",
+    "memory": "Memory",
+    "network": "Network",
+    "uptime": "Uptime",
+    "cores_one": "{{count}} core",
+    "cores_other": "{{count}} cores",
+    "usedOf": "{{used}} of {{total}}",
+    "swapNone": "none",
+    "loadSub": "5 min: {{l5}} · 15 min: {{l15}}",
+    "notCollected": "No metrics collected yet",
+    "system": "System",
+    "hostname": "Hostname",
+    "os": "OS",
+    "kernel": "Kernel",
+    "cpuCores": "CPU cores",
+    "collectedAt": "Collected",
+    "disks": "Disks",
+    "noData": "No data",
+    "disk": {
+      "mount": "Mount",
+      "fs": "FS",
+      "used": "Used",
+      "usage": "Usage"
+    }
+  },
+  "history": {
+    "title": "History",
+    "hours": "{{n}}h",
+    "days": "{{n}}d",
+    "notEnough": "Not enough data",
+    "notEnoughHint": "History will appear after a few metrics collection cycles.",
+    "charts": {
+      "cpu": "CPU, %",
+      "memory": "Memory, %",
+      "network": "Network",
+      "load": "Load average (1 min)",
+      "disk": "Disk, %"
+    },
+    "series": {
+      "disk": "Disk"
+    }
+  },
+  "hostKey": {
+    "title": "Host key (SSH)",
+    "pinnedHint": "Pinned on first connection (TOFU). If the server's key has changed (e.g. after an OS reinstall), reset it.",
+    "notPinned": "No key pinned yet — it will be saved on the first successful connection.",
+    "forget": "Forget host key",
+    "confirmTitle": "Forget host key?",
+    "confirmMessage": "On the next connection the panel will trust the new key without verification. Only do this if you're sure the key changed legitimately — otherwise you're exposed to a man-in-the-middle attack.",
+    "confirmText": "Forget key",
+    "resetDone": "Host key reset",
+    "resetDetail": "The new key will be pinned on the next connection",
+    "resetFailed": "Failed to reset host key"
+  },
+  "power": {
+    "title": "Power",
+    "hint": "Commands run over SSH as {{user}} (requires root or passwordless sudo).",
+    "reboot": "Reboot",
+    "shutdown": "Shut down",
+    "rebootTitle": "Reboot server?",
+    "shutdownTitle": "Shut down server?",
+    "rebootMessage": "Server {{name}} ({{host}}) will be rebooted. All sessions and processes will be interrupted.",
+    "shutdownMessage": "Server {{name}} ({{host}}) will be shut down. You won't be able to power it back on from the panel.",
+    "rebootSent": "Reboot sent",
+    "shutdownSent": "Shutdown sent",
+    "failed": "Command failed"
+  },
+  "processes": {
+    "filterPlaceholder": "Filter: command, user, PID",
+    "autoRefresh": "Auto-refresh (5 s)",
+    "loading": "Fetching processes…",
+    "user": "User",
+    "command": "Command",
+    "signal": "Signal",
+    "empty": "No processes",
+    "signals": {
+      "TERM": { "label": "Terminate (TERM)", "hint": "Graceful shutdown" },
+      "KILL": { "label": "Kill (KILL)", "hint": "Forced, no cleanup" },
+      "HUP": { "label": "Reload (HUP)", "hint": "Reload configuration" }
+    },
+    "confirmTitle": "Send SIG{{sig}}?",
+    "confirmMessage": "Process <b>{{pid}}</b> ({{user}}):",
+    "sent": "SIG{{sig}} sent",
+    "sendFailed": "Failed to send signal"
+  },
+  "services": {
+    "filterPlaceholder": "Filter by name or description",
+    "filter": {
+      "all": "All",
+      "active": "Active ({{n}})",
+      "failed": "Failed ({{n}})",
+      "inactive": "Inactive"
+    },
+    "loading": "Fetching services…",
+    "service": "Service",
+    "logs": "Logs",
+    "empty": "No services match the filter",
+    "actions": {
+      "start": "Start",
+      "stop": "Stop",
+      "restart": "Restart",
+      "reload": "Reload config",
+      "enable": "Enable autostart",
+      "disable": "Disable autostart"
+    },
+    "confirmTitle": "{{action}}: {{name}}?",
+    "stopMessage": "The service will be stopped. Applications that depend on it may be interrupted.",
+    "done": "{{action}}: {{name}}",
+    "doneDetail": "Done",
+    "exitCode": "systemctl {{action}} {{name}}: exit code {{code}}",
+    "failed": "Failed to run {{action}}",
+    "lines_one": "{{count}} line",
+    "lines_other": "{{count}} lines",
+    "logsEmpty": "Log is empty"
+  }
+}

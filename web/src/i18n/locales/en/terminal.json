@@ -1,0 +1,24 @@
+{
+  "status": {
+    "connecting": "Connecting…"
+  },
+  "reconnect": "Reconnect",
+  "reason": {
+    "exited": "Session ended (exit code {{code}})",
+    "aborted": "Connection lost",
+    "closed": "Connection closed (code {{code}})"
+  },
+  "output": {
+    "exited": "session ended, exit code {{code}}",
+    "error": "error: {{message}}"
+  },
+  "tabs": {
+    "new": "New session",
+    "none": "No open sessions",
+    "open": "Open terminal"
+  },
+  "confirmClose": {
+    "title": "Close session?",
+    "message": "The active SSH session will be terminated."
+  }
+}

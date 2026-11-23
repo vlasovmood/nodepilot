@@ -1,0 +1,70 @@
+{
+  "title": "Paramètres",
+  "subtitle": "Connecté en tant que <b>{{username}}</b>",
+  "language": {
+    "title": "Langue de l'interface"
+  },
+  "interface": {
+    "title": "Interface",
+    "theme": "Thème",
+    "dark": "Sombre",
+    "light": "Clair"
+  },
+  "tokens": {
+    "title": "Jetons d'API",
+    "description": "Les jetons pour les applications mobiles, les scripts, la CLI et les agents IA (MCP), leurs permissions et leur expiration, ainsi que la référence de l'API, se trouvent dans la section « API ».",
+    "manage": "Gérer les jetons"
+  },
+  "updates": {
+    "title": "Mises à jour",
+    "checkNow": "Vérifier maintenant",
+    "current": "Version actuelle",
+    "latest": "Dernière version",
+    "published": "Publiée le",
+    "checked": "Dernière vérification",
+    "never": "jamais",
+    "repo": "Dépôt",
+    "verification": "Vérification du fichier",
+    "signed": "SHA-256 et signature Ed25519",
+    "checksumOnly": "SHA-256 uniquement (la signature des versions n'est pas configurée)",
+    "prerelease": "préversion",
+    "available": "mise à jour disponible",
+    "upToDate": "à jour",
+    "checkError": "Impossible de vérifier les mises à jour : {{error}}",
+    "showNotes": "Nouveautés de la version {{version}}",
+    "hideNotes": "Masquer les notes de version",
+    "openRelease": "Ouvrir la version",
+    "noNotes": "Cette version n'a pas de description.",
+    "install": "Installer {{version}}",
+    "blocked": "Cette mise à jour ne peut pas être installée depuis le panneau : {{reason}}",
+    "autoCheck": "Vérifier automatiquement les mises à jour (toutes les 6 heures)",
+    "prereleases": "Proposer les préversions (beta, rc)",
+    "hint": "Les mises à jour ne sont jamais installées automatiquement — uniquement lorsque vous cliquez sur Installer. La version précédente est conservée à côté sous le nom nodepilot.old pour pouvoir revenir en arrière.",
+    "waitRestart": "Le panneau redémarre ; cette page se rechargera automatiquement…",
+    "phase": {
+      "idle": "Prêt",
+      "downloading": "Téléchargement…",
+      "verifying": "Vérification de la somme de contrôle et de la signature…",
+      "installing": "Installation…",
+      "restarting": "Redémarrage du panneau…",
+      "failed": "Échec de la mise à jour"
+    },
+    "confirm": {
+      "title": "Installer la version {{version}} ?",
+      "message": "Le panneau va télécharger la nouvelle version, la vérifier et redémarrer. Les terminaux ouverts et les commandes en cours seront interrompus ; les sauvegardes en cours seront marquées comme interrompues.",
+      "ok": "Installer et redémarrer"
+    },
+    "toast": {
+      "checkFailed": "Impossible de vérifier les mises à jour",
+      "settingsFailed": "Impossible d'enregistrer les paramètres de mise à jour",
+      "installFailed": "La mise à jour n'a pas été installée",
+      "installed": "Version {{version}} installée"
+    },
+    "repoNotSet": "non défini (NODEPILOT_UPDATE_REPO)"
+  },
+  "security": {
+    "title": "Sécurité",
+    "description": "Connexion à deux facteurs, clé SSH du panneau, protection de la clé maîtresse, chiffrement des sauvegardes et transfert du journal d'audit.",
+    "open": "Ouvrir la sécurité"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "page": {
+    "title": "笔记",
+    "subtitle": "面板中的全部笔记：全局、项目级和服务器级。置顶笔记排在最前。"
+  },
+  "searchPlaceholder": "搜索笔记…",
+  "new": "新建笔记",
+  "defaultTitle": "新笔记",
+  "empty": {
+    "title": "暂无笔记",
+    "text": "在这里记录操作说明、运维手册和基础设施笔记。支持 Markdown。"
+  },
+  "selectNote": "请选择一条笔记",
+  "editor": {
+    "titlePlaceholder": "标题",
+    "pin": "置顶",
+    "unpin": "取消置顶",
+    "links": "关联到：",
+    "updated": "更新于 {{time}}",
+    "bodyPlaceholder": "Markdown：# 标题、**粗体**、`代码`、```代码块```、列表、表格…",
+    "emptyNote": "空笔记"
+  },
+  "confirm": {
+    "deleteTitle": "删除笔记？",
+    "deleteMessage": "“{{title}}”将被永久删除。"
+  },
+  "toast": {
+    "createFailed": "笔记创建失败",
+    "saved": "笔记已保存",
+    "deleted": "笔记已删除",
+    "deleteFailed": "删除失败"
+  }
+}

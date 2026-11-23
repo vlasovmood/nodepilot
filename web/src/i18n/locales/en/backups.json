@@ -1,0 +1,247 @@
+{
+  "page": {
+    "title": "Backups",
+    "subtitle": "Files and databases from your servers — to a local directory or S3, on a schedule.",
+    "decryptInfo": "Encrypted archives (age) are decrypted with <code>{{command}}</code>: enter the job's passphrase, or add <code>-i key.txt</code> for jobs encrypted to an age key. The panel never shows a stored passphrase and cannot decrypt age-key archives itself.",
+    "decryptCommand": "age -d -o <file> <archive>.age",
+    "tabs": {
+      "jobs": "Jobs",
+      "runs": "History",
+      "storages": "Storages"
+    },
+    "allRuns": "All runs"
+  },
+  "runStatus": {
+    "running": "running",
+    "success": "success",
+    "failed": "failed"
+  },
+  "jobs": {
+    "title": "Jobs",
+    "new": "New job",
+    "emptyTitle": "No jobs yet",
+    "emptyHint": "Create a job: what to back up (files or a database), where to, and on what schedule.",
+    "columns": {
+      "enabled": "On",
+      "name": "Name",
+      "server": "Server",
+      "source": "Source",
+      "storage": "Storage",
+      "schedule": "Schedule",
+      "retention": "Keep",
+      "lastRun": "Last run",
+      "nextRun": "Next run",
+      "encryption": "Encryption"
+    },
+    "enable": "Enable",
+    "disable": "Disable",
+    "retentionAll": "all",
+    "never": "never",
+    "runNow": "Run now",
+    "run": "Run",
+    "edit": "Edit",
+    "toast": {
+      "started": "Backup started",
+      "startFailed": "Couldn't start the backup",
+      "deleted": "Job deleted",
+      "deleteFailed": "Couldn't delete the job",
+      "saved": "Job saved",
+      "created": "Job created"
+    },
+    "confirmDelete": {
+      "title": "Delete job?",
+      "message": "The job “{{name}}” will be deleted. Archives it already created stay in the storage and in the history."
+    },
+    "encryption": {
+      "none": "none",
+      "passphrase": "passphrase",
+      "recipients": "age key",
+      "noneTitle": "Archives are stored unencrypted",
+      "passphraseTitle": "Encrypted with a passphrase stored in the panel",
+      "recipientsTitle_one": "Encrypted with {{count}} public key — the panel can’t decrypt",
+      "recipientsTitle_other": "Encrypted with {{count}} public keys — the panel can’t decrypt"
+    }
+  },
+  "runs": {
+    "title": "Run history",
+    "empty": "No runs yet",
+    "columns": {
+      "job": "Job",
+      "started": "Started",
+      "duration": "Duration",
+      "size": "Size",
+      "file": "File"
+    },
+    "deletedJob": "deleted",
+    "downloadEncrypted": "Download (age-encrypted — decrypt with age -d)",
+    "showMore": "Show more ({{n}})",
+    "confirmDelete": {
+      "title": "Delete archive?",
+      "message": "The record and the archive “{{file}}” will be permanently deleted from the storage.",
+      "messageNoFile": "The record and the archive will be permanently deleted from the storage."
+    },
+    "toast": {
+      "deleted": "Archive deleted",
+      "deleteFailed": "Couldn't delete the archive"
+    }
+  },
+  "storages": {
+    "intro": "Where archives go: a directory on the panel host or S3-compatible storage.",
+    "add": "Add storage",
+    "emptyTitle": "No storages yet",
+    "emptyHint": "Add a local directory or an S3 bucket to start creating backup jobs.",
+    "columns": {
+      "location": "Location"
+    },
+    "kind": {
+      "s3": "S3",
+      "local": "Local",
+      "localShort": "local"
+    },
+    "test": "Test",
+    "edit": "Edit",
+    "toast": {
+      "available": "Storage is reachable",
+      "unavailable": "Storage “{{name}}” is unreachable",
+      "testFailed": "Check failed",
+      "deleted": "Storage deleted",
+      "deleteFailed": "Couldn't delete the storage",
+      "saved": "Storage saved",
+      "created": "Storage created"
+    },
+    "confirmDelete": {
+      "title": "Delete storage?",
+      "message": "The storage “{{name}}” will be removed from the panel. Archives already uploaded to it are not deleted. If any jobs use this storage, the deletion will be rejected."
+    },
+    "dialog": {
+      "title": "Storage: {{name}}",
+      "newTitle": "New storage"
+    },
+    "form": {
+      "kindLocal": "Local directory",
+      "kindS3": "S3-compatible",
+      "path": "Directory on the panel host",
+      "endpoint": "Endpoint",
+      "endpointHint": "Leave empty for AWS S3. For MinIO, Wasabi, etc. — the service URL",
+      "region": "Region",
+      "bucket": "Bucket",
+      "prefix": "Prefix",
+      "accessKey": "Access Key ID",
+      "secretKey": "Secret Access Key",
+      "keepEmpty": "Leave empty to keep the current one",
+      "secretHidden": "Not shown after saving",
+      "pathStyle": "Path-style addressing (usually required for MinIO)"
+    },
+    "errors": {
+      "name": "Enter a name",
+      "path": "Absolute path on the panel host",
+      "bucket": "Enter a bucket",
+      "region": "Enter a region",
+      "accessKey": "Enter an Access Key ID",
+      "secretKey": "Enter a Secret Access Key"
+    }
+  },
+  "job": {
+    "title": "Job: {{name}}",
+    "newTitle": "New backup job",
+    "fields": {
+      "namePlaceholder": "Daily /etc backup",
+      "storage": "Storage",
+      "select": "— select —",
+      "noStoragesHint": "Create a storage on the “Backups” page first",
+      "retention": "Archives to keep",
+      "retentionHint": "The last N successful ones; 0 keeps all",
+      "source": "Source",
+      "paths": "Paths (one per line)",
+      "excludes": "Excludes (glob, one per line)",
+      "database": "Database",
+      "container": "Docker container",
+      "containerHint": "If the DBMS runs in a container, the dump is taken via docker exec",
+      "optional": "optional",
+      "user": "User",
+      "password": "Password",
+      "passwordSaved": "Password is saved. Leave empty to keep it.",
+      "passwordServerOnly": "Stored only on the panel server",
+      "host": "Host",
+      "port": "Port",
+      "schedule": "Schedule",
+      "scheduleHint": "Cron (6 fields with seconds, panel time — UTC): {{expr}}",
+      "manualHint": "Runs only manually with the “Run” button",
+      "encrypt": "Encrypt archives (age, passphrase)",
+      "passphrase": "Encryption passphrase",
+      "newPassphrase": "New encryption passphrase",
+      "keepEmpty": "Leave empty to keep the current one",
+      "passphrase2": "Repeat passphrase",
+      "enabled": "Job enabled (runs on schedule)",
+      "encryption": "Encryption",
+      "recipients": "age public keys (one per line)",
+      "recipientsHint": "Archives are encrypted for every key listed; any one of the matching private keys can decrypt them."
+    },
+    "sourceType": {
+      "files": "Files",
+      "postgres": "PostgreSQL",
+      "mysql": "MySQL / MariaDB"
+    },
+    "scheduleMode": {
+      "preset": "Preset",
+      "custom": "Custom cron",
+      "manual": "Manual"
+    },
+    "passphraseWarning": "<b>Keep the passphrase somewhere safe.</b> You'll need it to decrypt archives with <code>{{command}}</code>. The panel never shows the saved passphrase and it can't be recovered through the UI — without it the archives are useless.",
+    "errors": {
+      "name": "Enter a name",
+      "server": "Select a server",
+      "storage": "Select a storage",
+      "paths": "Enter at least one path",
+      "database": "Enter the database name",
+      "port": "1–65535",
+      "retention": "Whole number ≥ 0",
+      "passphrase": "At least 8 characters",
+      "passphrase2": "Passphrases don't match",
+      "recipientsEmpty": "Add at least one public key or generate a pair",
+      "recipientsInvalid": "Each line must be an age public key starting with age1"
+    },
+    "encryption": {
+      "none": "No encryption",
+      "noneHint": "Archives are stored as is — anyone with access to the storage can read them",
+      "passphrase": "Passphrase (stored in the panel)",
+      "passphraseHint": "Simple, but whoever compromises the panel gets the passphrase too",
+      "recipients": "Public age key (recommended: the panel can’t decrypt)",
+      "recipientsHint": "The panel only has the public key; only the holder of the private key can decrypt archives",
+      "noneWarning": "Database dumps and config files often contain passwords — consider encrypting the archives."
+    },
+    "keygen": {
+      "button": "Generate a key pair",
+      "buttonHint": "or paste the public key of an existing age key",
+      "title": "New age key pair",
+      "warning": "The private key is shown only now and is not stored anywhere — not in the panel, not on the servers. Without it the archives can’t be decrypted. Download the key file and keep it somewhere safe, away from the panel.",
+      "privateKey": "Private key",
+      "download": "Download {{file}}",
+      "downloaded": "Key file downloaded",
+      "publicKey": "Public key",
+      "publicHint": "Goes into the job; it can only encrypt.",
+      "savedCheck": "I have saved the private key",
+      "add": "Add public key to the job"
+    },
+    "decryptTitle": "How to decrypt an archive",
+    "decryptHint": "age is available in most package managers"
+  },
+  "cron": {
+    "manual": "Manual",
+    "presets": {
+      "hourly": "Every hour",
+      "every6h": "Every 6 hours",
+      "every12h": "Every 12 hours",
+      "daily0000": "Daily at 00:00",
+      "daily0300": "Daily at 03:00",
+      "daily0500": "Daily at 05:00",
+      "sunday0400": "Every Sunday at 04:00",
+      "monday0300": "Every Monday at 03:00",
+      "monthly0300": "Monthly on the 1st at 03:00"
+    },
+    "errors": {
+      "fields": "Expected 6 fields: sec min hour day month weekday (e.g. 0 0 3 * * *)",
+      "chars": "Invalid characters in the expression"
+    }
+  }
+}

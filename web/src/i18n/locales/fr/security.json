@@ -1,0 +1,349 @@
+{
+  "page": {
+    "title": "Sécurité",
+    "subtitle": "Connexion à deux facteurs, clé SSH du panneau, protection de la clé maîtresse et journal d'audit",
+    "openAudit": "Journal d'audit"
+  },
+  "overview": {
+    "title": "Liste de contrôle de sécurité",
+    "score_one": "{{ok}} vérification sur {{count}} réussie",
+    "score_other": "{{ok}} vérifications sur {{count}} réussies",
+    "warnings_one": "{{count}} point requiert votre attention",
+    "warnings_other": "{{count}} points requièrent votre attention",
+    "allGood": "Tout l'essentiel est en place",
+    "howTo": "Comment corriger",
+    "details": "Détails",
+    "master": {
+      "title": "Clé maîtresse",
+      "sealed": "Scellée avec systemd-creds (TPM) : un disque volé ou un instantané de VM ne permet pas de déchiffrer les mots de passe et clés stockés.",
+      "file": "Chargée depuis un fichier séparé (NODEPILOT_MASTER_KEY_FILE), non stocké à côté de la base de données.",
+      "dataDir": "Stockée en clair dans un fichier à côté de la base de données : quiconque copie le répertoire de données peut déchiffrer tous les mots de passe et clés des serveurs."
+    },
+    "plaintext": {
+      "title": "Copie en clair de la clé maîtresse",
+      "text": "Une copie en clair de la clé maîtresse se trouve encore dans le répertoire de données. Assurez-vous d'en avoir une sauvegarde ailleurs, puis supprimez-la."
+    },
+    "twoFactor": {
+      "title": "Authentification à deux facteurs",
+      "off": "Votre compte n'est protégé que par un mot de passe. Activez un code à usage unique depuis une application d'authentification.",
+      "on_one": "Activée. {{count}} code de récupération restant.",
+      "on_other": "Activée. {{count}} codes de récupération restants.",
+      "fewCodes_one": "Activée, mais il ne reste que {{count}} code de récupération — générez-en de nouveaux.",
+      "fewCodes_other": "Activée, mais il ne reste que {{count}} codes de récupération — générez-en de nouveaux.",
+      "enable": "Activer",
+      "newCodes": "Nouveaux codes"
+    },
+    "panelKey": {
+      "title": "Clé SSH du panneau",
+      "none": "Non configurée. Les serveurs sont accessibles avec les mots de passe et clés que vous avez ajoutés ; une clé du panneau qui ne fonctionne que depuis l'adresse du panneau est plus sûre et peut être renouvelée en un clic.",
+      "unrestricted": "La clé est acceptée depuis n'importe quelle adresse. Restreignez-la aux adresses IP du panneau pour qu'une clé volée soit inutilisable ailleurs.",
+      "partial_one": "{{using}} serveur sur {{count}} utilise la clé du panneau.",
+      "partial_other": "{{using}} serveurs sur {{count}} utilisent la clé du panneau.",
+      "all_one": "Restreinte par adresse ; l'unique serveur l'utilise.",
+      "all_other": "Restreinte par adresse ; les {{count}} serveurs l'utilisent.",
+      "create": "Configurer",
+      "restrict": "Restreindre",
+      "install": "Installer sur les serveurs"
+    },
+    "backups": {
+      "title": "Chiffrement des sauvegardes",
+      "none": "Aucune tâche de sauvegarde pour l'instant.",
+      "unencrypted_one": "{{count}} tâche de sauvegarde stocke les archives sans chiffrement.",
+      "unencrypted_other": "{{count}} tâches de sauvegarde stockent les archives sans chiffrement.",
+      "passphrase_one": "{{count}} tâche est chiffrée avec une phrase secrète stockée dans le panneau — quiconque compromet le panneau peut la déchiffrer. Une clé publique age est plus sûre.",
+      "passphrase_other": "{{count}} tâches sont chiffrées avec une phrase secrète stockée dans le panneau — quiconque compromet le panneau peut les déchiffrer. Une clé publique age est plus sûre.",
+      "allKeys_one": "La tâche est chiffrée avec une clé publique : le panneau lui-même ne peut pas déchiffrer les archives.",
+      "allKeys_other": "Les {{count}} tâches sont chiffrées avec des clés publiques : le panneau lui-même ne peut pas déchiffrer les archives.",
+      "open": "Sauvegardes"
+    },
+    "tokens": {
+      "title": "Jetons d'API",
+      "fullAccess_one": "{{count}} jeton a un accès complet.",
+      "fullAccess_other": "{{count}} jetons ont un accès complet.",
+      "noExpiry_one": "{{count}} jeton n'expire jamais.",
+      "noExpiry_other": "{{count}} jetons n'expirent jamais.",
+      "advice": "N'accordez aux jetons que les domaines nécessaires et une date d'expiration.",
+      "none": "Aucun jeton d'API.",
+      "ok_one": "{{count}} jeton, permissions limitées et date d'expiration.",
+      "ok_other": "{{count}} jetons, tous avec permissions limitées et date d'expiration.",
+      "open": "Jetons"
+    },
+    "audit": {
+      "title": "Transfert du journal d'audit",
+      "on": "Les événements sont copiés vers syslog ou un webhook : un intrus ne peut pas effacer ses traces en vidant le journal du panneau.",
+      "off": "Le journal d'audit n'est conservé que dans le panneau. Transférez-le vers syslog/SIEM ou un webhook pour qu'il survive à une compromission.",
+      "configure": "Configurer"
+    },
+    "https": {
+      "title": "HTTPS",
+      "on": "Les cookies de session ne sont envoyés qu'en HTTPS.",
+      "off": "Les cookies sécurisés sont désactivés : le panneau est probablement ouvert en HTTP simple. Placez-le derrière un reverse proxy HTTPS et lancez-le avec --secure-cookies."
+    }
+  },
+  "twoFactor": {
+    "title": "Authentification à deux facteurs",
+    "on": "activée",
+    "off": "désactivée",
+    "offText": "À la connexion, le panneau demandera aussi un code à 6 chiffres depuis une application d'authentification (Google Authenticator, Aegis, 1Password, Bitwarden…). Un mot de passe divulgué ne suffira plus à lui seul.",
+    "onText": "La connexion requiert un code de votre application d'authentification. Si vous perdez le téléphone, connectez-vous avec un code de récupération.",
+    "codesLeft_one": "{{count}} code de récupération restant",
+    "codesLeft_other": "{{count}} codes de récupération restants",
+    "fewCodes": "Il reste peu de codes de récupération. Générez un nouveau jeu — les anciens codes cesseront de fonctionner.",
+    "enable": "Activer la 2FA",
+    "disable": "Désactiver",
+    "regenerate": "Nouveaux codes de récupération",
+    "enableTitle": "Activer l'authentification à deux facteurs",
+    "step1": "1. Scannez le QR code avec une application d'authentification, ou saisissez la clé manuellement.",
+    "manualEntry": "Clé pour la saisie manuelle",
+    "manualHint": "Type : basé sur le temps (TOTP), 6 chiffres, 30 secondes.",
+    "qrAlt": "QR code pour l'application d'authentification",
+    "step2": "2. Saisissez le code à 6 chiffres de l'application",
+    "enableSubmit": "Activer",
+    "enabledTitle": "La 2FA est activée — sauvegardez vos codes de récupération",
+    "disableTitle": "Désactiver l'authentification à deux facteurs",
+    "disableWarning": "Ensuite, seul votre mot de passe protégera le compte.",
+    "codeOrRecovery": "Code de l'application ou code de récupération",
+    "codeOrRecoveryHint": "6 chiffres de l'application, ou l'un des codes de récupération (il sera consommé)",
+    "regenerateTitle": "Nouveaux codes de récupération",
+    "regenerateText": "Un nouveau jeu de 10 codes sera créé ; tous les anciens codes de récupération cesseront de fonctionner. Confirmez avec un code de l'application.",
+    "appCode": "Code de l'application",
+    "regenerateSubmit": "Générer",
+    "errors": {
+      "wrongCode": "Code incorrect. Vérifiez que l'heure de votre téléphone est réglée automatiquement et réessayez.",
+      "wrongPasswordOrCode": "Mot de passe ou code incorrect."
+    },
+    "toast": {
+      "disabled": "Authentification à deux facteurs désactivée"
+    }
+  },
+  "recovery": {
+    "warning": "Ces codes ne sont affichés qu'une seule fois. Chaque code permet de se connecter une fois sans le téléphone. Conservez-les en lieu sûr — un gestionnaire de mots de passe ou une version imprimée — pas sur le même téléphone.",
+    "copyAll": "Tout copier",
+    "download": "Télécharger .txt",
+    "fileHeader": "Codes de récupération NodePilot pour {{username}} sur {{host}} ({{date}}). Chaque code fonctionne une fois.",
+    "howTo": "Sur l'écran de connexion, choisissez « Utiliser un code de récupération » et saisissez n'importe quel code non utilisé.",
+    "savedCheck": "J'ai sauvegardé les codes de récupération",
+    "done": "Terminé"
+  },
+  "panelKey": {
+    "title": "Clé SSH du panneau",
+    "configured": "configurée",
+    "notConfigured": "non configurée",
+    "intro": "Le panneau peut avoir sa propre clé ed25519, que les serveurs n'acceptent que depuis les adresses du panneau.",
+    "why": {
+      "stolen": "<b>Une clé volée est inutilisable ailleurs :</b> l'option <code>from=</code> dans authorized_keys fait que les serveurs la rejettent depuis toute autre machine.",
+      "rotate": "<b>Renouvellement en un clic :</b> une nouvelle clé est installée sur chaque serveur et l'ancienne est supprimée.",
+      "revoke": "<b>Révocation d'urgence :</b> si le panneau est compromis, la clé peut être retirée de tous les serveurs d'un coup — avec ou sans le panneau.",
+      "flow": "<b>Fonctionnement :</b> créez la clé → installez-la sur les serveurs (le panneau ajoute une ligne à authorized_keys, vérifie que la connexion avec elle fonctionne et bascule le serveur dessus)."
+    },
+    "create": "Créer la clé du panneau",
+    "created": "Créée",
+    "serversOnKey": "Serveurs sur la clé",
+    "serversOnKeyValue_one": "{{using}} sur {{count}}",
+    "serversOnKeyValue_other": "{{using}} sur {{count}}",
+    "working": "Connexion aux serveurs… cela peut prendre du temps s'il y en a beaucoup.",
+    "publicKey": "Clé publique",
+    "authorizedLine": "Ligne pour authorized_keys",
+    "authorizedLineHint": "Avec la restriction d'adresse et le forwarding désactivé",
+    "installCommand": "Installer manuellement",
+    "installCommandHint": "À exécuter sur un serveur avec l'utilisateur SSH utilisé par le panneau",
+    "addresses": {
+      "label": "Adresses du panneau (telles que les serveurs les voient)",
+      "hint": "Adresses IP ou réseaux CIDR, par ex. 203.0.113.10 ou 10.0.0.0/8. Entrée ou virgule pour ajouter.",
+      "invalid": "Ce n'est pas une adresse IP ni un réseau : {{value}}",
+      "invalidList": "Ce ne sont pas des adresses IP ni des réseaux : {{list}}",
+      "emptyWarning": "Sans adresses, la clé est acceptée de partout — une clé volée fonctionnerait depuis n'importe quelle machine. Ajoutez la ou les adresses du panneau.",
+      "save": "Enregistrer les adresses",
+      "redeployHint": "Adresses enregistrées. Les serveurs ont encore l'ancienne restriction — relancez « Installer sur les serveurs » pour la mettre à jour."
+    },
+    "detect": {
+      "pick": "Détecter depuis un serveur…",
+      "server": "Serveur",
+      "button": "Détecter l'adresse",
+      "found": "Le serveur voit le panneau comme {{ip}}",
+      "failed": "Impossible de détecter l'adresse",
+      "noServers": "Ajoutez un serveur pour détecter automatiquement l'adresse du panneau."
+    },
+    "deploy": {
+      "button": "Installer sur les serveurs…",
+      "title": "Installer la clé du panneau sur les serveurs",
+      "text": "Le panneau ajoute la clé à ~/.ssh/authorized_keys de l'utilisateur du serveur, vérifie qu'il peut se connecter avec, et seulement ensuite (si activé) bascule le serveur sur la clé du panneau. Les serveurs où la vérification échoue conservent leurs identifiants actuels.",
+      "modeServers": "Serveurs",
+      "modeProject": "Projet",
+      "pickProject": "— sélectionnez un projet —",
+      "search": "Rechercher par nom, hôte, tag…",
+      "onlyNotOnKey": "Seulement ceux qui ne sont pas sur la clé",
+      "selectAll_one": "Sélectionner {{count}}",
+      "selectAll_other": "Tout sélectionner ({{count}})",
+      "clear": "Effacer",
+      "selected_one": "{{count}} sélectionné",
+      "selected_other": "{{count}} sélectionnés",
+      "onKey": "sur la clé",
+      "switchAuth": "Basculer les serveurs sur la clé du panneau après une vérification réussie",
+      "switchAuthHint": "L'ancien mot de passe ou l'ancienne clé du serveur reste dans authorized_keys ou sur le serveur — supprimez-le vous-même quand vous en êtes sûr.",
+      "noSwitchHint": "La clé sera seulement installée ; les serveurs continuent de se connecter avec leurs identifiants actuels.",
+      "run_one": "Installer sur {{count}} serveur",
+      "run_other": "Installer sur {{count}} serveurs",
+      "again": "Installer sur d'autres",
+      "resultsSwitched": "Les serveurs marqués OK se connectent désormais avec la clé du panneau.",
+      "resultsInstalled": "La clé est installée sur les serveurs marqués OK ; leurs identifiants n'ont pas été modifiés."
+    },
+    "rotate": {
+      "button": "Renouveler la clé",
+      "confirmTitle": "Renouveler la clé du panneau ?",
+      "confirmText_one": "Une nouvelle clé sera créée et installée sur {{count}} serveur ; l'ancienne clé y sera supprimée. Si quelque chose échoue, le serveur reste sur l'ancienne clé.",
+      "confirmText_other": "Une nouvelle clé sera créée et installée sur {{count}} serveurs ; l'ancienne clé y sera supprimée. Les serveurs où quelque chose échoue restent sur l'ancienne clé.",
+      "resultsTitle": "Résultats du renouvellement de la clé",
+      "resultsHint": "Les serveurs en erreur utilisent toujours l'ancienne clé — corrigez la connexion et renouvelez à nouveau."
+    },
+    "revoke": {
+      "button": "Révocation d'urgence",
+      "confirmTitle": "Révoquer la clé du panneau partout ?",
+      "confirmText_one": "Toutes les clés du panneau seront retirées de authorized_keys sur {{count}} serveur, et la clé elle-même sera détruite. Le panneau PERDRA l'accès à ce serveur jusqu'à ce que vous ajoutiez à nouveau un mot de passe ou une clé.",
+      "confirmText_other": "Toutes les clés du panneau seront retirées de authorized_keys sur {{count}} serveurs, et la clé elle-même sera détruite. Le panneau PERDRA l'accès à ces serveurs jusqu'à ce que vous ajoutiez à nouveau un mot de passe ou une clé.",
+      "confirmWhen": "À utiliser si le panneau ou sa base de données a pu être compromis.",
+      "confirmWord": "RÉVOQUER",
+      "resultsTitle": "Résultats de la révocation d'urgence",
+      "resultsHint": "La clé est détruite. Sur les serveurs en erreur, la clé peut encore figurer dans authorized_keys — supprimez-la sans le panneau avec la commande ci-dessous.",
+      "resultsDone": "La clé est détruite et retirée des serveurs qui l'utilisaient. Si elle était aussi installée ailleurs (manuellement, ou sans y basculer un serveur), supprimez-la là-bas avec la commande ci-dessous.",
+      "manualTitle": "Révoquer sans le panneau",
+      "manualText": "Si le panneau est indisponible ou compromis, exécutez ceci sur chaque serveur avec l'utilisateur SSH — cela retire toutes les clés du panneau NodePilot de authorized_keys (une sauvegarde est enregistrée à côté).",
+      "manualOne": "Sur un serveur",
+      "manualAnsible": "Sur tous les serveurs avec Ansible"
+    },
+    "toast": {
+      "created": "Clé du panneau créée",
+      "createFailed": "Impossible de créer la clé du panneau",
+      "addressesSaved": "Adresses enregistrées",
+      "saveFailed": "Impossible d'enregistrer les adresses",
+      "rotateFailed": "Impossible de renouveler la clé",
+      "revokeFailed": "Impossible de révoquer la clé"
+    }
+  },
+  "results": {
+    "ok_one": "{{count}} OK",
+    "ok_other": "{{count}} OK",
+    "failed_one": "{{count}} en échec",
+    "failed_other": "{{count}} en échec",
+    "okShort": "OK",
+    "errorShort": "Erreur",
+    "details": "Détails",
+    "empty": "Aucun serveur concerné"
+  },
+  "masterKey": {
+    "title": "Clé maîtresse",
+    "intro": "La clé maîtresse chiffre les mots de passe des serveurs, les clés SSH et les autres secrets stockés dans la base de données du panneau.",
+    "source": "Source",
+    "path": "Chemin",
+    "tpm": "TPM 2.0",
+    "systemdCreds": "systemd-creds",
+    "available": "disponible",
+    "unavailable": "introuvable",
+    "kind": {
+      "systemd-credential": "scellée",
+      "file": "fichier séparé",
+      "data-dir": "en clair sur le disque"
+    },
+    "kindLong": {
+      "systemd-credential": "credential systemd (LoadCredentialEncrypted, par ex. scellée dans le TPM)",
+      "file": "fichier issu de NODEPILOT_MASTER_KEY_FILE",
+      "data-dir": "fichier en clair dans le répertoire de données"
+    },
+    "sealedText": "La clé est déchiffrée par systemd au démarrage dans une mémoire accessible uniquement au processus du panneau. Un disque volé ou un instantané de VM sans ce TPM ne peut pas être déchiffré.",
+    "fileText": "La clé est lue depuis un fichier séparé. Gardez ce fichier hors des sauvegardes de la base de données et lisible uniquement par l'utilisateur du panneau.",
+    "plaintextCopy": "<b>Une copie en clair de la clé se trouve encore dans le répertoire de données.</b> Assurez-vous que la sauvegarde est stockée hors du serveur, puis supprimez le fichier — sinon le scellement ne protège rien.",
+    "dataDirWarning": "La clé se trouve à côté de la base de données sous forme de fichier ordinaire. Quiconque copie le répertoire de données (une sauvegarde, un instantané de disque) obtient tous les mots de passe et clés des serveurs.",
+    "sealTitle": "Sceller la clé dans le TPM (Linux avec systemd)",
+    "steps": {
+      "requirements": "Prérequis : Ubuntu 24.04+ ou Debian 12+ (systemd 250 ou plus récent) et une puce TPM 2.0 — sur une VM, activez un TPM virtuel (vTPM).",
+      "run": "Sur le serveur du panneau, exécutez :",
+      "runHint": "/opt/nodepilot/packaging est le chemin du dossier packaging issu de la version ou de l'installation",
+      "backup": "Le script enregistre une copie de la clé, scelle la clé, redémarre le panneau et supprime le fichier en clair. Déplacez la copie hors du serveur (gestionnaire de mots de passe ou stockage hors ligne) et supprimez-la du serveur — sans elle, les secrets sont irrécupérables en cas de panne du TPM ou de la carte mère.",
+      "check": "Rechargez cette page : la source doit devenir « systemd credential »."
+    },
+    "noTpmHere": "Aucun TPM n'a été trouvé sur cette machine et/ou systemd-creds n'est pas installé — le scellement ne fonctionnera pas tant qu'ils ne seront pas disponibles.",
+    "dockerTitle": "Docker",
+    "dockerText": "Dans un conteneur, gardez la clé hors du volume de données : transmettez-la comme secret Docker et faites pointer <code>NODEPILOT_MASTER_KEY_FILE</code> dessus."
+  },
+  "audit": {
+    "page": {
+      "title": "Journal d'audit",
+      "subtitle": "Qui a fait quoi dans le panneau : connexions, commandes, modifications, appels API et MCP",
+      "forwarding": "Transfert"
+    },
+    "filters": {
+      "q": "Action ou cible…",
+      "actor": "Utilisateur",
+      "severity": "Gravité",
+      "allSeverities": "Toute gravité",
+      "atLeast": {
+        "warning": "Avertissements et critiques",
+        "critical": "Critiques uniquement"
+      },
+      "reset": "Réinitialiser les filtres"
+    },
+    "columns": {
+      "time": "Heure",
+      "severity": "Gravité",
+      "actor": "Utilisateur",
+      "ip": "IP",
+      "action": "Action",
+      "target": "Cible",
+      "outcome": "Résultat"
+    },
+    "severity": {
+      "info": "info",
+      "warning": "avertissement",
+      "critical": "critique"
+    },
+    "outcome": {
+      "ok": "OK",
+      "denied": "refusé",
+      "locked": "bloqué",
+      "error": "erreur",
+      "exit": "code {{code}}"
+    },
+    "viaToken": "Via le jeton d'API « {{name}} »",
+    "shown_one": "{{n}} entrée",
+    "shown_other": "{{n}} entrées",
+    "loadMore": "Charger les plus anciennes",
+    "empty": "Le journal est vide",
+    "emptyFiltered": "Aucune entrée ne correspond aux filtres",
+    "details": {
+      "id": "Entrée",
+      "time": "Heure",
+      "token": "Jeton d'API",
+      "none": "Aucun détail"
+    },
+    "settings": {
+      "title": "Transfert du journal d'audit",
+      "on": "activé",
+      "off": "désactivé",
+      "intro": "Copiez chaque événement vers un serveur syslog/SIEM ou un webhook. Si le panneau est compromis, la copie externe reste intacte.",
+      "syslog": "Syslog",
+      "syslogHint": "udp://host:port ou tcp://host:port ; vide — désactivé",
+      "webhook": "URL du webhook",
+      "webhookHint": "Chaque événement est envoyé en POST au format JSON ; vide — désactivé",
+      "secret": "Secret du webhook",
+      "secretHint": "Les requêtes sont signées avec HMAC-SHA256 dans l'en-tête <code>{{header}}</code>",
+      "secretSet": "défini",
+      "secretSetPlaceholder": "•••••••• (défini ; saisissez pour remplacer)",
+      "clearSecret": "Supprimer",
+      "minSeverity": "Transférer les événements à partir de",
+      "minSeverityHint": "Le journal du panneau conserve tout",
+      "retention": "Conservation dans le panneau, jours",
+      "retentionHint": "De 7 à 3650",
+      "test": "Envoyer un événement de test",
+      "saveAndTest": "Enregistrer et tester",
+      "testNothing": "Définissez d'abord une adresse syslog ou un webhook",
+      "testOk": "Événement de test livré.",
+      "testFailed": "Événement de test non livré : {{error}}",
+      "saved": "Paramètres de transfert enregistrés",
+      "errors": {
+        "syslog": "Format : udp://host:514 ou tcp://host:514",
+        "webhook": "Doit commencer par http:// ou https://",
+        "retention": "Un nombre entier de 7 à 3650"
+      }
+    }
+  }
+}

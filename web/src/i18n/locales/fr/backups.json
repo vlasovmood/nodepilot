@@ -1,0 +1,247 @@
+{
+  "page": {
+    "title": "Sauvegardes",
+    "subtitle": "Fichiers et bases de données de vos serveurs — vers un répertoire local ou S3, selon un planning.",
+    "decryptInfo": "Les archives chiffrées (age) se déchiffrent avec <code>{{command}}</code> : saisissez la phrase secrète de la tâche, ou ajoutez <code>-i key.txt</code> pour les tâches chiffrées vers une clé age. Le panneau n'affiche jamais une phrase secrète enregistrée et ne peut pas déchiffrer lui-même les archives à clé age.",
+    "decryptCommand": "age -d -o <fichier> <archive>.age",
+    "tabs": {
+      "jobs": "Tâches",
+      "runs": "Historique",
+      "storages": "Stockages"
+    },
+    "allRuns": "Toutes les exécutions"
+  },
+  "runStatus": {
+    "running": "en cours",
+    "success": "succès",
+    "failed": "échec"
+  },
+  "jobs": {
+    "title": "Tâches",
+    "new": "Nouvelle tâche",
+    "emptyTitle": "Aucune tâche pour l'instant",
+    "emptyHint": "Créez une tâche : quoi sauvegarder (fichiers ou base de données), où et selon quel planning.",
+    "columns": {
+      "enabled": "Active",
+      "name": "Nom",
+      "server": "Serveur",
+      "source": "Source",
+      "storage": "Stockage",
+      "schedule": "Planning",
+      "retention": "Conservation",
+      "lastRun": "Dernière exécution",
+      "nextRun": "Prochaine exécution",
+      "encryption": "Chiffrement"
+    },
+    "enable": "Activer",
+    "disable": "Désactiver",
+    "retentionAll": "toutes",
+    "never": "jamais",
+    "runNow": "Exécuter maintenant",
+    "run": "Exécuter",
+    "edit": "Modifier",
+    "toast": {
+      "started": "Sauvegarde lancée",
+      "startFailed": "Impossible de lancer la sauvegarde",
+      "deleted": "Tâche supprimée",
+      "deleteFailed": "Impossible de supprimer la tâche",
+      "saved": "Tâche enregistrée",
+      "created": "Tâche créée"
+    },
+    "confirmDelete": {
+      "title": "Supprimer la tâche ?",
+      "message": "La tâche « {{name}} » sera supprimée. Les archives qu'elle a déjà créées restent dans le stockage et dans l'historique."
+    },
+    "encryption": {
+      "none": "aucun",
+      "passphrase": "phrase secrète",
+      "recipients": "clé age",
+      "noneTitle": "Les archives sont stockées sans chiffrement",
+      "passphraseTitle": "Chiffré avec une phrase secrète stockée dans le panneau",
+      "recipientsTitle_one": "Chiffré avec {{count}} clé publique — le panneau ne peut pas déchiffrer",
+      "recipientsTitle_other": "Chiffré avec {{count}} clés publiques — le panneau ne peut pas déchiffrer"
+    }
+  },
+  "runs": {
+    "title": "Historique des exécutions",
+    "empty": "Aucune exécution pour l'instant",
+    "columns": {
+      "job": "Tâche",
+      "started": "Début",
+      "duration": "Durée",
+      "size": "Taille",
+      "file": "Fichier"
+    },
+    "deletedJob": "supprimée",
+    "downloadEncrypted": "Télécharger (chiffré avec age — déchiffrez avec age -d)",
+    "showMore": "Afficher plus ({{n}})",
+    "confirmDelete": {
+      "title": "Supprimer l'archive ?",
+      "message": "L'entrée et l'archive « {{file}} » seront définitivement supprimées du stockage.",
+      "messageNoFile": "L'entrée et l'archive seront définitivement supprimées du stockage."
+    },
+    "toast": {
+      "deleted": "Archive supprimée",
+      "deleteFailed": "Impossible de supprimer l'archive"
+    }
+  },
+  "storages": {
+    "intro": "Destination des archives : un répertoire sur l'hôte du panneau ou un stockage compatible S3.",
+    "add": "Ajouter un stockage",
+    "emptyTitle": "Aucun stockage pour l'instant",
+    "emptyHint": "Ajoutez un répertoire local ou un bucket S3 pour commencer à créer des tâches de sauvegarde.",
+    "columns": {
+      "location": "Emplacement"
+    },
+    "kind": {
+      "s3": "S3",
+      "local": "Local",
+      "localShort": "local"
+    },
+    "test": "Tester",
+    "edit": "Modifier",
+    "toast": {
+      "available": "Le stockage est accessible",
+      "unavailable": "Le stockage « {{name}} » est inaccessible",
+      "testFailed": "Échec de la vérification",
+      "deleted": "Stockage supprimé",
+      "deleteFailed": "Impossible de supprimer le stockage",
+      "saved": "Stockage enregistré",
+      "created": "Stockage créé"
+    },
+    "confirmDelete": {
+      "title": "Supprimer le stockage ?",
+      "message": "Le stockage « {{name}} » sera retiré du panneau. Les archives déjà envoyées ne sont pas supprimées. Si des tâches utilisent ce stockage, la suppression sera refusée."
+    },
+    "dialog": {
+      "title": "Stockage : {{name}}",
+      "newTitle": "Nouveau stockage"
+    },
+    "form": {
+      "kindLocal": "Répertoire local",
+      "kindS3": "Compatible S3",
+      "path": "Répertoire sur l'hôte du panneau",
+      "endpoint": "Point de terminaison",
+      "endpointHint": "Laissez vide pour AWS S3. Pour MinIO, Wasabi, etc. — l'URL du service",
+      "region": "Région",
+      "bucket": "Bucket",
+      "prefix": "Préfixe",
+      "accessKey": "Access Key ID",
+      "secretKey": "Secret Access Key",
+      "keepEmpty": "Laissez vide pour conserver la valeur actuelle",
+      "secretHidden": "Non affiché après l'enregistrement",
+      "pathStyle": "Adressage de type chemin (path-style, généralement requis pour MinIO)"
+    },
+    "errors": {
+      "name": "Saisissez un nom",
+      "path": "Chemin absolu sur l'hôte du panneau",
+      "bucket": "Saisissez un bucket",
+      "region": "Saisissez une région",
+      "accessKey": "Saisissez un Access Key ID",
+      "secretKey": "Saisissez une Secret Access Key"
+    }
+  },
+  "job": {
+    "title": "Tâche : {{name}}",
+    "newTitle": "Nouvelle tâche de sauvegarde",
+    "fields": {
+      "namePlaceholder": "Sauvegarde quotidienne de /etc",
+      "storage": "Stockage",
+      "select": "— sélectionner —",
+      "noStoragesHint": "Créez d'abord un stockage sur la page « Sauvegardes »",
+      "retention": "Archives à conserver",
+      "retentionHint": "Les N dernières réussies ; 0 pour toutes les conserver",
+      "source": "Source",
+      "paths": "Chemins (un par ligne)",
+      "excludes": "Exclusions (glob, une par ligne)",
+      "database": "Base de données",
+      "container": "Conteneur Docker",
+      "containerHint": "Si le SGBD tourne dans un conteneur, le dump est effectué via docker exec",
+      "optional": "facultatif",
+      "user": "Utilisateur",
+      "password": "Mot de passe",
+      "passwordSaved": "Le mot de passe est enregistré. Laissez vide pour le conserver.",
+      "passwordServerOnly": "Stocké uniquement sur le serveur du panneau",
+      "host": "Hôte",
+      "port": "Port",
+      "schedule": "Planning",
+      "scheduleHint": "Cron (6 champs avec les secondes, heure du panneau — UTC) : {{expr}}",
+      "manualHint": "S'exécute uniquement manuellement via le bouton « Exécuter »",
+      "encrypt": "Chiffrer les archives (age, phrase secrète)",
+      "passphrase": "Phrase secrète de chiffrement",
+      "newPassphrase": "Nouvelle phrase secrète de chiffrement",
+      "keepEmpty": "Laissez vide pour conserver la valeur actuelle",
+      "passphrase2": "Confirmer la phrase secrète",
+      "enabled": "Tâche active (s'exécute selon le planning)",
+      "encryption": "Chiffrement",
+      "recipients": "Clés publiques age (une par ligne)",
+      "recipientsHint": "Les archives sont chiffrées pour chaque clé listée ; n'importe laquelle des clés privées correspondantes peut les déchiffrer."
+    },
+    "sourceType": {
+      "files": "Fichiers",
+      "postgres": "PostgreSQL",
+      "mysql": "MySQL / MariaDB"
+    },
+    "scheduleMode": {
+      "preset": "Préréglage",
+      "custom": "Cron personnalisé",
+      "manual": "Manuel"
+    },
+    "passphraseWarning": "<b>Conservez la phrase secrète en lieu sûr.</b> Elle sera nécessaire pour déchiffrer les archives avec <code>{{command}}</code>. Le panneau n'affiche jamais la phrase secrète enregistrée et elle ne peut pas être récupérée via l'interface — sans elle, les archives sont inutilisables.",
+    "errors": {
+      "name": "Saisissez un nom",
+      "server": "Sélectionnez un serveur",
+      "storage": "Sélectionnez un stockage",
+      "paths": "Saisissez au moins un chemin",
+      "database": "Saisissez le nom de la base de données",
+      "port": "1–65535",
+      "retention": "Nombre entier ≥ 0",
+      "passphrase": "Au moins 8 caractères",
+      "passphrase2": "Les phrases secrètes ne correspondent pas",
+      "recipientsEmpty": "Ajoutez au moins une clé publique ou générez une paire",
+      "recipientsInvalid": "Chaque ligne doit être une clé publique age commençant par age1"
+    },
+    "encryption": {
+      "none": "Sans chiffrement",
+      "noneHint": "Les archives sont stockées telles quelles — quiconque a accès au stockage peut les lire",
+      "passphrase": "Phrase secrète (stockée dans le panneau)",
+      "passphraseHint": "Simple, mais quiconque compromet le panneau obtient aussi la phrase secrète",
+      "recipients": "Clé publique age (recommandé : le panneau ne peut pas déchiffrer)",
+      "recipientsHint": "Le panneau ne détient que la clé publique ; seul le détenteur de la clé privée peut déchiffrer les archives",
+      "noneWarning": "Les dumps de bases de données et les fichiers de configuration contiennent souvent des mots de passe — pensez à chiffrer les archives."
+    },
+    "keygen": {
+      "button": "Générer une paire de clés",
+      "buttonHint": "ou collez la clé publique d'une clé age existante",
+      "title": "Nouvelle paire de clés age",
+      "warning": "La clé privée n'est affichée que maintenant et n'est stockée nulle part — ni dans le panneau, ni sur les serveurs. Sans elle, les archives ne peuvent pas être déchiffrées. Téléchargez le fichier de clé et conservez-le en lieu sûr, à l'écart du panneau.",
+      "privateKey": "Clé privée",
+      "download": "Télécharger {{file}}",
+      "downloaded": "Fichier de clé téléchargé",
+      "publicKey": "Clé publique",
+      "publicHint": "Va dans la tâche ; elle ne peut que chiffrer.",
+      "savedCheck": "J'ai sauvegardé la clé privée",
+      "add": "Ajouter la clé publique à la tâche"
+    },
+    "decryptTitle": "Comment déchiffrer une archive",
+    "decryptHint": "age est disponible dans la plupart des gestionnaires de paquets"
+  },
+  "cron": {
+    "manual": "Manuel",
+    "presets": {
+      "hourly": "Toutes les heures",
+      "every6h": "Toutes les 6 heures",
+      "every12h": "Toutes les 12 heures",
+      "daily0000": "Tous les jours à 00:00",
+      "daily0300": "Tous les jours à 03:00",
+      "daily0500": "Tous les jours à 05:00",
+      "sunday0400": "Chaque dimanche à 04:00",
+      "monday0300": "Chaque lundi à 03:00",
+      "monthly0300": "Le 1er de chaque mois à 03:00"
+    },
+    "errors": {
+      "fields": "6 champs attendus : sec min heure jour mois jour_semaine (par ex. 0 0 3 * * *)",
+      "chars": "Caractères non valides dans l'expression"
+    }
+  }
+}

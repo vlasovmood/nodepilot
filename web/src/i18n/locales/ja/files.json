@@ -1,0 +1,76 @@
+{
+  "toolbar": {
+    "home": "ホームフォルダー",
+    "up": "1 つ上の階層へ",
+    "breadcrumbsHint": "ダブルクリックでパスを入力",
+    "editPath": "パスを入力",
+    "filter": "フィルター",
+    "showHidden": "隠しファイルを表示",
+    "hideHidden": "隠しファイルを非表示",
+    "newFolder": "フォルダー"
+  },
+  "columns": {
+    "name": "名前",
+    "size": "サイズ",
+    "mode": "権限",
+    "modified": "更新日時"
+  },
+  "menu": {
+    "edit": "編集",
+    "rename": "名前の変更 / 移動"
+  },
+  "listError": "フォルダーを開けませんでした",
+  "dropToUpload": "ドロップしてファイルをアップロード",
+  "empty": {
+    "noMatches": "該当する項目はありません",
+    "folder": "空のフォルダーです — ここにファイルをドロップしてください"
+  },
+  "footer": {
+    "items_other": "{{count}} 個の項目",
+    "total": "（合計 {{n}}）",
+    "hint": "フォルダーはダブルクリックで開き、ファイルはダブルクリックで編集できます。ファイルをここにドラッグするとアップロードされます。"
+  },
+  "tooLarge": {
+    "title": "ファイルが大きすぎます",
+    "message": "このファイルは {{size}} あり、エディターで開くには大きすぎます。代わりにダウンロードしますか？"
+  },
+  "remove": {
+    "folderTitle": "フォルダーを削除しますか？",
+    "fileTitle": "ファイルを削除しますか？",
+    "recursiveWarning": "フォルダーとその中身がすべて再帰的に削除されます。"
+  },
+  "upload": {
+    "tooLarge": "アップロード上限 {{limit}} を超えています",
+    "done": "完了",
+    "dismiss": "閉じる"
+  },
+  "toast": {
+    "deleted": "削除しました",
+    "deleteFailed": "削除できませんでした",
+    "folderCreated": "フォルダーを作成しました",
+    "renamed": "名前を変更しました",
+    "foldersSkipped": "フォルダーはアップロードできません",
+    "foldersSkippedHint": "ディレクトリではなくファイルをドロップしてください。フォルダーはスキップされました"
+  },
+  "dialog": {
+    "newFolder": "新規フォルダー",
+    "rename": "名前の変更",
+    "folderName": "フォルダー名",
+    "newNameOrPath": "新しい名前またはフルパス",
+    "ok": "OK"
+  },
+  "editor": {
+    "loadingEditor": "エディターを読み込み中…",
+    "loadingFile": "ファイルを読み込み中…",
+    "modified": "変更あり",
+    "wrap": "行を折り返す",
+    "saved": "ファイルを保存しました",
+    "saveFailed": "ファイルを保存できませんでした",
+    "discardTitle": "保存せずに閉じますか？",
+    "discardMessage": "保存されていない変更は失われます。",
+    "tooLarge": "ファイルが大きすぎてエディターで開けません（{{size}}）",
+    "binary": "バイナリファイルのため、テキストエディターでは開けません",
+    "cannotOpen": "このファイルは開けません",
+    "openFailed": "ファイルを開けませんでした"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "page": {
+    "title": "Notes",
+    "subtitle": "All panel notes: global, per project and per server. Pinned notes come first."
+  },
+  "searchPlaceholder": "Search notes…",
+  "new": "New note",
+  "defaultTitle": "New note",
+  "empty": {
+    "title": "No notes yet",
+    "text": "Keep instructions, runbooks and infrastructure notes here. Markdown is supported."
+  },
+  "selectNote": "Select a note",
+  "editor": {
+    "titlePlaceholder": "Title",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "links": "Linked to:",
+    "updated": "Updated {{time}}",
+    "bodyPlaceholder": "Markdown: # heading, **bold**, `code`, ```blocks```, lists, tables…",
+    "emptyNote": "Empty note"
+  },
+  "confirm": {
+    "deleteTitle": "Delete note?",
+    "deleteMessage": "“{{title}}” will be permanently deleted."
+  },
+  "toast": {
+    "createFailed": "Failed to create note",
+    "saved": "Note saved",
+    "deleted": "Note deleted",
+    "deleteFailed": "Failed to delete"
+  }
+}

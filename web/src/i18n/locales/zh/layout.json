@@ -1,0 +1,67 @@
+{
+  "sidebar": {
+    "expand": "展开菜单",
+    "collapse": "收起菜单",
+    "sections": {
+      "main": "导航",
+      "projects": "项目",
+      "more": "更多"
+    },
+    "newProject": "新建项目",
+    "createProject": "创建项目",
+    "projectsLoadError": "项目加载失败",
+    "darkMode": "深色模式",
+    "nav": {
+      "customize": "自定义导航",
+      "done": "完成",
+      "add": "添加",
+      "reset": "重置",
+      "resetHint": "恢复默认项目和顺序",
+      "showAll": "全部显示",
+      "showLess": "收起",
+      "hide": "隐藏",
+      "show": "显示",
+      "remove": "移除",
+      "missing": "已删除",
+      "untitled": "无标题",
+      "reorderHint": "拖动排序，或按 Alt+↑/↓",
+      "picker": {
+        "title": "添加到导航",
+        "servers": "服务器",
+        "graphs": "图",
+        "notes": "笔记",
+        "search": "搜索…",
+        "empty": "未找到结果",
+        "nodes_other": "{{count}} 个节点"
+      }
+    }
+  },
+  "nav": {
+    "servers": "服务器",
+    "graph": "拓扑图",
+    "terminal": "终端",
+    "identities": "密钥",
+    "backups": "备份",
+    "notes": "笔记",
+    "api": "API",
+    "settings": "设置",
+    "security": "安全",
+    "audit": "审计日志"
+  },
+  "user": {
+    "role": "管理员",
+    "settings": "设置",
+    "language": "语言",
+    "lightTheme": "浅色主题",
+    "darkTheme": "深色主题",
+    "logout": "退出登录"
+  },
+  "search": {
+    "placeholder": "搜索…",
+    "hint": "Enter 打开，↑↓ 选择"
+  },
+  "notFound": {
+    "title": "页面不存在",
+    "toServers": "返回服务器列表"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "notFound": "Projekt nicht gefunden",
+  "tabs": {
+    "servers": "Server",
+    "graphs": "Graphen",
+    "notes": "Notizen"
+  },
+  "dialog": {
+    "newTitle": "Neues Projekt",
+    "editTitle": "Projekt bearbeiten",
+    "noColor": "Keine Farbe",
+    "customColor": "Eigene Farbe"
+  },
+  "toast": {
+    "saved": "Projekt gespeichert",
+    "created": "Projekt erstellt",
+    "deleted": "Projekt gelöscht",
+    "deleteFailed": "Projekt konnte nicht gelöscht werden"
+  },
+  "confirm": {
+    "deleteTitle": "Projekt löschen?",
+    "deleteMessage": "Das Projekt <b>{{name}}</b> wird gelöscht. Die Server bleiben im Panel erhalten; nur die Gruppierung wird entfernt."
+  }
+}

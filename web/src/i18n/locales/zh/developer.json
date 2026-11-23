@@ -1,0 +1,245 @@
+{
+  "page": {
+    "title": "API",
+    "subtitle": "面板的 REST API 与 MCP 服务器：访问令牌、接口文档、接入 AI 智能体。",
+    "tabs": {
+      "tokens": "令牌",
+      "reference": "接口文档",
+      "mcp": "MCP"
+    }
+  },
+  "areas": {
+    "servers": {
+      "label": "服务器与监控数据",
+      "short": "服务器",
+      "description": "服务器列表与详情、监控指标、SSH 检测"
+    },
+    "projects": {
+      "label": "项目",
+      "short": "项目",
+      "description": "项目及其服务器"
+    },
+    "identities": {
+      "label": "密钥库",
+      "short": "密钥",
+      "description": "密码和 SSH 密钥；API 永远不会返回密钥内容"
+    },
+    "exec": {
+      "label": "命令与终端",
+      "short": "命令",
+      "description": "在服务器上执行命令和终端会话",
+      "danger": "能够以服务器的 SSH 用户身份执行任意命令"
+    },
+    "system": {
+      "label": "进程与服务",
+      "short": "系统",
+      "description": "进程、systemd 服务、日志、重启"
+    },
+    "files": {
+      "label": "文件",
+      "short": "文件",
+      "description": "通过 SFTP 访问服务器文件"
+    },
+    "notes": {
+      "label": "笔记",
+      "short": "笔记",
+      "description": "面板中的 Markdown 笔记"
+    },
+    "graphs": {
+      "label": "拓扑图",
+      "short": "拓扑图",
+      "description": "基础设施拓扑图"
+    },
+    "backups": {
+      "label": "备份",
+      "short": "备份",
+      "description": "备份存储、任务和归档"
+    },
+    "admin": {
+      "label": "API 令牌",
+      "short": "令牌",
+      "description": "签发、编辑和吊销 API 令牌",
+      "danger": "能够签发新令牌（不超出自身权限）并吊销现有令牌"
+    }
+  },
+  "perm": {
+    "read": "读取",
+    "write": "写入",
+    "allowed": "允许",
+    "areaLevel": "{{area}}：{{level}}",
+    "full": "完全访问",
+    "readonly": "只读",
+    "none": "无权限",
+    "public": "公开",
+    "authenticated": "任意已登录身份"
+  },
+  "tags": {
+    "auth": "登录与会话",
+    "meta": "服务信息",
+    "servers": "服务器",
+    "stats": "监控数据",
+    "projects": "项目",
+    "identities": "密钥",
+    "exec": "命令",
+    "terminalSessions": "终端会话",
+    "system": "进程与服务",
+    "files": "文件",
+    "notes": "笔记",
+    "graphs": "拓扑图",
+    "backups": "备份",
+    "tokens": "API 令牌",
+    "ai": "MCP / AI",
+    "other": "其他"
+  },
+  "tokens": {
+    "intro": "API 令牌用于移动应用、脚本、命令行工具和 AI 智能体（MCP）。请在 <code>{{header}}</code> 请求头中传递令牌。",
+    "tokenPlaceholder": "令牌",
+    "introHint": "建议为每个客户端单独签发令牌，并只授予所需的权限——这样吊销某个令牌时不会影响其他客户端。",
+    "create": "创建令牌",
+    "emptyTitle": "暂无令牌",
+    "emptyText": "创建令牌以接入脚本、应用或 AI 智能体。",
+    "table": {
+      "name": "名称",
+      "access": "权限",
+      "created": "创建时间",
+      "lastUsed": "最近使用",
+      "expires": "过期时间"
+    },
+    "never": "从未",
+    "noExpiry": "永不过期",
+    "expired": "已过期",
+    "confirm": {
+      "deleteTitle": "删除令牌？",
+      "deleteMessage": "所有使用令牌 <b>{{name}}</b> 的客户端将立即失去访问权限。此操作不可撤销。"
+    },
+    "toast": {
+      "deleted": "令牌已删除",
+      "deleteFailed": "无法删除令牌",
+      "updated": "令牌已更新"
+    },
+    "dialog": {
+      "newTitle": "新建 API 令牌",
+      "editTitle": "令牌“{{name}}”",
+      "nameHint": "例如 iphone-app、ci-deploy、claude-code",
+      "expiry": "有效期",
+      "expiryHint": "从现在开始计算",
+      "keepExpiry": "保持不变",
+      "access": "权限",
+      "presetCustom": "自定义",
+      "fullHint": "对所有模块拥有读写权限，包括面板未来版本中新增的模块。",
+      "readonlyHint": "对除命令/终端和 API 令牌以外的所有模块拥有读取权限。无法修改任何内容——适用于监控和仪表盘。",
+      "area": "模块",
+      "allRead": "全部只读",
+      "allWrite": "全部读写",
+      "reset": "重置",
+      "levelNone": "无",
+      "levelRead": "读取",
+      "levelWrite": "写入",
+      "levelAllowed": "允许",
+      "emptyInfo": "没有任何权限的令牌只能查询自身信息（/auth/me），以及连接到不含任何工具的 MCP。",
+      "dangerWarning": "<b>{{area}}</b>：该令牌{{risk}}。"
+    },
+    "expiry": {
+      "never": "永不过期",
+      "days_other": "{{count}} 天"
+    },
+    "created": {
+      "title": "令牌已创建",
+      "done": "我已保存令牌",
+      "warning": "请立即复制令牌——它只会显示这一次。之后只能吊销并重新签发。",
+      "validUntil": "有效期至 {{date}}",
+      "noExpiry": "永不过期",
+      "curlTitle": "使用 curl 测试",
+      "claudeTitle": "接入 Claude Code（MCP）"
+    }
+  },
+  "reference": {
+    "loading": "正在加载规范…",
+    "baseUrl": "Base URL",
+    "auth": "认证",
+    "endpoints_other": "{{count}} 个接口",
+    "specInfo": "OpenAPI {{version}} · {{endpoints}}。可使用该规范为移动应用或服务生成客户端——<code>openapi-generator</code>、<code>swift-openapi-generator</code>、<code>orval</code>、<code>openapi-typescript</code> 等。",
+    "searchPlaceholder": "搜索：路径、方法、描述…",
+    "clear": "清除",
+    "nothingFound": "未找到结果",
+    "overviewHint": "在左侧选择一个接口，即可查看其参数和数据结构并发送请求。",
+    "areasTitle": "权限范围",
+    "areasTable": {
+      "area": "范围",
+      "key": "键",
+      "contents": "包含内容"
+    },
+    "params": "参数",
+    "paramsTable": {
+      "name": "名称",
+      "in": "位置",
+      "type": "类型",
+      "description": "描述"
+    },
+    "required": "必填",
+    "oneOfList": "可选值：{{values}}",
+    "requestBody": "请求体",
+    "optional": "可选",
+    "rawBody": "文件原始字节（不超过服务器限制），无 JSON 包装。",
+    "responses": "响应",
+    "errorShape": "{ \"error\": \"错误信息\" }",
+    "switchingProtocols": "连接将切换为 WebSocket。",
+    "tryIt": "在线调试",
+    "wsInfo": "这是 WebSocket 接口，无法在文档页中调用。请使用 WebSocket 客户端连接（在浏览器中会携带会话 Cookie，否则请通过 <code>token</code> 参数传递令牌）：",
+    "binaryInfo": "请求体为文件原始字节，因此无法在此发送请求。请使用下方带 <code>--data-binary</code> 的 curl 命令。",
+    "downloadInfo": "响应为文件。可直接打开链接（使用当前会话），或使用下方的 curl 命令。",
+    "fillIn": "待填写：{{names}}",
+    "fillInSentence": "请填写：{{names}}",
+    "bodyJson": "请求体（JSON）",
+    "example": "示例",
+    "invalidJson": "JSON 无效：{{error}}",
+    "liveNote": "请求将被真实执行，使用当前会话的权限（完全访问）。",
+    "emptyResponse": "空响应",
+    "curlHint": "请将 np_… 替换为您的令牌",
+    "curlFile": "文件",
+    "requestFailed": "请求失败：{{message}}",
+    "confirm": {
+      "title": "发送 {{method}} 请求？",
+      "message": "请求 <code>{{request}}</code> 将以当前会话的身份被真实执行。",
+      "power": "服务器将被重启或关机。",
+      "logout": "当前会话将结束。"
+    }
+  },
+  "schema": {
+    "items": "元素数：{{min}}…{{max}}",
+    "length": "长度：{{min}}…{{max}}",
+    "writeOnly": "只写",
+    "readOnly": "只读",
+    "deprecated": "已弃用",
+    "oneOf": "以下之一",
+    "anyOf": "以下任意",
+    "mapKey": "{键}",
+    "anyObject": "对象（任意字段）",
+    "variant": "变体 {{n}}：{{type}}",
+    "exampleTitle": "示例",
+    "exampleBody": "文本",
+    "const": "值 <code>{{value}}</code>",
+    "enum": "以下之一",
+    "default": "默认值 <code>{{value}}</code>",
+    "required": "必填",
+    "requiredTitle": "必填字段",
+    "recursive": "递归",
+    "recursiveTitle": "递归引用——见上文"
+  },
+  "mcp": {
+    "intro": "MCP 是一种开放协议，为 AI 智能体（Claude Code、Claude Desktop、Cursor 等）提供一组可自主调用的“工具”。NodePilot 将自身功能以 MCP 服务器的形式开放：智能体可以在令牌权限范围内查看监控数据、执行命令、编辑文件、维护笔记和拓扑图。",
+    "endpoint": "端点（Streamable HTTP，JSON-RPC 2.0）",
+    "jsonConfig": "客户端 JSON 配置",
+    "jsonConfigHint": "Claude Desktop、Cursor 等",
+    "stdio": "本地 stdio 方式",
+    "stdioHint": "在运行面板的机器上",
+    "scopeInfo": "智能体只能看到其令牌允许使用的工具：“只读”令牌不会暴露任何修改数据的工具。请在“<link>令牌</link>”标签页为智能体单独创建令牌，并用它替换 <code>np_…</code>。",
+    "tools": "工具",
+    "toolCount_other": "{{count}} 个工具",
+    "searchPlaceholder": "搜索工具…",
+    "loading": "正在请求 tools/list…",
+    "nothingFound": "未找到结果",
+    "otherGroup": "其他",
+    "destructive": "会修改数据"
+  }
+}

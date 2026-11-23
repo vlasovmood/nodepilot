@@ -1,0 +1,117 @@
+{
+  "actions": {
+    "save": "保存",
+    "cancel": "取消",
+    "delete": "删除",
+    "edit": "编辑",
+    "create": "创建",
+    "add": "添加",
+    "close": "关闭",
+    "refresh": "刷新",
+    "retry": "重试",
+    "search": "搜索",
+    "open": "打开",
+    "download": "下载",
+    "upload": "上传",
+    "copy": "复制",
+    "copied": "已复制",
+    "back": "返回",
+    "confirm": "确认",
+    "reset": "重置",
+    "apply": "应用",
+    "send": "发送",
+    "more": "操作",
+    "editItem": "编辑"
+  },
+  "state": {
+    "loading": "加载中…",
+    "loadingAria": "加载中",
+    "error": "错误",
+    "empty": "空",
+    "saving": "保存中…",
+    "saved": "已保存",
+    "notFound": "未找到",
+    "nothingFound": "未找到结果",
+    "loadFailed": "数据加载失败",
+    "noItems": "暂无数据"
+  },
+  "status": {
+    "online": "在线",
+    "offline": "不可达",
+    "unknown": "未知"
+  },
+  "fields": {
+    "name": "名称",
+    "description": "描述",
+    "project": "项目",
+    "server": "服务器",
+    "color": "颜色",
+    "tags": "标签",
+    "note": "备注",
+    "created": "创建时间",
+    "updated": "更新时间",
+    "status": "状态",
+    "type": "类型",
+    "password": "密码"
+  },
+  "filters": {
+    "allProjects": "全部项目",
+    "allServers": "全部服务器"
+  },
+  "counts": {
+    "servers_other": "{{count}} 台服务器"
+  },
+  "confirm": {
+    "typeToConfirm": "输入 <b>{{text}}</b> 以确认"
+  },
+  "tags": {
+    "placeholder": "添加标签…",
+    "remove": "移除 {{tag}}"
+  },
+  "language": {
+    "label": "语言",
+    "interface": "界面语言"
+  },
+  "cron": {
+    "manual": "手动",
+    "presets": {
+      "hourly": "每小时",
+      "every6h": "每 6 小时",
+      "every12h": "每 12 小时",
+      "daily0000": "每天 00:00",
+      "daily0300": "每天 03:00",
+      "daily0500": "每天 05:00",
+      "sunday0400": "每周日 04:00",
+      "monday0300": "每周一 03:00",
+      "monthly0300": "每月 1 日 03:00"
+    },
+    "errors": {
+      "fieldCount": "应为 6 个字段：秒 分 时 日 月 星期（例如 0 0 3 * * *）",
+      "invalidChars": "表达式中包含无效字符"
+    }
+  },
+  "apiErrors": {
+    "panelUnreachable": "无法连接面板服务器",
+    "uploadNetwork": "上传时发生网络错误",
+    "http": {
+      "400": "请求无效",
+      "401": "需要登录认证",
+      "403": "拒绝访问",
+      "404": "未找到",
+      "409": "冲突",
+      "413": "请求内容过大",
+      "429": "请求过于频繁",
+      "500": "服务器内部错误",
+      "502": "SSH / 远程服务器错误",
+      "503": "服务不可用",
+      "504": "网关超时"
+    }
+  },
+  "yes": "是",
+  "no": "否",
+  "none": "无",
+  "noProject": "无项目",
+  "noServer": "无服务器",
+  "noDescription": "暂无描述",
+  "untitled": "未命名"
+}

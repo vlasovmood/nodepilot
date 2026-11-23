@@ -1,0 +1,327 @@
+{
+  "page": {
+    "title": "安全",
+    "subtitle": "双因素登录、面板 SSH 密钥、主密钥保护和审计日志",
+    "openAudit": "审计日志"
+  },
+  "overview": {
+    "title": "安全检查清单",
+    "score_other": "已通过 {{ok}}/{{count}} 项检查",
+    "warnings_other": "{{count}} 项需要注意",
+    "allGood": "重要的安全措施均已到位",
+    "howTo": "如何修复",
+    "details": "详情",
+    "master": {
+      "title": "主密钥",
+      "sealed": "已通过 systemd-creds（TPM）密封：即使磁盘或虚拟机快照被盗，也无法解密已存储的密码和密钥。",
+      "file": "从单独的文件（NODEPILOT_MASTER_KEY_FILE）加载，未与数据库存放在一起。",
+      "dataDir": "以明文文件形式存放在数据库旁：任何复制了数据目录的人都能解密所有服务器密码和密钥。"
+    },
+    "plaintext": {
+      "title": "主密钥的明文副本",
+      "text": "数据目录中仍有主密钥的明文副本。请确认已在其他位置备份，然后将其删除。"
+    },
+    "twoFactor": {
+      "title": "双因素认证",
+      "off": "您的账号仅受密码保护。请启用验证器应用的一次性验证码。",
+      "on_other": "已启用。剩余 {{count}} 个恢复码。",
+      "fewCodes_other": "已启用，但仅剩 {{count}} 个恢复码——请生成新的恢复码。",
+      "enable": "启用",
+      "newCodes": "新恢复码"
+    },
+    "panelKey": {
+      "title": "面板 SSH 密钥",
+      "none": "未设置。目前使用您添加的密码和密钥访问服务器；仅允许从面板地址使用的面板密钥更安全，且可一键轮换。",
+      "unrestricted": "该密钥可从任意地址使用。请将其限制为面板的 IP 地址，这样密钥即使被盗也无法在别处使用。",
+      "partial_other": "{{count}} 台服务器中有 {{using}} 台使用面板密钥。",
+      "all_other": "已按地址限制；全部 {{count}} 台服务器均在使用。",
+      "create": "设置",
+      "restrict": "限制",
+      "install": "安装到服务器"
+    },
+    "backups": {
+      "title": "备份加密",
+      "none": "暂无备份任务。",
+      "unencrypted_other": "{{count}} 个备份任务以未加密形式存储归档。",
+      "passphrase_other": "{{count}} 个任务使用存储在面板中的口令加密——攻破面板的人即可解密。使用 age 公钥更安全。",
+      "allKeys_other": "全部 {{count}} 个任务均使用公钥加密：面板本身无法解密归档。",
+      "open": "备份"
+    },
+    "tokens": {
+      "title": "API 令牌",
+      "fullAccess_other": "{{count}} 个令牌拥有完全访问权限。",
+      "noExpiry_other": "{{count}} 个令牌永不过期。",
+      "advice": "只为令牌授予所需的权限范围，并设置有效期。",
+      "none": "暂无 API 令牌。",
+      "ok_other": "共 {{count}} 个令牌，均为受限权限且设有有效期。",
+      "open": "令牌"
+    },
+    "audit": {
+      "title": "审计日志转发",
+      "on": "事件会被复制到 syslog 或 webhook：入侵者无法通过清空面板日志来掩盖踪迹。",
+      "off": "审计日志仅保存在面板中。请将其转发到 syslog/SIEM 或 webhook，以便在面板被攻破后仍能保留。",
+      "configure": "配置"
+    },
+    "https": {
+      "title": "HTTPS",
+      "on": "会话 Cookie 仅通过 HTTPS 发送。",
+      "off": "Secure Cookie 未启用：面板可能是通过普通 HTTP 打开的。请将其置于 HTTPS 反向代理之后，并使用 --secure-cookies 启动。"
+    }
+  },
+  "twoFactor": {
+    "title": "双因素认证",
+    "on": "已启用",
+    "off": "未启用",
+    "offText": "登录时，面板还会要求输入验证器应用（Google Authenticator、Aegis、1Password、Bitwarden…）中的 6 位验证码。仅凭泄露的密码将无法登录。",
+    "onText": "登录需要验证器应用中的验证码。如果丢失手机，请使用恢复码登录。",
+    "codesLeft_other": "剩余 {{count}} 个恢复码",
+    "fewCodes": "恢复码所剩不多。请生成一组新的恢复码——旧恢复码将失效。",
+    "enable": "启用 2FA",
+    "disable": "停用",
+    "regenerate": "新恢复码",
+    "enableTitle": "启用双因素认证",
+    "step1": "1. 使用验证器应用扫描二维码，或手动输入密钥。",
+    "manualEntry": "手动输入的密钥",
+    "manualHint": "类型：基于时间（TOTP），6 位数字，30 秒。",
+    "qrAlt": "用于验证器应用的二维码",
+    "step2": "2. 输入应用中的 6 位验证码",
+    "enableSubmit": "启用",
+    "enabledTitle": "2FA 已启用——请保存恢复码",
+    "disableTitle": "停用双因素认证",
+    "disableWarning": "停用后，账号将仅受密码保护。",
+    "codeOrRecovery": "应用验证码或恢复码",
+    "codeOrRecoveryHint": "应用中的 6 位验证码，或任一恢复码（使用后即失效）",
+    "regenerateTitle": "新恢复码",
+    "regenerateText": "将生成一组新的 10 个恢复码，所有旧恢复码都将失效。请输入应用中的验证码进行确认。",
+    "appCode": "应用验证码",
+    "regenerateSubmit": "生成",
+    "errors": {
+      "wrongCode": "验证码错误。请确认手机已开启自动设置时间，然后重试。",
+      "wrongPasswordOrCode": "密码或验证码错误。"
+    },
+    "toast": {
+      "disabled": "双因素认证已停用"
+    }
+  },
+  "recovery": {
+    "warning": "这些恢复码仅显示一次。每个恢复码可在没有手机时登录一次。请将其保存在安全的地方——密码管理器或打印件——不要存放在同一部手机上。",
+    "copyAll": "全部复制",
+    "download": "下载 .txt",
+    "fileHeader": "NodePilot 恢复码，用户 {{username}}，主机 {{host}}（{{date}}）。每个恢复码只能使用一次。",
+    "howTo": "在登录界面选择“使用恢复码”，然后输入任一未使用的恢复码。",
+    "savedCheck": "我已保存恢复码",
+    "done": "完成"
+  },
+  "panelKey": {
+    "title": "面板 SSH 密钥",
+    "configured": "已配置",
+    "notConfigured": "未配置",
+    "intro": "面板可以拥有自己的 ed25519 密钥，服务器仅接受来自面板地址的该密钥登录。",
+    "why": {
+      "stolen": "<b>密钥被盗也无法在别处使用：</b>authorized_keys 中的 <code>from=</code> 选项会让服务器拒绝来自其他机器的登录。",
+      "rotate": "<b>一键轮换：</b>在每台服务器上安装新密钥并移除旧密钥。",
+      "revoke": "<b>紧急吊销：</b>如果面板被攻破，可以一次性从所有服务器上移除该密钥——无论是否借助面板。",
+      "flow": "<b>工作流程：</b>创建密钥 → 安装到服务器（面板会在 authorized_keys 中添加一行，检查能否用该密钥登录，然后将服务器切换为使用该密钥）。"
+    },
+    "create": "创建面板密钥",
+    "created": "创建时间",
+    "serversOnKey": "使用该密钥的服务器",
+    "serversOnKeyValue_other": "{{using}}/{{count}}",
+    "working": "正在连接服务器…服务器较多时可能需要一些时间。",
+    "publicKey": "公钥",
+    "authorizedLine": "authorized_keys 条目",
+    "authorizedLineHint": "已附带地址限制并禁用转发",
+    "installCommand": "手动安装",
+    "installCommandHint": "在服务器上以面板登录所用的 SSH 用户身份执行",
+    "addresses": {
+      "label": "面板地址（服务器所见）",
+      "hint": "IP 地址或 CIDR 网段，例如 203.0.113.10 或 10.0.0.0/8。按 Enter 或逗号添加。",
+      "invalid": "不是有效的 IP 地址或网段：{{value}}",
+      "invalidList": "以下不是有效的 IP 地址或网段：{{list}}",
+      "emptyWarning": "不设置地址时，该密钥可从任意位置使用——密钥被盗后可在任何机器上使用。请添加面板的地址。",
+      "save": "保存地址",
+      "redeployHint": "地址已保存。服务器上仍是旧的限制——请再次执行“安装到服务器”以更新。"
+    },
+    "detect": {
+      "pick": "通过服务器检测…",
+      "server": "服务器",
+      "button": "检测地址",
+      "found": "服务器看到的面板地址为 {{ip}}",
+      "failed": "无法检测地址",
+      "noServers": "添加服务器后即可自动检测面板地址。"
+    },
+    "deploy": {
+      "button": "安装到服务器…",
+      "title": "将面板密钥安装到服务器",
+      "text": "面板会将密钥添加到服务器用户的 ~/.ssh/authorized_keys，检查能否用它登录，确认无误后才会（如已启用）将服务器切换为使用面板密钥。检查失败的服务器将保留当前凭据。",
+      "modeServers": "服务器",
+      "modeProject": "项目",
+      "pickProject": "— 请选择项目 —",
+      "search": "按名称、主机、标签搜索…",
+      "onlyNotOnKey": "仅显示未使用该密钥的",
+      "selectAll_other": "全选 {{count}} 台",
+      "clear": "清除",
+      "selected_other": "已选择 {{count}} 台",
+      "onKey": "已使用密钥",
+      "switchAuth": "检查成功后将服务器切换为使用面板密钥",
+      "switchAuthHint": "服务器原有的密码/密钥仍保留在 authorized_keys 或服务器上——确认无误后请自行移除。",
+      "noSwitchHint": "仅安装密钥；服务器将继续使用当前凭据连接。",
+      "run_other": "安装到 {{count}} 台服务器",
+      "again": "安装到其他服务器",
+      "resultsSwitched": "标记为 OK 的服务器现已使用面板密钥连接。",
+      "resultsInstalled": "密钥已安装到标记为 OK 的服务器，其凭据未作更改。"
+    },
+    "rotate": {
+      "button": "轮换密钥",
+      "confirmTitle": "轮换面板密钥？",
+      "confirmText_other": "将创建新密钥并安装到 {{count}} 台服务器，同时从这些服务器上移除旧密钥。出现错误的服务器将继续使用旧密钥。",
+      "resultsTitle": "密钥轮换结果",
+      "resultsHint": "出错的服务器仍在使用旧密钥——请修复连接后再次轮换。"
+    },
+    "revoke": {
+      "button": "紧急吊销",
+      "confirmTitle": "在所有服务器上吊销面板密钥？",
+      "confirmText_other": "将从 {{count}} 台服务器的 authorized_keys 中移除所有面板密钥，并销毁密钥本身。在您重新添加密码或密钥之前，面板将失去对这些服务器的访问权限。",
+      "confirmWhen": "当面板或其数据库可能已被攻破时使用。",
+      "confirmWord": "REVOKE",
+      "resultsTitle": "紧急吊销结果",
+      "resultsHint": "密钥已销毁。出错的服务器上，密钥可能仍在 authorized_keys 中——请使用下方命令在不借助面板的情况下将其移除。",
+      "resultsDone": "密钥已销毁，并已从使用它的服务器上移除。如果该密钥还安装在其他地方（手动安装，或未将服务器切换为使用该密钥），请使用下方命令将其移除。",
+      "manualTitle": "不借助面板吊销",
+      "manualText": "如果面板不可用或已被攻破，请在每台服务器上以 SSH 用户身份执行此命令——它会从 authorized_keys 中移除所有 NodePilot 面板密钥（备份会保存在同一目录）。",
+      "manualOne": "在单台服务器上",
+      "manualAnsible": "通过 Ansible 在所有服务器上"
+    },
+    "toast": {
+      "created": "面板密钥已创建",
+      "createFailed": "无法创建面板密钥",
+      "addressesSaved": "地址已保存",
+      "saveFailed": "无法保存地址",
+      "rotateFailed": "无法轮换密钥",
+      "revokeFailed": "无法吊销密钥"
+    }
+  },
+  "results": {
+    "ok_other": "{{count}} 台成功",
+    "failed_other": "{{count}} 台失败",
+    "okShort": "OK",
+    "errorShort": "错误",
+    "details": "详情",
+    "empty": "没有服务器受到影响"
+  },
+  "masterKey": {
+    "title": "主密钥",
+    "intro": "主密钥用于加密面板数据库中存储的服务器密码、SSH 密钥及其他机密信息。",
+    "source": "来源",
+    "path": "路径",
+    "tpm": "TPM 2.0",
+    "systemdCreds": "systemd-creds",
+    "available": "可用",
+    "unavailable": "未找到",
+    "kind": {
+      "systemd-credential": "已密封",
+      "file": "单独文件",
+      "data-dir": "磁盘明文"
+    },
+    "kindLong": {
+      "systemd-credential": "systemd 凭据（LoadCredentialEncrypted，例如密封在 TPM 中）",
+      "file": "来自 NODEPILOT_MASTER_KEY_FILE 的文件",
+      "data-dir": "数据目录中的明文文件"
+    },
+    "sealedText": "启动时，systemd 会将密钥解密到仅面板进程可访问的内存中。没有这块 TPM，被盗的磁盘或虚拟机快照无法解密。",
+    "fileText": "密钥从单独的文件中读取。请勿将该文件纳入数据库备份，并确保只有面板运行用户可读取。",
+    "plaintextCopy": "<b>数据目录中仍有密钥的明文副本。</b>请确认备份已存放在服务器之外，然后删除该文件——否则密封起不到任何保护作用。",
+    "dataDirWarning": "密钥以普通文件形式存放在数据库旁。任何复制了数据目录的人（备份、磁盘快照）都能获取所有服务器的密码和密钥。",
+    "sealTitle": "将密钥密封到 TPM（使用 systemd 的 Linux）",
+    "steps": {
+      "requirements": "要求：Ubuntu 24.04+ 或 Debian 12+（systemd 250 或更高版本）以及 TPM 2.0 芯片——虚拟机需启用虚拟 TPM（vTPM）。",
+      "run": "在面板服务器上执行：",
+      "runHint": "/opt/nodepilot/packaging 为发行包或安装目录中 packaging 文件夹的路径",
+      "backup": "脚本会保存一份密钥副本、密封密钥、重启面板并删除明文文件。请将副本转移到服务器之外（密码管理器或离线存储）并从服务器上删除——没有它，一旦 TPM 或主板故障，机密信息将无法恢复。",
+      "check": "刷新此页面：来源应变为“systemd 凭据”。"
+    },
+    "noTpmHere": "本机未找到 TPM 和/或未安装 systemd-creds——在它们可用之前无法进行密封。",
+    "dockerTitle": "Docker",
+    "dockerText": "在容器中，请将密钥存放在数据卷之外：以 Docker secret 的形式传入，并将 <code>NODEPILOT_MASTER_KEY_FILE</code> 指向它。"
+  },
+  "audit": {
+    "page": {
+      "title": "审计日志",
+      "subtitle": "谁在面板中做了什么：登录、命令、变更、API 和 MCP 调用",
+      "forwarding": "转发"
+    },
+    "filters": {
+      "q": "操作或对象…",
+      "actor": "用户",
+      "severity": "级别",
+      "allSeverities": "全部级别",
+      "atLeast": {
+        "warning": "警告及严重",
+        "critical": "仅严重"
+      },
+      "reset": "重置筛选"
+    },
+    "columns": {
+      "time": "时间",
+      "severity": "级别",
+      "actor": "用户",
+      "ip": "IP",
+      "action": "操作",
+      "target": "对象",
+      "outcome": "结果"
+    },
+    "severity": {
+      "info": "信息",
+      "warning": "警告",
+      "critical": "严重"
+    },
+    "outcome": {
+      "ok": "OK",
+      "denied": "已拒绝",
+      "locked": "已锁定",
+      "error": "错误",
+      "exit": "退出码 {{code}}"
+    },
+    "viaToken": "通过 API 令牌“{{name}}”",
+    "shown_other": "{{n}} 条记录",
+    "loadMore": "加载更早记录",
+    "empty": "日志为空",
+    "emptyFiltered": "没有符合筛选条件的记录",
+    "details": {
+      "id": "记录",
+      "time": "时间",
+      "token": "API 令牌",
+      "none": "无详情"
+    },
+    "settings": {
+      "title": "审计日志转发",
+      "on": "已启用",
+      "off": "未启用",
+      "intro": "将每个事件复制到 syslog 服务器/SIEM 或 webhook。即使面板被攻破，外部的副本也能完好保留。",
+      "syslog": "Syslog",
+      "syslogHint": "udp://host:port 或 tcp://host:port；留空则关闭",
+      "webhook": "Webhook URL",
+      "webhookHint": "每个事件以 JSON 格式通过 POST 发送；留空则关闭",
+      "secret": "Webhook 密钥",
+      "secretHint": "请求使用 HMAC-SHA256 签名，签名位于 <code>{{header}}</code> 请求头中",
+      "secretSet": "已设置",
+      "secretSetPlaceholder": "••••••••（已设置；输入以替换）",
+      "clearSecret": "移除",
+      "minSeverity": "转发的最低级别",
+      "minSeverityHint": "面板自身的日志会保留全部事件",
+      "retention": "在面板中保留天数",
+      "retentionHint": "7 至 3650",
+      "test": "发送测试事件",
+      "saveAndTest": "保存并测试",
+      "testNothing": "请先设置 syslog 地址或 webhook",
+      "testOk": "测试事件已送达。",
+      "testFailed": "测试事件未送达：{{error}}",
+      "saved": "转发设置已保存",
+      "errors": {
+        "syslog": "格式：udp://host:514 或 tcp://host:514",
+        "webhook": "必须以 http:// 或 https:// 开头",
+        "retention": "7 至 3650 之间的整数"
+      }
+    }
+  }
+}

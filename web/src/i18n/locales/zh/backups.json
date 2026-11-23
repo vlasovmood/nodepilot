@@ -1,0 +1,246 @@
+{
+  "page": {
+    "title": "备份",
+    "subtitle": "按计划将服务器上的文件和数据库备份到本地目录或 S3。",
+    "decryptInfo": "加密归档（age）使用 <code>{{command}}</code> 解密：输入任务的加密口令；对于使用 age 密钥加密的任务，请添加 <code>-i key.txt</code>。面板从不显示已保存的口令，也无法自行解密使用 age 密钥加密的归档。",
+    "decryptCommand": "age -d -o <file> <archive>.age",
+    "tabs": {
+      "jobs": "任务",
+      "runs": "历史记录",
+      "storages": "存储"
+    },
+    "allRuns": "全部执行记录"
+  },
+  "runStatus": {
+    "running": "执行中",
+    "success": "成功",
+    "failed": "失败"
+  },
+  "jobs": {
+    "title": "任务",
+    "new": "新建任务",
+    "emptyTitle": "暂无任务",
+    "emptyHint": "创建备份任务：指定备份内容（文件或数据库）、存储位置和执行计划。",
+    "columns": {
+      "enabled": "启用",
+      "name": "名称",
+      "server": "服务器",
+      "source": "来源",
+      "storage": "存储",
+      "schedule": "执行计划",
+      "retention": "保留",
+      "lastRun": "上次执行",
+      "nextRun": "下次执行",
+      "encryption": "加密"
+    },
+    "enable": "启用",
+    "disable": "停用",
+    "retentionAll": "全部",
+    "never": "从未",
+    "runNow": "立即执行",
+    "run": "执行",
+    "edit": "编辑",
+    "toast": {
+      "started": "备份已开始",
+      "startFailed": "无法启动备份",
+      "deleted": "任务已删除",
+      "deleteFailed": "无法删除任务",
+      "saved": "任务已保存",
+      "created": "任务已创建"
+    },
+    "confirmDelete": {
+      "title": "删除任务？",
+      "message": "将删除任务“{{name}}”。已生成的归档仍会保留在存储和历史记录中。"
+    },
+    "encryption": {
+      "none": "无",
+      "passphrase": "口令",
+      "recipients": "age 密钥",
+      "noneTitle": "归档以未加密形式存储",
+      "passphraseTitle": "使用存储在面板中的口令加密",
+      "recipientsTitle_other": "使用 {{count}} 个公钥加密——面板无法解密"
+    }
+  },
+  "runs": {
+    "title": "执行历史",
+    "empty": "暂无执行记录",
+    "columns": {
+      "job": "任务",
+      "started": "开始时间",
+      "duration": "耗时",
+      "size": "大小",
+      "file": "文件"
+    },
+    "deletedJob": "已删除",
+    "downloadEncrypted": "下载（已用 age 加密，可通过 age -d 解密）",
+    "showMore": "显示更多（{{n}}）",
+    "confirmDelete": {
+      "title": "删除归档？",
+      "message": "该记录及归档“{{file}}”将从存储中永久删除。",
+      "messageNoFile": "该记录及归档将从存储中永久删除。"
+    },
+    "toast": {
+      "deleted": "归档已删除",
+      "deleteFailed": "无法删除归档"
+    }
+  },
+  "storages": {
+    "intro": "归档的存放位置：面板主机上的目录或兼容 S3 的存储。",
+    "add": "添加存储",
+    "emptyTitle": "暂无存储",
+    "emptyHint": "添加本地目录或 S3 Bucket 后即可创建备份任务。",
+    "columns": {
+      "location": "位置"
+    },
+    "kind": {
+      "s3": "S3",
+      "local": "本地",
+      "localShort": "本地"
+    },
+    "test": "测试",
+    "edit": "编辑",
+    "toast": {
+      "available": "存储可用",
+      "unavailable": "存储“{{name}}”不可用",
+      "testFailed": "检测失败",
+      "deleted": "存储已删除",
+      "deleteFailed": "无法删除存储",
+      "saved": "存储已保存",
+      "created": "存储已创建"
+    },
+    "confirmDelete": {
+      "title": "删除存储？",
+      "message": "将从面板中移除存储“{{name}}”，已上传到该存储的归档不会被删除。如果有任务正在使用此存储，删除将被拒绝。"
+    },
+    "dialog": {
+      "title": "存储：{{name}}",
+      "newTitle": "新建存储"
+    },
+    "form": {
+      "kindLocal": "本地目录",
+      "kindS3": "兼容 S3",
+      "path": "面板主机上的目录",
+      "endpoint": "Endpoint",
+      "endpointHint": "使用 AWS S3 时留空；使用 MinIO、Wasabi 等时填写服务地址",
+      "region": "地域",
+      "bucket": "Bucket",
+      "prefix": "前缀",
+      "accessKey": "Access Key ID",
+      "secretKey": "Secret Access Key",
+      "keepEmpty": "留空则保持当前值",
+      "secretHidden": "保存后不再显示",
+      "pathStyle": "Path-style 寻址（MinIO 通常需要）"
+    },
+    "errors": {
+      "name": "请输入名称",
+      "path": "请填写面板主机上的绝对路径",
+      "bucket": "请输入 Bucket",
+      "region": "请输入地域",
+      "accessKey": "请输入 Access Key ID",
+      "secretKey": "请输入 Secret Access Key"
+    }
+  },
+  "job": {
+    "title": "任务：{{name}}",
+    "newTitle": "新建备份任务",
+    "fields": {
+      "namePlaceholder": "每日备份 /etc",
+      "storage": "存储",
+      "select": "— 请选择 —",
+      "noStoragesHint": "请先在“备份”页面创建存储",
+      "retention": "保留归档数",
+      "retentionHint": "保留最近 N 个成功的归档；0 表示全部保留",
+      "source": "来源",
+      "paths": "路径（每行一个）",
+      "excludes": "排除项（glob，每行一个）",
+      "database": "数据库",
+      "container": "Docker 容器",
+      "containerHint": "如果数据库运行在容器中，将通过 docker exec 导出",
+      "optional": "可选",
+      "user": "用户",
+      "password": "密码",
+      "passwordSaved": "密码已保存，留空则保持不变。",
+      "passwordServerOnly": "仅存储在面板服务器上",
+      "host": "主机",
+      "port": "端口",
+      "schedule": "执行计划",
+      "scheduleHint": "Cron（6 个字段，含秒，面板时间为 UTC）：{{expr}}",
+      "manualHint": "仅可通过“执行”按钮手动运行",
+      "encrypt": "加密归档（age，口令）",
+      "passphrase": "加密口令",
+      "newPassphrase": "新的加密口令",
+      "keepEmpty": "留空则保持当前值",
+      "passphrase2": "确认口令",
+      "enabled": "启用任务（按计划执行）",
+      "encryption": "加密",
+      "recipients": "age 公钥（每行一个）",
+      "recipientsHint": "归档将为列出的每个公钥加密；任一对应的私钥均可解密。"
+    },
+    "sourceType": {
+      "files": "文件",
+      "postgres": "PostgreSQL",
+      "mysql": "MySQL / MariaDB"
+    },
+    "scheduleMode": {
+      "preset": "预设",
+      "custom": "自定义 cron",
+      "manual": "手动"
+    },
+    "passphraseWarning": "<b>请妥善保管加密口令。</b>使用 <code>{{command}}</code> 解密归档时需要它。面板不会显示已保存的口令，也无法通过界面找回——丢失口令后归档将无法使用。",
+    "errors": {
+      "name": "请输入名称",
+      "server": "请选择服务器",
+      "storage": "请选择存储",
+      "paths": "请至少输入一个路径",
+      "database": "请输入数据库名称",
+      "port": "1–65535",
+      "retention": "须为 ≥ 0 的整数",
+      "passphrase": "至少 8 个字符",
+      "passphrase2": "两次输入的口令不一致",
+      "recipientsEmpty": "请至少添加一个公钥，或生成密钥对",
+      "recipientsInvalid": "每行必须是以 age1 开头的 age 公钥"
+    },
+    "encryption": {
+      "none": "不加密",
+      "noneHint": "归档按原样存储——任何能访问存储的人都可以读取",
+      "passphrase": "口令（存储在面板中）",
+      "passphraseHint": "简单，但攻破面板的人也会同时拿到口令",
+      "recipients": "age 公钥（推荐：面板无法解密）",
+      "recipientsHint": "面板仅持有公钥；只有私钥持有者才能解密归档",
+      "noneWarning": "数据库转储和配置文件中常含有密码——建议对归档进行加密。"
+    },
+    "keygen": {
+      "button": "生成密钥对",
+      "buttonHint": "或粘贴现有 age 密钥的公钥",
+      "title": "新建 age 密钥对",
+      "warning": "私钥仅在此时显示，不会存储在任何地方——既不在面板中，也不在服务器上。没有私钥将无法解密归档。请下载密钥文件，并妥善保存在面板之外的安全位置。",
+      "privateKey": "私钥",
+      "download": "下载 {{file}}",
+      "downloaded": "密钥文件已下载",
+      "publicKey": "公钥",
+      "publicHint": "填入任务中；公钥只能用于加密。",
+      "savedCheck": "我已保存私钥",
+      "add": "将公钥添加到任务"
+    },
+    "decryptTitle": "如何解密归档",
+    "decryptHint": "大多数包管理器都提供 age"
+  },
+  "cron": {
+    "manual": "手动",
+    "presets": {
+      "hourly": "每小时",
+      "every6h": "每 6 小时",
+      "every12h": "每 12 小时",
+      "daily0000": "每天 00:00",
+      "daily0300": "每天 03:00",
+      "daily0500": "每天 05:00",
+      "sunday0400": "每周日 04:00",
+      "monday0300": "每周一 03:00",
+      "monthly0300": "每月 1 日 03:00"
+    },
+    "errors": {
+      "fields": "应为 6 个字段：秒 分 时 日 月 星期（例如 0 0 3 * * *）",
+      "chars": "表达式中包含无效字符"
+    }
+  }
+}

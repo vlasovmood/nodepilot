@@ -1,0 +1,68 @@
+{
+  "sidebar": {
+    "expand": "Menü ausklappen",
+    "collapse": "Menü einklappen",
+    "sections": {
+      "main": "Navigation",
+      "projects": "Projekte",
+      "more": "Mehr"
+    },
+    "newProject": "Neues Projekt",
+    "createProject": "Projekt erstellen",
+    "projectsLoadError": "Projekte konnten nicht geladen werden",
+    "darkMode": "Dunkler Modus",
+    "nav": {
+      "customize": "Navigation anpassen",
+      "done": "Fertig",
+      "add": "Hinzufügen",
+      "reset": "Zurücksetzen",
+      "resetHint": "Standardeinträge und Reihenfolge wiederherstellen",
+      "showAll": "Alle anzeigen",
+      "showLess": "Weniger anzeigen",
+      "hide": "Ausblenden",
+      "show": "Einblenden",
+      "remove": "Entfernen",
+      "missing": "Gelöscht",
+      "untitled": "Ohne Titel",
+      "reorderHint": "Zum Sortieren ziehen oder Alt+↑/↓",
+      "picker": {
+        "title": "Zur Navigation hinzufügen",
+        "servers": "Server",
+        "graphs": "Graphen",
+        "notes": "Notizen",
+        "search": "Suchen…",
+        "empty": "Nichts gefunden",
+        "nodes_one": "{{count}} Knoten",
+        "nodes_other": "{{count}} Knoten"
+      }
+    }
+  },
+  "nav": {
+    "servers": "Server",
+    "graph": "Graphen",
+    "terminal": "Terminal",
+    "identities": "Schlüssel",
+    "backups": "Backups",
+    "notes": "Notizen",
+    "api": "API",
+    "settings": "Einstellungen",
+    "security": "Sicherheit",
+    "audit": "Audit-Log"
+  },
+  "user": {
+    "role": "Administrator",
+    "settings": "Einstellungen",
+    "language": "Sprache",
+    "lightTheme": "Helles Design",
+    "darkTheme": "Dunkles Design",
+    "logout": "Abmelden"
+  },
+  "search": {
+    "placeholder": "Suchen…",
+    "hint": "Enter zum Öffnen, ↑↓ zum Auswählen"
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "toServers": "Zurück zu den Servern"
+  }
+}

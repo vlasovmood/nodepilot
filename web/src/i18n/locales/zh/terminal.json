@@ -1,0 +1,24 @@
+{
+  "status": {
+    "connecting": "连接中…"
+  },
+  "reconnect": "重新连接",
+  "reason": {
+    "exited": "会话已结束（退出码 {{code}}）",
+    "aborted": "连接已断开",
+    "closed": "连接已关闭（代码 {{code}}）"
+  },
+  "output": {
+    "exited": "会话已结束，退出码 {{code}}",
+    "error": "错误：{{message}}"
+  },
+  "tabs": {
+    "new": "新建会话",
+    "none": "没有已打开的会话",
+    "open": "打开终端"
+  },
+  "confirmClose": {
+    "title": "关闭会话？",
+    "message": "当前 SSH 会话将被终止。"
+  }
+}

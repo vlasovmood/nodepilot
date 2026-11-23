@@ -1,0 +1,200 @@
+{
+  "page": {
+    "title": "Server",
+    "count_one": "{{count}} Server",
+    "count_other": "{{count}} Server"
+  },
+  "loading": "Server werden geladen…",
+  "toolbar": {
+    "filterPlaceholder": "Filter: Name, Adresse, Tag…",
+    "tagTitle": "Nach Tag filtern",
+    "allTags": "Alle Tags",
+    "statusTitle": "Nach Status filtern",
+    "anyStatus": "Beliebiger Status",
+    "online": "Online ({{n}})",
+    "offline": "Nicht erreichbar ({{n}})",
+    "unknown": "Unbekannt ({{n}})",
+    "favorites": "★ Favoriten ({{n}})",
+    "view": "Ansicht",
+    "list": "Liste",
+    "grid": "Raster",
+    "import": "Importieren",
+    "addServer": "Server hinzufügen"
+  },
+  "selection": {
+    "count": "Ausgewählt: {{n}}",
+    "exec": "Befehl ausführen",
+    "toProject": "Zu Projekt hinzufügen",
+    "removeFromProject": "Aus Projekt entfernen",
+    "clear": "Auswahl aufheben"
+  },
+  "empty": {
+    "title": "Noch keine Server",
+    "projectTitle": "Dieses Projekt enthält noch keine Server",
+    "hint": "Fügen Sie Ihren ersten Server manuell hinzu oder importieren Sie eine Liste aus CSV/JSON.",
+    "projectHint": "Fügen Sie einen neuen Server hinzu oder wählen Sie vorhandene unter „Alle Server“ aus und klicken Sie auf „Zu Projekt hinzufügen“."
+  },
+  "footer": {
+    "shown": "{{shown}} von {{total}} angezeigt",
+    "noMatch": "Keine Server entsprechen dem Filter",
+    "selectHint": "Ctrl/Shift+Klick zum Auswählen",
+    "statsUnavailable": "Statistik nicht verfügbar",
+    "metrics": "Metriken: {{time}}"
+  },
+  "confirm": {
+    "deleteOneTitle": "Server löschen?",
+    "deleteManyTitle_one": "{{count}} Server löschen?",
+    "deleteManyTitle_other": "{{count}} Server löschen?",
+    "deleteOneMessage": "Der Server <b>{{name}}</b> wird zusammen mit seinen Notizen und Backup-Jobs aus dem Panel entfernt. Die Maschine selbst bleibt unberührt.",
+    "deleteManyMessage": "Gelöscht werden: {{names}}. Die Maschinen selbst bleiben unberührt.",
+    "deleteManyMessageMore": "Gelöscht werden: {{names}} und {{more}} weitere. Die Maschinen selbst bleiben unberührt.",
+    "deleteRequireText": "löschen",
+    "removeTitle": "Aus Projekt entfernen?",
+    "removeMessage_one": "{{count}} Server wird aus dem Projekt „{{project}}“ entfernt. Er bleibt im Panel erhalten.",
+    "removeMessage_other": "{{count}} Server werden aus dem Projekt „{{project}}“ entfernt. Sie bleiben im Panel erhalten.",
+    "removeConfirm": "Entfernen"
+  },
+  "toast": {
+    "deletePartial": "Gelöscht: {{ok}}, fehlgeschlagen: {{failed}}",
+    "deletedOne": "Server gelöscht",
+    "deletedMany_one": "{{count}} Server gelöscht",
+    "deletedMany_other": "{{count}} Server gelöscht",
+    "errors": "Fehlgeschlagen: {{failed}}",
+    "removedFromProject": "Server aus dem Projekt entfernt"
+  },
+  "table": {
+    "selectAll": "Alle auswählen",
+    "name": "Name",
+    "address": "Adresse",
+    "tags": "Tags",
+    "projects": "Projekte",
+    "disk": "Datenträger",
+    "uptime": "Betriebszeit",
+    "cores_one": "{{count}} Kern",
+    "cores_other": "{{count}} Kerne"
+  },
+  "menu": {
+    "terminal": "Terminal",
+    "edit": "Bearbeiten"
+  },
+  "grid": {
+    "noData": "{{label}}: keine Daten",
+    "select": "Auswählen",
+    "addFavorite": "Zu Favoriten hinzufügen",
+    "removeFavorite": "Aus Favoriten entfernen",
+    "offlineMark": "OFFLINE",
+    "prev": "Zurück",
+    "next": "Weiter"
+  },
+  "bulkExec": {
+    "title_one": "Befehl ausführen – {{count}} Server",
+    "title_other": "Befehl ausführen – {{count}} Server",
+    "result": "Ergebnis: <code>{{cmd}}</code>"
+  },
+  "addToProject": {
+    "title": "Zu Projekt hinzufügen",
+    "label_one": "Projekt für {{count}} Server",
+    "label_other": "Projekt für {{count}} Server",
+    "placeholder": "— Projekt auswählen —",
+    "noProjects": "Legen Sie zuerst in der Seitenleiste ein Projekt an",
+    "partial": "Hinzugefügt: {{ok}}, fehlgeschlagen: {{failed}}",
+    "success": "Server zum Projekt hinzugefügt",
+    "successDetail_one": "{{project}}: {{count}} Server",
+    "successDetail_other": "{{project}}: {{count}} Server"
+  },
+  "select": "— auswählen —",
+  "identityKind": {
+    "key": "Schlüssel",
+    "password": "Passwort"
+  },
+  "test": {
+    "ok": "<b>Verbunden</b> – Latenz {{latency}}",
+    "fail": "Verbindung fehlgeschlagen"
+  },
+  "form": {
+    "editTitle": "Server: {{name}}",
+    "newTitle": "Neuer Server",
+    "name": "Name",
+    "username": "Benutzer",
+    "host": "Host / IP",
+    "port": "Port",
+    "auth": "Authentifizierung",
+    "authMode": {
+      "keep": "Aktuelle beibehalten",
+      "password": "Passwort",
+      "key": "Privater Schlüssel",
+      "identity": "Aus dem Schlüsselbund"
+    },
+    "currentAuth": "Aktuelle Methode: {{method}}. Geheimnisse werden nie angezeigt.",
+    "currentMethod": {
+      "password": "Passwort",
+      "key": "privater Schlüssel",
+      "identity": "Schlüsselbund ({{name}})"
+    },
+    "passwordPlaceholder": "SSH-Passwort",
+    "uploadKey": "Aus Datei laden",
+    "passphrasePlaceholder": "Passphrase des Schlüssels (falls vorhanden)",
+    "keychainEmpty": "Der Schlüsselbund ist leer. <link>Schlüssel hinzufügen</link>",
+    "tagsHint": "Mit Enter oder Komma hinzufügen",
+    "projects": "Projekte",
+    "noProjects": "Noch keine Projekte",
+    "testTitle": "Gespeicherte Einstellungen testen",
+    "test": "Verbindung testen",
+    "saveAndTest": "Speichern und testen",
+    "errors": {
+      "name": "Name ist erforderlich",
+      "host": "Host ist erforderlich",
+      "username": "Benutzer ist erforderlich",
+      "password": "Geben Sie ein Passwort ein",
+      "key": "Fügen Sie einen privaten Schlüssel ein oder laden Sie ihn hoch",
+      "identity": "Wählen Sie einen Schlüssel aus dem Schlüsselbund",
+      "noAuth": "Keine Authentifizierungsmethode ausgewählt"
+    },
+    "toast": {
+      "saved": "Server gespeichert",
+      "added": "Server hinzugefügt",
+      "keyTooLarge": "Die Datei ist zu groß für einen privaten Schlüssel"
+    }
+  },
+  "import": {
+    "title": "Server-Massenimport",
+    "exampleHeader": "# name,host,port,username[,Tags durch ; getrennt]",
+    "formatHelp": "JSON-Array aus ServerInput oder CSV: name,host,port,username[,Tags durch ; getrennt]",
+    "example": "Beispiel",
+    "file": "Datei",
+    "identity": "Schlüssel aus dem Schlüsselbund",
+    "identityHintJson": "Wird für Einträge ohne auth-Feld verwendet",
+    "identityHintCsv": "Wird für alle Server aus der CSV verwendet",
+    "keychainEmpty": "Der Schlüsselbund ist leer – <link>Schlüssel anlegen</link>",
+    "defaultUser": "Standardbenutzer",
+    "defaultUserHint": "Wird verwendet, wenn eine Zeile keinen Benutzernamen enthält",
+    "extraTags": "Tags zu allen hinzufügen",
+    "addToProjects": "Zu Projekten hinzufügen",
+    "noProjects": "Keine Projekte",
+    "skipped": "Übersprungene Einträge: {{n}}",
+    "col": {
+      "name": "Name",
+      "address": "Adresse",
+      "user": "Benutzer",
+      "tags": "Tags"
+    },
+    "authKeychain": "Schlüsselbund",
+    "more": "…und {{n}} weitere",
+    "ready_one": "Bereit zum Import: {{count}} Server",
+    "ready_other": "Bereit zum Import: {{count}} Server",
+    "pasteData": "Fügen Sie die zu importierenden Daten ein",
+    "needIdentity": "— Schlüssel aus dem Schlüsselbund auswählen",
+    "submit": "Importieren",
+    "successTitle": "Import abgeschlossen",
+    "successDetail_one": "{{count}} Server hinzugefügt",
+    "successDetail_other": "{{count}} Server hinzugefügt",
+    "errors": {
+      "notObject": "#{{n}}: Objekt erwartet",
+      "noHostJson": "#{{n}}: host fehlt",
+      "badPortJson": "#{{n}}: ungültiger Port",
+      "json": "Ungültiges JSON: {{message}}",
+      "noHostLine": "Zeile {{n}}: Host fehlt",
+      "badPortLine": "Zeile {{n}}: ungültiger Port „{{port}}“"
+    }
+  }
+}

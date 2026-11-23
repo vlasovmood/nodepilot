@@ -1,0 +1,154 @@
+{
+  "notFound": "サーバーが見つかりません",
+  "updated": "更新: {{time}}",
+  "tabs": {
+    "overview": "概要",
+    "terminal": "ターミナル",
+    "files": "ファイル",
+    "processes": "プロセス",
+    "services": "サービス",
+    "notes": "メモ",
+    "backups": "バックアップ"
+  },
+  "header": {
+    "back": "サーバー一覧に戻る",
+    "test": "テスト"
+  },
+  "toast": {
+    "connected": "接続しました",
+    "latency": "レイテンシー {{latency}}",
+    "connectFailed": "接続に失敗しました",
+    "testFailed": "接続テストに失敗しました",
+    "deleted": "サーバーを削除しました",
+    "deleteFailed": "サーバーを削除できませんでした"
+  },
+  "confirm": {
+    "deleteTitle": "サーバーを削除しますか？",
+    "deleteMessage": "サーバー <b>{{name}}</b> を、そのメモとバックアップジョブとともにパネルから削除します。マシン自体には影響しません。"
+  },
+  "overview": {
+    "loading": "メトリクスを取得中…",
+    "unavailable": "メトリクスを利用できません",
+    "lastError": "前回のメトリクス収集に失敗しました",
+    "memory": "メモリ",
+    "network": "ネットワーク",
+    "uptime": "稼働時間",
+    "cores_other": "{{count}} コア",
+    "usedOf": "{{used}} / {{total}}",
+    "swapNone": "なし",
+    "loadSub": "5 分: {{l5}} · 15 分: {{l15}}",
+    "notCollected": "メトリクスはまだ収集されていません",
+    "system": "システム",
+    "hostname": "ホスト名",
+    "os": "OS",
+    "kernel": "カーネル",
+    "cpuCores": "CPU コア数",
+    "collectedAt": "収集日時",
+    "disks": "ディスク",
+    "noData": "データなし",
+    "disk": {
+      "mount": "マウント",
+      "fs": "FS",
+      "used": "使用量",
+      "usage": "使用率"
+    }
+  },
+  "history": {
+    "title": "履歴",
+    "hours": "{{n}}時間",
+    "days": "{{n}}日",
+    "notEnough": "データが不足しています",
+    "notEnoughHint": "メトリクス収集が数回行われると履歴が表示されます。",
+    "charts": {
+      "cpu": "CPU, %",
+      "memory": "メモリ, %",
+      "network": "ネットワーク",
+      "load": "Load average（1 分）",
+      "disk": "ディスク, %"
+    },
+    "series": {
+      "disk": "ディスク"
+    }
+  },
+  "hostKey": {
+    "title": "ホストキー（SSH）",
+    "pinnedHint": "初回接続時に固定されました（TOFU）。サーバーのキーが変更された場合（OS の再インストール後など）はリセットしてください。",
+    "notPinned": "キーはまだ固定されていません。最初の接続に成功した時点で保存されます。",
+    "forget": "ホストキーを破棄",
+    "confirmTitle": "ホストキーを破棄しますか？",
+    "confirmMessage": "次回の接続時、パネルは新しいキーを検証せずに信頼します。キーが正当な理由で変更されたと確信できる場合にのみ実行してください。そうでない場合、中間者攻撃を受けるおそれがあります。",
+    "confirmText": "キーを破棄",
+    "resetDone": "ホストキーをリセットしました",
+    "resetDetail": "新しいキーは次回の接続時に固定されます",
+    "resetFailed": "ホストキーをリセットできませんでした"
+  },
+  "power": {
+    "title": "電源",
+    "hint": "コマンドは SSH 経由で {{user}} として実行されます（root またはパスワードなしの sudo が必要です）。",
+    "reboot": "再起動",
+    "shutdown": "シャットダウン",
+    "rebootTitle": "サーバーを再起動しますか？",
+    "shutdownTitle": "サーバーをシャットダウンしますか？",
+    "rebootMessage": "サーバー {{name}} ({{host}}) を再起動します。すべてのセッションとプロセスは中断されます。",
+    "shutdownMessage": "サーバー {{name}} ({{host}}) をシャットダウンします。パネルから電源を再投入することはできません。",
+    "rebootSent": "再起動コマンドを送信しました",
+    "shutdownSent": "シャットダウンコマンドを送信しました",
+    "failed": "コマンドの実行に失敗しました"
+  },
+  "processes": {
+    "filterPlaceholder": "フィルター: コマンド、ユーザー、PID",
+    "autoRefresh": "自動更新（5 秒）",
+    "loading": "プロセスを取得中…",
+    "user": "ユーザー",
+    "command": "コマンド",
+    "signal": "シグナル",
+    "empty": "プロセスがありません",
+    "signals": {
+      "TERM": {
+        "label": "終了 (TERM)",
+        "hint": "正常終了"
+      },
+      "KILL": {
+        "label": "強制終了 (KILL)",
+        "hint": "クリーンアップなしで強制終了"
+      },
+      "HUP": {
+        "label": "リロード (HUP)",
+        "hint": "設定を再読み込み"
+      }
+    },
+    "confirmTitle": "SIG{{sig}} を送信しますか？",
+    "confirmMessage": "プロセス <b>{{pid}}</b> ({{user}}):",
+    "sent": "SIG{{sig}} を送信しました",
+    "sendFailed": "シグナルを送信できませんでした"
+  },
+  "services": {
+    "filterPlaceholder": "名前または説明で絞り込み",
+    "filter": {
+      "all": "すべて",
+      "active": "アクティブ ({{n}})",
+      "failed": "失敗 ({{n}})",
+      "inactive": "非アクティブ"
+    },
+    "loading": "サービスを取得中…",
+    "service": "サービス",
+    "logs": "ログ",
+    "empty": "フィルターに一致するサービスはありません",
+    "actions": {
+      "start": "開始",
+      "stop": "停止",
+      "restart": "再起動",
+      "reload": "設定を再読み込み",
+      "enable": "自動起動を有効化",
+      "disable": "自動起動を無効化"
+    },
+    "confirmTitle": "{{action}}: {{name}}？",
+    "stopMessage": "サービスを停止します。このサービスに依存するアプリケーションが中断される可能性があります。",
+    "done": "{{action}}: {{name}}",
+    "doneDetail": "完了しました",
+    "exitCode": "systemctl {{action}} {{name}}: 終了コード {{code}}",
+    "failed": "{{action}} を実行できませんでした",
+    "lines_other": "{{count}} 行",
+    "logsEmpty": "ログは空です"
+  }
+}

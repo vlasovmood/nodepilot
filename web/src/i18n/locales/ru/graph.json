@@ -1,0 +1,126 @@
+{
+  "list": {
+    "title": "Граф",
+    "subtitle": "Схемы инфраструктуры: как связаны серверы и сервисы — API, базы, VPN-каскады.",
+    "newGraph": "Новый граф",
+    "createGraph": "Создать граф",
+    "countInProject_one": "{{count}} граф в проекте",
+    "countInProject_few": "{{count}} графа в проекте",
+    "countInProject_many": "{{count}} графов в проекте",
+    "countInProject_other": "{{count}} графа в проекте",
+    "emptyTitle": "Графов пока нет",
+    "emptyProjectTitle": "В проекте пока нет графов",
+    "emptyText": "Нарисуйте схему: ноды API, БД, VPN, привязанные к серверам панели, связи между ними и заметки.",
+    "nodes_one": "{{count}} нода",
+    "nodes_few": "{{count}} ноды",
+    "nodes_many": "{{count}} нод",
+    "nodes_other": "{{count}} ноды",
+    "edges_one": "{{count}} связь",
+    "edges_few": "{{count}} связи",
+    "edges_many": "{{count}} связей",
+    "edges_other": "{{count}} связи",
+    "namePlaceholder": "Например: Продакшн — API и базы"
+  },
+  "confirm": {
+    "deleteTitle": "Удалить граф?",
+    "deleteMessage": "Граф <b>{{name}}</b> со всеми нодами, связями и заметками будет удалён. Серверы не затрагиваются."
+  },
+  "toast": {
+    "deleted": "Граф удалён",
+    "deleteFailed": "Не удалось удалить граф",
+    "saveFailed": "Граф не сохранён"
+  },
+  "page": {
+    "notFound": "Граф не найден",
+    "backToList": "Ко всем графам",
+    "defaultSubtitle": "Схема инфраструктуры"
+  },
+  "save": {
+    "saved": "Сохранено",
+    "saving": "Сохранение…",
+    "error": "Не сохранено, повторяю…",
+    "conflict": "Граф изменён в другом окне",
+    "reload": "Загрузить актуальный"
+  },
+  "editor": {
+    "node": "Нода",
+    "nodeTitle": "Нода: API, БД, VPN…",
+    "servers": "Серверы",
+    "serversTitle": "Добавить серверы панели",
+    "note": "Заметка",
+    "noteTitle": "Заметка на холсте",
+    "emptyHint": "Добавьте ноды или серверы и соедините их, потянув за точку на краю ноды.",
+    "newNodeLabel": "Новая нода",
+    "serverLabel": "Сервер"
+  },
+  "element": {
+    "serverDeleted": "сервер удалён",
+    "notePlaceholder": "Текст заметки…",
+    "noteEmpty": "Двойной клик — написать заметку"
+  },
+  "inspector": {
+    "graph": "Граф",
+    "counts": "Нод: {{nodes}} · связей: {{edges}}",
+    "helpTitle": "Как работать",
+    "help": {
+      "connect": "Связь: потяните от точки на краю ноды к другой ноде.",
+      "select": "Клик по ноде или связи — свойства и заметка справа.",
+      "note": "Заметка на холсте: двойной клик — редактировать.",
+      "openServer": "Двойной клик по ноде сервера — открыть сервер.",
+      "delete": "Delete / Backspace — удалить выделенное.",
+      "shortcuts": "Shift+клик — выбрать несколько нод. Ctrl+C / Ctrl+V копирует их (и в другой граф), Ctrl+X вырезает, Ctrl+A выделяет всё."
+    },
+    "defaultColor": "По умолчанию",
+    "note": "Заметка",
+    "noteText": "Текст",
+    "notePlaceholder": "Например: «VPN-каскад: RU → NL → DE, ключи у Ивана»",
+    "deleteNote": "Удалить заметку",
+    "node": "Нода",
+    "role": "Роль",
+    "server": "Сервер панели",
+    "serverHint": "Привязка показывает статус и нагрузку прямо на графе",
+    "notBound": "Не привязана",
+    "deletedServer": "(удалённый сервер)",
+    "openServer": "Открыть {{name}}",
+    "nodeNotePlaceholder": "Что важно знать об этой ноде: порты, доступы, нюансы…",
+    "deleteNode": "Удалить ноду",
+    "edge": "Связь",
+    "edgeLabel": "Подпись",
+    "edgeLabelHint": "Например: 5432/tcp, HTTPS, WireGuard",
+    "directed": "Направленная (стрелка)",
+    "reverse": "Развернуть направление",
+    "edgeNotePlaceholder": "Почему они связаны: каскад VPN, репликация, общий ключ…",
+    "deleteEdge": "Удалить связь"
+  },
+  "roles": {
+    "server": "Сервер",
+    "api": "API / бэкенд",
+    "web": "Веб / фронтенд",
+    "db": "База данных",
+    "cache": "Кэш",
+    "queue": "Очередь",
+    "storage": "Хранилище",
+    "lb": "Балансировщик / прокси",
+    "vpn": "VPN",
+    "internet": "Интернет / внешний сервис",
+    "other": "Другое"
+  },
+  "edgeKinds": {
+    "link": "Связь",
+    "depends": "Зависимость",
+    "cascade": "Каскад",
+    "vpn": "VPN-туннель",
+    "replication": "Репликация",
+    "other": "Другое"
+  },
+  "picker": {
+    "title": "Добавить серверы на граф",
+    "searchPlaceholder": "Имя, адрес, тег…",
+    "allProjects": "Все проекты",
+    "selectAll": "Выбрать все ({{n}})",
+    "clearSelection": "Снять выбор",
+    "nothingFound": "Ничего не найдено",
+    "alreadyOnGraph": "уже на графе",
+    "addCount": "Добавить {{n}}"
+  }
+}

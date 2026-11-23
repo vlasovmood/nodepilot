@@ -1,0 +1,327 @@
+{
+  "page": {
+    "title": "セキュリティ",
+    "subtitle": "二要素ログイン、パネルの SSH キー、マスターキーの保護、監査ログ",
+    "openAudit": "監査ログ"
+  },
+  "overview": {
+    "title": "セキュリティチェックリスト",
+    "score_other": "{{count}} 項目中 {{ok}} 項目に合格",
+    "warnings_other": "{{count}} 項目に対応が必要です",
+    "allGood": "重要な対策はすべて完了しています",
+    "howTo": "対処方法",
+    "details": "詳細",
+    "master": {
+      "title": "マスターキー",
+      "sealed": "systemd-creds（TPM）で封印されています。ディスクや VM スナップショットが盗まれても、保存されたパスワードや鍵は復号できません。",
+      "file": "別ファイル（NODEPILOT_MASTER_KEY_FILE）から読み込まれ、データベースの隣には保存されていません。",
+      "dataDir": "データベースの隣に平文ファイルとして保存されています。データディレクトリをコピーした者は、すべてのサーバーのパスワードと鍵を復号できます。"
+    },
+    "plaintext": {
+      "title": "マスターキーの平文コピー",
+      "text": "マスターキーの平文コピーがデータディレクトリに残っています。別の場所にバックアップがあることを確認してから削除してください。"
+    },
+    "twoFactor": {
+      "title": "二要素認証",
+      "off": "アカウントはパスワードのみで保護されています。認証アプリのワンタイムコードを有効にしてください。",
+      "on_other": "有効です。リカバリーコードの残り: {{count}} 個。",
+      "fewCodes_other": "有効ですが、リカバリーコードが残り {{count}} 個しかありません。新しいコードを生成してください。",
+      "enable": "有効化",
+      "newCodes": "新しいコード"
+    },
+    "panelKey": {
+      "title": "パネルの SSH キー",
+      "none": "未設定です。サーバーには追加済みのパスワードとキーで接続しています。パネルのアドレスからのみ使用できるパネルキーの方が安全で、ワンクリックでローテーションできます。",
+      "unrestricted": "キーは任意のアドレスから受け付けられます。パネルの IP アドレスに制限すれば、盗まれたキーを他の場所で使用できなくなります。",
+      "partial_other": "{{count}} 台中 {{using}} 台のサーバーがパネルキーを使用しています。",
+      "all_other": "アドレスで制限済み。全 {{count}} 台のサーバーで使用中です。",
+      "create": "設定",
+      "restrict": "制限",
+      "install": "サーバーにインストール"
+    },
+    "backups": {
+      "title": "バックアップの暗号化",
+      "none": "バックアップジョブはまだありません。",
+      "unencrypted_other": "{{count}} 件のバックアップジョブがアーカイブを暗号化せずに保存しています。",
+      "passphrase_other": "{{count}} 件のジョブがパネルに保存されたパスフレーズで暗号化されています。パネルを侵害した者はアーカイブを復号できます。age 公開鍵の方が安全です。",
+      "allKeys_other": "全 {{count}} 件のジョブが公開鍵で暗号化されています。パネル自体はアーカイブを復号できません。",
+      "open": "バックアップ"
+    },
+    "tokens": {
+      "title": "API トークン",
+      "fullAccess_other": "{{count}} 個のトークンにフルアクセス権があります。",
+      "noExpiry_other": "{{count}} 個のトークンに有効期限がありません。",
+      "advice": "トークンには必要なセクションのみの権限と有効期限を設定してください。",
+      "none": "API トークンはありません。",
+      "ok_other": "{{count}} 個のトークンがあり、すべて権限が限定され、有効期限が設定されています。",
+      "open": "トークン"
+    },
+    "audit": {
+      "title": "監査ログの転送",
+      "on": "イベントは syslog または webhook にコピーされます。侵入者がパネルのログを消去しても痕跡を隠すことはできません。",
+      "off": "監査ログはパネル内にのみ保存されています。侵害されても残るよう、syslog/SIEM または webhook に転送してください。",
+      "configure": "設定"
+    },
+    "https": {
+      "title": "HTTPS",
+      "on": "セッション Cookie は HTTPS 経由でのみ送信されます。",
+      "off": "Secure Cookie が無効です。パネルは平文の HTTP で開かれている可能性があります。HTTPS リバースプロキシの背後に配置し、--secure-cookies を指定して起動してください。"
+    }
+  },
+  "twoFactor": {
+    "title": "二要素認証",
+    "on": "有効",
+    "off": "無効",
+    "offText": "ログイン時に、認証アプリ（Google Authenticator、Aegis、1Password、Bitwarden など）の 6 桁のコードも要求されるようになります。パスワードが漏洩しただけではログインできなくなります。",
+    "onText": "ログインには認証アプリのコードが必要です。スマートフォンを紛失した場合は、リカバリーコードでログインしてください。",
+    "codesLeft_other": "リカバリーコードの残り: {{count}} 個",
+    "fewCodes": "リカバリーコードの残りが少なくなっています。新しいセットを生成してください。古いコードは使用できなくなります。",
+    "enable": "2FA を有効化",
+    "disable": "無効化",
+    "regenerate": "新しいリカバリーコード",
+    "enableTitle": "二要素認証を有効化",
+    "step1": "1. 認証アプリで QR コードをスキャンするか、キーを手動で入力してください。",
+    "manualEntry": "手動入力用のキー",
+    "manualHint": "種類: 時間ベース（TOTP）、6 桁、30 秒。",
+    "qrAlt": "認証アプリ用の QR コード",
+    "step2": "2. アプリに表示される 6 桁のコードを入力してください",
+    "enableSubmit": "有効化",
+    "enabledTitle": "2FA が有効になりました — リカバリーコードを保存してください",
+    "disableTitle": "二要素認証を無効化",
+    "disableWarning": "無効化すると、アカウントはパスワードのみで保護されます。",
+    "codeOrRecovery": "アプリのコードまたはリカバリーコード",
+    "codeOrRecoveryHint": "アプリの 6 桁のコード、またはリカバリーコードのいずれか（使用済みになります）",
+    "regenerateTitle": "新しいリカバリーコード",
+    "regenerateText": "10 個のコードからなる新しいセットが作成され、古いリカバリーコードはすべて使用できなくなります。アプリのコードで確認してください。",
+    "appCode": "アプリのコード",
+    "regenerateSubmit": "生成",
+    "errors": {
+      "wrongCode": "コードが正しくありません。スマートフォンの時刻が自動設定になっていることを確認して、もう一度お試しください。",
+      "wrongPasswordOrCode": "パスワードまたはコードが正しくありません。"
+    },
+    "toast": {
+      "disabled": "二要素認証を無効にしました"
+    }
+  },
+  "recovery": {
+    "warning": "これらのコードが表示されるのは今回のみです。各コードで、スマートフォンなしで 1 回ログインできます。パスワードマネージャーや印刷物など、安全な場所に保管してください。同じスマートフォンには保存しないでください。",
+    "copyAll": "すべてコピー",
+    "download": ".txt をダウンロード",
+    "fileHeader": "{{host}} の {{username}} 用 NodePilot リカバリーコード（{{date}}）。各コードは 1 回のみ使用できます。",
+    "howTo": "ログイン画面で「リカバリーコードを使用」を選択し、未使用のコードを入力してください。",
+    "savedCheck": "リカバリーコードを保存しました",
+    "done": "完了"
+  },
+  "panelKey": {
+    "title": "パネルの SSH キー",
+    "configured": "設定済み",
+    "notConfigured": "未設定",
+    "intro": "パネル専用の ed25519 キーを作成でき、サーバーはパネルのアドレスからのみそのキーを受け付けます。",
+    "why": {
+      "stolen": "<b>盗まれたキーは他の場所では使えません:</b> authorized_keys の <code>from=</code> オプションにより、サーバーは他のマシンからの接続を拒否します。",
+      "rotate": "<b>ワンクリックでローテーション:</b> すべてのサーバーに新しいキーがインストールされ、古いキーは削除されます。",
+      "revoke": "<b>緊急失効:</b> パネルが侵害された場合、パネル経由でもパネルなしでも、すべてのサーバーから一度にキーを削除できます。",
+      "flow": "<b>仕組み:</b> キーを作成 → サーバーにインストール（パネルが authorized_keys に行を追加し、そのキーでログインできることを確認してから、サーバーをそのキーに切り替えます）。"
+    },
+    "create": "パネルキーを作成",
+    "created": "作成日時",
+    "serversOnKey": "キーを使用中のサーバー",
+    "serversOnKeyValue_other": "{{count}} 台中 {{using}} 台",
+    "working": "サーバーに接続しています… サーバーが多い場合は時間がかかることがあります。",
+    "publicKey": "公開鍵",
+    "authorizedLine": "authorized_keys 用の行",
+    "authorizedLineHint": "アドレス制限付き、転送は無効",
+    "installCommand": "手動でインストール",
+    "installCommandHint": "パネルがログインに使用する SSH ユーザーとしてサーバー上で実行してください",
+    "addresses": {
+      "label": "パネルのアドレス（サーバーから見たもの）",
+      "hint": "IP アドレスまたは CIDR ネットワーク（例: 203.0.113.10、10.0.0.0/8）。Enter またはカンマで追加します。",
+      "invalid": "IP アドレスまたはネットワークではありません: {{value}}",
+      "invalidList": "IP アドレスまたはネットワークではありません: {{list}}",
+      "emptyWarning": "アドレスを指定しないと、キーはどこからでも受け付けられます。盗まれたキーがどのマシンからでも使えてしまいます。パネルのアドレスを追加してください。",
+      "save": "アドレスを保存",
+      "redeployHint": "アドレスを保存しました。サーバーには古い制限が残っています。更新するには「サーバーにインストール」を再度実行してください。"
+    },
+    "detect": {
+      "pick": "サーバーから検出…",
+      "server": "サーバー",
+      "button": "アドレスを検出",
+      "found": "サーバーからはパネルが {{ip}} として見えています",
+      "failed": "アドレスを検出できませんでした",
+      "noServers": "サーバーを追加すると、パネルのアドレスを自動的に検出できます。"
+    },
+    "deploy": {
+      "button": "サーバーにインストール…",
+      "title": "パネルキーをサーバーにインストール",
+      "text": "パネルはサーバーユーザーの ~/.ssh/authorized_keys にキーを追加し、そのキーでログインできることを確認してから、（有効な場合のみ）サーバーをパネルキーに切り替えます。確認に失敗したサーバーは現在の認証情報を維持します。",
+      "modeServers": "サーバー",
+      "modeProject": "プロジェクト",
+      "pickProject": "— プロジェクトを選択 —",
+      "search": "名前、ホスト、タグで検索…",
+      "onlyNotOnKey": "キー未使用のサーバーのみ",
+      "selectAll_other": "{{count}} 台すべてを選択",
+      "clear": "クリア",
+      "selected_other": "{{count}} 台を選択中",
+      "onKey": "キー使用中",
+      "switchAuth": "確認に成功したらサーバーをパネルキーに切り替える",
+      "switchAuthHint": "サーバーの以前のパスワード/キーは authorized_keys またはサーバー上に残ります。問題ないことを確認してから手動で削除してください。",
+      "noSwitchHint": "キーはインストールされるだけです。サーバーには引き続き現在の認証情報で接続します。",
+      "run_other": "{{count}} 台のサーバーにインストール",
+      "again": "他のサーバーにインストール",
+      "resultsSwitched": "OK のサーバーは、パネルキーで接続するようになりました。",
+      "resultsInstalled": "OK のサーバーにキーがインストールされました。認証情報は変更されていません。"
+    },
+    "rotate": {
+      "button": "キーをローテーション",
+      "confirmTitle": "パネルキーをローテーションしますか？",
+      "confirmText_other": "新しいキーが作成されて {{count}} 台のサーバーにインストールされ、古いキーはそれらのサーバーから削除されます。処理に失敗したサーバーは古いキーのままになります。",
+      "resultsTitle": "キーのローテーション結果",
+      "resultsHint": "エラーが発生したサーバーは古いキーを使用し続けています。接続を修正してから、もう一度ローテーションしてください。"
+    },
+    "revoke": {
+      "button": "緊急失効",
+      "confirmTitle": "パネルキーをすべての場所で失効させますか？",
+      "confirmText_other": "{{count}} 台のサーバーの authorized_keys からすべてのパネルキーが削除され、キー自体も破棄されます。パスワードまたはキーを再度追加するまで、パネルはこれらのサーバーにアクセスできなくなります。",
+      "confirmWhen": "パネルまたはそのデータベースが侵害された可能性がある場合に使用してください。",
+      "confirmWord": "REVOKE",
+      "resultsTitle": "緊急失効の結果",
+      "resultsHint": "キーは破棄されました。エラーが発生したサーバーでは、キーが authorized_keys に残っている可能性があります。下のコマンドを使用して、パネルなしで削除してください。",
+      "resultsDone": "キーは破棄され、使用していたサーバーから削除されました。他の場所にもインストールしていた場合（手動で、またはサーバーを切り替えずに）、下のコマンドでそこからも削除してください。",
+      "manualTitle": "パネルなしで失効",
+      "manualText": "パネルが利用できない場合や侵害された場合は、すべてのサーバーで SSH ユーザーとしてこのコマンドを実行してください。authorized_keys から NodePilot のパネルキーがすべて削除されます（バックアップが同じ場所に保存されます）。",
+      "manualOne": "1 台のサーバーで",
+      "manualAnsible": "Ansible ですべてのサーバーで"
+    },
+    "toast": {
+      "created": "パネルキーを作成しました",
+      "createFailed": "パネルキーを作成できませんでした",
+      "addressesSaved": "アドレスを保存しました",
+      "saveFailed": "アドレスを保存できませんでした",
+      "rotateFailed": "キーをローテーションできませんでした",
+      "revokeFailed": "キーを失効できませんでした"
+    }
+  },
+  "results": {
+    "ok_other": "OK: {{count}} 台",
+    "failed_other": "失敗: {{count}} 台",
+    "okShort": "OK",
+    "errorShort": "エラー",
+    "details": "詳細",
+    "empty": "対象のサーバーはありませんでした"
+  },
+  "masterKey": {
+    "title": "マスターキー",
+    "intro": "マスターキーは、パネルのデータベースに保存されたサーバーのパスワード、SSH キー、その他のシークレットを暗号化します。",
+    "source": "ソース",
+    "path": "パス",
+    "tpm": "TPM 2.0",
+    "systemdCreds": "systemd-creds",
+    "available": "利用可能",
+    "unavailable": "見つかりません",
+    "kind": {
+      "systemd-credential": "封印済み",
+      "file": "別ファイル",
+      "data-dir": "ディスク上に平文"
+    },
+    "kindLong": {
+      "systemd-credential": "systemd credential（LoadCredentialEncrypted、例: TPM で封印）",
+      "file": "NODEPILOT_MASTER_KEY_FILE のファイル",
+      "data-dir": "データディレクトリ内の平文ファイル"
+    },
+    "sealedText": "キーは起動時に systemd によって復号され、パネルのプロセスのみがアクセスできるメモリに格納されます。この TPM がなければ、盗まれたディスクや VM スナップショットは復号できません。",
+    "fileText": "キーは別ファイルから読み込まれます。このファイルはデータベースのバックアップに含めず、パネルのユーザーのみが読み取れるようにしてください。",
+    "plaintextCopy": "<b>キーの平文コピーがデータディレクトリに残っています。</b> バックアップがサーバー外に保管されていることを確認してから、このファイルを削除してください。削除しないと封印しても保護になりません。",
+    "dataDirWarning": "キーはデータベースの隣に通常のファイルとして置かれています。データディレクトリをコピーした者（バックアップ、ディスクスナップショット）は、すべてのサーバーのパスワードと鍵を入手できます。",
+    "sealTitle": "キーを TPM に封印する（systemd を使用する Linux）",
+    "steps": {
+      "requirements": "要件: Ubuntu 24.04 以降または Debian 12 以降（systemd 250 以降）と TPM 2.0 チップ。VM の場合は仮想 TPM（vTPM）を有効にしてください。",
+      "run": "パネルサーバーで次を実行します:",
+      "runHint": "/opt/nodepilot/packaging は、リリースまたはインストール先の packaging フォルダーのパスです",
+      "backup": "スクリプトはキーのコピーを保存し、キーを封印してパネルを再起動し、平文ファイルを削除します。コピーはサーバー外（パスワードマネージャーやオフラインストレージ）に移し、サーバー上のものは削除してください。コピーがないと、TPM やマザーボードが故障した場合にシークレットを復元できません。",
+      "check": "このページを再読み込みしてください。ソースが「systemd credential」になっているはずです。"
+    },
+    "noTpmHere": "このマシンでは TPM が見つからないか、systemd-creds がインストールされていません。これらが利用可能になるまで封印はできません。",
+    "dockerTitle": "Docker",
+    "dockerText": "コンテナーでは、キーをデータボリュームの外に置いてください。Docker シークレットとして渡し、<code>NODEPILOT_MASTER_KEY_FILE</code> でそのパスを指定します。"
+  },
+  "audit": {
+    "page": {
+      "title": "監査ログ",
+      "subtitle": "パネルで誰が何をしたか: ログイン、コマンド、変更、API と MCP の呼び出し",
+      "forwarding": "転送"
+    },
+    "filters": {
+      "q": "アクションまたは対象…",
+      "actor": "ユーザー",
+      "severity": "重要度",
+      "allSeverities": "すべての重要度",
+      "atLeast": {
+        "warning": "警告と重大",
+        "critical": "重大のみ"
+      },
+      "reset": "フィルターをリセット"
+    },
+    "columns": {
+      "time": "日時",
+      "severity": "重要度",
+      "actor": "ユーザー",
+      "ip": "IP",
+      "action": "アクション",
+      "target": "対象",
+      "outcome": "結果"
+    },
+    "severity": {
+      "info": "情報",
+      "warning": "警告",
+      "critical": "重大"
+    },
+    "outcome": {
+      "ok": "OK",
+      "denied": "拒否",
+      "locked": "ロック",
+      "error": "エラー",
+      "exit": "終了コード {{code}}"
+    },
+    "viaToken": "API トークン「{{name}}」経由",
+    "shown_other": "{{n}} 件",
+    "loadMore": "さらに古いエントリを読み込む",
+    "empty": "ログは空です",
+    "emptyFiltered": "フィルターに一致するエントリはありません",
+    "details": {
+      "id": "エントリ",
+      "time": "日時",
+      "token": "API トークン",
+      "none": "詳細はありません"
+    },
+    "settings": {
+      "title": "監査ログの転送",
+      "on": "有効",
+      "off": "無効",
+      "intro": "すべてのイベントを syslog サーバー/SIEM または webhook にコピーします。パネルが侵害されても、外部のコピーはそのまま残ります。",
+      "syslog": "Syslog",
+      "syslogHint": "udp://host:port または tcp://host:port。空の場合は無効",
+      "webhook": "Webhook URL",
+      "webhookHint": "各イベントは JSON として POST されます。空の場合は無効",
+      "secret": "Webhook シークレット",
+      "secretHint": "リクエストは <code>{{header}}</code> ヘッダーで HMAC-SHA256 署名されます",
+      "secretSet": "設定済み",
+      "secretSetPlaceholder": "••••••••（設定済み。入力すると置き換えます）",
+      "clearSecret": "削除",
+      "minSeverity": "転送するイベントの最低重要度",
+      "minSeverityHint": "パネル自身のログにはすべて記録されます",
+      "retention": "パネルでの保持日数",
+      "retentionHint": "7–3650",
+      "test": "テストイベントを送信",
+      "saveAndTest": "保存してテスト",
+      "testNothing": "先に syslog アドレスまたは webhook を設定してください",
+      "testOk": "テストイベントを配信しました。",
+      "testFailed": "テストイベントを配信できませんでした: {{error}}",
+      "saved": "転送設定を保存しました",
+      "errors": {
+        "syslog": "形式: udp://host:514 または tcp://host:514",
+        "webhook": "http:// または https:// で始まる必要があります",
+        "retention": "7–3650 の整数"
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "page": {
+    "title": "メモ",
+    "subtitle": "パネル内のすべてのメモ（全体、プロジェクト別、サーバー別）。ピン留めしたメモが先頭に表示されます。"
+  },
+  "searchPlaceholder": "メモを検索…",
+  "new": "新規メモ",
+  "defaultTitle": "新規メモ",
+  "empty": {
+    "title": "メモはまだありません",
+    "text": "手順書、ランブック、インフラに関するメモをここに保存できます。Markdown に対応しています。"
+  },
+  "selectNote": "メモを選択してください",
+  "editor": {
+    "titlePlaceholder": "タイトル",
+    "pin": "ピン留め",
+    "unpin": "ピン留めを解除",
+    "links": "関連付け先:",
+    "updated": "更新: {{time}}",
+    "bodyPlaceholder": "Markdown: # 見出し、**太字**、`コード`、```ブロック```、リスト、表…",
+    "emptyNote": "空のメモ"
+  },
+  "confirm": {
+    "deleteTitle": "メモを削除しますか？",
+    "deleteMessage": "「{{title}}」は完全に削除されます。"
+  },
+  "toast": {
+    "createFailed": "メモを作成できませんでした",
+    "saved": "メモを保存しました",
+    "deleted": "メモを削除しました",
+    "deleteFailed": "削除できませんでした"
+  }
+}

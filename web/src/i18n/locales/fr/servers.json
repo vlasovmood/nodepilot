@@ -1,0 +1,200 @@
+{
+  "page": {
+    "title": "Serveurs",
+    "count_one": "{{count}} serveur",
+    "count_other": "{{count}} serveurs"
+  },
+  "loading": "Chargement des serveurs…",
+  "toolbar": {
+    "filterPlaceholder": "Filtrer : nom, adresse, tag…",
+    "tagTitle": "Filtrer par tag",
+    "allTags": "Tous les tags",
+    "statusTitle": "Filtrer par état",
+    "anyStatus": "Tous les états",
+    "online": "En ligne ({{n}})",
+    "offline": "Injoignables ({{n}})",
+    "unknown": "Inconnus ({{n}})",
+    "favorites": "★ Favoris ({{n}})",
+    "view": "Affichage",
+    "list": "Liste",
+    "grid": "Grille",
+    "import": "Importer",
+    "addServer": "Ajouter un serveur"
+  },
+  "selection": {
+    "count": "Sélection : {{n}}",
+    "exec": "Exécuter une commande",
+    "toProject": "Ajouter au projet",
+    "removeFromProject": "Retirer du projet",
+    "clear": "Effacer la sélection"
+  },
+  "empty": {
+    "title": "Aucun serveur pour l'instant",
+    "projectTitle": "Ce projet ne contient encore aucun serveur",
+    "hint": "Ajoutez votre premier serveur manuellement ou importez une liste au format CSV/JSON.",
+    "projectHint": "Ajoutez un nouveau serveur, ou sélectionnez des serveurs existants dans « Tous les serveurs » et cliquez sur « Ajouter au projet »."
+  },
+  "footer": {
+    "shown": "{{shown}} sur {{total}} affichés",
+    "noMatch": "Aucun serveur ne correspond au filtre",
+    "selectHint": "Ctrl/Maj+clic pour sélectionner",
+    "statsUnavailable": "Statistiques indisponibles",
+    "metrics": "Métriques : {{time}}"
+  },
+  "confirm": {
+    "deleteOneTitle": "Supprimer le serveur ?",
+    "deleteManyTitle_one": "Supprimer {{count}} serveur ?",
+    "deleteManyTitle_other": "Supprimer {{count}} serveurs ?",
+    "deleteOneMessage": "Le serveur <b>{{name}}</b> sera retiré du panneau avec ses notes et ses tâches de sauvegarde. La machine elle-même n'est pas affectée.",
+    "deleteManyMessage": "Seront supprimés : {{names}}. Les machines elles-mêmes ne sont pas affectées.",
+    "deleteManyMessageMore": "Seront supprimés : {{names}} et {{more}} autres. Les machines elles-mêmes ne sont pas affectées.",
+    "deleteRequireText": "supprimer",
+    "removeTitle": "Retirer du projet ?",
+    "removeMessage_one": "{{count}} serveur sera retiré du projet « {{project}} ». Il reste dans le panneau.",
+    "removeMessage_other": "{{count}} serveurs seront retirés du projet « {{project}} ». Ils restent dans le panneau.",
+    "removeConfirm": "Retirer"
+  },
+  "toast": {
+    "deletePartial": "Supprimés : {{ok}}, échecs : {{failed}}",
+    "deletedOne": "Serveur supprimé",
+    "deletedMany_one": "{{count}} serveur supprimé",
+    "deletedMany_other": "{{count}} serveurs supprimés",
+    "errors": "Échecs : {{failed}}",
+    "removedFromProject": "Serveurs retirés du projet"
+  },
+  "table": {
+    "selectAll": "Tout sélectionner",
+    "name": "Nom",
+    "address": "Adresse",
+    "tags": "Tags",
+    "projects": "Projets",
+    "disk": "Disque",
+    "uptime": "Uptime",
+    "cores_one": "{{count}} cœur",
+    "cores_other": "{{count}} cœurs"
+  },
+  "menu": {
+    "terminal": "Terminal",
+    "edit": "Modifier"
+  },
+  "grid": {
+    "noData": "{{label}} : aucune donnée",
+    "select": "Sélectionner",
+    "addFavorite": "Ajouter aux favoris",
+    "removeFavorite": "Retirer des favoris",
+    "offlineMark": "HORS LIGNE",
+    "prev": "Précédent",
+    "next": "Suivant"
+  },
+  "bulkExec": {
+    "title_one": "Exécuter une commande — {{count}} serveur",
+    "title_other": "Exécuter une commande — {{count}} serveurs",
+    "result": "Résultat : <code>{{cmd}}</code>"
+  },
+  "addToProject": {
+    "title": "Ajouter au projet",
+    "label_one": "Projet pour {{count}} serveur",
+    "label_other": "Projet pour {{count}} serveurs",
+    "placeholder": "— sélectionnez un projet —",
+    "noProjects": "Créez d'abord un projet dans la barre latérale",
+    "partial": "Ajoutés : {{ok}}, échecs : {{failed}}",
+    "success": "Serveurs ajoutés au projet",
+    "successDetail_one": "{{project}} : {{count}} serveur",
+    "successDetail_other": "{{project}} : {{count}} serveurs"
+  },
+  "select": "— sélectionner —",
+  "identityKind": {
+    "key": "clé",
+    "password": "mot de passe"
+  },
+  "test": {
+    "ok": "<b>Connecté</b> — latence {{latency}}",
+    "fail": "Échec de la connexion"
+  },
+  "form": {
+    "editTitle": "Serveur : {{name}}",
+    "newTitle": "Nouveau serveur",
+    "name": "Nom",
+    "username": "Utilisateur",
+    "host": "Hôte / IP",
+    "port": "Port",
+    "auth": "Authentification",
+    "authMode": {
+      "keep": "Conserver l'actuelle",
+      "password": "Mot de passe",
+      "key": "Clé privée",
+      "identity": "Depuis le trousseau"
+    },
+    "currentAuth": "Méthode actuelle : {{method}}. Les secrets ne sont jamais affichés.",
+    "currentMethod": {
+      "password": "mot de passe",
+      "key": "clé privée",
+      "identity": "trousseau ({{name}})"
+    },
+    "passwordPlaceholder": "Mot de passe SSH",
+    "uploadKey": "Charger depuis un fichier",
+    "passphrasePlaceholder": "Phrase secrète de la clé (le cas échéant)",
+    "keychainEmpty": "Le trousseau est vide. <link>Ajouter une clé</link>",
+    "tagsHint": "Appuyez sur Entrée ou virgule pour ajouter",
+    "projects": "Projets",
+    "noProjects": "Aucun projet pour l'instant",
+    "testTitle": "Tester les paramètres enregistrés",
+    "test": "Tester la connexion",
+    "saveAndTest": "Enregistrer et tester",
+    "errors": {
+      "name": "Le nom est obligatoire",
+      "host": "L'hôte est obligatoire",
+      "username": "L'utilisateur est obligatoire",
+      "password": "Saisissez un mot de passe",
+      "key": "Collez ou chargez une clé privée",
+      "identity": "Sélectionnez une clé du trousseau",
+      "noAuth": "Aucune méthode d'authentification sélectionnée"
+    },
+    "toast": {
+      "saved": "Serveur enregistré",
+      "added": "Serveur ajouté",
+      "keyTooLarge": "Fichier trop volumineux pour être une clé privée"
+    }
+  },
+  "import": {
+    "title": "Import de serveurs en masse",
+    "exampleHeader": "# name,host,port,username[,tags séparés par ;]",
+    "formatHelp": "Tableau JSON de ServerInput ou CSV : name,host,port,username[,tags séparés par ;]",
+    "example": "Exemple",
+    "file": "Fichier",
+    "identity": "Clé du trousseau",
+    "identityHintJson": "Utilisée pour les entrées sans champ auth",
+    "identityHintCsv": "Utilisée pour tous les serveurs du CSV",
+    "keychainEmpty": "Le trousseau est vide — <link>créer une clé</link>",
+    "defaultUser": "Utilisateur par défaut",
+    "defaultUserHint": "Utilisé lorsqu'une ligne n'a pas de username",
+    "extraTags": "Ajouter des tags à tous",
+    "addToProjects": "Ajouter aux projets",
+    "noProjects": "Aucun projet",
+    "skipped": "Entrées ignorées : {{n}}",
+    "col": {
+      "name": "Nom",
+      "address": "Adresse",
+      "user": "Utilisateur",
+      "tags": "Tags"
+    },
+    "authKeychain": "trousseau",
+    "more": "…et {{n}} autres",
+    "ready_one": "Prêt à importer : {{count}} serveur",
+    "ready_other": "Prêts à importer : {{count}} serveurs",
+    "pasteData": "Collez les données à importer",
+    "needIdentity": "— sélectionnez une clé du trousseau",
+    "submit": "Importer",
+    "successTitle": "Import terminé",
+    "successDetail_one": "{{count}} serveur ajouté",
+    "successDetail_other": "{{count}} serveurs ajoutés",
+    "errors": {
+      "notObject": "#{{n}} : objet attendu",
+      "noHostJson": "#{{n}} : host manquant",
+      "badPortJson": "#{{n}} : port non valide",
+      "json": "JSON non valide : {{message}}",
+      "noHostLine": "Ligne {{n}} : host manquant",
+      "badPortLine": "Ligne {{n}} : port non valide « {{port}} »"
+    }
+  }
+}

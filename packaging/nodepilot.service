@@ -1,0 +1,36 @@
+[Unit]
+Description=NodePilot server management panel
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=nodepilot
+Group=nodepilot
+StateDirectory=nodepilot
+StateDirectoryMode=0700
+Environment=NODEPILOT_DATA=/var/lib/nodepilot
+# Localhost only by default: expose it through a TLS reverse proxy and set NODEPILOT_SECURE_COOKIES=true.
+Environment=NODEPILOT_LISTEN=127.0.0.1:7780
+EnvironmentFile=-/etc/nodepilot/nodepilot.env
+# The binary lives in the data dir so the panel can update itself.
+ExecStart=/var/lib/nodepilot/bin/nodepilot serve
+Restart=on-failure
+RestartSec=3
+LimitNOFILE=65536
+
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+ReadWritePaths=/var/lib/nodepilot
+
+[Install]
+WantedBy=multi-user.target

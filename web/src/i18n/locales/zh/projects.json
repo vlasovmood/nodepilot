@@ -1,0 +1,24 @@
+{
+  "notFound": "未找到项目",
+  "tabs": {
+    "servers": "服务器",
+    "graphs": "拓扑图",
+    "notes": "笔记"
+  },
+  "dialog": {
+    "newTitle": "新建项目",
+    "editTitle": "编辑项目",
+    "noColor": "无颜色",
+    "customColor": "自定义颜色"
+  },
+  "toast": {
+    "saved": "项目已保存",
+    "created": "项目已创建",
+    "deleted": "项目已删除",
+    "deleteFailed": "项目删除失败"
+  },
+  "confirm": {
+    "deleteTitle": "删除项目？",
+    "deleteMessage": "将删除项目 <b>{{name}}</b>。服务器仍保留在面板中，仅移除分组。"
+  }
+}

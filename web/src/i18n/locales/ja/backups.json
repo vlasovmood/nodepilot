@@ -1,0 +1,246 @@
+{
+  "page": {
+    "title": "バックアップ",
+    "subtitle": "サーバーのファイルやデータベースを、スケジュールに従ってローカルディレクトリまたは S3 にバックアップします。",
+    "decryptInfo": "暗号化されたアーカイブ（age）は <code>{{command}}</code> で復号します。ジョブのパスフレーズを入力するか、age 鍵で暗号化されたジョブでは <code>-i key.txt</code> を追加してください。パネルは保存済みのパスフレーズを表示せず、age 鍵のアーカイブを自身で復号することもできません。",
+    "decryptCommand": "age -d -o <file> <archive>.age",
+    "tabs": {
+      "jobs": "ジョブ",
+      "runs": "履歴",
+      "storages": "ストレージ"
+    },
+    "allRuns": "すべての実行"
+  },
+  "runStatus": {
+    "running": "実行中",
+    "success": "成功",
+    "failed": "失敗"
+  },
+  "jobs": {
+    "title": "ジョブ",
+    "new": "新規ジョブ",
+    "emptyTitle": "ジョブはまだありません",
+    "emptyHint": "ジョブを作成して、何を（ファイルまたはデータベース）、どこへ、どのスケジュールでバックアップするかを設定してください。",
+    "columns": {
+      "enabled": "有効",
+      "name": "名前",
+      "server": "サーバー",
+      "source": "ソース",
+      "storage": "ストレージ",
+      "schedule": "スケジュール",
+      "retention": "保持数",
+      "lastRun": "前回の実行",
+      "nextRun": "次回の実行",
+      "encryption": "暗号化"
+    },
+    "enable": "有効化",
+    "disable": "無効化",
+    "retentionAll": "すべて",
+    "never": "なし",
+    "runNow": "今すぐ実行",
+    "run": "実行",
+    "edit": "編集",
+    "toast": {
+      "started": "バックアップを開始しました",
+      "startFailed": "バックアップを開始できませんでした",
+      "deleted": "ジョブを削除しました",
+      "deleteFailed": "ジョブを削除できませんでした",
+      "saved": "ジョブを保存しました",
+      "created": "ジョブを作成しました"
+    },
+    "confirmDelete": {
+      "title": "ジョブを削除しますか？",
+      "message": "ジョブ「{{name}}」を削除します。作成済みのアーカイブはストレージと履歴に残ります。"
+    },
+    "encryption": {
+      "none": "なし",
+      "passphrase": "パスフレーズ",
+      "recipients": "age キー",
+      "noneTitle": "アーカイブは暗号化されずに保存されます",
+      "passphraseTitle": "パネルに保存されたパスフレーズで暗号化",
+      "recipientsTitle_other": "{{count}} 個の公開鍵で暗号化 — パネルでは復号できません"
+    }
+  },
+  "runs": {
+    "title": "実行履歴",
+    "empty": "実行履歴はまだありません",
+    "columns": {
+      "job": "ジョブ",
+      "started": "開始日時",
+      "duration": "所要時間",
+      "size": "サイズ",
+      "file": "ファイル"
+    },
+    "deletedJob": "削除済み",
+    "downloadEncrypted": "ダウンロード（age で暗号化済み — age -d で復号）",
+    "showMore": "さらに表示 ({{n}})",
+    "confirmDelete": {
+      "title": "アーカイブを削除しますか？",
+      "message": "記録とアーカイブ「{{file}}」がストレージから完全に削除されます。",
+      "messageNoFile": "記録とアーカイブがストレージから完全に削除されます。"
+    },
+    "toast": {
+      "deleted": "アーカイブを削除しました",
+      "deleteFailed": "アーカイブを削除できませんでした"
+    }
+  },
+  "storages": {
+    "intro": "アーカイブの保存先: パネルホスト上のディレクトリ、または S3 互換ストレージ。",
+    "add": "ストレージを追加",
+    "emptyTitle": "ストレージはまだありません",
+    "emptyHint": "ローカルディレクトリまたは S3 バケットを追加すると、バックアップジョブを作成できるようになります。",
+    "columns": {
+      "location": "場所"
+    },
+    "kind": {
+      "s3": "S3",
+      "local": "ローカル",
+      "localShort": "ローカル"
+    },
+    "test": "テスト",
+    "edit": "編集",
+    "toast": {
+      "available": "ストレージに接続できます",
+      "unavailable": "ストレージ「{{name}}」に接続できません",
+      "testFailed": "確認に失敗しました",
+      "deleted": "ストレージを削除しました",
+      "deleteFailed": "ストレージを削除できませんでした",
+      "saved": "ストレージを保存しました",
+      "created": "ストレージを作成しました"
+    },
+    "confirmDelete": {
+      "title": "ストレージを削除しますか？",
+      "message": "ストレージ「{{name}}」をパネルから削除します。アップロード済みのアーカイブは削除されません。このストレージを使用しているジョブがある場合、削除は拒否されます。"
+    },
+    "dialog": {
+      "title": "ストレージ: {{name}}",
+      "newTitle": "新規ストレージ"
+    },
+    "form": {
+      "kindLocal": "ローカルディレクトリ",
+      "kindS3": "S3 互換",
+      "path": "パネルホスト上のディレクトリ",
+      "endpoint": "エンドポイント",
+      "endpointHint": "AWS S3 の場合は空のままにします。MinIO、Wasabi などの場合はサービスの URL を指定します",
+      "region": "リージョン",
+      "bucket": "バケット",
+      "prefix": "プレフィックス",
+      "accessKey": "Access Key ID",
+      "secretKey": "Secret Access Key",
+      "keepEmpty": "現在の値を維持する場合は空のままにします",
+      "secretHidden": "保存後は表示されません",
+      "pathStyle": "パス形式のアドレス指定（通常 MinIO で必要）"
+    },
+    "errors": {
+      "name": "名前を入力してください",
+      "path": "パネルホスト上の絶対パスを指定してください",
+      "bucket": "バケットを入力してください",
+      "region": "リージョンを入力してください",
+      "accessKey": "Access Key ID を入力してください",
+      "secretKey": "Secret Access Key を入力してください"
+    }
+  },
+  "job": {
+    "title": "ジョブ: {{name}}",
+    "newTitle": "新規バックアップジョブ",
+    "fields": {
+      "namePlaceholder": "/etc の日次バックアップ",
+      "storage": "ストレージ",
+      "select": "— 選択 —",
+      "noStoragesHint": "先に「バックアップ」ページでストレージを作成してください",
+      "retention": "保持するアーカイブ数",
+      "retentionHint": "成功した直近 N 件を保持します。0 の場合はすべて保持します",
+      "source": "ソース",
+      "paths": "パス（1 行に 1 つ）",
+      "excludes": "除外（glob、1 行に 1 つ）",
+      "database": "データベース",
+      "container": "Docker コンテナー",
+      "containerHint": "DBMS がコンテナー内で動作している場合、ダンプは docker exec 経由で取得されます",
+      "optional": "任意",
+      "user": "ユーザー",
+      "password": "パスワード",
+      "passwordSaved": "パスワードは保存済みです。維持する場合は空のままにします。",
+      "passwordServerOnly": "パネルサーバーにのみ保存されます",
+      "host": "ホスト",
+      "port": "ポート",
+      "schedule": "スケジュール",
+      "scheduleHint": "cron（秒を含む 6 フィールド、パネルの時刻 — UTC）: {{expr}}",
+      "manualHint": "「実行」ボタンによる手動実行のみ",
+      "encrypt": "アーカイブを暗号化する（age、パスフレーズ）",
+      "passphrase": "暗号化パスフレーズ",
+      "newPassphrase": "新しい暗号化パスフレーズ",
+      "keepEmpty": "現在の値を維持する場合は空のままにします",
+      "passphrase2": "パスフレーズ（確認）",
+      "enabled": "ジョブを有効にする（スケジュールに従って実行）",
+      "encryption": "暗号化",
+      "recipients": "age 公開鍵（1 行に 1 つ）",
+      "recipientsHint": "アーカイブは列挙されたすべての鍵に対して暗号化されます。対応する秘密鍵のいずれか 1 つで復号できます。"
+    },
+    "sourceType": {
+      "files": "ファイル",
+      "postgres": "PostgreSQL",
+      "mysql": "MySQL / MariaDB"
+    },
+    "scheduleMode": {
+      "preset": "プリセット",
+      "custom": "カスタム cron",
+      "manual": "手動"
+    },
+    "passphraseWarning": "<b>パスフレーズは安全な場所に保管してください。</b> アーカイブを <code>{{command}}</code> で復号する際に必要です。保存されたパスフレーズはパネルに表示されることはなく、UI から復元することもできません。パスフレーズがなければアーカイブは使用できません。",
+    "errors": {
+      "name": "名前を入力してください",
+      "server": "サーバーを選択してください",
+      "storage": "ストレージを選択してください",
+      "paths": "パスを 1 つ以上入力してください",
+      "database": "データベース名を入力してください",
+      "port": "1–65535",
+      "retention": "0 以上の整数",
+      "passphrase": "8 文字以上",
+      "passphrase2": "パスフレーズが一致しません",
+      "recipientsEmpty": "公開鍵を 1 つ以上追加するか、鍵ペアを生成してください",
+      "recipientsInvalid": "各行は age1 で始まる age 公開鍵である必要があります"
+    },
+    "encryption": {
+      "none": "暗号化なし",
+      "noneHint": "アーカイブはそのまま保存されます。ストレージにアクセスできる人は誰でも読み取れます",
+      "passphrase": "パスフレーズ（パネルに保存）",
+      "passphraseHint": "簡単ですが、パネルを侵害した者はパスフレーズも入手できます",
+      "recipients": "age 公開鍵（推奨: パネルでは復号できません）",
+      "recipientsHint": "パネルが保持するのは公開鍵のみです。アーカイブを復号できるのは秘密鍵の所有者だけです",
+      "noneWarning": "データベースのダンプや設定ファイルにはパスワードが含まれていることが多いため、アーカイブの暗号化を検討してください。"
+    },
+    "keygen": {
+      "button": "鍵ペアを生成",
+      "buttonHint": "または既存の age キーの公開鍵を貼り付けてください",
+      "title": "新しい age 鍵ペア",
+      "warning": "秘密鍵が表示されるのは今回のみで、パネルにもサーバーにもどこにも保存されません。秘密鍵がなければアーカイブは復号できません。鍵ファイルをダウンロードし、パネルから離れた安全な場所に保管してください。",
+      "privateKey": "秘密鍵",
+      "download": "{{file}} をダウンロード",
+      "downloaded": "鍵ファイルをダウンロードしました",
+      "publicKey": "公開鍵",
+      "publicHint": "ジョブに設定します。暗号化にのみ使用できます。",
+      "savedCheck": "秘密鍵を保存しました",
+      "add": "公開鍵をジョブに追加"
+    },
+    "decryptTitle": "アーカイブの復号方法",
+    "decryptHint": "age はほとんどのパッケージマネージャーで入手できます"
+  },
+  "cron": {
+    "manual": "手動",
+    "presets": {
+      "hourly": "1 時間ごと",
+      "every6h": "6 時間ごと",
+      "every12h": "12 時間ごと",
+      "daily0000": "毎日 00:00",
+      "daily0300": "毎日 03:00",
+      "daily0500": "毎日 05:00",
+      "sunday0400": "毎週日曜日 04:00",
+      "monday0300": "毎週月曜日 03:00",
+      "monthly0300": "毎月 1 日 03:00"
+    },
+    "errors": {
+      "fields": "6 つのフィールドが必要です: 秒 分 時 日 月 曜日（例: 0 0 3 * * *）",
+      "chars": "式に無効な文字が含まれています"
+    }
+  }
+}

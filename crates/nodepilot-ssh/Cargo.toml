@@ -1,0 +1,20 @@
+[package]
+name = "nodepilot-ssh"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+async-trait = "0.1.92"
+base64 = "0.23.1"
+bytes = "1.12.2"
+futures = "0.3.34"
+russh = { version = "0.65.4", default-features = false, features = ["ring", "flate2", "rsa"] }
+russh-sftp = "4.0.0"
+schemars = "1.2.3"
+serde = { version = "1.0.229", features = ["derive"] }
+sha2 = "0.11.1"
+thiserror = "2.0.21"
+tokio = { version = "1.54.1", features = ["full"] }
+tracing = "0.1.44"

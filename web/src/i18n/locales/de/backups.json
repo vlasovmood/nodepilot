@@ -1,0 +1,247 @@
+{
+  "page": {
+    "title": "Backups",
+    "subtitle": "Dateien und Datenbanken Ihrer Server – nach Zeitplan in ein lokales Verzeichnis oder nach S3.",
+    "decryptInfo": "Verschlüsselte Archive (age) werden mit <code>{{command}}</code> entschlüsselt: Geben Sie die Passphrase des Jobs ein oder ergänzen Sie <code>-i key.txt</code> bei Jobs, die auf einen age-Schlüssel verschlüsselt sind. Die Oberfläche zeigt eine gespeicherte Passphrase nie an und kann Archive mit age-Schlüssel selbst nicht entschlüsseln.",
+    "decryptCommand": "age -d -o <Datei> <Archiv>.age",
+    "tabs": {
+      "jobs": "Jobs",
+      "runs": "Verlauf",
+      "storages": "Speicher"
+    },
+    "allRuns": "Alle Ausführungen"
+  },
+  "runStatus": {
+    "running": "läuft",
+    "success": "erfolgreich",
+    "failed": "fehlgeschlagen"
+  },
+  "jobs": {
+    "title": "Jobs",
+    "new": "Neuer Job",
+    "emptyTitle": "Noch keine Jobs",
+    "emptyHint": "Erstellen Sie einen Job: was gesichert wird (Dateien oder eine Datenbank), wohin und nach welchem Zeitplan.",
+    "columns": {
+      "enabled": "Aktiv",
+      "name": "Name",
+      "server": "Server",
+      "source": "Quelle",
+      "storage": "Speicher",
+      "schedule": "Zeitplan",
+      "retention": "Aufbewahren",
+      "lastRun": "Letzte Ausführung",
+      "nextRun": "Nächste Ausführung",
+      "encryption": "Verschlüsselung"
+    },
+    "enable": "Aktivieren",
+    "disable": "Deaktivieren",
+    "retentionAll": "alle",
+    "never": "nie",
+    "runNow": "Jetzt ausführen",
+    "run": "Ausführen",
+    "edit": "Bearbeiten",
+    "toast": {
+      "started": "Backup gestartet",
+      "startFailed": "Backup konnte nicht gestartet werden",
+      "deleted": "Job gelöscht",
+      "deleteFailed": "Job konnte nicht gelöscht werden",
+      "saved": "Job gespeichert",
+      "created": "Job erstellt"
+    },
+    "confirmDelete": {
+      "title": "Job löschen?",
+      "message": "Der Job „{{name}}“ wird gelöscht. Bereits erstellte Archive bleiben im Speicher und im Verlauf erhalten."
+    },
+    "encryption": {
+      "none": "keine",
+      "passphrase": "Passphrase",
+      "recipients": "age-Schlüssel",
+      "noneTitle": "Archive werden unverschlüsselt gespeichert",
+      "passphraseTitle": "Mit einer im Panel gespeicherten Passphrase verschlüsselt",
+      "recipientsTitle_one": "Mit {{count}} öffentlichen Schlüssel verschlüsselt – das Panel kann nicht entschlüsseln",
+      "recipientsTitle_other": "Mit {{count}} öffentlichen Schlüsseln verschlüsselt – das Panel kann nicht entschlüsseln"
+    }
+  },
+  "runs": {
+    "title": "Ausführungsverlauf",
+    "empty": "Noch keine Ausführungen",
+    "columns": {
+      "job": "Job",
+      "started": "Gestartet",
+      "duration": "Dauer",
+      "size": "Größe",
+      "file": "Datei"
+    },
+    "deletedJob": "gelöscht",
+    "downloadEncrypted": "Herunterladen (mit age verschlüsselt – mit age -d entschlüsseln)",
+    "showMore": "Mehr anzeigen ({{n}})",
+    "confirmDelete": {
+      "title": "Archiv löschen?",
+      "message": "Der Eintrag und das Archiv „{{file}}“ werden dauerhaft aus dem Speicher gelöscht.",
+      "messageNoFile": "Der Eintrag und das Archiv werden dauerhaft aus dem Speicher gelöscht."
+    },
+    "toast": {
+      "deleted": "Archiv gelöscht",
+      "deleteFailed": "Archiv konnte nicht gelöscht werden"
+    }
+  },
+  "storages": {
+    "intro": "Wohin die Archive gehen: ein Verzeichnis auf dem Panel-Host oder S3-kompatibler Speicher.",
+    "add": "Speicher hinzufügen",
+    "emptyTitle": "Noch keine Speicher",
+    "emptyHint": "Fügen Sie ein lokales Verzeichnis oder einen S3-Bucket hinzu, um Backup-Jobs anlegen zu können.",
+    "columns": {
+      "location": "Ort"
+    },
+    "kind": {
+      "s3": "S3",
+      "local": "Lokal",
+      "localShort": "lokal"
+    },
+    "test": "Testen",
+    "edit": "Bearbeiten",
+    "toast": {
+      "available": "Speicher ist erreichbar",
+      "unavailable": "Speicher „{{name}}“ ist nicht erreichbar",
+      "testFailed": "Prüfung fehlgeschlagen",
+      "deleted": "Speicher gelöscht",
+      "deleteFailed": "Speicher konnte nicht gelöscht werden",
+      "saved": "Speicher gespeichert",
+      "created": "Speicher erstellt"
+    },
+    "confirmDelete": {
+      "title": "Speicher löschen?",
+      "message": "Der Speicher „{{name}}“ wird aus dem Panel entfernt. Bereits hochgeladene Archive werden nicht gelöscht. Wenn Jobs diesen Speicher verwenden, wird das Löschen abgelehnt."
+    },
+    "dialog": {
+      "title": "Speicher: {{name}}",
+      "newTitle": "Neuer Speicher"
+    },
+    "form": {
+      "kindLocal": "Lokales Verzeichnis",
+      "kindS3": "S3-kompatibel",
+      "path": "Verzeichnis auf dem Panel-Host",
+      "endpoint": "Endpoint",
+      "endpointHint": "Für AWS S3 leer lassen. Für MinIO, Wasabi usw. – die URL des Dienstes",
+      "region": "Region",
+      "bucket": "Bucket",
+      "prefix": "Präfix",
+      "accessKey": "Access Key ID",
+      "secretKey": "Secret Access Key",
+      "keepEmpty": "Leer lassen, um den aktuellen Wert beizubehalten",
+      "secretHidden": "Wird nach dem Speichern nicht angezeigt",
+      "pathStyle": "Path-Style-Adressierung (für MinIO meist erforderlich)"
+    },
+    "errors": {
+      "name": "Geben Sie einen Namen ein",
+      "path": "Absoluter Pfad auf dem Panel-Host",
+      "bucket": "Geben Sie einen Bucket an",
+      "region": "Geben Sie eine Region an",
+      "accessKey": "Geben Sie eine Access Key ID ein",
+      "secretKey": "Geben Sie einen Secret Access Key ein"
+    }
+  },
+  "job": {
+    "title": "Job: {{name}}",
+    "newTitle": "Neuer Backup-Job",
+    "fields": {
+      "namePlaceholder": "Tägliches Backup von /etc",
+      "storage": "Speicher",
+      "select": "— auswählen —",
+      "noStoragesHint": "Legen Sie zuerst auf der Seite „Backups“ einen Speicher an",
+      "retention": "Aufzubewahrende Archive",
+      "retentionHint": "Die letzten N erfolgreichen; 0 behält alle",
+      "source": "Quelle",
+      "paths": "Pfade (einer pro Zeile)",
+      "excludes": "Ausschlüsse (Glob, einer pro Zeile)",
+      "database": "Datenbank",
+      "container": "Docker-Container",
+      "containerHint": "Läuft das DBMS in einem Container, wird der Dump per docker exec erstellt",
+      "optional": "optional",
+      "user": "Benutzer",
+      "password": "Passwort",
+      "passwordSaved": "Das Passwort ist gespeichert. Leer lassen, um es beizubehalten.",
+      "passwordServerOnly": "Wird nur auf dem Panel-Server gespeichert",
+      "host": "Host",
+      "port": "Port",
+      "schedule": "Zeitplan",
+      "scheduleHint": "Cron (6 Felder mit Sekunden, Panel-Zeit – UTC): {{expr}}",
+      "manualHint": "Wird nur manuell über die Schaltfläche „Ausführen“ gestartet",
+      "encrypt": "Archive verschlüsseln (age, Passphrase)",
+      "passphrase": "Verschlüsselungs-Passphrase",
+      "newPassphrase": "Neue Verschlüsselungs-Passphrase",
+      "keepEmpty": "Leer lassen, um die aktuelle beizubehalten",
+      "passphrase2": "Passphrase wiederholen",
+      "enabled": "Job aktiv (läuft nach Zeitplan)",
+      "encryption": "Verschlüsselung",
+      "recipients": "Öffentliche age-Schlüssel (einer pro Zeile)",
+      "recipientsHint": "Archive werden für jeden aufgeführten Schlüssel verschlüsselt; jeder der zugehörigen privaten Schlüssel kann sie entschlüsseln."
+    },
+    "sourceType": {
+      "files": "Dateien",
+      "postgres": "PostgreSQL",
+      "mysql": "MySQL / MariaDB"
+    },
+    "scheduleMode": {
+      "preset": "Vorlage",
+      "custom": "Eigener Cron-Ausdruck",
+      "manual": "Manuell"
+    },
+    "passphraseWarning": "<b>Bewahren Sie die Passphrase sicher auf.</b> Sie benötigen sie, um Archive mit <code>{{command}}</code> zu entschlüsseln. Das Panel zeigt die gespeicherte Passphrase nie an, und sie kann über die Oberfläche nicht wiederhergestellt werden – ohne sie sind die Archive nutzlos.",
+    "errors": {
+      "name": "Geben Sie einen Namen ein",
+      "server": "Wählen Sie einen Server aus",
+      "storage": "Wählen Sie einen Speicher aus",
+      "paths": "Geben Sie mindestens einen Pfad an",
+      "database": "Geben Sie den Namen der Datenbank an",
+      "port": "1–65535",
+      "retention": "Ganze Zahl ≥ 0",
+      "passphrase": "Mindestens 8 Zeichen",
+      "passphrase2": "Die Passphrasen stimmen nicht überein",
+      "recipientsEmpty": "Fügen Sie mindestens einen öffentlichen Schlüssel hinzu oder erzeugen Sie ein Schlüsselpaar",
+      "recipientsInvalid": "Jede Zeile muss ein öffentlicher age-Schlüssel sein, der mit age1 beginnt"
+    },
+    "encryption": {
+      "none": "Keine Verschlüsselung",
+      "noneHint": "Archive werden unverändert gespeichert – jeder mit Zugriff auf den Speicher kann sie lesen",
+      "passphrase": "Passphrase (im Panel gespeichert)",
+      "passphraseHint": "Einfach, aber wer das Panel kompromittiert, erhält auch die Passphrase",
+      "recipients": "Öffentlicher age-Schlüssel (empfohlen: das Panel kann nicht entschlüsseln)",
+      "recipientsHint": "Das Panel besitzt nur den öffentlichen Schlüssel; nur der Inhaber des privaten Schlüssels kann die Archive entschlüsseln",
+      "noneWarning": "Datenbank-Dumps und Konfigurationsdateien enthalten oft Passwörter – erwägen Sie, die Archive zu verschlüsseln."
+    },
+    "keygen": {
+      "button": "Schlüsselpaar erzeugen",
+      "buttonHint": "oder fügen Sie den öffentlichen Schlüssel eines vorhandenen age-Schlüssels ein",
+      "title": "Neues age-Schlüsselpaar",
+      "warning": "Der private Schlüssel wird nur jetzt angezeigt und nirgends gespeichert – weder im Panel noch auf den Servern. Ohne ihn lassen sich die Archive nicht entschlüsseln. Laden Sie die Schlüsseldatei herunter und bewahren Sie sie sicher und getrennt vom Panel auf.",
+      "privateKey": "Privater Schlüssel",
+      "download": "{{file}} herunterladen",
+      "downloaded": "Schlüsseldatei heruntergeladen",
+      "publicKey": "Öffentlicher Schlüssel",
+      "publicHint": "Wird im Job hinterlegt; damit kann nur verschlüsselt werden.",
+      "savedCheck": "Ich habe den privaten Schlüssel gespeichert",
+      "add": "Öffentlichen Schlüssel zum Job hinzufügen"
+    },
+    "decryptTitle": "So entschlüsseln Sie ein Archiv",
+    "decryptHint": "age ist in den meisten Paketmanagern verfügbar"
+  },
+  "cron": {
+    "manual": "Manuell",
+    "presets": {
+      "hourly": "Stündlich",
+      "every6h": "Alle 6 Stunden",
+      "every12h": "Alle 12 Stunden",
+      "daily0000": "Täglich um 00:00",
+      "daily0300": "Täglich um 03:00",
+      "daily0500": "Täglich um 05:00",
+      "sunday0400": "Jeden Sonntag um 04:00",
+      "monday0300": "Jeden Montag um 03:00",
+      "monthly0300": "Monatlich am 1. um 03:00"
+    },
+    "errors": {
+      "fields": "Erwartet werden 6 Felder: Sek. Min. Std. Tag Monat Wochentag (z. B. 0 0 3 * * *)",
+      "chars": "Ungültige Zeichen im Ausdruck"
+    }
+  }
+}

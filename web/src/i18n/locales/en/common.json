@@ -1,0 +1,118 @@
+{
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "add": "Add",
+    "close": "Close",
+    "refresh": "Refresh",
+    "retry": "Retry",
+    "search": "Search",
+    "open": "Open",
+    "download": "Download",
+    "upload": "Upload",
+    "copy": "Copy",
+    "copied": "Copied",
+    "back": "Back",
+    "confirm": "Confirm",
+    "reset": "Reset",
+    "apply": "Apply",
+    "send": "Send",
+    "more": "Actions",
+    "editItem": "Edit"
+  },
+  "state": {
+    "loading": "Loading…",
+    "loadingAria": "Loading",
+    "error": "Error",
+    "empty": "Empty",
+    "saving": "Saving…",
+    "saved": "Saved",
+    "notFound": "Not found",
+    "nothingFound": "Nothing found",
+    "loadFailed": "Failed to load data",
+    "noItems": "No items"
+  },
+  "status": {
+    "online": "Online",
+    "offline": "Unreachable",
+    "unknown": "Unknown"
+  },
+  "fields": {
+    "name": "Name",
+    "description": "Description",
+    "project": "Project",
+    "server": "Server",
+    "color": "Color",
+    "tags": "Tags",
+    "note": "Note",
+    "created": "Created",
+    "updated": "Updated",
+    "status": "Status",
+    "type": "Type",
+    "password": "Password"
+  },
+  "filters": {
+    "allProjects": "All projects",
+    "allServers": "All servers"
+  },
+  "counts": {
+    "servers_one": "{{count}} server",
+    "servers_other": "{{count}} servers"
+  },
+  "confirm": {
+    "typeToConfirm": "Type <b>{{text}}</b> to confirm"
+  },
+  "tags": {
+    "placeholder": "Add tag…",
+    "remove": "Remove {{tag}}"
+  },
+  "language": {
+    "label": "Language",
+    "interface": "Interface language"
+  },
+  "cron": {
+    "manual": "Manual",
+    "presets": {
+      "hourly": "Every hour",
+      "every6h": "Every 6 hours",
+      "every12h": "Every 12 hours",
+      "daily0000": "Daily at 00:00",
+      "daily0300": "Daily at 03:00",
+      "daily0500": "Daily at 05:00",
+      "sunday0400": "Sundays at 04:00",
+      "monday0300": "Mondays at 03:00",
+      "monthly0300": "Monthly on the 1st at 03:00"
+    },
+    "errors": {
+      "fieldCount": "Expected 6 fields: sec min hour day month weekday (e.g. 0 0 3 * * *)",
+      "invalidChars": "Invalid characters in expression"
+    }
+  },
+  "apiErrors": {
+    "panelUnreachable": "Panel server is unreachable",
+    "uploadNetwork": "Network error during upload",
+    "http": {
+      "400": "Bad request",
+      "401": "Authentication required",
+      "403": "Access denied",
+      "404": "Not found",
+      "409": "Conflict",
+      "413": "Request too large",
+      "500": "Internal server error",
+      "502": "SSH / remote server error",
+      "503": "Service unavailable",
+      "504": "Gateway timeout",
+      "429": "Too many requests"
+    }
+  },
+  "yes": "Yes",
+  "no": "No",
+  "none": "None",
+  "noProject": "No project",
+  "noServer": "No server",
+  "noDescription": "No description",
+  "untitled": "Untitled"
+}

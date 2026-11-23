@@ -1,0 +1,24 @@
+{
+  "status": {
+    "connecting": "Verbindung wird hergestellt…"
+  },
+  "reconnect": "Neu verbinden",
+  "reason": {
+    "exited": "Sitzung beendet (Exit-Code {{code}})",
+    "aborted": "Verbindung unterbrochen",
+    "closed": "Verbindung geschlossen (Code {{code}})"
+  },
+  "output": {
+    "exited": "Sitzung beendet, Exit-Code {{code}}",
+    "error": "Fehler: {{message}}"
+  },
+  "tabs": {
+    "new": "Neue Sitzung",
+    "none": "Keine offenen Sitzungen",
+    "open": "Terminal öffnen"
+  },
+  "confirmClose": {
+    "title": "Sitzung schließen?",
+    "message": "Die aktive SSH-Sitzung wird beendet."
+  }
+}

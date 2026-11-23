@@ -1,0 +1,117 @@
+{
+  "list": {
+    "title": "グラフ",
+    "subtitle": "インフラ構成図: サーバーやサービスの接続関係（API、データベース、VPN カスケード）を表します。",
+    "newGraph": "新規グラフ",
+    "createGraph": "グラフを作成",
+    "countInProject_other": "プロジェクト内のグラフ: {{count}} 件",
+    "emptyTitle": "グラフはまだありません",
+    "emptyProjectTitle": "このプロジェクトにはまだグラフがありません",
+    "emptyText": "構成図を作成しましょう: サーバーに紐づく API、データベース、VPN のノード、それらの間の接続、そしてメモ。",
+    "nodes_other": "{{count}} 個のノード",
+    "edges_other": "{{count}} 件の接続",
+    "namePlaceholder": "例: 本番環境 — API とデータベース"
+  },
+  "confirm": {
+    "deleteTitle": "グラフを削除しますか？",
+    "deleteMessage": "グラフ <b>{{name}}</b> を、すべてのノード、接続、メモとともに削除します。サーバーには影響しません。"
+  },
+  "toast": {
+    "deleted": "グラフを削除しました",
+    "deleteFailed": "グラフを削除できませんでした",
+    "saveFailed": "グラフを保存できませんでした"
+  },
+  "page": {
+    "notFound": "グラフが見つかりません",
+    "backToList": "すべてのグラフ",
+    "defaultSubtitle": "インフラ構成図"
+  },
+  "save": {
+    "saved": "保存しました",
+    "saving": "保存中…",
+    "error": "保存できませんでした。再試行しています…",
+    "conflict": "グラフが別のウィンドウで変更されました",
+    "reload": "最新版を読み込む"
+  },
+  "editor": {
+    "node": "ノード",
+    "nodeTitle": "ノード: API、データベース、VPN…",
+    "servers": "サーバー",
+    "serversTitle": "パネルからサーバーを追加",
+    "note": "メモ",
+    "noteTitle": "キャンバス上のメモ",
+    "emptyHint": "ノードやサーバーを追加し、ノードの縁にある点からドラッグして接続してください。",
+    "newNodeLabel": "新規ノード",
+    "serverLabel": "サーバー"
+  },
+  "element": {
+    "serverDeleted": "サーバーは削除済み",
+    "notePlaceholder": "メモのテキスト…",
+    "noteEmpty": "ダブルクリックしてメモを入力"
+  },
+  "inspector": {
+    "graph": "グラフ",
+    "counts": "ノード: {{nodes}} · 接続: {{edges}}",
+    "helpTitle": "使い方",
+    "help": {
+      "connect": "接続: ノードの縁にある点から別のノードへドラッグします。",
+      "select": "ノードや接続をクリックすると、そのプロパティとメモがここに表示されます。",
+      "note": "キャンバス上のメモ: ダブルクリックで編集します。",
+      "openServer": "サーバーノードをダブルクリックすると、そのサーバーを開きます。",
+      "delete": "Delete / Backspace で選択中の要素を削除します。",
+      "shortcuts": "Shift+クリックで複数のノードを選択。Ctrl+C / Ctrl+V でコピー（別のグラフにも貼り付け可）、Ctrl+X で切り取り、Ctrl+A ですべて選択。"
+    },
+    "defaultColor": "デフォルト",
+    "note": "メモ",
+    "noteText": "テキスト",
+    "notePlaceholder": "例:「VPN カスケード: RU → NL → DE、キーは田中さんが管理」",
+    "deleteNote": "メモを削除",
+    "node": "ノード",
+    "role": "役割",
+    "server": "パネルのサーバー",
+    "serverHint": "紐づけると、ステータスと負荷がグラフ上に直接表示されます",
+    "notBound": "未紐づけ",
+    "deletedServer": "（削除されたサーバー）",
+    "openServer": "{{name}} を開く",
+    "nodeNotePlaceholder": "このノードについて知っておくべきこと: ポート、アクセス方法、注意点…",
+    "deleteNode": "ノードを削除",
+    "edge": "接続",
+    "edgeLabel": "ラベル",
+    "edgeLabelHint": "例: 5432/tcp、HTTPS、WireGuard",
+    "directed": "有向（矢印）",
+    "reverse": "向きを反転",
+    "edgeNotePlaceholder": "接続している理由: VPN カスケード、レプリケーション、共通のキー…",
+    "deleteEdge": "接続を削除"
+  },
+  "roles": {
+    "server": "サーバー",
+    "api": "API / バックエンド",
+    "web": "Web / フロントエンド",
+    "db": "データベース",
+    "cache": "キャッシュ",
+    "queue": "キュー",
+    "storage": "ストレージ",
+    "lb": "ロードバランサー / プロキシ",
+    "vpn": "VPN",
+    "internet": "インターネット / 外部サービス",
+    "other": "その他"
+  },
+  "edgeKinds": {
+    "link": "リンク",
+    "depends": "依存関係",
+    "cascade": "カスケード",
+    "vpn": "VPN トンネル",
+    "replication": "レプリケーション",
+    "other": "その他"
+  },
+  "picker": {
+    "title": "グラフにサーバーを追加",
+    "searchPlaceholder": "名前、アドレス、タグ…",
+    "allProjects": "すべてのプロジェクト",
+    "selectAll": "すべて選択 ({{n}})",
+    "clearSelection": "選択を解除",
+    "nothingFound": "該当する項目はありません",
+    "alreadyOnGraph": "グラフに追加済み",
+    "addCount": "{{n}} 件を追加"
+  }
+}

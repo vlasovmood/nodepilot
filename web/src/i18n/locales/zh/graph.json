@@ -1,0 +1,117 @@
+{
+  "list": {
+    "title": "拓扑图",
+    "subtitle": "基础设施拓扑图：展示服务器与服务之间的连接关系——API、数据库、VPN 级联。",
+    "newGraph": "新建拓扑图",
+    "createGraph": "创建拓扑图",
+    "countInProject_other": "项目中有 {{count}} 个拓扑图",
+    "emptyTitle": "暂无拓扑图",
+    "emptyProjectTitle": "该项目暂无拓扑图",
+    "emptyText": "绘制一张拓扑图：将 API、数据库、VPN 节点关联到您的服务器，并添加它们之间的连接和备注。",
+    "nodes_other": "{{count}} 个节点",
+    "edges_other": "{{count}} 条连接",
+    "namePlaceholder": "例如：生产环境 — API 与数据库"
+  },
+  "confirm": {
+    "deleteTitle": "删除拓扑图？",
+    "deleteMessage": "拓扑图 <b>{{name}}</b> 及其所有节点、连接和备注都将被删除。服务器本身不受影响。"
+  },
+  "toast": {
+    "deleted": "拓扑图已删除",
+    "deleteFailed": "无法删除拓扑图",
+    "saveFailed": "拓扑图未保存"
+  },
+  "page": {
+    "notFound": "未找到拓扑图",
+    "backToList": "全部拓扑图",
+    "defaultSubtitle": "基础设施拓扑图"
+  },
+  "save": {
+    "saved": "已保存",
+    "saving": "保存中…",
+    "error": "未保存，正在重试…",
+    "conflict": "拓扑图已在其他窗口中被修改",
+    "reload": "加载最新版本"
+  },
+  "editor": {
+    "node": "节点",
+    "nodeTitle": "节点：API、数据库、VPN…",
+    "servers": "服务器",
+    "serversTitle": "从面板添加服务器",
+    "note": "备注",
+    "noteTitle": "画布上的备注",
+    "emptyHint": "添加节点或服务器，然后从节点边缘的圆点拖动即可建立连接。",
+    "newNodeLabel": "新节点",
+    "serverLabel": "服务器"
+  },
+  "element": {
+    "serverDeleted": "服务器已删除",
+    "notePlaceholder": "备注内容…",
+    "noteEmpty": "双击以编写备注"
+  },
+  "inspector": {
+    "graph": "拓扑图",
+    "counts": "节点：{{nodes}} · 连接：{{edges}}",
+    "helpTitle": "使用说明",
+    "help": {
+      "connect": "建立连接：从节点边缘的圆点拖动到另一个节点。",
+      "select": "单击节点或连接，可在此处查看其属性和备注。",
+      "note": "画布备注：双击即可编辑。",
+      "openServer": "双击服务器节点可打开对应服务器。",
+      "delete": "按 Delete / Backspace 删除所选内容。",
+      "shortcuts": "Shift+点击可选择多个节点。Ctrl+C / Ctrl+V 复制节点（也可粘贴到其他图），Ctrl+X 剪切，Ctrl+A 全选。"
+    },
+    "defaultColor": "默认",
+    "note": "备注",
+    "noteText": "内容",
+    "notePlaceholder": "例如：“VPN 级联：RU → NL → DE，密钥在张三处”",
+    "deleteNote": "删除备注",
+    "node": "节点",
+    "role": "角色",
+    "server": "面板服务器",
+    "serverHint": "关联后可直接在拓扑图上显示状态和负载",
+    "notBound": "未关联",
+    "deletedServer": "（已删除的服务器）",
+    "openServer": "打开 {{name}}",
+    "nodeNotePlaceholder": "关于该节点需要了解的信息：端口、访问方式、注意事项…",
+    "deleteNode": "删除节点",
+    "edge": "连接",
+    "edgeLabel": "标签",
+    "edgeLabelHint": "例如 5432/tcp、HTTPS、WireGuard",
+    "directed": "有向（箭头）",
+    "reverse": "反转方向",
+    "edgeNotePlaceholder": "连接原因：VPN 级联、复制、共享密钥…",
+    "deleteEdge": "删除连接"
+  },
+  "roles": {
+    "server": "服务器",
+    "api": "API / 后端",
+    "web": "Web / 前端",
+    "db": "数据库",
+    "cache": "缓存",
+    "queue": "队列",
+    "storage": "存储",
+    "lb": "负载均衡 / 代理",
+    "vpn": "VPN",
+    "internet": "互联网 / 外部服务",
+    "other": "其他"
+  },
+  "edgeKinds": {
+    "link": "连接",
+    "depends": "依赖",
+    "cascade": "级联",
+    "vpn": "VPN 隧道",
+    "replication": "复制",
+    "other": "其他"
+  },
+  "picker": {
+    "title": "添加服务器到拓扑图",
+    "searchPlaceholder": "名称、地址、标签…",
+    "allProjects": "全部项目",
+    "selectAll": "全选（{{n}}）",
+    "clearSelection": "取消选择",
+    "nothingFound": "未找到结果",
+    "alreadyOnGraph": "已在拓扑图中",
+    "addCount": "添加 {{n}} 台"
+  }
+}

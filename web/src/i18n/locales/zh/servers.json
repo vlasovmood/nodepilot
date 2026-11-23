@@ -1,0 +1,190 @@
+{
+  "page": {
+    "title": "服务器",
+    "count_other": "{{count}} 台服务器"
+  },
+  "loading": "正在加载服务器…",
+  "toolbar": {
+    "filterPlaceholder": "筛选：名称、地址、标签…",
+    "tagTitle": "按标签筛选",
+    "allTags": "全部标签",
+    "statusTitle": "按状态筛选",
+    "anyStatus": "全部状态",
+    "online": "在线（{{n}}）",
+    "offline": "不可达（{{n}}）",
+    "unknown": "未知（{{n}}）",
+    "favorites": "★ 收藏（{{n}}）",
+    "view": "视图",
+    "list": "列表",
+    "grid": "卡片",
+    "import": "导入",
+    "addServer": "添加服务器"
+  },
+  "selection": {
+    "count": "已选择：{{n}}",
+    "exec": "执行命令",
+    "toProject": "添加到项目",
+    "removeFromProject": "从项目中移除",
+    "clear": "取消选择"
+  },
+  "empty": {
+    "title": "暂无服务器",
+    "projectTitle": "该项目中暂无服务器",
+    "hint": "手动添加第一台服务器，或从 CSV/JSON 导入服务器列表。",
+    "projectHint": "添加新服务器，或在“全部服务器”中选择已有服务器后点击“添加到项目”。"
+  },
+  "footer": {
+    "shown": "显示 {{shown}} / {{total}}",
+    "noMatch": "没有符合筛选条件的服务器",
+    "selectHint": "Ctrl/Shift + 单击可多选",
+    "statsUnavailable": "监控数据不可用",
+    "metrics": "监控指标：{{time}}"
+  },
+  "confirm": {
+    "deleteOneTitle": "删除服务器？",
+    "deleteManyTitle_other": "删除 {{count}} 台服务器？",
+    "deleteOneMessage": "服务器 <b>{{name}}</b> 及其笔记和备份任务将从面板中移除。服务器本机不受影响。",
+    "deleteManyMessage": "将删除：{{names}}。服务器本机不受影响。",
+    "deleteManyMessageMore": "将删除：{{names}} 以及其他 {{more}} 台。服务器本机不受影响。",
+    "deleteRequireText": "删除",
+    "removeTitle": "从项目中移除？",
+    "removeMessage_other": "{{count}} 台服务器将从项目“{{project}}”中移除，但仍保留在面板中。",
+    "removeConfirm": "移除"
+  },
+  "toast": {
+    "deletePartial": "已删除 {{ok}} 台，失败：{{failed}}",
+    "deletedOne": "服务器已删除",
+    "deletedMany_other": "已删除 {{count}} 台服务器",
+    "errors": "失败：{{failed}}",
+    "removedFromProject": "服务器已从项目中移除"
+  },
+  "table": {
+    "selectAll": "全选",
+    "name": "名称",
+    "address": "地址",
+    "tags": "标签",
+    "projects": "项目",
+    "disk": "磁盘",
+    "uptime": "运行时间",
+    "cores_other": "{{count}} 核"
+  },
+  "menu": {
+    "terminal": "终端",
+    "edit": "编辑"
+  },
+  "grid": {
+    "noData": "{{label}}：暂无数据",
+    "select": "选择",
+    "addFavorite": "加入收藏",
+    "removeFavorite": "取消收藏",
+    "offlineMark": "离线",
+    "prev": "上一页",
+    "next": "下一页"
+  },
+  "bulkExec": {
+    "title_other": "执行命令 — {{count}} 台服务器",
+    "result": "结果：<code>{{cmd}}</code>"
+  },
+  "addToProject": {
+    "title": "添加到项目",
+    "label_other": "为 {{count}} 台服务器选择项目",
+    "placeholder": "— 选择项目 —",
+    "noProjects": "请先在侧边栏中创建项目",
+    "partial": "已添加 {{ok}} 台，失败：{{failed}}",
+    "success": "服务器已添加到项目",
+    "successDetail_other": "{{project}}：{{count}} 台服务器"
+  },
+  "select": "— 请选择 —",
+  "identityKind": {
+    "key": "密钥",
+    "password": "密码"
+  },
+  "test": {
+    "ok": "<b>连接成功</b>，延迟 {{latency}}",
+    "fail": "连接失败"
+  },
+  "form": {
+    "editTitle": "服务器：{{name}}",
+    "newTitle": "新建服务器",
+    "name": "名称",
+    "username": "用户",
+    "host": "主机 / IP",
+    "port": "端口",
+    "auth": "认证方式",
+    "authMode": {
+      "keep": "保持当前",
+      "password": "密码",
+      "key": "私钥",
+      "identity": "从密钥库选择"
+    },
+    "currentAuth": "当前认证方式：{{method}}。凭据内容永远不会显示。",
+    "currentMethod": {
+      "password": "密码",
+      "key": "私钥",
+      "identity": "密钥库（{{name}}）"
+    },
+    "passwordPlaceholder": "SSH 密码",
+    "uploadKey": "从文件加载",
+    "passphrasePlaceholder": "私钥口令（如有）",
+    "keychainEmpty": "密钥库为空。<link>添加密钥</link>",
+    "tagsHint": "按 Enter 或逗号添加",
+    "projects": "项目",
+    "noProjects": "暂无项目",
+    "testTitle": "测试已保存的配置",
+    "test": "测试连接",
+    "saveAndTest": "保存并测试",
+    "errors": {
+      "name": "名称为必填项",
+      "host": "主机为必填项",
+      "username": "用户为必填项",
+      "password": "请输入密码",
+      "key": "请粘贴或上传私钥",
+      "identity": "请从密钥库中选择密钥",
+      "noAuth": "未选择认证方式"
+    },
+    "toast": {
+      "saved": "服务器已保存",
+      "added": "服务器已添加",
+      "keyTooLarge": "文件过大，不像是私钥文件"
+    }
+  },
+  "import": {
+    "title": "批量导入服务器",
+    "exampleHeader": "# name,host,port,username[,tags 以 ; 分隔]",
+    "formatHelp": "ServerInput 的 JSON 数组，或 CSV：name,host,port,username[,tags 以 ; 分隔]",
+    "example": "示例",
+    "file": "文件",
+    "identity": "密钥库中的密钥",
+    "identityHintJson": "用于未包含 auth 字段的条目",
+    "identityHintCsv": "用于 CSV 中的所有服务器",
+    "keychainEmpty": "密钥库为空——<link>创建密钥</link>",
+    "defaultUser": "默认用户",
+    "defaultUserHint": "当某行未指定 username 时使用",
+    "extraTags": "为全部添加标签",
+    "addToProjects": "添加到项目",
+    "noProjects": "暂无项目",
+    "skipped": "已跳过的条目：{{n}}",
+    "col": {
+      "name": "名称",
+      "address": "地址",
+      "user": "用户",
+      "tags": "标签"
+    },
+    "authKeychain": "密钥库",
+    "more": "…以及其他 {{n}} 台",
+    "ready_other": "待导入：{{count}} 台服务器",
+    "pasteData": "请粘贴要导入的数据",
+    "needIdentity": "— 请选择密钥库中的密钥",
+    "submit": "导入",
+    "successTitle": "导入完成",
+    "successDetail_other": "已添加 {{count}} 台服务器",
+    "errors": {
+      "notObject": "#{{n}}：应为对象",
+      "noHostJson": "#{{n}}：缺少 host",
+      "badPortJson": "#{{n}}：端口无效",
+      "json": "JSON 无效：{{message}}",
+      "noHostLine": "第 {{n}} 行：缺少 host",
+      "badPortLine": "第 {{n}} 行：端口“{{port}}”无效"
+    }
+  }
+}

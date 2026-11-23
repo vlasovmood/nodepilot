@@ -1,0 +1,200 @@
+{
+  "page": {
+    "title": "Servers",
+    "count_one": "{{count}} server",
+    "count_other": "{{count}} servers"
+  },
+  "loading": "Loading servers…",
+  "toolbar": {
+    "filterPlaceholder": "Filter: name, address, tag…",
+    "tagTitle": "Filter by tag",
+    "allTags": "All tags",
+    "statusTitle": "Filter by status",
+    "anyStatus": "Any status",
+    "online": "Online ({{n}})",
+    "offline": "Unreachable ({{n}})",
+    "unknown": "Unknown ({{n}})",
+    "favorites": "★ Favorites ({{n}})",
+    "view": "View",
+    "list": "List",
+    "grid": "Grid",
+    "import": "Import",
+    "addServer": "Add server"
+  },
+  "selection": {
+    "count": "Selected: {{n}}",
+    "exec": "Run command",
+    "toProject": "Add to project",
+    "removeFromProject": "Remove from project",
+    "clear": "Clear selection"
+  },
+  "empty": {
+    "title": "No servers yet",
+    "projectTitle": "No servers in this project yet",
+    "hint": "Add your first server manually or import a list from CSV/JSON.",
+    "projectHint": "Add a new server, or select existing ones under “All servers” and click “Add to project”."
+  },
+  "footer": {
+    "shown": "Showing {{shown}} of {{total}}",
+    "noMatch": "No servers match the filter",
+    "selectHint": "Ctrl/Shift+click to select",
+    "statsUnavailable": "Stats unavailable",
+    "metrics": "Metrics: {{time}}"
+  },
+  "confirm": {
+    "deleteOneTitle": "Delete server?",
+    "deleteManyTitle_one": "Delete {{count}} server?",
+    "deleteManyTitle_other": "Delete {{count}} servers?",
+    "deleteOneMessage": "Server <b>{{name}}</b> will be removed from the panel along with its notes and backup jobs. The machine itself is not affected.",
+    "deleteManyMessage": "To be deleted: {{names}}. The machines themselves are not affected.",
+    "deleteManyMessageMore": "To be deleted: {{names}} and {{more}} more. The machines themselves are not affected.",
+    "deleteRequireText": "delete",
+    "removeTitle": "Remove from project?",
+    "removeMessage_one": "{{count}} server will be removed from project “{{project}}”. It stays in the panel.",
+    "removeMessage_other": "{{count}} servers will be removed from project “{{project}}”. They stay in the panel.",
+    "removeConfirm": "Remove"
+  },
+  "toast": {
+    "deletePartial": "Deleted {{ok}}, failed: {{failed}}",
+    "deletedOne": "Server deleted",
+    "deletedMany_one": "{{count}} server deleted",
+    "deletedMany_other": "{{count}} servers deleted",
+    "errors": "Failed: {{failed}}",
+    "removedFromProject": "Servers removed from project"
+  },
+  "table": {
+    "selectAll": "Select all",
+    "name": "Name",
+    "address": "Address",
+    "tags": "Tags",
+    "projects": "Projects",
+    "disk": "Disk",
+    "uptime": "Uptime",
+    "cores_one": "{{count}} core",
+    "cores_other": "{{count}} cores"
+  },
+  "menu": {
+    "terminal": "Terminal",
+    "edit": "Edit"
+  },
+  "grid": {
+    "noData": "{{label}}: no data",
+    "select": "Select",
+    "addFavorite": "Add to favorites",
+    "removeFavorite": "Remove from favorites",
+    "offlineMark": "OFFLINE",
+    "prev": "Previous",
+    "next": "Next"
+  },
+  "bulkExec": {
+    "title_one": "Run command — {{count}} server",
+    "title_other": "Run command — {{count}} servers",
+    "result": "Result: <code>{{cmd}}</code>"
+  },
+  "addToProject": {
+    "title": "Add to project",
+    "label_one": "Project for {{count}} server",
+    "label_other": "Project for {{count}} servers",
+    "placeholder": "— select a project —",
+    "noProjects": "Create a project in the sidebar first",
+    "partial": "Added {{ok}}, failed: {{failed}}",
+    "success": "Servers added to project",
+    "successDetail_one": "{{project}}: {{count}} server",
+    "successDetail_other": "{{project}}: {{count}} servers"
+  },
+  "select": "— select —",
+  "identityKind": {
+    "key": "key",
+    "password": "password"
+  },
+  "test": {
+    "ok": "<b>Connected</b> — latency {{latency}}",
+    "fail": "Connection failed"
+  },
+  "form": {
+    "editTitle": "Server: {{name}}",
+    "newTitle": "New server",
+    "name": "Name",
+    "username": "User",
+    "host": "Host / IP",
+    "port": "Port",
+    "auth": "Authentication",
+    "authMode": {
+      "keep": "Keep current",
+      "password": "Password",
+      "key": "Private key",
+      "identity": "From keychain"
+    },
+    "currentAuth": "Current method: {{method}}. Secrets are never shown.",
+    "currentMethod": {
+      "password": "password",
+      "key": "private key",
+      "identity": "keychain ({{name}})"
+    },
+    "passwordPlaceholder": "SSH password",
+    "uploadKey": "Load from file",
+    "passphrasePlaceholder": "Key passphrase (if any)",
+    "keychainEmpty": "The keychain is empty. <link>Add a key</link>",
+    "tagsHint": "Press Enter or comma to add",
+    "projects": "Projects",
+    "noProjects": "No projects yet",
+    "testTitle": "Test the saved settings",
+    "test": "Test connection",
+    "saveAndTest": "Save and test",
+    "errors": {
+      "name": "Name is required",
+      "host": "Host is required",
+      "username": "User is required",
+      "password": "Enter a password",
+      "key": "Paste or upload a private key",
+      "identity": "Select a key from the keychain",
+      "noAuth": "No authentication method selected"
+    },
+    "toast": {
+      "saved": "Server saved",
+      "added": "Server added",
+      "keyTooLarge": "File is too large to be a private key"
+    }
+  },
+  "import": {
+    "title": "Bulk import servers",
+    "exampleHeader": "# name,host,port,username[,tags separated by ;]",
+    "formatHelp": "JSON array of ServerInput or CSV: name,host,port,username[,tags separated by ;]",
+    "example": "Example",
+    "file": "File",
+    "identity": "Keychain key",
+    "identityHintJson": "Used for entries without an auth field",
+    "identityHintCsv": "Used for all servers from the CSV",
+    "keychainEmpty": "The keychain is empty — <link>create a key</link>",
+    "defaultUser": "Default user",
+    "defaultUserHint": "Used when a row has no username",
+    "extraTags": "Add tags to all",
+    "addToProjects": "Add to projects",
+    "noProjects": "No projects",
+    "skipped": "Skipped entries: {{n}}",
+    "col": {
+      "name": "Name",
+      "address": "Address",
+      "user": "User",
+      "tags": "Tags"
+    },
+    "authKeychain": "keychain",
+    "more": "…and {{n}} more",
+    "ready_one": "Ready to import: {{count}} server",
+    "ready_other": "Ready to import: {{count}} servers",
+    "pasteData": "Paste data to import",
+    "needIdentity": "— select a keychain key",
+    "submit": "Import",
+    "successTitle": "Import complete",
+    "successDetail_one": "{{count}} server added",
+    "successDetail_other": "{{count}} servers added",
+    "errors": {
+      "notObject": "#{{n}}: expected an object",
+      "noHostJson": "#{{n}}: host is missing",
+      "badPortJson": "#{{n}}: invalid port",
+      "json": "Invalid JSON: {{message}}",
+      "noHostLine": "Line {{n}}: host is missing",
+      "badPortLine": "Line {{n}}: invalid port “{{port}}”"
+    }
+  }
+}

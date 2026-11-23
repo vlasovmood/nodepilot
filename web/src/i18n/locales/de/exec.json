@@ -1,0 +1,52 @@
+{
+  "page": {
+    "title": "Multi-Exec",
+    "subtitle": "Einen Befehl parallel per SSH auf vielen Servern ausführen."
+  },
+  "targets": {
+    "title": "Ziele",
+    "servers": "Server",
+    "project": "Projekt",
+    "selectProject": "— Projekt auswählen —",
+    "projectHint": "Der Befehl wird auf allen Servern ausgeführt, die zum Startzeitpunkt zum Projekt gehören.",
+    "search": "Server suchen",
+    "allTags": "Alle Tags",
+    "onlyOnline": "Nur online",
+    "selectVisible": "Sichtbare auswählen",
+    "clear": "Aufheben",
+    "selected": "{{n}} ausgewählt",
+    "noServers": "Keine Server"
+  },
+  "runs": {
+    "empty": "Hier erscheinen die Ergebnisse. Die letzten 10 Ausführungen bleiben bis zum Neuladen der Seite erhalten.",
+    "hide": "Ausblenden"
+  },
+  "form": {
+    "placeholder": "Befehl, z. B. uptime && df -h /",
+    "run_one": "Auf {{count}} Server ausführen",
+    "run_other": "Auf {{count}} Servern ausführen",
+    "timeout": "Timeout, s",
+    "history": "Befehlsverlauf",
+    "historyPlaceholder": "Befehlsverlauf…",
+    "running": "Wird ausgeführt… Die Ergebnisse erscheinen, sobald alle Server fertig sind.",
+    "confirm": {
+      "title": "Befehl ausführen?",
+      "message_one": "Der Befehl wird auf {{count}} Server ausgeführt:",
+      "message_other": "Der Befehl wird auf {{count}} Servern ausgeführt:",
+      "button": "Ausführen"
+    }
+  },
+  "results": {
+    "success": "Erfolgreich: {{n}}",
+    "failed": "Fehlgeschlagen: {{n}}",
+    "filterAll": "Alle ({{n}})",
+    "filterOk": "Erfolgreich",
+    "filterFail": "Fehlgeschlagen",
+    "expandAll": "Alle ausklappen",
+    "collapseAll": "Alle einklappen",
+    "copyAll": "Alles kopieren",
+    "noResults": "Keine Ergebnisse für diesen Filter",
+    "truncated": "Ausgabe gekürzt",
+    "emptyOutput": "Leere Ausgabe"
+  }
+}

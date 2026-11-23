@@ -1,0 +1,120 @@
+{
+  "list": {
+    "title": "Graphes",
+    "subtitle": "Schémas d'infrastructure : comment les serveurs et les services sont reliés — API, bases de données, cascades VPN.",
+    "newGraph": "Nouveau graphe",
+    "createGraph": "Créer un graphe",
+    "countInProject_one": "{{count}} graphe dans le projet",
+    "countInProject_other": "{{count}} graphes dans le projet",
+    "emptyTitle": "Aucun graphe pour l'instant",
+    "emptyProjectTitle": "Ce projet n'a pas encore de graphe",
+    "emptyText": "Dessinez un schéma : des nœuds API, base de données et VPN reliés à vos serveurs, les liaisons entre eux et des notes.",
+    "nodes_one": "{{count}} nœud",
+    "nodes_other": "{{count}} nœuds",
+    "edges_one": "{{count}} liaison",
+    "edges_other": "{{count}} liaisons",
+    "namePlaceholder": "par ex. Production — API et bases de données"
+  },
+  "confirm": {
+    "deleteTitle": "Supprimer le graphe ?",
+    "deleteMessage": "Le graphe <b>{{name}}</b> sera supprimé avec tous ses nœuds, liaisons et notes. Les serveurs ne sont pas affectés."
+  },
+  "toast": {
+    "deleted": "Graphe supprimé",
+    "deleteFailed": "Impossible de supprimer le graphe",
+    "saveFailed": "Graphe non enregistré"
+  },
+  "page": {
+    "notFound": "Graphe introuvable",
+    "backToList": "Tous les graphes",
+    "defaultSubtitle": "Schéma d'infrastructure"
+  },
+  "save": {
+    "saved": "Enregistré",
+    "saving": "Enregistrement…",
+    "error": "Non enregistré, nouvelle tentative…",
+    "conflict": "Le graphe a été modifié dans une autre fenêtre",
+    "reload": "Charger la dernière version"
+  },
+  "editor": {
+    "node": "Nœud",
+    "nodeTitle": "Nœud : API, base de données, VPN…",
+    "servers": "Serveurs",
+    "serversTitle": "Ajouter des serveurs du panneau",
+    "note": "Note",
+    "noteTitle": "Note sur le canevas",
+    "emptyHint": "Ajoutez des nœuds ou des serveurs, puis reliez-les en faisant glisser depuis un point sur le bord d'un nœud.",
+    "newNodeLabel": "Nouveau nœud",
+    "serverLabel": "Serveur"
+  },
+  "element": {
+    "serverDeleted": "serveur supprimé",
+    "notePlaceholder": "Texte de la note…",
+    "noteEmpty": "Double-cliquez pour écrire une note"
+  },
+  "inspector": {
+    "graph": "Graphe",
+    "counts": "Nœuds : {{nodes}} · liaisons : {{edges}}",
+    "helpTitle": "Mode d'emploi",
+    "help": {
+      "connect": "Relier : faites glisser depuis un point sur le bord d'un nœud vers un autre nœud.",
+      "select": "Cliquez sur un nœud ou une liaison pour afficher ici ses propriétés et sa note.",
+      "note": "Note sur le canevas : double-cliquez pour la modifier.",
+      "openServer": "Double-cliquez sur un nœud serveur pour ouvrir le serveur.",
+      "delete": "Suppr / Retour arrière supprime la sélection.",
+      "shortcuts": "Maj+clic sélectionne plusieurs nœuds. Ctrl+C / Ctrl+V les copie (y compris vers un autre graphe), Ctrl+X coupe, Ctrl+A sélectionne tout."
+    },
+    "defaultColor": "Par défaut",
+    "note": "Note",
+    "noteText": "Texte",
+    "notePlaceholder": "par ex. « Cascade VPN : RU → NL → DE, les clés sont chez Jean »",
+    "deleteNote": "Supprimer la note",
+    "node": "Nœud",
+    "role": "Rôle",
+    "server": "Serveur du panneau",
+    "serverHint": "La liaison affiche l'état et la charge directement sur le graphe",
+    "notBound": "Non lié",
+    "deletedServer": "(serveur supprimé)",
+    "openServer": "Ouvrir {{name}}",
+    "nodeNotePlaceholder": "Ce qu'il faut savoir sur ce nœud : ports, accès, particularités…",
+    "deleteNode": "Supprimer le nœud",
+    "edge": "Liaison",
+    "edgeLabel": "Libellé",
+    "edgeLabelHint": "par ex. 5432/tcp, HTTPS, WireGuard",
+    "directed": "Orientée (flèche)",
+    "reverse": "Inverser le sens",
+    "edgeNotePlaceholder": "Pourquoi ils sont reliés : cascade VPN, réplication, clé partagée…",
+    "deleteEdge": "Supprimer la liaison"
+  },
+  "roles": {
+    "server": "Serveur",
+    "api": "API / backend",
+    "web": "Web / frontend",
+    "db": "Base de données",
+    "cache": "Cache",
+    "queue": "File d'attente",
+    "storage": "Stockage",
+    "lb": "Répartiteur de charge / proxy",
+    "vpn": "VPN",
+    "internet": "Internet / service externe",
+    "other": "Autre"
+  },
+  "edgeKinds": {
+    "link": "Lien",
+    "depends": "Dépendance",
+    "cascade": "Cascade",
+    "vpn": "Tunnel VPN",
+    "replication": "Réplication",
+    "other": "Autre"
+  },
+  "picker": {
+    "title": "Ajouter des serveurs au graphe",
+    "searchPlaceholder": "Nom, adresse, tag…",
+    "allProjects": "Tous les projets",
+    "selectAll": "Tout sélectionner ({{n}})",
+    "clearSelection": "Effacer la sélection",
+    "nothingFound": "Aucun résultat",
+    "alreadyOnGraph": "déjà sur le graphe",
+    "addCount": "Ajouter {{n}}"
+  }
+}

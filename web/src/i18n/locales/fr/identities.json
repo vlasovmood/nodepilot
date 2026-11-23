@@ -1,0 +1,54 @@
+{
+  "title": "Clés",
+  "subtitle": "Trousseau : identifiants SSH réutilisables (mots de passe et clés privées) partagés entre serveurs.",
+  "add": "Ajouter une clé",
+  "secretsInfo": "Les secrets sont stockés uniquement sur le serveur du panneau et ne sont jamais renvoyés au navigateur. Lors de la modification, laissez un champ vide pour conserver sa valeur actuelle.",
+  "empty": {
+    "title": "Le trousseau est vide",
+    "text": "Ajoutez une clé SSH ou un mot de passe et utilisez-le lors de l'ajout ou de l'import de serveurs."
+  },
+  "table": {
+    "name": "Nom",
+    "type": "Type",
+    "servers": "Serveurs",
+    "created": "Création"
+  },
+  "kind": {
+    "key": "Clé privée",
+    "password": "Mot de passe"
+  },
+  "dialog": {
+    "newTitle": "Nouvelle clé",
+    "editTitle": "Clé : {{name}}"
+  },
+  "form": {
+    "name": "Nom",
+    "type": "Type",
+    "password": "Mot de passe",
+    "privateKey": "Clé privée",
+    "keepEmpty": "Laissez vide pour ne pas modifier",
+    "keyFormats": "OpenSSH / PEM",
+    "loadFromFile": "Charger depuis un fichier",
+    "passphrase": "Phrase secrète de la clé",
+    "passphraseHint": "Si la clé est chiffrée"
+  },
+  "validation": {
+    "nameRequired": "Saisissez un nom",
+    "passwordRequired": "Saisissez un mot de passe",
+    "keyRequired": "Collez une clé privée"
+  },
+  "confirm": {
+    "deleteTitle": "Supprimer la clé ?",
+    "deleteMessage": "« {{name}} » sera retirée du trousseau."
+  },
+  "toast": {
+    "inUse": "Clé en cours d'utilisation",
+    "inUseMessage_one": "Elle est utilisée par {{count}} serveur. Modifiez d'abord l'authentification de ce serveur.",
+    "inUseMessage_other": "Elle est utilisée par {{count}} serveurs. Modifiez d'abord l'authentification de ces serveurs.",
+    "deleted": "Clé supprimée",
+    "deleteFailed": "Impossible de supprimer la clé",
+    "saved": "Clé enregistrée",
+    "added": "Clé ajoutée",
+    "fileTooLarge": "Fichier trop volumineux pour être une clé"
+  }
+}

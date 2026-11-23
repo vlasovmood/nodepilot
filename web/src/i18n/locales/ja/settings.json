@@ -1,0 +1,70 @@
+{
+  "title": "設定",
+  "subtitle": "<b>{{username}}</b> としてログイン中",
+  "language": {
+    "title": "表示言語"
+  },
+  "interface": {
+    "title": "インターフェース",
+    "theme": "テーマ",
+    "dark": "ダーク",
+    "light": "ライト"
+  },
+  "tokens": {
+    "title": "API トークン",
+    "description": "モバイルアプリ、スクリプト、CLI、AI エージェント（MCP）用のトークン、その権限と有効期限、および API リファレンスは「API」セクションにあります。",
+    "manage": "トークンを管理"
+  },
+  "updates": {
+    "title": "アップデート",
+    "checkNow": "今すぐ確認",
+    "current": "現在のバージョン",
+    "latest": "最新バージョン",
+    "published": "公開日時",
+    "checked": "最終確認日時",
+    "never": "未確認",
+    "repo": "リポジトリ",
+    "verification": "ファイルの検証",
+    "signed": "SHA-256 と Ed25519 署名",
+    "checksumOnly": "SHA-256 のみ（リリース署名は未設定）",
+    "prerelease": "プレリリース",
+    "available": "アップデートあり",
+    "upToDate": "最新です",
+    "checkError": "アップデートを確認できませんでした: {{error}}",
+    "showNotes": "{{version}} の新機能",
+    "hideNotes": "リリースノートを非表示",
+    "openRelease": "リリースを開く",
+    "noNotes": "このリリースには説明がありません。",
+    "install": "{{version}} をインストール",
+    "blocked": "このアップデートはパネルからインストールできません: {{reason}}",
+    "autoCheck": "アップデートを自動的に確認する（6 時間ごと）",
+    "prereleases": "プレリリース版（beta、rc）も提供する",
+    "hint": "アップデートが自動的にインストールされることはありません。「インストール」をクリックしたときにのみインストールされます。以前のバージョンはロールバック用に nodepilot.old として同じ場所に保持されます。",
+    "waitRestart": "パネルを再起動しています。このページは自動的に再読み込みされます…",
+    "phase": {
+      "idle": "準備完了",
+      "downloading": "ダウンロード中…",
+      "verifying": "チェックサムと署名を検証中…",
+      "installing": "インストール中…",
+      "restarting": "パネルを再起動中…",
+      "failed": "アップデートに失敗しました"
+    },
+    "confirm": {
+      "title": "バージョン {{version}} をインストールしますか？",
+      "message": "パネルは新しいバージョンをダウンロードして検証し、再起動します。開いているターミナルと実行中のコマンドは中断され、実行中のバックアップは中断済みとして記録されます。",
+      "ok": "インストールして再起動"
+    },
+    "toast": {
+      "checkFailed": "アップデートを確認できませんでした",
+      "settingsFailed": "アップデート設定を保存できませんでした",
+      "installFailed": "アップデートはインストールされませんでした",
+      "installed": "バージョン {{version}} をインストールしました"
+    },
+    "repoNotSet": "未設定（NODEPILOT_UPDATE_REPO）"
+  },
+  "security": {
+    "title": "セキュリティ",
+    "description": "二要素ログイン、パネルの SSH キー、マスターキーの保護、バックアップの暗号化、監査ログの転送。",
+    "open": "セキュリティを開く"
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "list": {
+    "title": "Graphs",
+    "subtitle": "Infrastructure diagrams: how servers and services connect — APIs, databases, VPN cascades.",
+    "newGraph": "New graph",
+    "createGraph": "Create graph",
+    "countInProject_one": "{{count}} graph in project",
+    "countInProject_other": "{{count}} graphs in project",
+    "emptyTitle": "No graphs yet",
+    "emptyProjectTitle": "This project has no graphs yet",
+    "emptyText": "Draw a diagram: API, database and VPN nodes linked to your servers, the connections between them, and notes.",
+    "nodes_one": "{{count}} node",
+    "nodes_other": "{{count}} nodes",
+    "edges_one": "{{count}} connection",
+    "edges_other": "{{count}} connections",
+    "namePlaceholder": "e.g. Production — API and databases"
+  },
+  "confirm": {
+    "deleteTitle": "Delete graph?",
+    "deleteMessage": "Graph <b>{{name}}</b> will be deleted with all its nodes, connections and notes. Servers are not affected."
+  },
+  "toast": {
+    "deleted": "Graph deleted",
+    "deleteFailed": "Couldn't delete graph",
+    "saveFailed": "Graph not saved"
+  },
+  "page": {
+    "notFound": "Graph not found",
+    "backToList": "All graphs",
+    "defaultSubtitle": "Infrastructure diagram"
+  },
+  "save": {
+    "saved": "Saved",
+    "saving": "Saving…",
+    "error": "Not saved, retrying…",
+    "conflict": "Graph was changed in another window",
+    "reload": "Load latest"
+  },
+  "editor": {
+    "node": "Node",
+    "nodeTitle": "Node: API, database, VPN…",
+    "servers": "Servers",
+    "serversTitle": "Add servers from the panel",
+    "note": "Note",
+    "noteTitle": "Note on the canvas",
+    "emptyHint": "Add nodes or servers, then connect them by dragging from a dot on a node's edge.",
+    "newNodeLabel": "New node",
+    "serverLabel": "Server"
+  },
+  "element": {
+    "serverDeleted": "server deleted",
+    "notePlaceholder": "Note text…",
+    "noteEmpty": "Double-click to write a note"
+  },
+  "inspector": {
+    "graph": "Graph",
+    "counts": "Nodes: {{nodes}} · connections: {{edges}}",
+    "helpTitle": "How it works",
+    "help": {
+      "connect": "Connect: drag from a dot on a node's edge to another node.",
+      "select": "Click a node or connection to see its properties and note here.",
+      "note": "Canvas note: double-click to edit.",
+      "openServer": "Double-click a server node to open the server.",
+      "delete": "Delete / Backspace removes the selection.",
+      "shortcuts": "Shift+click selects several nodes. Ctrl+C / Ctrl+V copies them (also into another graph), Ctrl+X cuts, Ctrl+A selects all."
+    },
+    "defaultColor": "Default",
+    "note": "Note",
+    "noteText": "Text",
+    "notePlaceholder": "e.g. “VPN cascade: RU → NL → DE, keys are with John”",
+    "deleteNote": "Delete note",
+    "node": "Node",
+    "role": "Role",
+    "server": "Panel server",
+    "serverHint": "Linking shows status and load right on the graph",
+    "notBound": "Not linked",
+    "deletedServer": "(deleted server)",
+    "openServer": "Open {{name}}",
+    "nodeNotePlaceholder": "What to know about this node: ports, access, quirks…",
+    "deleteNode": "Delete node",
+    "edge": "Connection",
+    "edgeLabel": "Label",
+    "edgeLabelHint": "e.g. 5432/tcp, HTTPS, WireGuard",
+    "directed": "Directed (arrow)",
+    "reverse": "Reverse direction",
+    "edgeNotePlaceholder": "Why they're connected: VPN cascade, replication, shared key…",
+    "deleteEdge": "Delete connection"
+  },
+  "roles": {
+    "server": "Server",
+    "api": "API / backend",
+    "web": "Web / frontend",
+    "db": "Database",
+    "cache": "Cache",
+    "queue": "Queue",
+    "storage": "Storage",
+    "lb": "Load balancer / proxy",
+    "vpn": "VPN",
+    "internet": "Internet / external service",
+    "other": "Other"
+  },
+  "edgeKinds": {
+    "link": "Link",
+    "depends": "Dependency",
+    "cascade": "Cascade",
+    "vpn": "VPN tunnel",
+    "replication": "Replication",
+    "other": "Other"
+  },
+  "picker": {
+    "title": "Add servers to graph",
+    "searchPlaceholder": "Name, address, tag…",
+    "allProjects": "All projects",
+    "selectAll": "Select all ({{n}})",
+    "clearSelection": "Clear selection",
+    "nothingFound": "Nothing found",
+    "alreadyOnGraph": "already on graph",
+    "addCount": "Add {{n}}"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "actions": {
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "create": "Créer",
+    "add": "Ajouter",
+    "close": "Fermer",
+    "refresh": "Actualiser",
+    "retry": "Réessayer",
+    "search": "Rechercher",
+    "open": "Ouvrir",
+    "download": "Télécharger",
+    "upload": "Téléverser",
+    "copy": "Copier",
+    "copied": "Copié",
+    "back": "Retour",
+    "confirm": "Confirmer",
+    "reset": "Réinitialiser",
+    "apply": "Appliquer",
+    "send": "Envoyer",
+    "more": "Actions",
+    "editItem": "Modifier"
+  },
+  "state": {
+    "loading": "Chargement…",
+    "loadingAria": "Chargement",
+    "error": "Erreur",
+    "empty": "Vide",
+    "saving": "Enregistrement…",
+    "saved": "Enregistré",
+    "notFound": "Introuvable",
+    "nothingFound": "Aucun résultat",
+    "loadFailed": "Impossible de charger les données",
+    "noItems": "Aucun élément"
+  },
+  "status": {
+    "online": "En ligne",
+    "offline": "Injoignable",
+    "unknown": "Inconnu"
+  },
+  "fields": {
+    "name": "Nom",
+    "description": "Description",
+    "project": "Projet",
+    "server": "Serveur",
+    "color": "Couleur",
+    "tags": "Tags",
+    "note": "Note",
+    "created": "Création",
+    "updated": "Mise à jour",
+    "status": "Statut",
+    "type": "Type",
+    "password": "Mot de passe"
+  },
+  "filters": {
+    "allProjects": "Tous les projets",
+    "allServers": "Tous les serveurs"
+  },
+  "counts": {
+    "servers_one": "{{count}} serveur",
+    "servers_other": "{{count}} serveurs"
+  },
+  "confirm": {
+    "typeToConfirm": "Saisissez <b>{{text}}</b> pour confirmer"
+  },
+  "tags": {
+    "placeholder": "Ajouter un tag…",
+    "remove": "Retirer {{tag}}"
+  },
+  "language": {
+    "label": "Langue",
+    "interface": "Langue de l'interface"
+  },
+  "cron": {
+    "manual": "Manuel",
+    "presets": {
+      "hourly": "Toutes les heures",
+      "every6h": "Toutes les 6 heures",
+      "every12h": "Toutes les 12 heures",
+      "daily0000": "Tous les jours à 00:00",
+      "daily0300": "Tous les jours à 03:00",
+      "daily0500": "Tous les jours à 05:00",
+      "sunday0400": "Le dimanche à 04:00",
+      "monday0300": "Le lundi à 03:00",
+      "monthly0300": "Le 1er de chaque mois à 03:00"
+    },
+    "errors": {
+      "fieldCount": "6 champs attendus : sec min heure jour mois jour_semaine (par ex. 0 0 3 * * *)",
+      "invalidChars": "Caractères non valides dans l'expression"
+    }
+  },
+  "apiErrors": {
+    "panelUnreachable": "Le serveur du panneau est injoignable",
+    "uploadNetwork": "Erreur réseau pendant le téléversement",
+    "http": {
+      "400": "Requête incorrecte",
+      "401": "Authentification requise",
+      "403": "Accès refusé",
+      "404": "Introuvable",
+      "409": "Conflit",
+      "413": "Requête trop volumineuse",
+      "429": "Trop de requêtes",
+      "500": "Erreur interne du serveur",
+      "502": "Erreur SSH / du serveur distant",
+      "503": "Service indisponible",
+      "504": "Délai d'attente de la passerelle dépassé"
+    }
+  },
+  "yes": "Oui",
+  "no": "Non",
+  "none": "Aucun",
+  "noProject": "Sans projet",
+  "noServer": "Sans serveur",
+  "noDescription": "Sans description",
+  "untitled": "Sans titre"
+}

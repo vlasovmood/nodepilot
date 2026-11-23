@@ -1,0 +1,52 @@
+{
+  "page": {
+    "title": "Multi-exec",
+    "subtitle": "Run one command on many servers in parallel over SSH."
+  },
+  "targets": {
+    "title": "Targets",
+    "servers": "Servers",
+    "project": "Project",
+    "selectProject": "— select a project —",
+    "projectHint": "The command runs on every server in the project at launch time.",
+    "search": "Search servers",
+    "allTags": "All tags",
+    "onlyOnline": "Online only",
+    "selectVisible": "Select visible",
+    "clear": "Clear",
+    "selected": "{{n}} selected",
+    "noServers": "No servers"
+  },
+  "runs": {
+    "empty": "Results will appear here. The last 10 runs are kept until the page is reloaded.",
+    "hide": "Hide"
+  },
+  "form": {
+    "placeholder": "Command, e.g. uptime && df -h /",
+    "run_one": "Run on {{count}} server",
+    "run_other": "Run on {{count}} servers",
+    "timeout": "Timeout, s",
+    "history": "Command history",
+    "historyPlaceholder": "Command history…",
+    "running": "Running… Results will appear once all servers finish.",
+    "confirm": {
+      "title": "Run command?",
+      "message_one": "The command will run on {{count}} server:",
+      "message_other": "The command will run on {{count}} servers:",
+      "button": "Run"
+    }
+  },
+  "results": {
+    "success": "Succeeded: {{n}}",
+    "failed": "Failed: {{n}}",
+    "filterAll": "All ({{n}})",
+    "filterOk": "Succeeded",
+    "filterFail": "Failed",
+    "expandAll": "Expand all",
+    "collapseAll": "Collapse all",
+    "copyAll": "Copy all",
+    "noResults": "No results for this filter",
+    "truncated": "output truncated",
+    "emptyOutput": "Empty output"
+  }
+}

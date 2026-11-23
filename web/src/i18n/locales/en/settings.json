@@ -1,0 +1,70 @@
+{
+  "title": "Settings",
+  "subtitle": "Signed in as <b>{{username}}</b>",
+  "language": {
+    "title": "Interface language"
+  },
+  "interface": {
+    "title": "Interface",
+    "theme": "Theme",
+    "dark": "Dark",
+    "light": "Light"
+  },
+  "tokens": {
+    "title": "API tokens",
+    "description": "Tokens for mobile apps, scripts, CLI and AI agents (MCP), their permissions and expiry, plus the API reference, live in the “API” section.",
+    "manage": "Manage tokens"
+  },
+  "updates": {
+    "title": "Updates",
+    "checkNow": "Check now",
+    "current": "Current version",
+    "latest": "Latest version",
+    "published": "Published",
+    "checked": "Last checked",
+    "never": "never",
+    "repo": "Repository",
+    "verification": "File verification",
+    "signed": "SHA-256 and Ed25519 signature",
+    "checksumOnly": "SHA-256 only (release signing is not configured)",
+    "prerelease": "pre-release",
+    "available": "update available",
+    "upToDate": "up to date",
+    "checkError": "Could not check for updates: {{error}}",
+    "showNotes": "What's new in {{version}}",
+    "hideNotes": "Hide release notes",
+    "openRelease": "Open release",
+    "noNotes": "The release has no description.",
+    "install": "Install {{version}}",
+    "blocked": "This update can't be installed from the panel: {{reason}}",
+    "autoCheck": "Check for updates automatically (every 6 hours)",
+    "prereleases": "Offer pre-release versions (beta, rc)",
+    "hint": "Updates are never installed automatically — only when you click Install. The previous version is kept next to it as nodepilot.old for rollback.",
+    "waitRestart": "The panel is restarting; this page will reload by itself…",
+    "phase": {
+      "idle": "Ready",
+      "downloading": "Downloading…",
+      "verifying": "Verifying checksum and signature…",
+      "installing": "Installing…",
+      "restarting": "Restarting the panel…",
+      "failed": "Update failed"
+    },
+    "confirm": {
+      "title": "Install version {{version}}?",
+      "message": "The panel will download the new version, verify it and restart. Open terminals and running commands will be interrupted; running backups will be marked as interrupted.",
+      "ok": "Install and restart"
+    },
+    "toast": {
+      "checkFailed": "Could not check for updates",
+      "settingsFailed": "Could not save update settings",
+      "installFailed": "Update was not installed",
+      "installed": "Version {{version}} installed"
+    },
+    "repoNotSet": "not set (NODEPILOT_UPDATE_REPO)"
+  },
+  "security": {
+    "title": "Security",
+    "description": "Two-factor sign-in, the panel SSH key, master key protection, backup encryption and audit log forwarding.",
+    "open": "Open security"
+  }
+}

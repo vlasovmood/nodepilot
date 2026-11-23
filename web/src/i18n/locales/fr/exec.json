@@ -1,0 +1,52 @@
+{
+  "page": {
+    "title": "Exécution multiple",
+    "subtitle": "Exécutez une même commande sur plusieurs serveurs en parallèle via SSH."
+  },
+  "targets": {
+    "title": "Cibles",
+    "servers": "Serveurs",
+    "project": "Projet",
+    "selectProject": "— sélectionnez un projet —",
+    "projectHint": "La commande s'exécute sur tous les serveurs du projet au moment du lancement.",
+    "search": "Rechercher des serveurs",
+    "allTags": "Tous les tags",
+    "onlyOnline": "En ligne uniquement",
+    "selectVisible": "Sélectionner les visibles",
+    "clear": "Effacer",
+    "selected": "Sélection : {{n}}",
+    "noServers": "Aucun serveur"
+  },
+  "runs": {
+    "empty": "Les résultats s'afficheront ici. Les 10 dernières exécutions sont conservées jusqu'au rechargement de la page.",
+    "hide": "Masquer"
+  },
+  "form": {
+    "placeholder": "Commande, par ex. uptime && df -h /",
+    "run_one": "Exécuter sur {{count}} serveur",
+    "run_other": "Exécuter sur {{count}} serveurs",
+    "timeout": "Délai d'expiration, s",
+    "history": "Historique des commandes",
+    "historyPlaceholder": "Historique des commandes…",
+    "running": "Exécution en cours… Les résultats s'afficheront lorsque tous les serveurs auront terminé.",
+    "confirm": {
+      "title": "Exécuter la commande ?",
+      "message_one": "La commande sera exécutée sur {{count}} serveur :",
+      "message_other": "La commande sera exécutée sur {{count}} serveurs :",
+      "button": "Exécuter"
+    }
+  },
+  "results": {
+    "success": "Succès : {{n}}",
+    "failed": "Échecs : {{n}}",
+    "filterAll": "Tous ({{n}})",
+    "filterOk": "Succès",
+    "filterFail": "Échecs",
+    "expandAll": "Tout déplier",
+    "collapseAll": "Tout replier",
+    "copyAll": "Tout copier",
+    "noResults": "Aucun résultat pour ce filtre",
+    "truncated": "sortie tronquée",
+    "emptyOutput": "Sortie vide"
+  }
+}

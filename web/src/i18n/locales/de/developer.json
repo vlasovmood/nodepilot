@@ -1,0 +1,248 @@
+{
+  "page": {
+    "title": "API",
+    "subtitle": "REST-API und MCP-Server des Panels: Zugriffstokens, Endpunkt-Referenz, Anbindung von KI-Agenten.",
+    "tabs": {
+      "tokens": "Tokens",
+      "reference": "Referenz",
+      "mcp": "MCP"
+    }
+  },
+  "areas": {
+    "servers": {
+      "label": "Server und Statistiken",
+      "short": "Server",
+      "description": "Serverliste und -details, Metriken, SSH-Prüfungen"
+    },
+    "projects": {
+      "label": "Projekte",
+      "short": "Projekte",
+      "description": "Projekte und ihre Server"
+    },
+    "identities": {
+      "label": "Schlüsselbund",
+      "short": "Schlüssel",
+      "description": "Passwörter und SSH-Schlüssel; Geheimnisse werden von der API nie zurückgegeben"
+    },
+    "exec": {
+      "label": "Befehle und Terminal",
+      "short": "Befehle",
+      "description": "Ausführen von Befehlen und Terminalsitzungen auf Servern",
+      "danger": "kann beliebige Befehle auf Servern als deren SSH-Benutzer ausführen"
+    },
+    "system": {
+      "label": "Prozesse und Dienste",
+      "short": "System",
+      "description": "Prozesse, systemd-Dienste, Logs, Neustart"
+    },
+    "files": {
+      "label": "Dateien",
+      "short": "Dateien",
+      "description": "Serverdateien über SFTP"
+    },
+    "notes": {
+      "label": "Notizen",
+      "short": "Notizen",
+      "description": "Markdown-Notizen im Panel"
+    },
+    "graphs": {
+      "label": "Graphen",
+      "short": "Graphen",
+      "description": "Infrastrukturdiagramme"
+    },
+    "backups": {
+      "label": "Backups",
+      "short": "Backups",
+      "description": "Backup-Speicher, Jobs und Archive"
+    },
+    "admin": {
+      "label": "API-Tokens",
+      "short": "Tokens",
+      "description": "Ausstellen, Bearbeiten und Widerrufen von API-Tokens",
+      "danger": "kann neue Tokens ausstellen (im Rahmen der eigenen Rechte) und bestehende widerrufen"
+    }
+  },
+  "perm": {
+    "read": "lesen",
+    "write": "schreiben",
+    "allowed": "erlaubt",
+    "areaLevel": "{{area}}: {{level}}",
+    "full": "Vollzugriff",
+    "readonly": "Nur lesen",
+    "none": "Kein Zugriff",
+    "public": "Öffentlich",
+    "authenticated": "Jede Anmeldung"
+  },
+  "tags": {
+    "auth": "Anmeldung und Sitzung",
+    "meta": "Dienst",
+    "servers": "Server",
+    "stats": "Statistiken",
+    "projects": "Projekte",
+    "identities": "Schlüssel",
+    "exec": "Befehle",
+    "terminalSessions": "Terminalsitzungen",
+    "system": "Prozesse und Dienste",
+    "files": "Dateien",
+    "notes": "Notizen",
+    "graphs": "Graphen",
+    "backups": "Backups",
+    "tokens": "API-Tokens",
+    "ai": "MCP / KI",
+    "other": "Sonstiges"
+  },
+  "tokens": {
+    "intro": "API-Tokens sind für mobile Apps, Skripte, CLIs und KI-Agenten (MCP) gedacht. Übermitteln Sie das Token im Header <code>{{header}}</code>.",
+    "tokenPlaceholder": "Token",
+    "introHint": "Stellen Sie für jeden Client ein eigenes Token aus und vergeben Sie nur die nötigen Rechte – dann können Sie es widerrufen, ohne die anderen zu beeinträchtigen.",
+    "create": "Token erstellen",
+    "emptyTitle": "Noch keine Tokens",
+    "emptyText": "Erstellen Sie ein Token, um ein Skript, eine App oder einen KI-Agenten anzubinden.",
+    "table": {
+      "name": "Name",
+      "access": "Zugriff",
+      "created": "Erstellt",
+      "lastUsed": "Zuletzt verwendet",
+      "expires": "Läuft ab"
+    },
+    "never": "nie",
+    "noExpiry": "nie",
+    "expired": "abgelaufen",
+    "confirm": {
+      "deleteTitle": "Token löschen?",
+      "deleteMessage": "Alle Clients, die das Token <b>{{name}}</b> verwenden, verlieren sofort den Zugriff. Dies kann nicht rückgängig gemacht werden."
+    },
+    "toast": {
+      "deleted": "Token gelöscht",
+      "deleteFailed": "Token konnte nicht gelöscht werden",
+      "updated": "Token aktualisiert"
+    },
+    "dialog": {
+      "newTitle": "Neues API-Token",
+      "editTitle": "Token „{{name}}“",
+      "nameHint": "z. B. iphone-app, ci-deploy, claude-code",
+      "expiry": "Gültigkeit",
+      "expiryHint": "Ab jetzt gerechnet",
+      "keepExpiry": "Nicht ändern",
+      "access": "Zugriff",
+      "presetCustom": "Benutzerdefiniert",
+      "fullHint": "Lese- und Schreibzugriff auf alle Bereiche, auch auf solche, die in künftigen Panel-Versionen hinzukommen.",
+      "readonlyHint": "Lesezugriff auf alle Bereiche außer Befehlen/Terminal und API-Tokens. Es kann nichts geändert werden – ideal für Monitoring und Dashboards.",
+      "area": "Bereich",
+      "allRead": "Alle lesen",
+      "allWrite": "Alle schreiben",
+      "reset": "Zurücksetzen",
+      "levelNone": "Keiner",
+      "levelRead": "Lesen",
+      "levelWrite": "Schreiben",
+      "levelAllowed": "Erlaubt",
+      "emptyInfo": "Ein Token ohne Rechte kann nur sich selbst prüfen (/auth/me) und sich ohne Tools mit MCP verbinden.",
+      "dangerWarning": "<b>{{area}}</b>: Das Token {{risk}}."
+    },
+    "expiry": {
+      "never": "Nie",
+      "days_one": "{{count}} Tag",
+      "days_other": "{{count}} Tage"
+    },
+    "created": {
+      "title": "Token erstellt",
+      "done": "Ich habe das Token gespeichert",
+      "warning": "Kopieren Sie das Token jetzt – es wird nur einmal angezeigt. Danach können Sie es nur noch widerrufen und ein neues ausstellen.",
+      "validUntil": "gültig bis {{date}}",
+      "noExpiry": "ohne Ablaufdatum",
+      "curlTitle": "Mit curl testen",
+      "claudeTitle": "Mit Claude Code verbinden (MCP)"
+    }
+  },
+  "reference": {
+    "loading": "Spezifikation wird geladen…",
+    "baseUrl": "Basis-URL",
+    "auth": "Autorisierung",
+    "endpoints_one": "{{count}} Endpunkt",
+    "endpoints_other": "{{count}} Endpunkte",
+    "specInfo": "OpenAPI {{version}} · {{endpoints}}. Generieren Sie aus der Spezifikation einen Client für eine mobile App oder einen Dienst – <code>openapi-generator</code>, <code>swift-openapi-generator</code>, <code>orval</code>, <code>openapi-typescript</code> usw.",
+    "searchPlaceholder": "Suche: Pfad, Methode, Beschreibung…",
+    "clear": "Leeren",
+    "nothingFound": "Nichts gefunden",
+    "overviewHint": "Wählen Sie links einen Endpunkt, um seine Parameter und Schemas zu sehen und eine Anfrage zu senden.",
+    "areasTitle": "Berechtigungsbereiche",
+    "areasTable": {
+      "area": "Bereich",
+      "key": "Kennung",
+      "contents": "Umfasst"
+    },
+    "params": "Parameter",
+    "paramsTable": {
+      "name": "Name",
+      "in": "Ort",
+      "type": "Typ",
+      "description": "Beschreibung"
+    },
+    "required": "Pflicht",
+    "oneOfList": "einer von: {{values}}",
+    "requestBody": "Request-Body",
+    "optional": "optional",
+    "rawBody": "Rohe Datei-Bytes (bis zum Serverlimit), ohne JSON-Hülle.",
+    "responses": "Antworten",
+    "errorShape": "{ \"error\": \"Fehlermeldung\" }",
+    "switchingProtocols": "Die Verbindung wechselt zu WebSocket.",
+    "tryIt": "Ausprobieren",
+    "wsInfo": "Dies ist ein WebSocket – er kann nicht aus der Referenz aufgerufen werden. Verbinden Sie sich mit einem WebSocket-Client (im Browser mit dem Session-Cookie, andernfalls übergeben Sie das Token im Parameter <code>token</code>):",
+    "binaryInfo": "Der Body besteht aus rohen Datei-Bytes, daher kann die Anfrage nicht von hier gesendet werden. Verwenden Sie den curl-Befehl unten mit <code>--data-binary</code>.",
+    "downloadInfo": "Die Antwort ist eine Datei. Öffnen Sie den Link (funktioniert mit Ihrer Sitzung) oder verwenden Sie den curl-Befehl unten.",
+    "fillIn": "ausfüllen: {{names}}",
+    "fillInSentence": "Bitte ausfüllen: {{names}}",
+    "bodyJson": "Body (JSON)",
+    "example": "Beispiel",
+    "invalidJson": "Ungültiges JSON: {{error}}",
+    "liveNote": "Die Anfrage wird tatsächlich ausgeführt, mit den Rechten Ihrer Sitzung (Vollzugriff).",
+    "emptyResponse": "Leere Antwort",
+    "curlHint": "np_… durch Ihr Token ersetzen",
+    "curlFile": "datei",
+    "requestFailed": "Anfrage fehlgeschlagen: {{message}}",
+    "confirm": {
+      "title": "{{method}} senden?",
+      "message": "Die Anfrage <code>{{request}}</code> wird im Namen Ihrer Sitzung tatsächlich ausgeführt.",
+      "power": "Der Server wird neu gestartet oder heruntergefahren.",
+      "logout": "Ihre Sitzung wird beendet."
+    }
+  },
+  "schema": {
+    "items": "Elemente: {{min}}…{{max}}",
+    "length": "Länge: {{min}}…{{max}}",
+    "writeOnly": "nur schreibbar",
+    "readOnly": "schreibgeschützt",
+    "deprecated": "veraltet",
+    "oneOf": "einer von",
+    "anyOf": "beliebige von",
+    "mapKey": "{Schlüssel}",
+    "anyObject": "Objekt (beliebige Felder)",
+    "variant": "Variante {{n}}: {{type}}",
+    "exampleTitle": "Beispiel",
+    "exampleBody": "Text",
+    "const": "Wert <code>{{value}}</code>",
+    "enum": "einer von",
+    "default": "Standard <code>{{value}}</code>",
+    "required": "Pflicht",
+    "requiredTitle": "Pflichtfeld",
+    "recursive": "rekursiv",
+    "recursiveTitle": "Rekursive Referenz – siehe oben"
+  },
+  "mcp": {
+    "intro": "MCP ist ein offenes Protokoll, das KI-Agenten (Claude Code, Claude Desktop, Cursor und anderen) eine Reihe von „Tools“ bereitstellt, die sie selbstständig aufrufen. NodePilot stellt seine Funktionen als MCP-Server bereit: Ein Agent kann Statistiken einsehen, Befehle ausführen, Dateien bearbeiten, Notizen und Graphen pflegen – im Rahmen der Rechte seines Tokens.",
+    "endpoint": "Endpunkt (Streamable HTTP, JSON-RPC 2.0)",
+    "jsonConfig": "JSON-Konfiguration für Clients",
+    "jsonConfigHint": "Claude Desktop, Cursor usw.",
+    "stdio": "Lokal über stdio",
+    "stdioHint": "auf dem Rechner, auf dem das Panel läuft",
+    "scopeInfo": "Ein Agent sieht nur die Tools, die sein Token erlaubt: Ein Token mit „Nur lesen“ stellt keine Tools bereit, die Daten ändern. Erstellen Sie auf dem Tab <link>Tokens</link> ein eigenes Token für den Agenten und verwenden Sie es anstelle von <code>np_…</code>.",
+    "tools": "Tools",
+    "toolCount_one": "{{count}} Tool",
+    "toolCount_other": "{{count}} Tools",
+    "searchPlaceholder": "Tools durchsuchen…",
+    "loading": "tools/list wird abgefragt…",
+    "nothingFound": "Nichts gefunden",
+    "otherGroup": "Sonstiges",
+    "destructive": "ändert Daten"
+  }
+}

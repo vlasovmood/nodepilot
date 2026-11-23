@@ -1,0 +1,156 @@
+{
+  "notFound": "Serveur introuvable",
+  "updated": "Mise à jour : {{time}}",
+  "tabs": {
+    "overview": "Vue d'ensemble",
+    "terminal": "Terminal",
+    "files": "Fichiers",
+    "processes": "Processus",
+    "services": "Services",
+    "notes": "Notes",
+    "backups": "Sauvegardes"
+  },
+  "header": {
+    "back": "Retour aux serveurs",
+    "test": "Tester"
+  },
+  "toast": {
+    "connected": "Connecté",
+    "latency": "Latence {{latency}}",
+    "connectFailed": "Échec de la connexion",
+    "testFailed": "Échec du test de connexion",
+    "deleted": "Serveur supprimé",
+    "deleteFailed": "Impossible de supprimer le serveur"
+  },
+  "confirm": {
+    "deleteTitle": "Supprimer le serveur ?",
+    "deleteMessage": "Le serveur <b>{{name}}</b> sera retiré du panneau avec ses notes et ses tâches de sauvegarde. La machine elle-même n'est pas affectée."
+  },
+  "overview": {
+    "loading": "Récupération des métriques…",
+    "unavailable": "Métriques indisponibles",
+    "lastError": "La dernière collecte de métriques a échoué",
+    "memory": "Mémoire",
+    "network": "Réseau",
+    "uptime": "Uptime",
+    "cores_one": "{{count}} cœur",
+    "cores_other": "{{count}} cœurs",
+    "usedOf": "{{used}} sur {{total}}",
+    "swapNone": "aucun",
+    "loadSub": "5 min : {{l5}} · 15 min : {{l15}}",
+    "notCollected": "Aucune métrique collectée pour l'instant",
+    "system": "Système",
+    "hostname": "Nom d'hôte",
+    "os": "OS",
+    "kernel": "Noyau",
+    "cpuCores": "Cœurs CPU",
+    "collectedAt": "Collecte",
+    "disks": "Disques",
+    "noData": "Aucune donnée",
+    "disk": {
+      "mount": "Point de montage",
+      "fs": "FS",
+      "used": "Utilisé",
+      "usage": "Utilisation"
+    }
+  },
+  "history": {
+    "title": "Historique",
+    "hours": "{{n}} h",
+    "days": "{{n}} j",
+    "notEnough": "Pas assez de données",
+    "notEnoughHint": "L'historique apparaîtra après quelques cycles de collecte des métriques.",
+    "charts": {
+      "cpu": "CPU, %",
+      "memory": "Mémoire, %",
+      "network": "Réseau",
+      "load": "Charge moyenne (1 min)",
+      "disk": "Disque, %"
+    },
+    "series": {
+      "disk": "Disque"
+    }
+  },
+  "hostKey": {
+    "title": "Clé d'hôte (SSH)",
+    "pinnedHint": "Mémorisée lors de la première connexion (TOFU). Si la clé du serveur a changé (par ex. après une réinstallation de l'OS), réinitialisez-la.",
+    "notPinned": "Aucune clé mémorisée pour l'instant — elle sera enregistrée lors de la première connexion réussie.",
+    "forget": "Oublier la clé d'hôte",
+    "confirmTitle": "Oublier la clé d'hôte ?",
+    "confirmMessage": "Lors de la prochaine connexion, le panneau acceptera la nouvelle clé sans vérification. Ne le faites que si vous êtes certain que la clé a changé de manière légitime — sinon, vous vous exposez à une attaque de l'homme du milieu.",
+    "confirmText": "Oublier la clé",
+    "resetDone": "Clé d'hôte réinitialisée",
+    "resetDetail": "La nouvelle clé sera mémorisée lors de la prochaine connexion",
+    "resetFailed": "Impossible de réinitialiser la clé d'hôte"
+  },
+  "power": {
+    "title": "Alimentation",
+    "hint": "Les commandes s'exécutent via SSH en tant que {{user}} (nécessite root ou sudo sans mot de passe).",
+    "reboot": "Redémarrer",
+    "shutdown": "Éteindre",
+    "rebootTitle": "Redémarrer le serveur ?",
+    "shutdownTitle": "Éteindre le serveur ?",
+    "rebootMessage": "Le serveur {{name}} ({{host}}) va redémarrer. Toutes les sessions et tous les processus seront interrompus.",
+    "shutdownMessage": "Le serveur {{name}} ({{host}}) va s'éteindre. Vous ne pourrez pas le rallumer depuis le panneau.",
+    "rebootSent": "Redémarrage envoyé",
+    "shutdownSent": "Arrêt envoyé",
+    "failed": "Échec de la commande"
+  },
+  "processes": {
+    "filterPlaceholder": "Filtrer : commande, utilisateur, PID",
+    "autoRefresh": "Actualisation auto (5 s)",
+    "loading": "Récupération des processus…",
+    "user": "Utilisateur",
+    "command": "Commande",
+    "signal": "Signal",
+    "empty": "Aucun processus",
+    "signals": {
+      "TERM": {
+        "label": "Terminer (TERM)",
+        "hint": "Arrêt propre"
+      },
+      "KILL": {
+        "label": "Tuer (KILL)",
+        "hint": "Forcé, sans nettoyage"
+      },
+      "HUP": {
+        "label": "Recharger (HUP)",
+        "hint": "Recharger la configuration"
+      }
+    },
+    "confirmTitle": "Envoyer SIG{{sig}} ?",
+    "confirmMessage": "Processus <b>{{pid}}</b> ({{user}}) :",
+    "sent": "SIG{{sig}} envoyé",
+    "sendFailed": "Impossible d'envoyer le signal"
+  },
+  "services": {
+    "filterPlaceholder": "Filtrer par nom ou description",
+    "filter": {
+      "all": "Tous",
+      "active": "Actifs ({{n}})",
+      "failed": "En échec ({{n}})",
+      "inactive": "Inactifs"
+    },
+    "loading": "Récupération des services…",
+    "service": "Service",
+    "logs": "Journaux",
+    "empty": "Aucun service ne correspond au filtre",
+    "actions": {
+      "start": "Démarrer",
+      "stop": "Arrêter",
+      "restart": "Redémarrer",
+      "reload": "Recharger la config",
+      "enable": "Activer le démarrage auto",
+      "disable": "Désactiver le démarrage auto"
+    },
+    "confirmTitle": "{{action}} : {{name}} ?",
+    "stopMessage": "Le service sera arrêté. Les applications qui en dépendent risquent d'être interrompues.",
+    "done": "{{action}} : {{name}}",
+    "doneDetail": "Terminé",
+    "exitCode": "systemctl {{action}} {{name}} : code de sortie {{code}}",
+    "failed": "Impossible d'exécuter {{action}}",
+    "lines_one": "{{count}} ligne",
+    "lines_other": "{{count}} lignes",
+    "logsEmpty": "Le journal est vide"
+  }
+}

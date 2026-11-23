@@ -1,0 +1,349 @@
+{
+  "page": {
+    "title": "Security",
+    "subtitle": "Two-factor sign-in, the panel's SSH key, master key protection and the audit log",
+    "openAudit": "Audit log"
+  },
+  "overview": {
+    "title": "Security checklist",
+    "score_one": "{{ok}} of {{count}} checks passed",
+    "score_other": "{{ok}} of {{count}} checks passed",
+    "warnings_one": "{{count}} item needs attention",
+    "warnings_other": "{{count}} items need attention",
+    "allGood": "Everything important is in place",
+    "howTo": "How to fix",
+    "details": "Details",
+    "master": {
+      "title": "Master key",
+      "sealed": "Sealed with systemd-creds (TPM): a stolen disk or VM snapshot can't decrypt the stored passwords and keys.",
+      "file": "Loaded from a separate file (NODEPILOT_MASTER_KEY_FILE), not stored next to the database.",
+      "dataDir": "Stored as a plaintext file next to the database: whoever copies the data directory can decrypt every server password and key."
+    },
+    "plaintext": {
+      "title": "Plaintext copy of the master key",
+      "text": "A plaintext copy of the master key is still in the data directory. Make sure you have a backup elsewhere and delete it."
+    },
+    "twoFactor": {
+      "title": "Two-factor authentication",
+      "off": "Your account is protected by a password only. Enable a one-time code from an authenticator app.",
+      "on_one": "Enabled. {{count}} recovery code left.",
+      "on_other": "Enabled. {{count}} recovery codes left.",
+      "fewCodes_one": "Enabled, but only {{count}} recovery code is left — generate new ones.",
+      "fewCodes_other": "Enabled, but only {{count}} recovery codes are left — generate new ones.",
+      "enable": "Enable",
+      "newCodes": "New codes"
+    },
+    "panelKey": {
+      "title": "Panel SSH key",
+      "none": "Not set up. Servers are accessed with the passwords and keys you added; a panel key that works only from the panel's address is safer and can be rotated in one click.",
+      "unrestricted": "The key is accepted from any address. Restrict it to the panel's IP addresses so a stolen key is useless elsewhere.",
+      "partial_one": "{{using}} of {{count}} server uses the panel key.",
+      "partial_other": "{{using}} of {{count}} servers use the panel key.",
+      "all_one": "Restricted by address; the only server uses it.",
+      "all_other": "Restricted by address; all {{count}} servers use it.",
+      "create": "Set up",
+      "restrict": "Restrict",
+      "install": "Install on servers"
+    },
+    "backups": {
+      "title": "Backup encryption",
+      "none": "No backup jobs yet.",
+      "unencrypted_one": "{{count}} backup job stores archives unencrypted.",
+      "unencrypted_other": "{{count}} backup jobs store archives unencrypted.",
+      "passphrase_one": "{{count}} job is encrypted with a passphrase stored in the panel — whoever compromises the panel can decrypt it. A public age key is safer.",
+      "passphrase_other": "{{count}} jobs are encrypted with a passphrase stored in the panel — whoever compromises the panel can decrypt them. A public age key is safer.",
+      "allKeys_one": "The job is encrypted with a public key: the panel itself can't decrypt the archives.",
+      "allKeys_other": "All {{count}} jobs are encrypted with public keys: the panel itself can't decrypt the archives.",
+      "open": "Backups"
+    },
+    "tokens": {
+      "title": "API tokens",
+      "fullAccess_one": "{{count}} token has full access.",
+      "fullAccess_other": "{{count}} tokens have full access.",
+      "noExpiry_one": "{{count}} token never expires.",
+      "noExpiry_other": "{{count}} tokens never expire.",
+      "advice": "Give tokens only the areas they need and an expiry date.",
+      "none": "No API tokens.",
+      "ok_one": "{{count}} token, limited permissions and an expiry date.",
+      "ok_other": "{{count}} tokens, all with limited permissions and an expiry date.",
+      "open": "Tokens"
+    },
+    "audit": {
+      "title": "Audit log forwarding",
+      "on": "Events are copied to syslog or a webhook: an intruder can't hide their tracks by wiping the panel's log.",
+      "off": "The audit log is kept only in the panel. Forward it to syslog/SIEM or a webhook so it survives a compromise.",
+      "configure": "Configure"
+    },
+    "https": {
+      "title": "HTTPS",
+      "on": "Session cookies are sent only over HTTPS.",
+      "off": "Secure cookies are off: the panel is probably opened over plain HTTP. Put it behind an HTTPS reverse proxy and start it with --secure-cookies."
+    }
+  },
+  "twoFactor": {
+    "title": "Two-factor authentication",
+    "on": "on",
+    "off": "off",
+    "offText": "On sign-in, the panel will also ask for a 6-digit code from an authenticator app (Google Authenticator, Aegis, 1Password, Bitwarden…). A leaked password alone will no longer be enough.",
+    "onText": "Sign-in requires a code from your authenticator app. If you lose the phone, sign in with a recovery code.",
+    "codesLeft_one": "{{count}} recovery code left",
+    "codesLeft_other": "{{count}} recovery codes left",
+    "fewCodes": "Few recovery codes are left. Generate a new set — the old codes will stop working.",
+    "enable": "Enable 2FA",
+    "disable": "Disable",
+    "regenerate": "New recovery codes",
+    "enableTitle": "Enable two-factor authentication",
+    "step1": "1. Scan the QR code with an authenticator app, or enter the key manually.",
+    "manualEntry": "Key for manual entry",
+    "manualHint": "Type: time-based (TOTP), 6 digits, 30 seconds.",
+    "qrAlt": "QR code for the authenticator app",
+    "step2": "2. Enter the 6-digit code from the app",
+    "enableSubmit": "Enable",
+    "enabledTitle": "2FA is on — save your recovery codes",
+    "disableTitle": "Disable two-factor authentication",
+    "disableWarning": "After this, only your password will protect the account.",
+    "codeOrRecovery": "Code from the app or a recovery code",
+    "codeOrRecoveryHint": "6 digits from the app, or one of the recovery codes (it will be used up)",
+    "regenerateTitle": "New recovery codes",
+    "regenerateText": "A new set of 10 codes will be created; all old recovery codes will stop working. Confirm with a code from the app.",
+    "appCode": "Code from the app",
+    "regenerateSubmit": "Generate",
+    "errors": {
+      "wrongCode": "Wrong code. Check that the time on your phone is set automatically and try again.",
+      "wrongPasswordOrCode": "Wrong password or code."
+    },
+    "toast": {
+      "disabled": "Two-factor authentication disabled"
+    }
+  },
+  "recovery": {
+    "warning": "These codes are shown only once. Each code lets you sign in once without the phone. Store them somewhere safe — a password manager or a printout — not on the same phone.",
+    "copyAll": "Copy all",
+    "download": "Download .txt",
+    "fileHeader": "NodePilot recovery codes for {{username}} at {{host}} ({{date}}). Each code works once.",
+    "howTo": "On the sign-in screen choose “Use a recovery code” and enter any unused code.",
+    "savedCheck": "I have saved the recovery codes",
+    "done": "Done"
+  },
+  "panelKey": {
+    "title": "Panel SSH key",
+    "configured": "configured",
+    "notConfigured": "not configured",
+    "intro": "The panel can have its own ed25519 key that servers accept only from the panel's addresses.",
+    "why": {
+      "stolen": "<b>A stolen key is useless elsewhere:</b> the <code>from=</code> option in authorized_keys makes servers reject it from any other machine.",
+      "rotate": "<b>One-click rotation:</b> a new key is installed on every server and the old one is removed.",
+      "revoke": "<b>Emergency revoke:</b> if the panel is compromised, the key can be removed from all servers at once — with the panel or without it.",
+      "flow": "<b>How it works:</b> create the key → install it on servers (the panel adds a line to authorized_keys, checks that login with it works and switches the server to it)."
+    },
+    "create": "Create panel key",
+    "created": "Created",
+    "serversOnKey": "Servers on the key",
+    "serversOnKeyValue_one": "{{using}} of {{count}}",
+    "serversOnKeyValue_other": "{{using}} of {{count}}",
+    "working": "Connecting to servers… this may take a while with many servers.",
+    "publicKey": "Public key",
+    "authorizedLine": "Line for authorized_keys",
+    "authorizedLineHint": "With the address restriction and forwarding disabled",
+    "installCommand": "Install manually",
+    "installCommandHint": "Run on a server as the SSH user the panel logs in with",
+    "addresses": {
+      "label": "Panel addresses (as servers see them)",
+      "hint": "IP addresses or CIDR networks, e.g. 203.0.113.10 or 10.0.0.0/8. Enter or comma to add.",
+      "invalid": "Not an IP address or network: {{value}}",
+      "invalidList": "Not IP addresses or networks: {{list}}",
+      "emptyWarning": "Without addresses the key is accepted from anywhere — a stolen key would work from any machine. Add the panel's address(es).",
+      "save": "Save addresses",
+      "redeployHint": "Addresses saved. Servers still have the old restriction — run “Install on servers” again to update it."
+    },
+    "detect": {
+      "pick": "Detect from a server…",
+      "server": "Server",
+      "button": "Detect address",
+      "found": "The server sees the panel as {{ip}}",
+      "failed": "Couldn't detect the address",
+      "noServers": "Add a server to detect the panel's address automatically."
+    },
+    "deploy": {
+      "button": "Install on servers…",
+      "title": "Install the panel key on servers",
+      "text": "The panel adds the key to ~/.ssh/authorized_keys of the server user, checks that it can log in with it, and only then (if enabled) switches the server to the panel key. Servers where the check fails keep their current credentials.",
+      "modeServers": "Servers",
+      "modeProject": "Project",
+      "pickProject": "— select a project —",
+      "search": "Search by name, host, tag…",
+      "onlyNotOnKey": "Only those not on the key",
+      "selectAll_one": "Select {{count}}",
+      "selectAll_other": "Select all {{count}}",
+      "clear": "Clear",
+      "selected_one": "{{count}} selected",
+      "selected_other": "{{count}} selected",
+      "onKey": "on the key",
+      "switchAuth": "Switch servers to the panel key after a successful check",
+      "switchAuthHint": "The server's previous password/key stays in authorized_keys or on the server — remove it yourself when you're sure.",
+      "noSwitchHint": "The key will only be installed; servers keep connecting with their current credentials.",
+      "run_one": "Install on {{count}} server",
+      "run_other": "Install on {{count}} servers",
+      "again": "Install on others",
+      "resultsSwitched": "Servers marked OK now connect with the panel key.",
+      "resultsInstalled": "The key is installed on servers marked OK; their credentials weren't changed."
+    },
+    "rotate": {
+      "button": "Rotate key",
+      "confirmTitle": "Rotate the panel key?",
+      "confirmText_one": "A new key will be created and installed on {{count}} server; the old key is removed from it. A server where something fails stays on the old key.",
+      "confirmText_other": "A new key will be created and installed on {{count}} servers; the old key is removed from them. Servers where something fails stay on the old key.",
+      "resultsTitle": "Key rotation results",
+      "resultsHint": "Servers with an error still use the old key — fix the connection and rotate again."
+    },
+    "revoke": {
+      "button": "Emergency revoke",
+      "confirmTitle": "Revoke the panel key everywhere?",
+      "confirmText_one": "Every panel key will be removed from authorized_keys of {{count}} server, and the key itself will be destroyed. The panel will LOSE access to that server until you add a password or key again.",
+      "confirmText_other": "Every panel key will be removed from authorized_keys of {{count}} servers, and the key itself will be destroyed. The panel will LOSE access to these servers until you add a password or key again.",
+      "confirmWhen": "Use this if the panel or its database may be compromised.",
+      "confirmWord": "REVOKE",
+      "resultsTitle": "Emergency revoke results",
+      "resultsHint": "The key is destroyed. On servers with an error the key may still be in authorized_keys — remove it without the panel using the command below.",
+      "resultsDone": "The key is destroyed and removed from the servers that used it. If it was also installed elsewhere (manually, or without switching a server to it), remove it there with the command below.",
+      "manualTitle": "Revoke without the panel",
+      "manualText": "If the panel is unavailable or compromised, run this on every server as the SSH user — it removes all NodePilot panel keys from authorized_keys (a backup is saved next to it).",
+      "manualOne": "On one server",
+      "manualAnsible": "On all servers with Ansible"
+    },
+    "toast": {
+      "created": "Panel key created",
+      "createFailed": "Couldn't create the panel key",
+      "addressesSaved": "Addresses saved",
+      "saveFailed": "Couldn't save addresses",
+      "rotateFailed": "Couldn't rotate the key",
+      "revokeFailed": "Couldn't revoke the key"
+    }
+  },
+  "results": {
+    "ok_one": "{{count}} OK",
+    "ok_other": "{{count}} OK",
+    "failed_one": "{{count}} failed",
+    "failed_other": "{{count}} failed",
+    "okShort": "OK",
+    "errorShort": "Error",
+    "details": "Details",
+    "empty": "No servers were affected"
+  },
+  "masterKey": {
+    "title": "Master key",
+    "intro": "The master key encrypts the server passwords, SSH keys and other secrets stored in the panel's database.",
+    "source": "Source",
+    "path": "Path",
+    "tpm": "TPM 2.0",
+    "systemdCreds": "systemd-creds",
+    "available": "available",
+    "unavailable": "not found",
+    "kind": {
+      "systemd-credential": "sealed",
+      "file": "separate file",
+      "data-dir": "plaintext on disk"
+    },
+    "kindLong": {
+      "systemd-credential": "systemd credential (LoadCredentialEncrypted, e.g. sealed in TPM)",
+      "file": "file from NODEPILOT_MASTER_KEY_FILE",
+      "data-dir": "plaintext file in the data directory"
+    },
+    "sealedText": "The key is decrypted by systemd at start-up into memory available only to the panel process. A stolen disk or VM snapshot without this TPM can't be decrypted.",
+    "fileText": "The key is read from a separate file. Keep that file out of database backups and readable only by the panel's user.",
+    "plaintextCopy": "<b>A plaintext copy of the key is still in the data directory.</b> Make sure the backup is stored off the server, then delete the file — otherwise sealing doesn't protect anything.",
+    "dataDirWarning": "The key lies next to the database as a plain file. Anyone who copies the data directory (a backup, a disk snapshot) gets every server password and key.",
+    "sealTitle": "Seal the key into the TPM (Linux with systemd)",
+    "steps": {
+      "requirements": "Requirements: Ubuntu 24.04+ or Debian 12+ (systemd 250 or newer) and a TPM 2.0 chip — on a VM, enable a virtual TPM (vTPM).",
+      "run": "On the panel server, run:",
+      "runHint": "/opt/nodepilot/packaging is the path to the packaging folder from the release or installation",
+      "backup": "The script saves a copy of the key, seals the key, restarts the panel and removes the plaintext file. Move the copy off the server (a password manager or offline storage) and delete it there — without it, secrets can't be recovered if the TPM or motherboard fails.",
+      "check": "Reload this page: the source should become “systemd credential”."
+    },
+    "noTpmHere": "No TPM was found on this machine and/or systemd-creds isn't installed — sealing won't work until they are available.",
+    "dockerTitle": "Docker",
+    "dockerText": "In a container, keep the key outside the data volume: pass it as a Docker secret and point <code>NODEPILOT_MASTER_KEY_FILE</code> at it."
+  },
+  "audit": {
+    "page": {
+      "title": "Audit log",
+      "subtitle": "Who did what in the panel: sign-ins, commands, changes, API and MCP calls",
+      "forwarding": "Forwarding"
+    },
+    "filters": {
+      "q": "Action or target…",
+      "actor": "User",
+      "severity": "Severity",
+      "allSeverities": "Any severity",
+      "atLeast": {
+        "warning": "Warnings and critical",
+        "critical": "Critical only"
+      },
+      "reset": "Reset filters"
+    },
+    "columns": {
+      "time": "Time",
+      "severity": "Severity",
+      "actor": "User",
+      "ip": "IP",
+      "action": "Action",
+      "target": "Target",
+      "outcome": "Result"
+    },
+    "severity": {
+      "info": "info",
+      "warning": "warning",
+      "critical": "critical"
+    },
+    "outcome": {
+      "ok": "OK",
+      "denied": "denied",
+      "locked": "locked",
+      "error": "error",
+      "exit": "exit {{code}}"
+    },
+    "viaToken": "Via API token “{{name}}”",
+    "shown_one": "{{n}} entry",
+    "shown_other": "{{n}} entries",
+    "loadMore": "Load older",
+    "empty": "The log is empty",
+    "emptyFiltered": "Nothing matches the filters",
+    "details": {
+      "id": "Entry",
+      "time": "Time",
+      "token": "API token",
+      "none": "No details"
+    },
+    "settings": {
+      "title": "Audit log forwarding",
+      "on": "on",
+      "off": "off",
+      "intro": "Copy every event to a syslog server/SIEM or a webhook. If the panel is compromised, the copy outside it stays intact.",
+      "syslog": "Syslog",
+      "syslogHint": "udp://host:port or tcp://host:port; empty — off",
+      "webhook": "Webhook URL",
+      "webhookHint": "Each event is POSTed as JSON; empty — off",
+      "secret": "Webhook secret",
+      "secretHint": "Requests are signed with HMAC-SHA256 in the <code>{{header}}</code> header",
+      "secretSet": "set",
+      "secretSetPlaceholder": "•••••••• (set; type to replace)",
+      "clearSecret": "Remove",
+      "minSeverity": "Forward events from",
+      "minSeverityHint": "The panel's own log keeps everything",
+      "retention": "Keep in the panel, days",
+      "retentionHint": "From 7 to 3650",
+      "test": "Send test event",
+      "saveAndTest": "Save and test",
+      "testNothing": "Set a syslog address or a webhook first",
+      "testOk": "Test event delivered.",
+      "testFailed": "Test event not delivered: {{error}}",
+      "saved": "Forwarding settings saved",
+      "errors": {
+        "syslog": "Format: udp://host:514 or tcp://host:514",
+        "webhook": "Must start with http:// or https://",
+        "retention": "A whole number from 7 to 3650"
+      }
+    }
+  }
+}

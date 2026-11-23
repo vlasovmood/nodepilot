@@ -1,0 +1,248 @@
+{
+  "page": {
+    "title": "API",
+    "subtitle": "The panel's REST API and MCP server: access tokens, endpoint reference, connecting AI agents.",
+    "tabs": {
+      "tokens": "Tokens",
+      "reference": "Reference",
+      "mcp": "MCP"
+    }
+  },
+  "areas": {
+    "servers": {
+      "label": "Servers and stats",
+      "short": "Servers",
+      "description": "Server list and details, metrics, SSH checks"
+    },
+    "projects": {
+      "label": "Projects",
+      "short": "Projects",
+      "description": "Projects and their servers"
+    },
+    "identities": {
+      "label": "Keychain",
+      "short": "Keys",
+      "description": "Passwords and SSH keys; secrets are never returned by the API"
+    },
+    "exec": {
+      "label": "Commands and terminal",
+      "short": "Commands",
+      "description": "Running commands and terminal sessions on servers",
+      "danger": "can run any command on servers as their SSH user"
+    },
+    "system": {
+      "label": "Processes and services",
+      "short": "System",
+      "description": "Processes, systemd services, logs, reboot"
+    },
+    "files": {
+      "label": "Files",
+      "short": "Files",
+      "description": "Server files over SFTP"
+    },
+    "notes": {
+      "label": "Notes",
+      "short": "Notes",
+      "description": "Markdown notes in the panel"
+    },
+    "graphs": {
+      "label": "Graphs",
+      "short": "Graphs",
+      "description": "Infrastructure diagrams"
+    },
+    "backups": {
+      "label": "Backups",
+      "short": "Backups",
+      "description": "Backup storages, jobs and archives"
+    },
+    "admin": {
+      "label": "API tokens",
+      "short": "Tokens",
+      "description": "Issuing, editing and revoking API tokens",
+      "danger": "can issue new tokens (within its own rights) and revoke existing ones"
+    }
+  },
+  "perm": {
+    "read": "read",
+    "write": "write",
+    "allowed": "allowed",
+    "areaLevel": "{{area}}: {{level}}",
+    "full": "Full access",
+    "readonly": "Read-only",
+    "none": "No access",
+    "public": "Public",
+    "authenticated": "Any sign-in"
+  },
+  "tags": {
+    "auth": "Sign-in and session",
+    "meta": "Service",
+    "servers": "Servers",
+    "stats": "Stats",
+    "projects": "Projects",
+    "identities": "Keys",
+    "exec": "Commands",
+    "terminalSessions": "Terminal sessions",
+    "system": "Processes and services",
+    "files": "Files",
+    "notes": "Notes",
+    "graphs": "Graphs",
+    "backups": "Backups",
+    "tokens": "API tokens",
+    "ai": "MCP / AI",
+    "other": "Other"
+  },
+  "tokens": {
+    "intro": "API tokens are for mobile apps, scripts, CLIs and AI agents (MCP). Send the token in the <code>{{header}}</code> header.",
+    "tokenPlaceholder": "token",
+    "introHint": "Issue a separate token for each client and grant only the rights it needs — then you can revoke it without affecting the others.",
+    "create": "Create token",
+    "emptyTitle": "No tokens yet",
+    "emptyText": "Create a token to connect a script, an app or an AI agent.",
+    "table": {
+      "name": "Name",
+      "access": "Access",
+      "created": "Created",
+      "lastUsed": "Last used",
+      "expires": "Expires"
+    },
+    "never": "never",
+    "noExpiry": "never",
+    "expired": "expired",
+    "confirm": {
+      "deleteTitle": "Delete token?",
+      "deleteMessage": "All clients using the token <b>{{name}}</b> will lose access immediately. This can't be undone."
+    },
+    "toast": {
+      "deleted": "Token deleted",
+      "deleteFailed": "Couldn't delete token",
+      "updated": "Token updated"
+    },
+    "dialog": {
+      "newTitle": "New API token",
+      "editTitle": "Token “{{name}}”",
+      "nameHint": "e.g. iphone-app, ci-deploy, claude-code",
+      "expiry": "Expires in",
+      "expiryHint": "Counted from now",
+      "keepExpiry": "Don't change",
+      "access": "Access",
+      "presetCustom": "Custom",
+      "fullHint": "Read and write access to every section, including those added in future panel versions.",
+      "readonlyHint": "Read access to every section except commands/terminal and API tokens. Nothing can be changed — good for monitoring and dashboards.",
+      "area": "Section",
+      "allRead": "All read",
+      "allWrite": "All write",
+      "reset": "Reset",
+      "levelNone": "None",
+      "levelRead": "Read",
+      "levelWrite": "Write",
+      "levelAllowed": "Allowed",
+      "emptyInfo": "A token without rights can only check itself (/auth/me) and connect to MCP with no tools.",
+      "dangerWarning": "<b>{{area}}</b>: the token {{risk}}."
+    },
+    "expiry": {
+      "never": "Never",
+      "days_one": "{{count}} day",
+      "days_other": "{{count}} days"
+    },
+    "created": {
+      "title": "Token created",
+      "done": "I've saved the token",
+      "warning": "Copy the token now — it's shown only once. After that you can only revoke it and issue a new one.",
+      "validUntil": "valid until {{date}}",
+      "noExpiry": "no expiry",
+      "curlTitle": "Test with curl",
+      "claudeTitle": "Connect to Claude Code (MCP)"
+    }
+  },
+  "reference": {
+    "loading": "Loading specification…",
+    "baseUrl": "Base URL",
+    "auth": "Authorization",
+    "endpoints_one": "{{count}} endpoint",
+    "endpoints_other": "{{count}} endpoints",
+    "specInfo": "OpenAPI {{version}} · {{endpoints}}. Use the spec to generate a client for a mobile app or service — <code>openapi-generator</code>, <code>swift-openapi-generator</code>, <code>orval</code>, <code>openapi-typescript</code>, etc.",
+    "searchPlaceholder": "Search: path, method, description…",
+    "clear": "Clear",
+    "nothingFound": "Nothing found",
+    "overviewHint": "Pick an endpoint on the left to see its parameters and schemas and to send a request.",
+    "areasTitle": "Permission areas",
+    "areasTable": {
+      "area": "Area",
+      "key": "Key",
+      "contents": "Covers"
+    },
+    "params": "Parameters",
+    "paramsTable": {
+      "name": "Name",
+      "in": "In",
+      "type": "Type",
+      "description": "Description"
+    },
+    "required": "req.",
+    "oneOfList": "one of: {{values}}",
+    "requestBody": "Request body",
+    "optional": "optional",
+    "rawBody": "Raw file bytes (up to the server limit), no JSON wrapper.",
+    "responses": "Responses",
+    "errorShape": "{ \"error\": \"error message\" }",
+    "switchingProtocols": "The connection switches to WebSocket.",
+    "tryIt": "Try it",
+    "wsInfo": "This is a WebSocket — it can't be called from the reference. Connect with a WebSocket client (in a browser — with the session cookie, otherwise pass the token in the <code>token</code> parameter):",
+    "binaryInfo": "The body is raw file bytes, so the request can't be sent from here. Use the curl below with <code>--data-binary</code>.",
+    "downloadInfo": "The response is a file. Open the link (works with your session) or use the curl below.",
+    "fillIn": "fill in: {{names}}",
+    "fillInSentence": "Fill in: {{names}}",
+    "bodyJson": "Body (JSON)",
+    "example": "Example",
+    "invalidJson": "Invalid JSON: {{error}}",
+    "liveNote": "The request is executed for real, with your session's rights (full access).",
+    "emptyResponse": "Empty response",
+    "curlHint": "replace np_… with your token",
+    "curlFile": "file",
+    "requestFailed": "Request failed: {{message}}",
+    "confirm": {
+      "title": "Send {{method}}?",
+      "message": "The request <code>{{request}}</code> will be executed for real on behalf of your session.",
+      "power": "The server will be rebooted or shut down.",
+      "logout": "Your session will end."
+    }
+  },
+  "schema": {
+    "items": "items: {{min}}…{{max}}",
+    "length": "length: {{min}}…{{max}}",
+    "writeOnly": "write-only",
+    "readOnly": "read-only",
+    "deprecated": "deprecated",
+    "oneOf": "one of",
+    "anyOf": "any of",
+    "mapKey": "{key}",
+    "anyObject": "object (any fields)",
+    "variant": "variant {{n}}: {{type}}",
+    "exampleTitle": "Example",
+    "exampleBody": "Text",
+    "const": "value <code>{{value}}</code>",
+    "enum": "one of",
+    "default": "default <code>{{value}}</code>",
+    "required": "req.",
+    "requiredTitle": "Required field",
+    "recursive": "recursive",
+    "recursiveTitle": "Recursive reference — see above"
+  },
+  "mcp": {
+    "intro": "MCP is an open protocol that gives AI agents (Claude Code, Claude Desktop, Cursor and others) a set of “tools” they call on their own. NodePilot exposes its features as an MCP server: an agent can view stats, run commands, edit files, keep notes and graphs — within the token's rights.",
+    "endpoint": "Endpoint (Streamable HTTP, JSON-RPC 2.0)",
+    "jsonConfig": "Client JSON config",
+    "jsonConfigHint": "Claude Desktop, Cursor, etc.",
+    "stdio": "Locally over stdio",
+    "stdioHint": "on the machine running the panel",
+    "scopeInfo": "An agent sees only the tools its token allows: a “Read-only” token won't expose any tool that changes data. Create a separate token for the agent on the <link>Tokens</link> tab and use it in place of <code>np_…</code>.",
+    "tools": "Tools",
+    "toolCount_one": "{{count}} tool",
+    "toolCount_other": "{{count}} tools",
+    "searchPlaceholder": "Search tools…",
+    "loading": "Requesting tools/list…",
+    "nothingFound": "Nothing found",
+    "otherGroup": "Other",
+    "destructive": "modifies data"
+  }
+}

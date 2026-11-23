@@ -1,0 +1,254 @@
+{
+  "page": {
+    "title": "API",
+    "subtitle": "REST API и MCP-сервер панели: токены доступа, справочник эндпоинтов, подключение AI-агентов.",
+    "tabs": {
+      "tokens": "Токены",
+      "reference": "Справочник",
+      "mcp": "MCP"
+    }
+  },
+  "areas": {
+    "servers": {
+      "label": "Серверы и статистика",
+      "short": "Серверы",
+      "description": "Список и карточки серверов, метрики, проверка SSH"
+    },
+    "projects": {
+      "label": "Проекты",
+      "short": "Проекты",
+      "description": "Проекты и состав их серверов"
+    },
+    "identities": {
+      "label": "Ключи (связка)",
+      "short": "Ключи",
+      "description": "Пароли и SSH-ключи; секреты через API не отдаются"
+    },
+    "exec": {
+      "label": "Команды и терминал",
+      "short": "Команды",
+      "description": "Выполнение команд и терминальные сессии на серверах",
+      "danger": "может выполнить любую команду на серверах от имени их SSH-пользователя"
+    },
+    "system": {
+      "label": "Процессы и сервисы",
+      "short": "Система",
+      "description": "Процессы, systemd-сервисы, журналы, перезагрузка"
+    },
+    "files": {
+      "label": "Файлы",
+      "short": "Файлы",
+      "description": "Файлы на серверах по SFTP"
+    },
+    "notes": {
+      "label": "Заметки",
+      "short": "Заметки",
+      "description": "Markdown-заметки панели"
+    },
+    "graphs": {
+      "label": "Графы",
+      "short": "Графы",
+      "description": "Схемы инфраструктуры"
+    },
+    "backups": {
+      "label": "Бекапы",
+      "short": "Бекапы",
+      "description": "Хранилища, задания и архивы бекапов"
+    },
+    "admin": {
+      "label": "API-токены",
+      "short": "Токены",
+      "description": "Выпуск, изменение и отзыв API-токенов",
+      "danger": "может выпускать новые токены (в пределах своих прав) и отзывать существующие"
+    }
+  },
+  "perm": {
+    "read": "чтение",
+    "write": "запись",
+    "allowed": "разрешено",
+    "areaLevel": "{{area}}: {{level}}",
+    "full": "Полный доступ",
+    "readonly": "Только чтение",
+    "none": "Нет доступа",
+    "public": "Публичный",
+    "authenticated": "Любой вход"
+  },
+  "tags": {
+    "auth": "Вход и сессия",
+    "meta": "Служебное",
+    "servers": "Серверы",
+    "stats": "Статистика",
+    "projects": "Проекты",
+    "identities": "Ключи",
+    "exec": "Команды",
+    "terminalSessions": "Терминальные сессии",
+    "system": "Процессы и сервисы",
+    "files": "Файлы",
+    "notes": "Заметки",
+    "graphs": "Графы",
+    "backups": "Бекапы",
+    "tokens": "API-токены",
+    "ai": "MCP / AI",
+    "other": "Прочее"
+  },
+  "tokens": {
+    "intro": "API-токены нужны мобильным приложениям, скриптам, CLI и AI-агентам (MCP). Передавайте токен в заголовке <code>{{header}}</code>.",
+    "tokenPlaceholder": "токен",
+    "introHint": "Выпускайте отдельный токен для каждого клиента и давайте ему только нужные права — тогда его можно отозвать, не затрагивая остальных.",
+    "create": "Создать токен",
+    "emptyTitle": "Токенов пока нет",
+    "emptyText": "Создайте токен, чтобы подключить скрипт, приложение или AI-агента.",
+    "table": {
+      "name": "Название",
+      "access": "Доступ",
+      "created": "Создан",
+      "lastUsed": "Использован",
+      "expires": "Истекает"
+    },
+    "never": "никогда",
+    "noExpiry": "бессрочно",
+    "expired": "истёк",
+    "confirm": {
+      "deleteTitle": "Удалить токен?",
+      "deleteMessage": "Все клиенты, использующие токен <b>{{name}}</b>, сразу потеряют доступ. Это действие нельзя отменить."
+    },
+    "toast": {
+      "deleted": "Токен удалён",
+      "deleteFailed": "Не удалось удалить токен",
+      "updated": "Токен изменён"
+    },
+    "dialog": {
+      "newTitle": "Новый API-токен",
+      "editTitle": "Токен «{{name}}»",
+      "nameHint": "Например: iphone-app, ci-deploy, claude-code",
+      "expiry": "Срок действия",
+      "expiryHint": "Отсчитывается от текущего момента",
+      "keepExpiry": "Не менять",
+      "access": "Доступ",
+      "presetCustom": "Выборочно",
+      "fullHint": "Все разделы на чтение и запись, включая те, что появятся в будущих версиях панели.",
+      "readonlyHint": "Чтение всех разделов, кроме команд/терминала и API-токенов. Изменять ничего нельзя — подходит для мониторинга и дашбордов.",
+      "area": "Раздел",
+      "allRead": "Всё на чтение",
+      "allWrite": "Всё на запись",
+      "reset": "Сбросить",
+      "levelNone": "Нет",
+      "levelRead": "Чтение",
+      "levelWrite": "Запись",
+      "levelAllowed": "Разрешено",
+      "emptyInfo": "Токен без прав сможет только проверить себя (/auth/me) и подключиться к MCP без инструментов.",
+      "dangerWarning": "<b>{{area}}</b>: токен {{risk}}."
+    },
+    "expiry": {
+      "never": "Бессрочно",
+      "days_one": "{{count}} день",
+      "days_few": "{{count}} дня",
+      "days_many": "{{count}} дней",
+      "days_other": "{{count}} дня"
+    },
+    "created": {
+      "title": "Токен создан",
+      "done": "Я сохранил токен",
+      "warning": "Скопируйте токен сейчас — он показывается только один раз. Потом его можно только отозвать и выпустить новый.",
+      "validUntil": "действует до {{date}}",
+      "noExpiry": "бессрочный",
+      "curlTitle": "Проверка через curl",
+      "claudeTitle": "Подключение к Claude Code (MCP)"
+    }
+  },
+  "reference": {
+    "loading": "Загрузка спецификации…",
+    "baseUrl": "Базовый URL",
+    "auth": "Авторизация",
+    "endpoints_one": "{{count}} эндпоинт",
+    "endpoints_few": "{{count}} эндпоинта",
+    "endpoints_many": "{{count}} эндпоинтов",
+    "endpoints_other": "{{count}} эндпоинта",
+    "specInfo": "OpenAPI {{version}} · {{endpoints}}. По спецификации можно сгенерировать клиент для мобильного приложения или сервиса — <code>openapi-generator</code>, <code>swift-openapi-generator</code>, <code>orval</code>, <code>openapi-typescript</code> и т. п.",
+    "searchPlaceholder": "Поиск: путь, метод, описание…",
+    "clear": "Очистить",
+    "nothingFound": "Ничего не найдено",
+    "overviewHint": "Выберите эндпоинт слева, чтобы увидеть параметры, схемы и выполнить запрос.",
+    "areasTitle": "Области прав",
+    "areasTable": {
+      "area": "Область",
+      "key": "Ключ",
+      "contents": "Что входит"
+    },
+    "params": "Параметры",
+    "paramsTable": {
+      "name": "Имя",
+      "in": "Где",
+      "type": "Тип",
+      "description": "Описание"
+    },
+    "required": "обяз.",
+    "oneOfList": "одно из: {{values}}",
+    "requestBody": "Тело запроса",
+    "optional": "необязательно",
+    "rawBody": "Сырые байты файла (до лимита сервера), без JSON-обёртки.",
+    "responses": "Ответы",
+    "errorShape": "{ \"error\": \"текст ошибки\" }",
+    "switchingProtocols": "Соединение переключается на WebSocket.",
+    "tryIt": "Попробовать",
+    "wsInfo": "Это WebSocket — из справочника не вызывается. Подключитесь клиентом WebSocket (в браузере — с cookie сессии, иначе токен в параметре <code>token</code>):",
+    "binaryInfo": "Тело — сырые байты файла, поэтому запрос отсюда не отправляется. Используйте curl ниже с <code>--data-binary</code>.",
+    "downloadInfo": "Ответ — файл. Откройте ссылку (работает с вашей сессией) или используйте curl ниже.",
+    "fillIn": "заполните: {{names}}",
+    "fillInSentence": "Заполните: {{names}}",
+    "bodyJson": "Тело (JSON)",
+    "example": "Пример",
+    "invalidJson": "Некорректный JSON: {{error}}",
+    "liveNote": "Запрос выполняется по-настоящему, с правами вашей сессии (полный доступ).",
+    "emptyResponse": "Пустой ответ",
+    "curlHint": "подставьте свой токен вместо np_…",
+    "curlFile": "файл",
+    "requestFailed": "Запрос не выполнен: {{message}}",
+    "confirm": {
+      "title": "Отправить {{method}}?",
+      "message": "Запрос <code>{{request}}</code> будет выполнен по-настоящему от имени вашей сессии.",
+      "power": "Сервер будет перезагружен или выключен.",
+      "logout": "Ваша сессия будет завершена."
+    }
+  },
+  "schema": {
+    "items": "элементов: {{min}}…{{max}}",
+    "length": "длина: {{min}}…{{max}}",
+    "writeOnly": "только запись",
+    "readOnly": "только чтение",
+    "deprecated": "устарело",
+    "oneOf": "один из",
+    "anyOf": "любой из",
+    "mapKey": "{ключ}",
+    "anyObject": "object (любые поля)",
+    "variant": "вариант {{n}}: {{type}}",
+    "exampleTitle": "Пример",
+    "exampleBody": "Текст",
+    "const": "значение <code>{{value}}</code>",
+    "enum": "одно из",
+    "default": "по умолчанию <code>{{value}}</code>",
+    "required": "обяз.",
+    "requiredTitle": "Обязательное поле",
+    "recursive": "рекурсия",
+    "recursiveTitle": "Рекурсивная ссылка — см. выше"
+  },
+  "mcp": {
+    "intro": "MCP — открытый протокол, через который AI-агенты (Claude Code, Claude Desktop, Cursor и другие) получают набор «инструментов» и вызывают их сами. NodePilot отдаёт свои возможности как MCP-сервер: агент может смотреть статистику, выполнять команды, править файлы, вести заметки и графы — в пределах прав токена.",
+    "endpoint": "Эндпоинт (Streamable HTTP, JSON-RPC 2.0)",
+    "jsonConfig": "JSON-конфигурация клиента",
+    "jsonConfigHint": "Claude Desktop, Cursor и др.",
+    "stdio": "Локально по stdio",
+    "stdioHint": "на машине, где запущена панель",
+    "scopeInfo": "Агент видит только инструменты, разрешённые его токеном: токен «Только чтение» не покажет ни одного инструмента, меняющего данные. Создайте отдельный токен для агента на вкладке <link>Токены</link> и замените им <code>np_…</code>.",
+    "tools": "Инструменты",
+    "toolCount_one": "{{count}} инструмент",
+    "toolCount_few": "{{count}} инструмента",
+    "toolCount_many": "{{count}} инструментов",
+    "toolCount_other": "{{count}} инструмента",
+    "searchPlaceholder": "Поиск инструмента…",
+    "loading": "Запрос tools/list…",
+    "nothingFound": "Ничего не найдено",
+    "otherGroup": "Прочее",
+    "destructive": "изменяет данные"
+  }
+}

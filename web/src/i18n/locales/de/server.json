@@ -1,0 +1,156 @@
+{
+  "notFound": "Server nicht gefunden",
+  "updated": "Aktualisiert {{time}}",
+  "tabs": {
+    "overview": "Übersicht",
+    "terminal": "Terminal",
+    "files": "Dateien",
+    "processes": "Prozesse",
+    "services": "Dienste",
+    "notes": "Notizen",
+    "backups": "Backups"
+  },
+  "header": {
+    "back": "Zurück zu den Servern",
+    "test": "Testen"
+  },
+  "toast": {
+    "connected": "Verbunden",
+    "latency": "Latenz {{latency}}",
+    "connectFailed": "Verbindung fehlgeschlagen",
+    "testFailed": "Verbindungstest fehlgeschlagen",
+    "deleted": "Server gelöscht",
+    "deleteFailed": "Server konnte nicht gelöscht werden"
+  },
+  "confirm": {
+    "deleteTitle": "Server löschen?",
+    "deleteMessage": "Der Server <b>{{name}}</b> wird zusammen mit seinen Notizen und Backup-Jobs aus dem Panel entfernt. Die Maschine selbst bleibt unberührt."
+  },
+  "overview": {
+    "loading": "Metriken werden abgerufen…",
+    "unavailable": "Metriken nicht verfügbar",
+    "lastError": "Die letzte Erfassung der Metriken ist fehlgeschlagen",
+    "memory": "Arbeitsspeicher",
+    "network": "Netzwerk",
+    "uptime": "Betriebszeit",
+    "cores_one": "{{count}} Kern",
+    "cores_other": "{{count}} Kerne",
+    "usedOf": "{{used}} von {{total}}",
+    "swapNone": "nicht vorhanden",
+    "loadSub": "5 Min.: {{l5}} · 15 Min.: {{l15}}",
+    "notCollected": "Noch keine Metriken erfasst",
+    "system": "System",
+    "hostname": "Hostname",
+    "os": "Betriebssystem",
+    "kernel": "Kernel",
+    "cpuCores": "CPU-Kerne",
+    "collectedAt": "Erfasst",
+    "disks": "Datenträger",
+    "noData": "Keine Daten",
+    "disk": {
+      "mount": "Einhängepunkt",
+      "fs": "FS",
+      "used": "Belegt",
+      "usage": "Auslastung"
+    }
+  },
+  "history": {
+    "title": "Verlauf",
+    "hours": "{{n}} Std.",
+    "days": "{{n}} T.",
+    "notEnough": "Nicht genügend Daten",
+    "notEnoughHint": "Der Verlauf erscheint nach einigen Erfassungszyklen der Metriken.",
+    "charts": {
+      "cpu": "CPU, %",
+      "memory": "Arbeitsspeicher, %",
+      "network": "Netzwerk",
+      "load": "Load Average (1 Min.)",
+      "disk": "Datenträger, %"
+    },
+    "series": {
+      "disk": "Datenträger"
+    }
+  },
+  "hostKey": {
+    "title": "Host-Schlüssel (SSH)",
+    "pinnedHint": "Beim ersten Verbindungsaufbau hinterlegt (TOFU). Wenn sich der Schlüssel des Servers geändert hat (z. B. nach einer Neuinstallation des Betriebssystems), setzen Sie ihn zurück.",
+    "notPinned": "Noch kein Schlüssel hinterlegt – er wird bei der ersten erfolgreichen Verbindung gespeichert.",
+    "forget": "Host-Schlüssel vergessen",
+    "confirmTitle": "Host-Schlüssel vergessen?",
+    "confirmMessage": "Bei der nächsten Verbindung vertraut das Panel dem neuen Schlüssel ohne Prüfung. Tun Sie das nur, wenn Sie sicher sind, dass sich der Schlüssel aus legitimen Gründen geändert hat – andernfalls sind Sie für einen Man-in-the-Middle-Angriff angreifbar.",
+    "confirmText": "Schlüssel vergessen",
+    "resetDone": "Host-Schlüssel zurückgesetzt",
+    "resetDetail": "Der neue Schlüssel wird bei der nächsten Verbindung hinterlegt",
+    "resetFailed": "Host-Schlüssel konnte nicht zurückgesetzt werden"
+  },
+  "power": {
+    "title": "Energie",
+    "hint": "Die Befehle werden per SSH als {{user}} ausgeführt (erfordert root oder sudo ohne Passwort).",
+    "reboot": "Neu starten",
+    "shutdown": "Herunterfahren",
+    "rebootTitle": "Server neu starten?",
+    "shutdownTitle": "Server herunterfahren?",
+    "rebootMessage": "Der Server {{name}} ({{host}}) wird neu gestartet. Alle Sitzungen und Prozesse werden unterbrochen.",
+    "shutdownMessage": "Der Server {{name}} ({{host}}) wird heruntergefahren. Über das Panel können Sie ihn nicht wieder einschalten.",
+    "rebootSent": "Neustart gesendet",
+    "shutdownSent": "Herunterfahren gesendet",
+    "failed": "Befehl fehlgeschlagen"
+  },
+  "processes": {
+    "filterPlaceholder": "Filter: Befehl, Benutzer, PID",
+    "autoRefresh": "Automatisch aktualisieren (5 s)",
+    "loading": "Prozesse werden abgerufen…",
+    "user": "Benutzer",
+    "command": "Befehl",
+    "signal": "Signal",
+    "empty": "Keine Prozesse",
+    "signals": {
+      "TERM": {
+        "label": "Beenden (TERM)",
+        "hint": "Ordnungsgemäß beenden"
+      },
+      "KILL": {
+        "label": "Hart beenden (KILL)",
+        "hint": "Erzwungen, ohne Aufräumen"
+      },
+      "HUP": {
+        "label": "Neu laden (HUP)",
+        "hint": "Konfiguration neu laden"
+      }
+    },
+    "confirmTitle": "SIG{{sig}} senden?",
+    "confirmMessage": "Prozess <b>{{pid}}</b> ({{user}}):",
+    "sent": "SIG{{sig}} gesendet",
+    "sendFailed": "Signal konnte nicht gesendet werden"
+  },
+  "services": {
+    "filterPlaceholder": "Nach Name oder Beschreibung filtern",
+    "filter": {
+      "all": "Alle",
+      "active": "Aktiv ({{n}})",
+      "failed": "Fehlgeschlagen ({{n}})",
+      "inactive": "Inaktiv"
+    },
+    "loading": "Dienste werden abgerufen…",
+    "service": "Dienst",
+    "logs": "Logs",
+    "empty": "Keine Dienste entsprechen dem Filter",
+    "actions": {
+      "start": "Starten",
+      "stop": "Stoppen",
+      "restart": "Neu starten",
+      "reload": "Konfiguration neu laden",
+      "enable": "Autostart aktivieren",
+      "disable": "Autostart deaktivieren"
+    },
+    "confirmTitle": "{{action}}: {{name}}?",
+    "stopMessage": "Der Dienst wird gestoppt. Davon abhängige Anwendungen können unterbrochen werden.",
+    "done": "{{action}}: {{name}}",
+    "doneDetail": "Erledigt",
+    "exitCode": "systemctl {{action}} {{name}}: Exit-Code {{code}}",
+    "failed": "{{action}} fehlgeschlagen",
+    "lines_one": "{{count}} Zeile",
+    "lines_other": "{{count}} Zeilen",
+    "logsEmpty": "Das Log ist leer"
+  }
+}

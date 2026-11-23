@@ -1,0 +1,10 @@
+/target
+*.db
+*.db-journal
+*.sqlite
+.env
+/data
+/dist
+*.log
+*.old
+.DS_Store

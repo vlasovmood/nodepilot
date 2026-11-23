@@ -1,0 +1,70 @@
+{
+  "title": "Einstellungen",
+  "subtitle": "Angemeldet als <b>{{username}}</b>",
+  "language": {
+    "title": "Sprache der Oberfläche"
+  },
+  "interface": {
+    "title": "Oberfläche",
+    "theme": "Design",
+    "dark": "Dunkel",
+    "light": "Hell"
+  },
+  "tokens": {
+    "title": "API-Tokens",
+    "description": "Tokens für mobile Apps, Skripte, CLI und KI-Agenten (MCP), ihre Berechtigungen und Gültigkeit sowie die API-Referenz finden Sie im Bereich „API“.",
+    "manage": "Tokens verwalten"
+  },
+  "updates": {
+    "title": "Updates",
+    "checkNow": "Jetzt prüfen",
+    "current": "Aktuelle Version",
+    "latest": "Neueste Version",
+    "published": "Veröffentlicht",
+    "checked": "Zuletzt geprüft",
+    "never": "nie",
+    "repo": "Repository",
+    "verification": "Dateiprüfung",
+    "signed": "SHA-256 und Ed25519-Signatur",
+    "checksumOnly": "Nur SHA-256 (Release-Signierung ist nicht konfiguriert)",
+    "prerelease": "Vorabversion",
+    "available": "Update verfügbar",
+    "upToDate": "aktuell",
+    "checkError": "Suche nach Updates fehlgeschlagen: {{error}}",
+    "showNotes": "Neuerungen in {{version}}",
+    "hideNotes": "Versionshinweise ausblenden",
+    "openRelease": "Release öffnen",
+    "noNotes": "Das Release hat keine Beschreibung.",
+    "install": "{{version}} installieren",
+    "blocked": "Dieses Update kann nicht über das Panel installiert werden: {{reason}}",
+    "autoCheck": "Automatisch nach Updates suchen (alle 6 Stunden)",
+    "prereleases": "Vorabversionen anbieten (beta, rc)",
+    "hint": "Updates werden nie automatisch installiert – nur wenn Sie auf „Installieren“ klicken. Die vorherige Version bleibt als nodepilot.old für ein Rollback erhalten.",
+    "waitRestart": "Das Panel wird neu gestartet; diese Seite lädt sich automatisch neu…",
+    "phase": {
+      "idle": "Bereit",
+      "downloading": "Wird heruntergeladen…",
+      "verifying": "Prüfsumme und Signatur werden geprüft…",
+      "installing": "Wird installiert…",
+      "restarting": "Panel wird neu gestartet…",
+      "failed": "Update fehlgeschlagen"
+    },
+    "confirm": {
+      "title": "Version {{version}} installieren?",
+      "message": "Das Panel lädt die neue Version herunter, prüft sie und startet neu. Offene Terminals und laufende Befehle werden unterbrochen; laufende Backups werden als unterbrochen markiert.",
+      "ok": "Installieren und neu starten"
+    },
+    "toast": {
+      "checkFailed": "Suche nach Updates fehlgeschlagen",
+      "settingsFailed": "Update-Einstellungen konnten nicht gespeichert werden",
+      "installFailed": "Update wurde nicht installiert",
+      "installed": "Version {{version}} installiert"
+    },
+    "repoNotSet": "nicht festgelegt (NODEPILOT_UPDATE_REPO)"
+  },
+  "security": {
+    "title": "Sicherheit",
+    "description": "Zwei-Faktor-Anmeldung, SSH-Schlüssel des Panels, Schutz des Master-Schlüssels, Backup-Verschlüsselung und Weiterleitung des Audit-Logs.",
+    "open": "Sicherheit öffnen"
+  }
+}

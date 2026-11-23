@@ -1,0 +1,245 @@
+{
+  "page": {
+    "title": "API",
+    "subtitle": "パネルの REST API と MCP サーバー: アクセストークン、エンドポイントリファレンス、AI エージェントの接続。",
+    "tabs": {
+      "tokens": "トークン",
+      "reference": "リファレンス",
+      "mcp": "MCP"
+    }
+  },
+  "areas": {
+    "servers": {
+      "label": "サーバーと統計",
+      "short": "サーバー",
+      "description": "サーバーの一覧と詳細、メトリクス、SSH 接続確認"
+    },
+    "projects": {
+      "label": "プロジェクト",
+      "short": "プロジェクト",
+      "description": "プロジェクトとそのサーバー"
+    },
+    "identities": {
+      "label": "キーチェーン",
+      "short": "キー",
+      "description": "パスワードと SSH キー。シークレットが API から返されることはありません"
+    },
+    "exec": {
+      "label": "コマンドとターミナル",
+      "short": "コマンド",
+      "description": "サーバー上でのコマンド実行とターミナルセッション",
+      "danger": "サーバー上で SSH ユーザーとして任意のコマンドを実行できます"
+    },
+    "system": {
+      "label": "プロセスとサービス",
+      "short": "システム",
+      "description": "プロセス、systemd サービス、ログ、再起動"
+    },
+    "files": {
+      "label": "ファイル",
+      "short": "ファイル",
+      "description": "SFTP 経由のサーバーファイル操作"
+    },
+    "notes": {
+      "label": "メモ",
+      "short": "メモ",
+      "description": "パネル内の Markdown メモ"
+    },
+    "graphs": {
+      "label": "グラフ",
+      "short": "グラフ",
+      "description": "インフラ構成図"
+    },
+    "backups": {
+      "label": "バックアップ",
+      "short": "バックアップ",
+      "description": "バックアップのストレージ、ジョブ、アーカイブ"
+    },
+    "admin": {
+      "label": "API トークン",
+      "short": "トークン",
+      "description": "API トークンの発行、編集、失効",
+      "danger": "新しいトークンを（自身の権限の範囲内で）発行し、既存のトークンを失効させることができます"
+    }
+  },
+  "perm": {
+    "read": "読み取り",
+    "write": "書き込み",
+    "allowed": "許可",
+    "areaLevel": "{{area}}: {{level}}",
+    "full": "フルアクセス",
+    "readonly": "読み取り専用",
+    "none": "アクセスなし",
+    "public": "公開",
+    "authenticated": "ログイン済みなら可"
+  },
+  "tags": {
+    "auth": "ログインとセッション",
+    "meta": "サービス情報",
+    "servers": "サーバー",
+    "stats": "統計",
+    "projects": "プロジェクト",
+    "identities": "キー",
+    "exec": "コマンド",
+    "terminalSessions": "ターミナルセッション",
+    "system": "プロセスとサービス",
+    "files": "ファイル",
+    "notes": "メモ",
+    "graphs": "グラフ",
+    "backups": "バックアップ",
+    "tokens": "API トークン",
+    "ai": "MCP / AI",
+    "other": "その他"
+  },
+  "tokens": {
+    "intro": "API トークンは、モバイルアプリ、スクリプト、CLI、AI エージェント（MCP）向けです。トークンは <code>{{header}}</code> ヘッダーで送信してください。",
+    "tokenPlaceholder": "token",
+    "introHint": "クライアントごとに個別のトークンを発行し、必要な権限のみを付与してください。そうすれば、他のクライアントに影響を与えずに失効させることができます。",
+    "create": "トークンを作成",
+    "emptyTitle": "トークンはまだありません",
+    "emptyText": "トークンを作成して、スクリプト、アプリ、AI エージェントを接続しましょう。",
+    "table": {
+      "name": "名前",
+      "access": "アクセス権",
+      "created": "作成日時",
+      "lastUsed": "最終使用日時",
+      "expires": "有効期限"
+    },
+    "never": "未使用",
+    "noExpiry": "無期限",
+    "expired": "期限切れ",
+    "confirm": {
+      "deleteTitle": "トークンを削除しますか？",
+      "deleteMessage": "トークン <b>{{name}}</b> を使用しているすべてのクライアントは、直ちにアクセスできなくなります。この操作は元に戻せません。"
+    },
+    "toast": {
+      "deleted": "トークンを削除しました",
+      "deleteFailed": "トークンを削除できませんでした",
+      "updated": "トークンを更新しました"
+    },
+    "dialog": {
+      "newTitle": "新規 API トークン",
+      "editTitle": "トークン「{{name}}」",
+      "nameHint": "例: iphone-app、ci-deploy、claude-code",
+      "expiry": "有効期間",
+      "expiryHint": "現在時刻から起算",
+      "keepExpiry": "変更しない",
+      "access": "アクセス権",
+      "presetCustom": "カスタム",
+      "fullHint": "今後のパネルのバージョンで追加されるものも含め、すべてのセクションへの読み取り・書き込みアクセス。",
+      "readonlyHint": "コマンド/ターミナルと API トークンを除く、すべてのセクションへの読み取りアクセス。何も変更できないため、監視やダッシュボードに適しています。",
+      "area": "セクション",
+      "allRead": "すべて読み取り",
+      "allWrite": "すべて書き込み",
+      "reset": "リセット",
+      "levelNone": "なし",
+      "levelRead": "読み取り",
+      "levelWrite": "書き込み",
+      "levelAllowed": "許可",
+      "emptyInfo": "権限のないトークンは、自身の確認（/auth/me）と、ツールなしでの MCP 接続のみが可能です。",
+      "dangerWarning": "<b>{{area}}</b>: このトークンは{{risk}}。"
+    },
+    "expiry": {
+      "never": "無期限",
+      "days_other": "{{count}} 日"
+    },
+    "created": {
+      "title": "トークンを作成しました",
+      "done": "トークンを保存しました",
+      "warning": "今すぐトークンをコピーしてください。トークンが表示されるのはこの 1 回のみです。以後は失効させて新しいトークンを発行することしかできません。",
+      "validUntil": "{{date}} まで有効",
+      "noExpiry": "無期限",
+      "curlTitle": "curl でテスト",
+      "claudeTitle": "Claude Code に接続（MCP）"
+    }
+  },
+  "reference": {
+    "loading": "仕様を読み込み中…",
+    "baseUrl": "ベース URL",
+    "auth": "認証",
+    "endpoints_other": "{{count}} 個のエンドポイント",
+    "specInfo": "OpenAPI {{version}} · {{endpoints}}。この仕様を使用して、モバイルアプリやサービス用のクライアントを生成できます（<code>openapi-generator</code>、<code>swift-openapi-generator</code>、<code>orval</code>、<code>openapi-typescript</code> など）。",
+    "searchPlaceholder": "検索: パス、メソッド、説明…",
+    "clear": "クリア",
+    "nothingFound": "該当する項目はありません",
+    "overviewHint": "左側でエンドポイントを選択すると、パラメーターとスキーマを確認し、リクエストを送信できます。",
+    "areasTitle": "権限エリア",
+    "areasTable": {
+      "area": "エリア",
+      "key": "キー",
+      "contents": "対象"
+    },
+    "params": "パラメーター",
+    "paramsTable": {
+      "name": "名前",
+      "in": "場所",
+      "type": "型",
+      "description": "説明"
+    },
+    "required": "必須",
+    "oneOfList": "次のいずれか: {{values}}",
+    "requestBody": "リクエストボディ",
+    "optional": "任意",
+    "rawBody": "ファイルの生バイト列（サーバーの上限まで）。JSON ラッパーは不要です。",
+    "responses": "レスポンス",
+    "errorShape": "{ \"error\": \"エラーメッセージ\" }",
+    "switchingProtocols": "接続は WebSocket に切り替わります。",
+    "tryIt": "試す",
+    "wsInfo": "これは WebSocket のため、リファレンスから呼び出すことはできません。WebSocket クライアントで接続してください（ブラウザーの場合はセッション Cookie を使用し、それ以外の場合は <code>token</code> パラメーターでトークンを渡します）:",
+    "binaryInfo": "ボディはファイルの生バイト列のため、ここからリクエストを送信することはできません。下記の curl を <code>--data-binary</code> 付きで使用してください。",
+    "downloadInfo": "レスポンスはファイルです。リンクを開く（現在のセッションで動作します）か、下記の curl を使用してください。",
+    "fillIn": "入力してください: {{names}}",
+    "fillInSentence": "入力してください: {{names}}",
+    "bodyJson": "ボディ（JSON）",
+    "example": "例",
+    "invalidJson": "無効な JSON: {{error}}",
+    "liveNote": "リクエストは実際に実行されます。権限は現在のセッションのもの（フルアクセス）です。",
+    "emptyResponse": "空のレスポンス",
+    "curlHint": "np_… を自分のトークンに置き換えてください",
+    "curlFile": "file",
+    "requestFailed": "リクエストに失敗しました: {{message}}",
+    "confirm": {
+      "title": "{{method}} を送信しますか？",
+      "message": "リクエスト <code>{{request}}</code> は、現在のセッションの権限で実際に実行されます。",
+      "power": "サーバーが再起動またはシャットダウンされます。",
+      "logout": "現在のセッションが終了します。"
+    }
+  },
+  "schema": {
+    "items": "要素数: {{min}}…{{max}}",
+    "length": "長さ: {{min}}…{{max}}",
+    "writeOnly": "書き込み専用",
+    "readOnly": "読み取り専用",
+    "deprecated": "非推奨",
+    "oneOf": "次のいずれか 1 つ",
+    "anyOf": "次のいずれか",
+    "mapKey": "{key}",
+    "anyObject": "オブジェクト（任意のフィールド）",
+    "variant": "バリアント {{n}}: {{type}}",
+    "exampleTitle": "例",
+    "exampleBody": "テキスト",
+    "const": "値 <code>{{value}}</code>",
+    "enum": "次のいずれか",
+    "default": "デフォルト <code>{{value}}</code>",
+    "required": "必須",
+    "requiredTitle": "必須フィールド",
+    "recursive": "再帰",
+    "recursiveTitle": "再帰参照 — 上記を参照"
+  },
+  "mcp": {
+    "intro": "MCP は、AI エージェント（Claude Code、Claude Desktop、Cursor など）に、エージェント自身が呼び出せる一連の「ツール」を提供するオープンプロトコルです。NodePilot はその機能を MCP サーバーとして公開しており、エージェントはトークンの権限の範囲内で、統計の確認、コマンドの実行、ファイルの編集、メモやグラフの管理を行えます。",
+    "endpoint": "エンドポイント（Streamable HTTP、JSON-RPC 2.0）",
+    "jsonConfig": "クライアントの JSON 設定",
+    "jsonConfigHint": "Claude Desktop、Cursor など",
+    "stdio": "stdio 経由でローカル接続",
+    "stdioHint": "パネルが動作しているマシン上で",
+    "scopeInfo": "エージェントには、トークンで許可されたツールのみが表示されます。「読み取り専用」トークンでは、データを変更するツールは公開されません。<link>トークン</link>タブでエージェント専用のトークンを作成し、<code>np_…</code> の代わりに使用してください。",
+    "tools": "ツール",
+    "toolCount_other": "{{count}} 個のツール",
+    "searchPlaceholder": "ツールを検索…",
+    "loading": "tools/list を要求中…",
+    "nothingFound": "該当する項目はありません",
+    "otherGroup": "その他",
+    "destructive": "データを変更"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "page": {
+    "title": "Notes",
+    "subtitle": "Toutes les notes du panneau : globales, par projet et par serveur. Les notes épinglées apparaissent en premier."
+  },
+  "searchPlaceholder": "Rechercher dans les notes…",
+  "new": "Nouvelle note",
+  "defaultTitle": "Nouvelle note",
+  "empty": {
+    "title": "Aucune note pour l'instant",
+    "text": "Conservez ici vos instructions, procédures (runbooks) et notes d'infrastructure. Markdown est pris en charge."
+  },
+  "selectNote": "Sélectionnez une note",
+  "editor": {
+    "titlePlaceholder": "Titre",
+    "pin": "Épingler",
+    "unpin": "Désépingler",
+    "links": "Liée à :",
+    "updated": "Mise à jour : {{time}}",
+    "bodyPlaceholder": "Markdown : # titre, **gras**, `code`, ```blocs```, listes, tableaux…",
+    "emptyNote": "Note vide"
+  },
+  "confirm": {
+    "deleteTitle": "Supprimer la note ?",
+    "deleteMessage": "« {{title}} » sera définitivement supprimée."
+  },
+  "toast": {
+    "createFailed": "Impossible de créer la note",
+    "saved": "Note enregistrée",
+    "deleted": "Note supprimée",
+    "deleteFailed": "Échec de la suppression"
+  }
+}

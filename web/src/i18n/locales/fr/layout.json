@@ -1,0 +1,68 @@
+{
+  "sidebar": {
+    "expand": "Déplier le menu",
+    "collapse": "Replier le menu",
+    "sections": {
+      "main": "Navigation",
+      "projects": "Projets",
+      "more": "Plus"
+    },
+    "newProject": "Nouveau projet",
+    "createProject": "Créer un projet",
+    "projectsLoadError": "Impossible de charger les projets",
+    "darkMode": "Mode sombre",
+    "nav": {
+      "customize": "Personnaliser la navigation",
+      "done": "Terminé",
+      "add": "Ajouter",
+      "reset": "Réinitialiser",
+      "resetHint": "Rétablir les éléments et l'ordre par défaut",
+      "showAll": "Tout afficher",
+      "showLess": "Afficher moins",
+      "hide": "Masquer",
+      "show": "Afficher",
+      "remove": "Retirer",
+      "missing": "Supprimé",
+      "untitled": "Sans titre",
+      "reorderHint": "Glissez pour réordonner ou Alt+↑/↓",
+      "picker": {
+        "title": "Ajouter à la navigation",
+        "servers": "Serveurs",
+        "graphs": "Graphes",
+        "notes": "Notes",
+        "search": "Rechercher…",
+        "empty": "Aucun résultat",
+        "nodes_one": "{{count}} nœud",
+        "nodes_other": "{{count}} nœuds"
+      }
+    }
+  },
+  "nav": {
+    "servers": "Serveurs",
+    "graph": "Graphe",
+    "terminal": "Terminal",
+    "identities": "Clés",
+    "backups": "Sauvegardes",
+    "notes": "Notes",
+    "api": "API",
+    "settings": "Paramètres",
+    "security": "Sécurité",
+    "audit": "Journal d'audit"
+  },
+  "user": {
+    "role": "Administrateur",
+    "settings": "Paramètres",
+    "language": "Langue",
+    "lightTheme": "Thème clair",
+    "darkTheme": "Thème sombre",
+    "logout": "Se déconnecter"
+  },
+  "search": {
+    "placeholder": "Rechercher…",
+    "hint": "Entrée pour ouvrir, ↑↓ pour sélectionner"
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "toServers": "Retour aux serveurs"
+  }
+}

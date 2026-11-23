@@ -1,0 +1,53 @@
+{
+  "title": "キー",
+  "subtitle": "キーチェーン: 複数のサーバーで再利用できる SSH 認証情報（パスワードと秘密鍵）。",
+  "add": "キーを追加",
+  "secretsInfo": "シークレットはパネルサーバーにのみ保存され、ブラウザーに返されることはありません。編集時にフィールドを空のままにすると、現在の値が保持されます。",
+  "empty": {
+    "title": "キーチェーンは空です",
+    "text": "SSH キーまたはパスワードを追加すると、サーバーの追加やインポート時に使用できます。"
+  },
+  "table": {
+    "name": "名前",
+    "type": "種類",
+    "servers": "サーバー",
+    "created": "作成日時"
+  },
+  "kind": {
+    "key": "秘密鍵",
+    "password": "パスワード"
+  },
+  "dialog": {
+    "newTitle": "新規キー",
+    "editTitle": "キー: {{name}}"
+  },
+  "form": {
+    "name": "名前",
+    "type": "種類",
+    "password": "パスワード",
+    "privateKey": "秘密鍵",
+    "keepEmpty": "変更しない場合は空のままにします",
+    "keyFormats": "OpenSSH / PEM",
+    "loadFromFile": "ファイルから読み込む",
+    "passphrase": "鍵のパスフレーズ",
+    "passphraseHint": "鍵が暗号化されている場合"
+  },
+  "validation": {
+    "nameRequired": "名前を入力してください",
+    "passwordRequired": "パスワードを入力してください",
+    "keyRequired": "秘密鍵を貼り付けてください"
+  },
+  "confirm": {
+    "deleteTitle": "キーを削除しますか？",
+    "deleteMessage": "「{{name}}」をキーチェーンから削除します。"
+  },
+  "toast": {
+    "inUse": "キーは使用中です",
+    "inUseMessage_other": "{{count}} 台のサーバーで使用されています。先にそれらのサーバーの認証方式を変更してください。",
+    "deleted": "キーを削除しました",
+    "deleteFailed": "キーを削除できませんでした",
+    "saved": "キーを保存しました",
+    "added": "キーを追加しました",
+    "fileTooLarge": "ファイルが大きすぎます。キーではない可能性があります"
+  }
+}

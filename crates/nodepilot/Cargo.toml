@@ -1,0 +1,16 @@
+[package]
+name = "nodepilot"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+anyhow = "1.0.104"
+clap = { version = "4.6.9", features = ["derive", "env"] }
+nodepilot-core = { version = "0.1.0", path = "../nodepilot-core" }
+nodepilot-mcp = { version = "0.1.0", path = "../nodepilot-mcp" }
+nodepilot-web = { version = "0.1.0", path = "../nodepilot-web" }
+tokio = { version = "1.54.1", features = ["full"] }
+tracing = "0.1.44"
+tracing-subscriber = { version = "0.3.23", features = ["env-filter"] }

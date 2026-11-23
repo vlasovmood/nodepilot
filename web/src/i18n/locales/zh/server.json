@@ -1,0 +1,154 @@
+{
+  "notFound": "未找到服务器",
+  "updated": "更新于 {{time}}",
+  "tabs": {
+    "overview": "概览",
+    "terminal": "终端",
+    "files": "文件",
+    "processes": "进程",
+    "services": "服务",
+    "notes": "笔记",
+    "backups": "备份"
+  },
+  "header": {
+    "back": "返回服务器列表",
+    "test": "测试"
+  },
+  "toast": {
+    "connected": "连接成功",
+    "latency": "延迟 {{latency}}",
+    "connectFailed": "连接失败",
+    "testFailed": "连接测试失败",
+    "deleted": "服务器已删除",
+    "deleteFailed": "服务器删除失败"
+  },
+  "confirm": {
+    "deleteTitle": "删除服务器？",
+    "deleteMessage": "服务器 <b>{{name}}</b> 及其笔记和备份任务将从面板中移除。服务器本机不受影响。"
+  },
+  "overview": {
+    "loading": "正在获取监控指标…",
+    "unavailable": "监控指标不可用",
+    "lastError": "上一次指标采集失败",
+    "memory": "内存",
+    "network": "网络",
+    "uptime": "运行时间",
+    "cores_other": "{{count}} 核",
+    "usedOf": "{{used}} / {{total}}",
+    "swapNone": "无",
+    "loadSub": "5 分钟：{{l5}} · 15 分钟：{{l15}}",
+    "notCollected": "尚未采集到监控指标",
+    "system": "系统",
+    "hostname": "主机名",
+    "os": "操作系统",
+    "kernel": "内核",
+    "cpuCores": "CPU 核数",
+    "collectedAt": "采集时间",
+    "disks": "磁盘",
+    "noData": "暂无数据",
+    "disk": {
+      "mount": "挂载点",
+      "fs": "文件系统",
+      "used": "已用",
+      "usage": "使用率"
+    }
+  },
+  "history": {
+    "title": "历史趋势",
+    "hours": "{{n}} 小时",
+    "days": "{{n}} 天",
+    "notEnough": "数据不足",
+    "notEnoughHint": "经过几次指标采集周期后将显示历史数据。",
+    "charts": {
+      "cpu": "CPU，%",
+      "memory": "内存，%",
+      "network": "网络",
+      "load": "平均负载（1 分钟）",
+      "disk": "磁盘，%"
+    },
+    "series": {
+      "disk": "磁盘"
+    }
+  },
+  "hostKey": {
+    "title": "主机密钥（SSH）",
+    "pinnedHint": "已在首次连接时固定（TOFU）。如果服务器密钥已更改（例如重装系统后），请将其重置。",
+    "notPinned": "尚未固定密钥——将在首次成功连接时保存。",
+    "forget": "清除主机密钥",
+    "confirmTitle": "清除主机密钥？",
+    "confirmMessage": "下次连接时，面板将不经验证直接信任新的密钥。请仅在确认密钥是正常变更时执行此操作，否则可能遭受中间人攻击。",
+    "confirmText": "清除密钥",
+    "resetDone": "主机密钥已重置",
+    "resetDetail": "新密钥将在下次连接时固定",
+    "resetFailed": "主机密钥重置失败"
+  },
+  "power": {
+    "title": "电源",
+    "hint": "命令通过 SSH 以 {{user}} 身份执行（需要 root 或免密 sudo）。",
+    "reboot": "重启",
+    "shutdown": "关机",
+    "rebootTitle": "重启服务器？",
+    "shutdownTitle": "关闭服务器？",
+    "rebootMessage": "服务器 {{name}}（{{host}}）将被重启，所有会话和进程都将中断。",
+    "shutdownMessage": "服务器 {{name}}（{{host}}）将被关机。关机后无法通过面板重新开机。",
+    "rebootSent": "已发送重启命令",
+    "shutdownSent": "已发送关机命令",
+    "failed": "命令执行失败"
+  },
+  "processes": {
+    "filterPlaceholder": "筛选：命令、用户、PID",
+    "autoRefresh": "自动刷新（5 秒）",
+    "loading": "正在获取进程…",
+    "user": "用户",
+    "command": "命令",
+    "signal": "信号",
+    "empty": "暂无进程",
+    "signals": {
+      "TERM": {
+        "label": "终止（TERM）",
+        "hint": "正常退出"
+      },
+      "KILL": {
+        "label": "强制结束（KILL）",
+        "hint": "强制终止，不做清理"
+      },
+      "HUP": {
+        "label": "重载（HUP）",
+        "hint": "重新加载配置"
+      }
+    },
+    "confirmTitle": "发送 SIG{{sig}}？",
+    "confirmMessage": "进程 <b>{{pid}}</b>（{{user}}）：",
+    "sent": "已发送 SIG{{sig}}",
+    "sendFailed": "信号发送失败"
+  },
+  "services": {
+    "filterPlaceholder": "按名称或描述筛选",
+    "filter": {
+      "all": "全部",
+      "active": "运行中（{{n}}）",
+      "failed": "失败（{{n}}）",
+      "inactive": "未运行"
+    },
+    "loading": "正在获取服务…",
+    "service": "服务",
+    "logs": "日志",
+    "empty": "没有符合筛选条件的服务",
+    "actions": {
+      "start": "启动",
+      "stop": "停止",
+      "restart": "重启",
+      "reload": "重新加载配置",
+      "enable": "启用开机自启",
+      "disable": "禁用开机自启"
+    },
+    "confirmTitle": "{{action}}：{{name}}？",
+    "stopMessage": "服务将被停止，依赖它的应用可能会中断。",
+    "done": "{{action}}：{{name}}",
+    "doneDetail": "已完成",
+    "exitCode": "systemctl {{action}} {{name}}：退出码 {{code}}",
+    "failed": "{{action}} 执行失败",
+    "lines_other": "{{count}} 行",
+    "logsEmpty": "日志为空"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "actions": {
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "create": "Erstellen",
+    "add": "Hinzufügen",
+    "close": "Schließen",
+    "refresh": "Aktualisieren",
+    "retry": "Erneut versuchen",
+    "search": "Suchen",
+    "open": "Öffnen",
+    "download": "Herunterladen",
+    "upload": "Hochladen",
+    "copy": "Kopieren",
+    "copied": "Kopiert",
+    "back": "Zurück",
+    "confirm": "Bestätigen",
+    "reset": "Zurücksetzen",
+    "apply": "Übernehmen",
+    "send": "Senden",
+    "more": "Aktionen",
+    "editItem": "Bearbeiten"
+  },
+  "state": {
+    "loading": "Wird geladen…",
+    "loadingAria": "Wird geladen",
+    "error": "Fehler",
+    "empty": "Leer",
+    "saving": "Wird gespeichert…",
+    "saved": "Gespeichert",
+    "notFound": "Nicht gefunden",
+    "nothingFound": "Nichts gefunden",
+    "loadFailed": "Daten konnten nicht geladen werden",
+    "noItems": "Keine Einträge"
+  },
+  "status": {
+    "online": "Online",
+    "offline": "Nicht erreichbar",
+    "unknown": "Unbekannt"
+  },
+  "fields": {
+    "name": "Name",
+    "description": "Beschreibung",
+    "project": "Projekt",
+    "server": "Server",
+    "color": "Farbe",
+    "tags": "Tags",
+    "note": "Notiz",
+    "created": "Erstellt",
+    "updated": "Aktualisiert",
+    "status": "Status",
+    "type": "Typ",
+    "password": "Passwort"
+  },
+  "filters": {
+    "allProjects": "Alle Projekte",
+    "allServers": "Alle Server"
+  },
+  "counts": {
+    "servers_one": "{{count}} Server",
+    "servers_other": "{{count}} Server"
+  },
+  "confirm": {
+    "typeToConfirm": "Geben Sie zur Bestätigung <b>{{text}}</b> ein"
+  },
+  "tags": {
+    "placeholder": "Tag hinzufügen…",
+    "remove": "{{tag}} entfernen"
+  },
+  "language": {
+    "label": "Sprache",
+    "interface": "Sprache der Oberfläche"
+  },
+  "cron": {
+    "manual": "Manuell",
+    "presets": {
+      "hourly": "Stündlich",
+      "every6h": "Alle 6 Stunden",
+      "every12h": "Alle 12 Stunden",
+      "daily0000": "Täglich um 00:00",
+      "daily0300": "Täglich um 03:00",
+      "daily0500": "Täglich um 05:00",
+      "sunday0400": "Sonntags um 04:00",
+      "monday0300": "Montags um 03:00",
+      "monthly0300": "Monatlich am 1. um 03:00"
+    },
+    "errors": {
+      "fieldCount": "Erwartet werden 6 Felder: Sek. Min. Std. Tag Monat Wochentag (z. B. 0 0 3 * * *)",
+      "invalidChars": "Ungültige Zeichen im Ausdruck"
+    }
+  },
+  "apiErrors": {
+    "panelUnreachable": "Panel-Server ist nicht erreichbar",
+    "uploadNetwork": "Netzwerkfehler beim Hochladen",
+    "http": {
+      "400": "Ungültige Anfrage",
+      "401": "Authentifizierung erforderlich",
+      "403": "Zugriff verweigert",
+      "404": "Nicht gefunden",
+      "409": "Konflikt",
+      "413": "Anfrage zu groß",
+      "429": "Zu viele Anfragen",
+      "500": "Interner Serverfehler",
+      "502": "SSH- / Remote-Server-Fehler",
+      "503": "Dienst nicht verfügbar",
+      "504": "Gateway-Zeitüberschreitung"
+    }
+  },
+  "yes": "Ja",
+  "no": "Nein",
+  "none": "Keine",
+  "noProject": "Kein Projekt",
+  "noServer": "Kein Server",
+  "noDescription": "Keine Beschreibung",
+  "untitled": "Ohne Titel"
+}

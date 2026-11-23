@@ -1,0 +1,24 @@
+{
+  "status": {
+    "connecting": "接続中…"
+  },
+  "reconnect": "再接続",
+  "reason": {
+    "exited": "セッションが終了しました（終了コード {{code}}）",
+    "aborted": "接続が切断されました",
+    "closed": "接続が閉じられました（コード {{code}}）"
+  },
+  "output": {
+    "exited": "セッション終了、終了コード {{code}}",
+    "error": "エラー: {{message}}"
+  },
+  "tabs": {
+    "new": "新規セッション",
+    "none": "開いているセッションはありません",
+    "open": "ターミナルを開く"
+  },
+  "confirmClose": {
+    "title": "セッションを閉じますか？",
+    "message": "アクティブな SSH セッションが終了します。"
+  }
+}

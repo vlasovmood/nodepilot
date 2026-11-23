@@ -1,0 +1,76 @@
+{
+  "toolbar": {
+    "home": "主目录",
+    "up": "上一级",
+    "breadcrumbsHint": "双击可输入路径",
+    "editPath": "输入路径",
+    "filter": "筛选",
+    "showHidden": "显示隐藏文件",
+    "hideHidden": "不显示隐藏文件",
+    "newFolder": "文件夹"
+  },
+  "columns": {
+    "name": "名称",
+    "size": "大小",
+    "mode": "权限",
+    "modified": "修改时间"
+  },
+  "menu": {
+    "edit": "编辑",
+    "rename": "重命名 / 移动"
+  },
+  "listError": "无法打开文件夹",
+  "dropToUpload": "松开即可上传文件",
+  "empty": {
+    "noMatches": "未找到结果",
+    "folder": "空文件夹——可将文件拖放到此处"
+  },
+  "footer": {
+    "items_other": "{{count}} 项",
+    "total": "（共 {{n}}）",
+    "hint": "双击文件夹打开，双击文件编辑。将文件拖到此处即可上传。"
+  },
+  "tooLarge": {
+    "title": "文件过大",
+    "message": "该文件大小为 {{size}}，超出编辑器的处理能力。是否改为下载？"
+  },
+  "remove": {
+    "folderTitle": "删除文件夹？",
+    "fileTitle": "删除文件？",
+    "recursiveWarning": "将递归删除该文件夹及其中的所有内容。"
+  },
+  "upload": {
+    "tooLarge": "超过 {{limit}} 的上传限制",
+    "done": "完成",
+    "dismiss": "关闭"
+  },
+  "toast": {
+    "deleted": "已删除",
+    "deleteFailed": "删除失败",
+    "folderCreated": "文件夹已创建",
+    "renamed": "已重命名",
+    "foldersSkipped": "无法上传文件夹",
+    "foldersSkippedHint": "请拖放文件而非目录——文件夹已被跳过"
+  },
+  "dialog": {
+    "newFolder": "新建文件夹",
+    "rename": "重命名",
+    "folderName": "文件夹名称",
+    "newNameOrPath": "新名称或完整路径",
+    "ok": "确定"
+  },
+  "editor": {
+    "loadingEditor": "正在加载编辑器…",
+    "loadingFile": "正在加载文件…",
+    "modified": "已修改",
+    "wrap": "自动换行",
+    "saved": "文件已保存",
+    "saveFailed": "无法保存文件",
+    "discardTitle": "不保存直接关闭？",
+    "discardMessage": "未保存的更改将会丢失。",
+    "tooLarge": "文件过大，无法在编辑器中打开（{{size}}）",
+    "binary": "这似乎是二进制文件，无法在文本编辑器中打开",
+    "cannotOpen": "无法打开此文件",
+    "openFailed": "无法打开文件"
+  }
+}

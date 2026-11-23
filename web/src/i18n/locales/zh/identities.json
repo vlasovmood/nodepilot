@@ -1,0 +1,53 @@
+{
+  "title": "密钥",
+  "subtitle": "密钥库：可在多台服务器间复用的 SSH 凭据（密码和私钥）。",
+  "add": "添加密钥",
+  "secretsInfo": "凭据仅存储在面板服务器上，永远不会回传到浏览器。编辑时，字段留空即保持当前值不变。",
+  "empty": {
+    "title": "密钥库为空",
+    "text": "添加 SSH 密钥或密码，即可在添加或导入服务器时使用。"
+  },
+  "table": {
+    "name": "名称",
+    "type": "类型",
+    "servers": "服务器",
+    "created": "创建时间"
+  },
+  "kind": {
+    "key": "私钥",
+    "password": "密码"
+  },
+  "dialog": {
+    "newTitle": "新建密钥",
+    "editTitle": "密钥：{{name}}"
+  },
+  "form": {
+    "name": "名称",
+    "type": "类型",
+    "password": "密码",
+    "privateKey": "私钥",
+    "keepEmpty": "留空则保持不变",
+    "keyFormats": "OpenSSH / PEM",
+    "loadFromFile": "从文件加载",
+    "passphrase": "私钥口令",
+    "passphraseHint": "如果私钥已加密"
+  },
+  "validation": {
+    "nameRequired": "请输入名称",
+    "passwordRequired": "请输入密码",
+    "keyRequired": "请粘贴私钥"
+  },
+  "confirm": {
+    "deleteTitle": "删除密钥？",
+    "deleteMessage": "“{{name}}”将从密钥库中移除。"
+  },
+  "toast": {
+    "inUse": "密钥正在使用中",
+    "inUseMessage_other": "有 {{count}} 台服务器正在使用该密钥。请先修改这些服务器的认证方式。",
+    "deleted": "密钥已删除",
+    "deleteFailed": "密钥删除失败",
+    "saved": "密钥已保存",
+    "added": "密钥已添加",
+    "fileTooLarge": "文件过大，不像是密钥文件"
+  }
+}

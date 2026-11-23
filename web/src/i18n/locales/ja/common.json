@@ -1,0 +1,117 @@
+{
+  "actions": {
+    "save": "保存",
+    "cancel": "キャンセル",
+    "delete": "削除",
+    "edit": "編集",
+    "create": "作成",
+    "add": "追加",
+    "close": "閉じる",
+    "refresh": "更新",
+    "retry": "再試行",
+    "search": "検索",
+    "open": "開く",
+    "download": "ダウンロード",
+    "upload": "アップロード",
+    "copy": "コピー",
+    "copied": "コピーしました",
+    "back": "戻る",
+    "confirm": "確認",
+    "reset": "リセット",
+    "apply": "適用",
+    "send": "送信",
+    "more": "操作",
+    "editItem": "編集"
+  },
+  "state": {
+    "loading": "読み込み中…",
+    "loadingAria": "読み込み中",
+    "error": "エラー",
+    "empty": "空",
+    "saving": "保存中…",
+    "saved": "保存しました",
+    "notFound": "見つかりません",
+    "nothingFound": "該当する項目はありません",
+    "loadFailed": "データを読み込めませんでした",
+    "noItems": "項目がありません"
+  },
+  "status": {
+    "online": "オンライン",
+    "offline": "到達不可",
+    "unknown": "不明"
+  },
+  "fields": {
+    "name": "名前",
+    "description": "説明",
+    "project": "プロジェクト",
+    "server": "サーバー",
+    "color": "色",
+    "tags": "タグ",
+    "note": "メモ",
+    "created": "作成日時",
+    "updated": "更新日時",
+    "status": "ステータス",
+    "type": "種類",
+    "password": "パスワード"
+  },
+  "filters": {
+    "allProjects": "すべてのプロジェクト",
+    "allServers": "すべてのサーバー"
+  },
+  "counts": {
+    "servers_other": "{{count}} 台のサーバー"
+  },
+  "confirm": {
+    "typeToConfirm": "確認のため <b>{{text}}</b> と入力してください"
+  },
+  "tags": {
+    "placeholder": "タグを追加…",
+    "remove": "{{tag}} を削除"
+  },
+  "language": {
+    "label": "言語",
+    "interface": "表示言語"
+  },
+  "cron": {
+    "manual": "手動",
+    "presets": {
+      "hourly": "1 時間ごと",
+      "every6h": "6 時間ごと",
+      "every12h": "12 時間ごと",
+      "daily0000": "毎日 00:00",
+      "daily0300": "毎日 03:00",
+      "daily0500": "毎日 05:00",
+      "sunday0400": "毎週日曜日 04:00",
+      "monday0300": "毎週月曜日 03:00",
+      "monthly0300": "毎月 1 日 03:00"
+    },
+    "errors": {
+      "fieldCount": "6 つのフィールドが必要です: 秒 分 時 日 月 曜日（例: 0 0 3 * * *）",
+      "invalidChars": "式に無効な文字が含まれています"
+    }
+  },
+  "apiErrors": {
+    "panelUnreachable": "パネルサーバーに接続できません",
+    "uploadNetwork": "アップロード中にネットワークエラーが発生しました",
+    "http": {
+      "400": "不正なリクエスト",
+      "401": "認証が必要です",
+      "403": "アクセスが拒否されました",
+      "404": "見つかりません",
+      "409": "競合が発生しました",
+      "413": "リクエストが大きすぎます",
+      "429": "リクエストが多すぎます",
+      "500": "内部サーバーエラー",
+      "502": "SSH / リモートサーバーのエラー",
+      "503": "サービスを利用できません",
+      "504": "ゲートウェイタイムアウト"
+    }
+  },
+  "yes": "はい",
+  "no": "いいえ",
+  "none": "なし",
+  "noProject": "プロジェクトなし",
+  "noServer": "サーバーなし",
+  "noDescription": "説明なし",
+  "untitled": "無題"
+}

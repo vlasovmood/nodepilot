@@ -1,0 +1,77 @@
+{
+  "toolbar": {
+    "home": "Home folder",
+    "up": "Up one level",
+    "breadcrumbsHint": "Double-click to type a path",
+    "editPath": "Type a path",
+    "filter": "Filter",
+    "showHidden": "Show hidden files",
+    "hideHidden": "Hide hidden files",
+    "newFolder": "Folder"
+  },
+  "columns": {
+    "name": "Name",
+    "size": "Size",
+    "mode": "Permissions",
+    "modified": "Modified"
+  },
+  "menu": {
+    "edit": "Edit",
+    "rename": "Rename / move"
+  },
+  "listError": "Couldn't open the folder",
+  "dropToUpload": "Drop files to upload",
+  "empty": {
+    "noMatches": "Nothing found",
+    "folder": "Empty folder — drop files here"
+  },
+  "footer": {
+    "items_one": "{{count}} item",
+    "items_other": "{{count}} items",
+    "total": "({{n}} total)",
+    "hint": "Double-click a folder to open it, a file to edit it. Drag files here to upload."
+  },
+  "tooLarge": {
+    "title": "File too large",
+    "message": "This file is {{size}} — too large for the editor. Download it instead?"
+  },
+  "remove": {
+    "folderTitle": "Delete folder?",
+    "fileTitle": "Delete file?",
+    "recursiveWarning": "The folder and everything in it will be deleted recursively."
+  },
+  "upload": {
+    "tooLarge": "Exceeds the {{limit}} upload limit",
+    "done": "done",
+    "dismiss": "Dismiss"
+  },
+  "toast": {
+    "deleted": "Deleted",
+    "deleteFailed": "Couldn't delete",
+    "folderCreated": "Folder created",
+    "renamed": "Renamed",
+    "foldersSkipped": "Folders can't be uploaded",
+    "foldersSkippedHint": "Drop files, not directories — folders were skipped"
+  },
+  "dialog": {
+    "newFolder": "New folder",
+    "rename": "Rename",
+    "folderName": "Folder name",
+    "newNameOrPath": "New name or full path",
+    "ok": "OK"
+  },
+  "editor": {
+    "loadingEditor": "Loading editor…",
+    "loadingFile": "Loading file…",
+    "modified": "modified",
+    "wrap": "Wrap lines",
+    "saved": "File saved",
+    "saveFailed": "Couldn't save the file",
+    "discardTitle": "Close without saving?",
+    "discardMessage": "Unsaved changes will be lost.",
+    "tooLarge": "File is too large for the editor ({{size}})",
+    "binary": "This looks like a binary file — it can't be opened in the text editor",
+    "cannotOpen": "Can't open this file",
+    "openFailed": "Couldn't open the file"
+  }
+}

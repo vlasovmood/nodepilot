@@ -1,0 +1,349 @@
+{
+  "page": {
+    "title": "Sicherheit",
+    "subtitle": "Zwei-Faktor-Anmeldung, SSH-Schlüssel des Panels, Schutz des Master-Schlüssels und Audit-Log",
+    "openAudit": "Audit-Log"
+  },
+  "overview": {
+    "title": "Sicherheits-Checkliste",
+    "score_one": "{{ok}} von {{count}} Prüfung bestanden",
+    "score_other": "{{ok}} von {{count}} Prüfungen bestanden",
+    "warnings_one": "{{count}} Punkt erfordert Aufmerksamkeit",
+    "warnings_other": "{{count}} Punkte erfordern Aufmerksamkeit",
+    "allGood": "Alles Wichtige ist eingerichtet",
+    "howTo": "So beheben Sie das",
+    "details": "Details",
+    "master": {
+      "title": "Master-Schlüssel",
+      "sealed": "Mit systemd-creds (TPM) versiegelt: Mit einem gestohlenen Datenträger oder VM-Snapshot lassen sich die gespeicherten Passwörter und Schlüssel nicht entschlüsseln.",
+      "file": "Aus einer separaten Datei geladen (NODEPILOT_MASTER_KEY_FILE), nicht neben der Datenbank gespeichert.",
+      "dataDir": "Als Klartextdatei neben der Datenbank gespeichert: Wer das Datenverzeichnis kopiert, kann alle Serverpasswörter und Schlüssel entschlüsseln."
+    },
+    "plaintext": {
+      "title": "Klartextkopie des Master-Schlüssels",
+      "text": "Im Datenverzeichnis liegt noch eine Klartextkopie des Master-Schlüssels. Stellen Sie sicher, dass Sie eine Sicherung an einem anderen Ort haben, und löschen Sie sie."
+    },
+    "twoFactor": {
+      "title": "Zwei-Faktor-Authentifizierung",
+      "off": "Ihr Konto ist nur durch ein Passwort geschützt. Aktivieren Sie einen Einmalcode aus einer Authenticator-App.",
+      "on_one": "Aktiviert. {{count}} Wiederherstellungscode übrig.",
+      "on_other": "Aktiviert. {{count}} Wiederherstellungscodes übrig.",
+      "fewCodes_one": "Aktiviert, aber nur noch {{count}} Wiederherstellungscode übrig – erzeugen Sie neue.",
+      "fewCodes_other": "Aktiviert, aber nur noch {{count}} Wiederherstellungscodes übrig – erzeugen Sie neue.",
+      "enable": "Aktivieren",
+      "newCodes": "Neue Codes"
+    },
+    "panelKey": {
+      "title": "SSH-Schlüssel des Panels",
+      "none": "Nicht eingerichtet. Der Zugriff auf die Server erfolgt mit den von Ihnen hinzugefügten Passwörtern und Schlüsseln; ein Panel-Schlüssel, der nur von der Adresse des Panels aus funktioniert, ist sicherer und lässt sich mit einem Klick rotieren.",
+      "unrestricted": "Der Schlüssel wird von jeder Adresse akzeptiert. Beschränken Sie ihn auf die IP-Adressen des Panels, damit ein gestohlener Schlüssel anderswo nutzlos ist.",
+      "partial_one": "{{using}} von {{count}} Server verwendet den Panel-Schlüssel.",
+      "partial_other": "{{using}} von {{count}} Servern verwenden den Panel-Schlüssel.",
+      "all_one": "Auf Adressen beschränkt; der einzige Server verwendet ihn.",
+      "all_other": "Auf Adressen beschränkt; alle {{count}} Server verwenden ihn.",
+      "create": "Einrichten",
+      "restrict": "Beschränken",
+      "install": "Auf Servern installieren"
+    },
+    "backups": {
+      "title": "Backup-Verschlüsselung",
+      "none": "Noch keine Backup-Jobs.",
+      "unencrypted_one": "{{count}} Backup-Job speichert Archive unverschlüsselt.",
+      "unencrypted_other": "{{count}} Backup-Jobs speichern Archive unverschlüsselt.",
+      "passphrase_one": "{{count}} Job ist mit einer im Panel gespeicherten Passphrase verschlüsselt – wer das Panel kompromittiert, kann ihn entschlüsseln. Ein öffentlicher age-Schlüssel ist sicherer.",
+      "passphrase_other": "{{count}} Jobs sind mit einer im Panel gespeicherten Passphrase verschlüsselt – wer das Panel kompromittiert, kann sie entschlüsseln. Ein öffentlicher age-Schlüssel ist sicherer.",
+      "allKeys_one": "Der Job ist mit einem öffentlichen Schlüssel verschlüsselt: Das Panel selbst kann die Archive nicht entschlüsseln.",
+      "allKeys_other": "Alle {{count}} Jobs sind mit öffentlichen Schlüsseln verschlüsselt: Das Panel selbst kann die Archive nicht entschlüsseln.",
+      "open": "Backups"
+    },
+    "tokens": {
+      "title": "API-Tokens",
+      "fullAccess_one": "{{count}} Token hat Vollzugriff.",
+      "fullAccess_other": "{{count}} Tokens haben Vollzugriff.",
+      "noExpiry_one": "{{count}} Token läuft nie ab.",
+      "noExpiry_other": "{{count}} Tokens laufen nie ab.",
+      "advice": "Geben Sie Tokens nur die benötigten Bereiche und ein Ablaufdatum.",
+      "none": "Keine API-Tokens.",
+      "ok_one": "{{count}} Token, mit eingeschränkten Berechtigungen und Ablaufdatum.",
+      "ok_other": "{{count}} Tokens, alle mit eingeschränkten Berechtigungen und Ablaufdatum.",
+      "open": "Tokens"
+    },
+    "audit": {
+      "title": "Weiterleitung des Audit-Logs",
+      "on": "Ereignisse werden an syslog oder einen Webhook kopiert: Ein Angreifer kann seine Spuren nicht verwischen, indem er das Log des Panels löscht.",
+      "off": "Das Audit-Log wird nur im Panel geführt. Leiten Sie es an syslog/SIEM oder einen Webhook weiter, damit es eine Kompromittierung übersteht.",
+      "configure": "Konfigurieren"
+    },
+    "https": {
+      "title": "HTTPS",
+      "on": "Sitzungs-Cookies werden nur über HTTPS gesendet.",
+      "off": "Secure-Cookies sind deaktiviert: Das Panel wird vermutlich über unverschlüsseltes HTTP aufgerufen. Betreiben Sie es hinter einem HTTPS-Reverse-Proxy und starten Sie es mit --secure-cookies."
+    }
+  },
+  "twoFactor": {
+    "title": "Zwei-Faktor-Authentifizierung",
+    "on": "an",
+    "off": "aus",
+    "offText": "Bei der Anmeldung fragt das Panel zusätzlich nach einem 6-stelligen Code aus einer Authenticator-App (Google Authenticator, Aegis, 1Password, Bitwarden…). Ein geleaktes Passwort allein reicht dann nicht mehr aus.",
+    "onText": "Für die Anmeldung ist ein Code aus Ihrer Authenticator-App erforderlich. Wenn Sie das Telefon verlieren, melden Sie sich mit einem Wiederherstellungscode an.",
+    "codesLeft_one": "{{count}} Wiederherstellungscode übrig",
+    "codesLeft_other": "{{count}} Wiederherstellungscodes übrig",
+    "fewCodes": "Es sind nur noch wenige Wiederherstellungscodes übrig. Erzeugen Sie einen neuen Satz – die alten Codes werden ungültig.",
+    "enable": "2FA aktivieren",
+    "disable": "Deaktivieren",
+    "regenerate": "Neue Wiederherstellungscodes",
+    "enableTitle": "Zwei-Faktor-Authentifizierung aktivieren",
+    "step1": "1. Scannen Sie den QR-Code mit einer Authenticator-App oder geben Sie den Schlüssel manuell ein.",
+    "manualEntry": "Schlüssel für die manuelle Eingabe",
+    "manualHint": "Typ: zeitbasiert (TOTP), 6 Ziffern, 30 Sekunden.",
+    "qrAlt": "QR-Code für die Authenticator-App",
+    "step2": "2. Geben Sie den 6-stelligen Code aus der App ein",
+    "enableSubmit": "Aktivieren",
+    "enabledTitle": "2FA ist aktiv – speichern Sie Ihre Wiederherstellungscodes",
+    "disableTitle": "Zwei-Faktor-Authentifizierung deaktivieren",
+    "disableWarning": "Danach schützt nur noch Ihr Passwort das Konto.",
+    "codeOrRecovery": "Code aus der App oder Wiederherstellungscode",
+    "codeOrRecoveryHint": "6 Ziffern aus der App oder einer der Wiederherstellungscodes (er wird dabei verbraucht)",
+    "regenerateTitle": "Neue Wiederherstellungscodes",
+    "regenerateText": "Es wird ein neuer Satz aus 10 Codes erstellt; alle alten Wiederherstellungscodes werden ungültig. Bestätigen Sie mit einem Code aus der App.",
+    "appCode": "Code aus der App",
+    "regenerateSubmit": "Erzeugen",
+    "errors": {
+      "wrongCode": "Falscher Code. Prüfen Sie, ob die Uhrzeit auf Ihrem Telefon automatisch eingestellt wird, und versuchen Sie es erneut.",
+      "wrongPasswordOrCode": "Falsches Passwort oder falscher Code."
+    },
+    "toast": {
+      "disabled": "Zwei-Faktor-Authentifizierung deaktiviert"
+    }
+  },
+  "recovery": {
+    "warning": "Diese Codes werden nur einmal angezeigt. Mit jedem Code können Sie sich einmal ohne Telefon anmelden. Bewahren Sie sie sicher auf – in einem Passwort-Manager oder ausgedruckt –, aber nicht auf demselben Telefon.",
+    "copyAll": "Alle kopieren",
+    "download": ".txt herunterladen",
+    "fileHeader": "NodePilot-Wiederherstellungscodes für {{username}} auf {{host}} ({{date}}). Jeder Code funktioniert nur einmal.",
+    "howTo": "Wählen Sie auf dem Anmeldebildschirm „Wiederherstellungscode verwenden“ und geben Sie einen beliebigen unbenutzten Code ein.",
+    "savedCheck": "Ich habe die Wiederherstellungscodes gespeichert",
+    "done": "Fertig"
+  },
+  "panelKey": {
+    "title": "SSH-Schlüssel des Panels",
+    "configured": "eingerichtet",
+    "notConfigured": "nicht eingerichtet",
+    "intro": "Das Panel kann einen eigenen ed25519-Schlüssel besitzen, den die Server nur von den Adressen des Panels akzeptieren.",
+    "why": {
+      "stolen": "<b>Ein gestohlener Schlüssel ist anderswo nutzlos:</b> Durch die Option <code>from=</code> in authorized_keys lehnen die Server ihn von jedem anderen Rechner ab.",
+      "rotate": "<b>Rotation mit einem Klick:</b> Auf jedem Server wird ein neuer Schlüssel installiert und der alte entfernt.",
+      "revoke": "<b>Notfall-Widerruf:</b> Ist das Panel kompromittiert, lässt sich der Schlüssel auf einen Schlag von allen Servern entfernen – mit dem Panel oder ohne es.",
+      "flow": "<b>So funktioniert es:</b> Schlüssel erstellen → auf den Servern installieren (das Panel fügt eine Zeile zu authorized_keys hinzu, prüft, ob die Anmeldung damit funktioniert, und stellt den Server darauf um)."
+    },
+    "create": "Panel-Schlüssel erstellen",
+    "created": "Erstellt",
+    "serversOnKey": "Server mit dem Schlüssel",
+    "serversOnKeyValue_one": "{{using}} von {{count}}",
+    "serversOnKeyValue_other": "{{using}} von {{count}}",
+    "working": "Verbindung zu den Servern wird hergestellt… bei vielen Servern kann das eine Weile dauern.",
+    "publicKey": "Öffentlicher Schlüssel",
+    "authorizedLine": "Zeile für authorized_keys",
+    "authorizedLineHint": "Mit Adressbeschränkung und deaktivierter Weiterleitung",
+    "installCommand": "Manuell installieren",
+    "installCommandHint": "Auf einem Server als der SSH-Benutzer ausführen, mit dem sich das Panel anmeldet",
+    "addresses": {
+      "label": "Adressen des Panels (aus Sicht der Server)",
+      "hint": "IP-Adressen oder CIDR-Netze, z. B. 203.0.113.10 oder 10.0.0.0/8. Mit Enter oder Komma hinzufügen.",
+      "invalid": "Keine IP-Adresse und kein Netz: {{value}}",
+      "invalidList": "Keine IP-Adressen oder Netze: {{list}}",
+      "emptyWarning": "Ohne Adressen wird der Schlüssel von überall akzeptiert – ein gestohlener Schlüssel würde von jedem Rechner aus funktionieren. Fügen Sie die Adresse(n) des Panels hinzu.",
+      "save": "Adressen speichern",
+      "redeployHint": "Adressen gespeichert. Auf den Servern gilt noch die alte Beschränkung – führen Sie „Auf Servern installieren“ erneut aus, um sie zu aktualisieren."
+    },
+    "detect": {
+      "pick": "Über einen Server ermitteln…",
+      "server": "Server",
+      "button": "Adresse ermitteln",
+      "found": "Der Server sieht das Panel als {{ip}}",
+      "failed": "Adresse konnte nicht ermittelt werden",
+      "noServers": "Fügen Sie einen Server hinzu, um die Adresse des Panels automatisch zu ermitteln."
+    },
+    "deploy": {
+      "button": "Auf Servern installieren…",
+      "title": "Panel-Schlüssel auf Servern installieren",
+      "text": "Das Panel fügt den Schlüssel zu ~/.ssh/authorized_keys des Serverbenutzers hinzu, prüft, ob es sich damit anmelden kann, und stellt den Server erst dann (sofern aktiviert) auf den Panel-Schlüssel um. Server, bei denen die Prüfung fehlschlägt, behalten ihre aktuellen Zugangsdaten.",
+      "modeServers": "Server",
+      "modeProject": "Projekt",
+      "pickProject": "— Projekt auswählen —",
+      "search": "Nach Name, Host, Tag suchen…",
+      "onlyNotOnKey": "Nur Server ohne den Schlüssel",
+      "selectAll_one": "{{count}} auswählen",
+      "selectAll_other": "Alle {{count}} auswählen",
+      "clear": "Leeren",
+      "selected_one": "{{count}} ausgewählt",
+      "selected_other": "{{count}} ausgewählt",
+      "onKey": "mit Schlüssel",
+      "switchAuth": "Server nach erfolgreicher Prüfung auf den Panel-Schlüssel umstellen",
+      "switchAuthHint": "Das bisherige Passwort bzw. der bisherige Schlüssel des Servers bleibt in authorized_keys oder auf dem Server – entfernen Sie es selbst, wenn Sie sicher sind.",
+      "noSwitchHint": "Der Schlüssel wird nur installiert; die Server verbinden sich weiterhin mit ihren aktuellen Zugangsdaten.",
+      "run_one": "Auf {{count}} Server installieren",
+      "run_other": "Auf {{count}} Servern installieren",
+      "again": "Auf weiteren installieren",
+      "resultsSwitched": "Mit OK markierte Server verbinden sich jetzt mit dem Panel-Schlüssel.",
+      "resultsInstalled": "Der Schlüssel ist auf den mit OK markierten Servern installiert; ihre Zugangsdaten wurden nicht geändert."
+    },
+    "rotate": {
+      "button": "Schlüssel rotieren",
+      "confirmTitle": "Panel-Schlüssel rotieren?",
+      "confirmText_one": "Ein neuer Schlüssel wird erstellt und auf {{count}} Server installiert; der alte Schlüssel wird dort entfernt. Schlägt etwas fehl, bleibt der Server beim alten Schlüssel.",
+      "confirmText_other": "Ein neuer Schlüssel wird erstellt und auf {{count}} Servern installiert; der alte Schlüssel wird dort entfernt. Server, bei denen etwas fehlschlägt, bleiben beim alten Schlüssel.",
+      "resultsTitle": "Ergebnisse der Schlüsselrotation",
+      "resultsHint": "Server mit Fehler verwenden weiterhin den alten Schlüssel – beheben Sie die Verbindung und rotieren Sie erneut."
+    },
+    "revoke": {
+      "button": "Notfall-Widerruf",
+      "confirmTitle": "Panel-Schlüssel überall widerrufen?",
+      "confirmText_one": "Alle Panel-Schlüssel werden aus authorized_keys von {{count}} Server entfernt, und der Schlüssel selbst wird vernichtet. Das Panel VERLIERT den Zugriff auf diesen Server, bis Sie erneut ein Passwort oder einen Schlüssel hinzufügen.",
+      "confirmText_other": "Alle Panel-Schlüssel werden aus authorized_keys von {{count}} Servern entfernt, und der Schlüssel selbst wird vernichtet. Das Panel VERLIERT den Zugriff auf diese Server, bis Sie erneut ein Passwort oder einen Schlüssel hinzufügen.",
+      "confirmWhen": "Verwenden Sie dies, wenn das Panel oder seine Datenbank kompromittiert sein könnte.",
+      "confirmWord": "WIDERRUFEN",
+      "resultsTitle": "Ergebnisse des Notfall-Widerrufs",
+      "resultsHint": "Der Schlüssel ist vernichtet. Auf Servern mit Fehler kann der Schlüssel noch in authorized_keys stehen – entfernen Sie ihn ohne das Panel mit dem folgenden Befehl.",
+      "resultsDone": "Der Schlüssel ist vernichtet und von den Servern entfernt, die ihn verwendet haben. Falls er auch anderswo installiert war (manuell oder ohne Umstellung eines Servers), entfernen Sie ihn dort mit dem folgenden Befehl.",
+      "manualTitle": "Widerruf ohne das Panel",
+      "manualText": "Ist das Panel nicht verfügbar oder kompromittiert, führen Sie dies auf jedem Server als SSH-Benutzer aus – es entfernt alle NodePilot-Panel-Schlüssel aus authorized_keys (eine Sicherungskopie wird daneben abgelegt).",
+      "manualOne": "Auf einem Server",
+      "manualAnsible": "Auf allen Servern mit Ansible"
+    },
+    "toast": {
+      "created": "Panel-Schlüssel erstellt",
+      "createFailed": "Panel-Schlüssel konnte nicht erstellt werden",
+      "addressesSaved": "Adressen gespeichert",
+      "saveFailed": "Adressen konnten nicht gespeichert werden",
+      "rotateFailed": "Schlüssel konnte nicht rotiert werden",
+      "revokeFailed": "Schlüssel konnte nicht widerrufen werden"
+    }
+  },
+  "results": {
+    "ok_one": "{{count}} OK",
+    "ok_other": "{{count}} OK",
+    "failed_one": "{{count}} fehlgeschlagen",
+    "failed_other": "{{count}} fehlgeschlagen",
+    "okShort": "OK",
+    "errorShort": "Fehler",
+    "details": "Details",
+    "empty": "Keine Server betroffen"
+  },
+  "masterKey": {
+    "title": "Master-Schlüssel",
+    "intro": "Der Master-Schlüssel verschlüsselt die Serverpasswörter, SSH-Schlüssel und anderen Geheimnisse, die in der Datenbank des Panels gespeichert sind.",
+    "source": "Quelle",
+    "path": "Pfad",
+    "tpm": "TPM 2.0",
+    "systemdCreds": "systemd-creds",
+    "available": "verfügbar",
+    "unavailable": "nicht gefunden",
+    "kind": {
+      "systemd-credential": "versiegelt",
+      "file": "separate Datei",
+      "data-dir": "Klartext auf dem Datenträger"
+    },
+    "kindLong": {
+      "systemd-credential": "systemd credential (LoadCredentialEncrypted, z. B. im TPM versiegelt)",
+      "file": "Datei aus NODEPILOT_MASTER_KEY_FILE",
+      "data-dir": "Klartextdatei im Datenverzeichnis"
+    },
+    "sealedText": "Der Schlüssel wird beim Start von systemd in einen Speicherbereich entschlüsselt, auf den nur der Panel-Prozess zugreifen kann. Ein gestohlener Datenträger oder VM-Snapshot lässt sich ohne dieses TPM nicht entschlüsseln.",
+    "fileText": "Der Schlüssel wird aus einer separaten Datei gelesen. Halten Sie diese Datei aus Datenbank-Backups heraus und machen Sie sie nur für den Benutzer des Panels lesbar.",
+    "plaintextCopy": "<b>Im Datenverzeichnis liegt noch eine Klartextkopie des Schlüssels.</b> Stellen Sie sicher, dass die Sicherungskopie außerhalb des Servers aufbewahrt wird, und löschen Sie dann die Datei – sonst schützt die Versiegelung nichts.",
+    "dataDirWarning": "Der Schlüssel liegt als einfache Datei neben der Datenbank. Wer das Datenverzeichnis kopiert (ein Backup, ein Datenträger-Snapshot), erhält alle Serverpasswörter und Schlüssel.",
+    "sealTitle": "Schlüssel im TPM versiegeln (Linux mit systemd)",
+    "steps": {
+      "requirements": "Voraussetzungen: Ubuntu 24.04+ oder Debian 12+ (systemd 250 oder neuer) und ein TPM-2.0-Chip – aktivieren Sie auf einer VM ein virtuelles TPM (vTPM).",
+      "run": "Führen Sie auf dem Panel-Server aus:",
+      "runHint": "/opt/nodepilot/packaging ist der Pfad zum Ordner packaging aus dem Release oder der Installation",
+      "backup": "Das Skript speichert eine Kopie des Schlüssels, versiegelt den Schlüssel, startet das Panel neu und entfernt die Klartextdatei. Verschieben Sie die Kopie vom Server (in einen Passwort-Manager oder Offline-Speicher) und löschen Sie sie dort – ohne sie lassen sich die Geheimnisse bei einem Ausfall des TPM oder Mainboards nicht wiederherstellen.",
+      "check": "Laden Sie diese Seite neu: Als Quelle sollte nun „systemd credential“ angezeigt werden."
+    },
+    "noTpmHere": "Auf diesem Rechner wurde kein TPM gefunden und/oder systemd-creds ist nicht installiert – die Versiegelung funktioniert erst, wenn beides verfügbar ist.",
+    "dockerTitle": "Docker",
+    "dockerText": "Bewahren Sie den Schlüssel in einem Container außerhalb des Daten-Volumes auf: Übergeben Sie ihn als Docker-Secret und lassen Sie <code>NODEPILOT_MASTER_KEY_FILE</code> darauf verweisen."
+  },
+  "audit": {
+    "page": {
+      "title": "Audit-Log",
+      "subtitle": "Wer hat was im Panel getan: Anmeldungen, Befehle, Änderungen, API- und MCP-Aufrufe",
+      "forwarding": "Weiterleitung"
+    },
+    "filters": {
+      "q": "Aktion oder Ziel…",
+      "actor": "Benutzer",
+      "severity": "Schweregrad",
+      "allSeverities": "Jeder Schweregrad",
+      "atLeast": {
+        "warning": "Warnungen und kritische",
+        "critical": "Nur kritische"
+      },
+      "reset": "Filter zurücksetzen"
+    },
+    "columns": {
+      "time": "Zeit",
+      "severity": "Schweregrad",
+      "actor": "Benutzer",
+      "ip": "IP",
+      "action": "Aktion",
+      "target": "Ziel",
+      "outcome": "Ergebnis"
+    },
+    "severity": {
+      "info": "Info",
+      "warning": "Warnung",
+      "critical": "kritisch"
+    },
+    "outcome": {
+      "ok": "OK",
+      "denied": "verweigert",
+      "locked": "gesperrt",
+      "error": "Fehler",
+      "exit": "Exit {{code}}"
+    },
+    "viaToken": "Über API-Token „{{name}}“",
+    "shown_one": "{{n}} Eintrag",
+    "shown_other": "{{n}} Einträge",
+    "loadMore": "Ältere laden",
+    "empty": "Das Log ist leer",
+    "emptyFiltered": "Keine Einträge entsprechen den Filtern",
+    "details": {
+      "id": "Eintrag",
+      "time": "Zeit",
+      "token": "API-Token",
+      "none": "Keine Details"
+    },
+    "settings": {
+      "title": "Weiterleitung des Audit-Logs",
+      "on": "an",
+      "off": "aus",
+      "intro": "Kopieren Sie jedes Ereignis an einen Syslog-Server/SIEM oder einen Webhook. Wird das Panel kompromittiert, bleibt die Kopie außerhalb davon unversehrt.",
+      "syslog": "Syslog",
+      "syslogHint": "udp://host:port oder tcp://host:port; leer – aus",
+      "webhook": "Webhook-URL",
+      "webhookHint": "Jedes Ereignis wird als JSON per POST gesendet; leer – aus",
+      "secret": "Webhook-Secret",
+      "secretHint": "Anfragen werden mit HMAC-SHA256 im Header <code>{{header}}</code> signiert",
+      "secretSet": "gesetzt",
+      "secretSetPlaceholder": "•••••••• (gesetzt; zum Ersetzen eingeben)",
+      "clearSecret": "Entfernen",
+      "minSeverity": "Ereignisse weiterleiten ab",
+      "minSeverityHint": "Das Log des Panels selbst behält alles",
+      "retention": "Im Panel aufbewahren, Tage",
+      "retentionHint": "Von 7 bis 3650",
+      "test": "Testereignis senden",
+      "saveAndTest": "Speichern und testen",
+      "testNothing": "Legen Sie zuerst eine Syslog-Adresse oder einen Webhook fest",
+      "testOk": "Testereignis zugestellt.",
+      "testFailed": "Testereignis nicht zugestellt: {{error}}",
+      "saved": "Weiterleitungseinstellungen gespeichert",
+      "errors": {
+        "syslog": "Format: udp://host:514 oder tcp://host:514",
+        "webhook": "Muss mit http:// oder https:// beginnen",
+        "retention": "Eine ganze Zahl von 7 bis 3650"
+      }
+    }
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "page": {
+    "title": "API",
+    "subtitle": "L'API REST et le serveur MCP du panneau : jetons d'accès, référence des points de terminaison, connexion des agents IA.",
+    "tabs": {
+      "tokens": "Jetons",
+      "reference": "Référence",
+      "mcp": "MCP"
+    }
+  },
+  "areas": {
+    "servers": {
+      "label": "Serveurs et statistiques",
+      "short": "Serveurs",
+      "description": "Liste et détails des serveurs, métriques, vérifications SSH"
+    },
+    "projects": {
+      "label": "Projets",
+      "short": "Projets",
+      "description": "Projets et leurs serveurs"
+    },
+    "identities": {
+      "label": "Trousseau",
+      "short": "Clés",
+      "description": "Mots de passe et clés SSH ; les secrets ne sont jamais renvoyés par l'API"
+    },
+    "exec": {
+      "label": "Commandes et terminal",
+      "short": "Commandes",
+      "description": "Exécution de commandes et sessions de terminal sur les serveurs",
+      "danger": "peut exécuter n'importe quelle commande sur les serveurs avec leur utilisateur SSH"
+    },
+    "system": {
+      "label": "Processus et services",
+      "short": "Système",
+      "description": "Processus, services systemd, journaux, redémarrage"
+    },
+    "files": {
+      "label": "Fichiers",
+      "short": "Fichiers",
+      "description": "Fichiers des serveurs via SFTP"
+    },
+    "notes": {
+      "label": "Notes",
+      "short": "Notes",
+      "description": "Notes Markdown du panneau"
+    },
+    "graphs": {
+      "label": "Graphes",
+      "short": "Graphes",
+      "description": "Schémas d'infrastructure"
+    },
+    "backups": {
+      "label": "Sauvegardes",
+      "short": "Sauvegardes",
+      "description": "Stockages, tâches et archives de sauvegarde"
+    },
+    "admin": {
+      "label": "Jetons d'API",
+      "short": "Jetons",
+      "description": "Émission, modification et révocation des jetons d'API",
+      "danger": "peut émettre de nouveaux jetons (dans la limite de ses propres droits) et révoquer les jetons existants"
+    }
+  },
+  "perm": {
+    "read": "lecture",
+    "write": "écriture",
+    "allowed": "autorisé",
+    "areaLevel": "{{area}} : {{level}}",
+    "full": "Accès complet",
+    "readonly": "Lecture seule",
+    "none": "Aucun accès",
+    "public": "Public",
+    "authenticated": "Toute connexion"
+  },
+  "tags": {
+    "auth": "Connexion et session",
+    "meta": "Service",
+    "servers": "Serveurs",
+    "stats": "Statistiques",
+    "projects": "Projets",
+    "identities": "Clés",
+    "exec": "Commandes",
+    "terminalSessions": "Sessions de terminal",
+    "system": "Processus et services",
+    "files": "Fichiers",
+    "notes": "Notes",
+    "graphs": "Graphes",
+    "backups": "Sauvegardes",
+    "tokens": "Jetons d'API",
+    "ai": "MCP / IA",
+    "other": "Autre"
+  },
+  "tokens": {
+    "intro": "Les jetons d'API sont destinés aux applications mobiles, aux scripts, aux CLI et aux agents IA (MCP). Transmettez le jeton dans l'en-tête <code>{{header}}</code>.",
+    "tokenPlaceholder": "jeton",
+    "introHint": "Émettez un jeton distinct pour chaque client et n'accordez que les droits nécessaires — vous pourrez ainsi le révoquer sans affecter les autres.",
+    "create": "Créer un jeton",
+    "emptyTitle": "Aucun jeton pour l'instant",
+    "emptyText": "Créez un jeton pour connecter un script, une application ou un agent IA.",
+    "table": {
+      "name": "Nom",
+      "access": "Accès",
+      "created": "Création",
+      "lastUsed": "Dernière utilisation",
+      "expires": "Expiration"
+    },
+    "never": "jamais",
+    "noExpiry": "jamais",
+    "expired": "expiré",
+    "confirm": {
+      "deleteTitle": "Supprimer le jeton ?",
+      "deleteMessage": "Tous les clients utilisant le jeton <b>{{name}}</b> perdront immédiatement l'accès. Cette action est irréversible."
+    },
+    "toast": {
+      "deleted": "Jeton supprimé",
+      "deleteFailed": "Impossible de supprimer le jeton",
+      "updated": "Jeton mis à jour"
+    },
+    "dialog": {
+      "newTitle": "Nouveau jeton d'API",
+      "editTitle": "Jeton « {{name}} »",
+      "nameHint": "par ex. iphone-app, ci-deploy, claude-code",
+      "expiry": "Expire dans",
+      "expiryHint": "À compter de maintenant",
+      "keepExpiry": "Ne pas modifier",
+      "access": "Accès",
+      "presetCustom": "Personnalisé",
+      "fullHint": "Accès en lecture et en écriture à toutes les sections, y compris celles ajoutées dans les futures versions du panneau.",
+      "readonlyHint": "Accès en lecture à toutes les sections sauf commandes/terminal et jetons d'API. Aucune modification possible — idéal pour la supervision et les tableaux de bord.",
+      "area": "Section",
+      "allRead": "Tout en lecture",
+      "allWrite": "Tout en écriture",
+      "reset": "Réinitialiser",
+      "levelNone": "Aucun",
+      "levelRead": "Lecture",
+      "levelWrite": "Écriture",
+      "levelAllowed": "Autorisé",
+      "emptyInfo": "Un jeton sans droits peut seulement se vérifier lui-même (/auth/me) et se connecter à MCP sans aucun outil.",
+      "dangerWarning": "<b>{{area}}</b> : le jeton {{risk}}."
+    },
+    "expiry": {
+      "never": "Jamais",
+      "days_one": "{{count}} jour",
+      "days_other": "{{count}} jours"
+    },
+    "created": {
+      "title": "Jeton créé",
+      "done": "J'ai enregistré le jeton",
+      "warning": "Copiez le jeton maintenant — il n'est affiché qu'une seule fois. Ensuite, vous pourrez uniquement le révoquer et en émettre un nouveau.",
+      "validUntil": "valable jusqu'au {{date}}",
+      "noExpiry": "sans expiration",
+      "curlTitle": "Tester avec curl",
+      "claudeTitle": "Connecter à Claude Code (MCP)"
+    }
+  },
+  "reference": {
+    "loading": "Chargement de la spécification…",
+    "baseUrl": "URL de base",
+    "auth": "Autorisation",
+    "endpoints_one": "{{count}} point de terminaison",
+    "endpoints_other": "{{count}} points de terminaison",
+    "specInfo": "OpenAPI {{version}} · {{endpoints}}. Utilisez la spécification pour générer un client pour une application mobile ou un service — <code>openapi-generator</code>, <code>swift-openapi-generator</code>, <code>orval</code>, <code>openapi-typescript</code>, etc.",
+    "searchPlaceholder": "Rechercher : chemin, méthode, description…",
+    "clear": "Effacer",
+    "nothingFound": "Aucun résultat",
+    "overviewHint": "Choisissez un point de terminaison à gauche pour voir ses paramètres et ses schémas et pour envoyer une requête.",
+    "areasTitle": "Domaines de permissions",
+    "areasTable": {
+      "area": "Domaine",
+      "key": "Clé",
+      "contents": "Couvre"
+    },
+    "params": "Paramètres",
+    "paramsTable": {
+      "name": "Nom",
+      "in": "Emplacement",
+      "type": "Type",
+      "description": "Description"
+    },
+    "required": "oblig.",
+    "oneOfList": "parmi : {{values}}",
+    "requestBody": "Corps de la requête",
+    "optional": "facultatif",
+    "rawBody": "Octets bruts du fichier (jusqu'à la limite du serveur), sans enveloppe JSON.",
+    "responses": "Réponses",
+    "errorShape": "{ \"error\": \"message d'erreur\" }",
+    "switchingProtocols": "La connexion bascule en WebSocket.",
+    "tryIt": "Essayer",
+    "wsInfo": "Il s'agit d'un WebSocket — il ne peut pas être appelé depuis la référence. Connectez-vous avec un client WebSocket (dans un navigateur, avec le cookie de session ; sinon, passez le jeton dans le paramètre <code>token</code>) :",
+    "binaryInfo": "Le corps est constitué des octets bruts du fichier ; la requête ne peut donc pas être envoyée d'ici. Utilisez la commande curl ci-dessous avec <code>--data-binary</code>.",
+    "downloadInfo": "La réponse est un fichier. Ouvrez le lien (fonctionne avec votre session) ou utilisez la commande curl ci-dessous.",
+    "fillIn": "à renseigner : {{names}}",
+    "fillInSentence": "Renseignez : {{names}}",
+    "bodyJson": "Corps (JSON)",
+    "example": "Exemple",
+    "invalidJson": "JSON non valide : {{error}}",
+    "liveNote": "La requête est réellement exécutée, avec les droits de votre session (accès complet).",
+    "emptyResponse": "Réponse vide",
+    "curlHint": "remplacez np_… par votre jeton",
+    "curlFile": "fichier",
+    "requestFailed": "Échec de la requête : {{message}}",
+    "confirm": {
+      "title": "Envoyer {{method}} ?",
+      "message": "La requête <code>{{request}}</code> sera réellement exécutée au nom de votre session.",
+      "power": "Le serveur sera redémarré ou éteint.",
+      "logout": "Votre session prendra fin."
+    }
+  },
+  "schema": {
+    "items": "éléments : {{min}}…{{max}}",
+    "length": "longueur : {{min}}…{{max}}",
+    "writeOnly": "écriture seule",
+    "readOnly": "lecture seule",
+    "deprecated": "obsolète",
+    "oneOf": "l'un de",
+    "anyOf": "au moins un de",
+    "mapKey": "{clé}",
+    "anyObject": "objet (champs quelconques)",
+    "variant": "variante {{n}} : {{type}}",
+    "exampleTitle": "Exemple",
+    "exampleBody": "Texte",
+    "const": "valeur <code>{{value}}</code>",
+    "enum": "parmi",
+    "default": "par défaut <code>{{value}}</code>",
+    "required": "oblig.",
+    "requiredTitle": "Champ obligatoire",
+    "recursive": "récursif",
+    "recursiveTitle": "Référence récursive — voir ci-dessus"
+  },
+  "mcp": {
+    "intro": "MCP est un protocole ouvert qui fournit aux agents IA (Claude Code, Claude Desktop, Cursor et autres) un ensemble d'« outils » qu'ils appellent de manière autonome. NodePilot expose ses fonctionnalités sous forme de serveur MCP : un agent peut consulter les statistiques, exécuter des commandes, modifier des fichiers, tenir des notes et des graphes — dans la limite des droits du jeton.",
+    "endpoint": "Point de terminaison (Streamable HTTP, JSON-RPC 2.0)",
+    "jsonConfig": "Configuration JSON du client",
+    "jsonConfigHint": "Claude Desktop, Cursor, etc.",
+    "stdio": "En local via stdio",
+    "stdioHint": "sur la machine qui exécute le panneau",
+    "scopeInfo": "Un agent ne voit que les outils autorisés par son jeton : un jeton « Lecture seule » n'expose aucun outil qui modifie des données. Créez un jeton distinct pour l'agent dans l'onglet <link>Jetons</link> et utilisez-le à la place de <code>np_…</code>.",
+    "tools": "Outils",
+    "toolCount_one": "{{count}} outil",
+    "toolCount_other": "{{count}} outils",
+    "searchPlaceholder": "Rechercher des outils…",
+    "loading": "Requête tools/list…",
+    "nothingFound": "Aucun résultat",
+    "otherGroup": "Autre",
+    "destructive": "modifie des données"
+  }
+}

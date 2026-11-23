@@ -1,0 +1,120 @@
+{
+  "list": {
+    "title": "Graphen",
+    "subtitle": "Infrastrukturdiagramme: wie Server und Dienste zusammenhängen – APIs, Datenbanken, VPN-Kaskaden.",
+    "newGraph": "Neuer Graph",
+    "createGraph": "Graph erstellen",
+    "countInProject_one": "{{count}} Graph im Projekt",
+    "countInProject_other": "{{count}} Graphen im Projekt",
+    "emptyTitle": "Noch keine Graphen",
+    "emptyProjectTitle": "Dieses Projekt hat noch keine Graphen",
+    "emptyText": "Zeichnen Sie ein Diagramm: API-, Datenbank- und VPN-Knoten, verknüpft mit Ihren Servern, die Verbindungen dazwischen und Notizen.",
+    "nodes_one": "{{count}} Knoten",
+    "nodes_other": "{{count}} Knoten",
+    "edges_one": "{{count}} Verbindung",
+    "edges_other": "{{count}} Verbindungen",
+    "namePlaceholder": "z. B. Produktion – API und Datenbanken"
+  },
+  "confirm": {
+    "deleteTitle": "Graph löschen?",
+    "deleteMessage": "Der Graph <b>{{name}}</b> wird mit allen Knoten, Verbindungen und Notizen gelöscht. Die Server sind nicht betroffen."
+  },
+  "toast": {
+    "deleted": "Graph gelöscht",
+    "deleteFailed": "Graph konnte nicht gelöscht werden",
+    "saveFailed": "Graph nicht gespeichert"
+  },
+  "page": {
+    "notFound": "Graph nicht gefunden",
+    "backToList": "Alle Graphen",
+    "defaultSubtitle": "Infrastrukturdiagramm"
+  },
+  "save": {
+    "saved": "Gespeichert",
+    "saving": "Wird gespeichert…",
+    "error": "Nicht gespeichert, neuer Versuch…",
+    "conflict": "Der Graph wurde in einem anderen Fenster geändert",
+    "reload": "Neueste Version laden"
+  },
+  "editor": {
+    "node": "Knoten",
+    "nodeTitle": "Knoten: API, Datenbank, VPN…",
+    "servers": "Server",
+    "serversTitle": "Server aus dem Panel hinzufügen",
+    "note": "Notiz",
+    "noteTitle": "Notiz auf der Arbeitsfläche",
+    "emptyHint": "Fügen Sie Knoten oder Server hinzu und verbinden Sie sie, indem Sie von einem Punkt am Rand eines Knotens ziehen.",
+    "newNodeLabel": "Neuer Knoten",
+    "serverLabel": "Server"
+  },
+  "element": {
+    "serverDeleted": "Server gelöscht",
+    "notePlaceholder": "Notiztext…",
+    "noteEmpty": "Doppelklicken, um eine Notiz zu schreiben"
+  },
+  "inspector": {
+    "graph": "Graph",
+    "counts": "Knoten: {{nodes}} · Verbindungen: {{edges}}",
+    "helpTitle": "So funktioniert’s",
+    "help": {
+      "connect": "Verbinden: von einem Punkt am Rand eines Knotens zu einem anderen Knoten ziehen.",
+      "select": "Klicken Sie auf einen Knoten oder eine Verbindung, um hier Eigenschaften und Notiz zu sehen.",
+      "note": "Notiz auf der Arbeitsfläche: Doppelklick zum Bearbeiten.",
+      "openServer": "Doppelklick auf einen Server-Knoten öffnet den Server.",
+      "delete": "Delete / Backspace entfernt die Auswahl.",
+      "shortcuts": "Umschalt+Klick wählt mehrere Knoten. Strg+C / Strg+V kopiert sie (auch in einen anderen Graphen), Strg+X schneidet aus, Strg+A wählt alles."
+    },
+    "defaultColor": "Standard",
+    "note": "Notiz",
+    "noteText": "Text",
+    "notePlaceholder": "z. B. „VPN-Kaskade: RU → NL → DE, Schlüssel hat Max“",
+    "deleteNote": "Notiz löschen",
+    "node": "Knoten",
+    "role": "Rolle",
+    "server": "Panel-Server",
+    "serverHint": "Durch die Verknüpfung werden Status und Last direkt im Graphen angezeigt",
+    "notBound": "Nicht verknüpft",
+    "deletedServer": "(gelöschter Server)",
+    "openServer": "{{name}} öffnen",
+    "nodeNotePlaceholder": "Wissenswertes zu diesem Knoten: Ports, Zugang, Besonderheiten…",
+    "deleteNode": "Knoten löschen",
+    "edge": "Verbindung",
+    "edgeLabel": "Beschriftung",
+    "edgeLabelHint": "z. B. 5432/tcp, HTTPS, WireGuard",
+    "directed": "Gerichtet (Pfeil)",
+    "reverse": "Richtung umkehren",
+    "edgeNotePlaceholder": "Warum sie verbunden sind: VPN-Kaskade, Replikation, gemeinsamer Schlüssel…",
+    "deleteEdge": "Verbindung löschen"
+  },
+  "roles": {
+    "server": "Server",
+    "api": "API / Backend",
+    "web": "Web / Frontend",
+    "db": "Datenbank",
+    "cache": "Cache",
+    "queue": "Warteschlange",
+    "storage": "Speicher",
+    "lb": "Load Balancer / Proxy",
+    "vpn": "VPN",
+    "internet": "Internet / externer Dienst",
+    "other": "Sonstiges"
+  },
+  "edgeKinds": {
+    "link": "Verknüpfung",
+    "depends": "Abhängigkeit",
+    "cascade": "Kaskade",
+    "vpn": "VPN-Tunnel",
+    "replication": "Replikation",
+    "other": "Sonstiges"
+  },
+  "picker": {
+    "title": "Server zum Graphen hinzufügen",
+    "searchPlaceholder": "Name, Adresse, Tag…",
+    "allProjects": "Alle Projekte",
+    "selectAll": "Alle auswählen ({{n}})",
+    "clearSelection": "Auswahl aufheben",
+    "nothingFound": "Nichts gefunden",
+    "alreadyOnGraph": "bereits im Graphen",
+    "addCount": "{{n}} hinzufügen"
+  }
+}

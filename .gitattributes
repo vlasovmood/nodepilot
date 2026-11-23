@@ -1,0 +1,5 @@
+# LF everywhere, on every OS. sqlx embeds the migrations and checks their checksums,
+# so a CRLF checkout on Windows would produce a binary that rejects existing databases.
+* text=auto eol=lf
+*.png binary
+*.ico binary

@@ -1,0 +1,77 @@
+{
+  "toolbar": {
+    "home": "Dossier personnel",
+    "up": "Remonter d'un niveau",
+    "breadcrumbsHint": "Double-cliquez pour saisir un chemin",
+    "editPath": "Saisir un chemin",
+    "filter": "Filtrer",
+    "showHidden": "Afficher les fichiers cachés",
+    "hideHidden": "Masquer les fichiers cachés",
+    "newFolder": "Dossier"
+  },
+  "columns": {
+    "name": "Nom",
+    "size": "Taille",
+    "mode": "Permissions",
+    "modified": "Modifié"
+  },
+  "menu": {
+    "edit": "Modifier",
+    "rename": "Renommer / déplacer"
+  },
+  "listError": "Impossible d'ouvrir le dossier",
+  "dropToUpload": "Déposez les fichiers pour les téléverser",
+  "empty": {
+    "noMatches": "Aucun résultat",
+    "folder": "Dossier vide — déposez des fichiers ici"
+  },
+  "footer": {
+    "items_one": "{{count}} élément",
+    "items_other": "{{count}} éléments",
+    "total": "({{n}} au total)",
+    "hint": "Double-cliquez sur un dossier pour l'ouvrir, sur un fichier pour le modifier. Glissez des fichiers ici pour les téléverser."
+  },
+  "tooLarge": {
+    "title": "Fichier trop volumineux",
+    "message": "Ce fichier fait {{size}} — trop volumineux pour l'éditeur. Le télécharger à la place ?"
+  },
+  "remove": {
+    "folderTitle": "Supprimer le dossier ?",
+    "fileTitle": "Supprimer le fichier ?",
+    "recursiveWarning": "Le dossier et tout son contenu seront supprimés de manière récursive."
+  },
+  "upload": {
+    "tooLarge": "Dépasse la limite de téléversement de {{limit}}",
+    "done": "terminé",
+    "dismiss": "Masquer"
+  },
+  "toast": {
+    "deleted": "Supprimé",
+    "deleteFailed": "Impossible de supprimer",
+    "folderCreated": "Dossier créé",
+    "renamed": "Renommé",
+    "foldersSkipped": "Impossible de téléverser des dossiers",
+    "foldersSkippedHint": "Déposez des fichiers, pas des répertoires — les dossiers ont été ignorés"
+  },
+  "dialog": {
+    "newFolder": "Nouveau dossier",
+    "rename": "Renommer",
+    "folderName": "Nom du dossier",
+    "newNameOrPath": "Nouveau nom ou chemin complet",
+    "ok": "OK"
+  },
+  "editor": {
+    "loadingEditor": "Chargement de l'éditeur…",
+    "loadingFile": "Chargement du fichier…",
+    "modified": "modifié",
+    "wrap": "Retour à la ligne",
+    "saved": "Fichier enregistré",
+    "saveFailed": "Impossible d'enregistrer le fichier",
+    "discardTitle": "Fermer sans enregistrer ?",
+    "discardMessage": "Les modifications non enregistrées seront perdues.",
+    "tooLarge": "Fichier trop volumineux pour l'éditeur ({{size}})",
+    "binary": "Ce fichier semble binaire — il ne peut pas être ouvert dans l'éditeur de texte",
+    "cannotOpen": "Impossible d'ouvrir ce fichier",
+    "openFailed": "Impossible d'ouvrir le fichier"
+  }
+}

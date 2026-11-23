@@ -1,0 +1,190 @@
+{
+  "page": {
+    "title": "サーバー",
+    "count_other": "{{count}} 台のサーバー"
+  },
+  "loading": "サーバーを読み込み中…",
+  "toolbar": {
+    "filterPlaceholder": "フィルター: 名前、アドレス、タグ…",
+    "tagTitle": "タグで絞り込み",
+    "allTags": "すべてのタグ",
+    "statusTitle": "ステータスで絞り込み",
+    "anyStatus": "すべてのステータス",
+    "online": "オンライン ({{n}})",
+    "offline": "到達不可 ({{n}})",
+    "unknown": "不明 ({{n}})",
+    "favorites": "★ お気に入り ({{n}})",
+    "view": "表示",
+    "list": "リスト",
+    "grid": "グリッド",
+    "import": "インポート",
+    "addServer": "サーバーを追加"
+  },
+  "selection": {
+    "count": "選択中: {{n}}",
+    "exec": "コマンドを実行",
+    "toProject": "プロジェクトに追加",
+    "removeFromProject": "プロジェクトから除外",
+    "clear": "選択を解除"
+  },
+  "empty": {
+    "title": "サーバーはまだありません",
+    "projectTitle": "このプロジェクトにはまだサーバーがありません",
+    "hint": "最初のサーバーを手動で追加するか、CSV/JSON からリストをインポートしてください。",
+    "projectHint": "新しいサーバーを追加するか、「すべてのサーバー」で既存のサーバーを選択して「プロジェクトに追加」をクリックしてください。"
+  },
+  "footer": {
+    "shown": "{{total}} 件中 {{shown}} 件を表示",
+    "noMatch": "フィルターに一致するサーバーはありません",
+    "selectHint": "Ctrl/Shift+クリックで選択",
+    "statsUnavailable": "統計情報を利用できません",
+    "metrics": "メトリクス: {{time}}"
+  },
+  "confirm": {
+    "deleteOneTitle": "サーバーを削除しますか？",
+    "deleteManyTitle_other": "{{count}} 台のサーバーを削除しますか？",
+    "deleteOneMessage": "サーバー <b>{{name}}</b> を、そのメモとバックアップジョブとともにパネルから削除します。マシン自体には影響しません。",
+    "deleteManyMessage": "削除対象: {{names}}。マシン自体には影響しません。",
+    "deleteManyMessageMore": "削除対象: {{names}} ほか {{more}} 台。マシン自体には影響しません。",
+    "deleteRequireText": "削除",
+    "removeTitle": "プロジェクトから除外しますか？",
+    "removeMessage_other": "{{count}} 台のサーバーをプロジェクト「{{project}}」から除外します。サーバーはパネルに残ります。",
+    "removeConfirm": "除外"
+  },
+  "toast": {
+    "deletePartial": "{{ok}} 台を削除、失敗: {{failed}}",
+    "deletedOne": "サーバーを削除しました",
+    "deletedMany_other": "{{count}} 台のサーバーを削除しました",
+    "errors": "失敗: {{failed}}",
+    "removedFromProject": "サーバーをプロジェクトから除外しました"
+  },
+  "table": {
+    "selectAll": "すべて選択",
+    "name": "名前",
+    "address": "アドレス",
+    "tags": "タグ",
+    "projects": "プロジェクト",
+    "disk": "ディスク",
+    "uptime": "稼働時間",
+    "cores_other": "{{count}} コア"
+  },
+  "menu": {
+    "terminal": "ターミナル",
+    "edit": "編集"
+  },
+  "grid": {
+    "noData": "{{label}}: データなし",
+    "select": "選択",
+    "addFavorite": "お気に入りに追加",
+    "removeFavorite": "お気に入りから削除",
+    "offlineMark": "OFFLINE",
+    "prev": "前へ",
+    "next": "次へ"
+  },
+  "bulkExec": {
+    "title_other": "コマンドを実行 — {{count}} 台のサーバー",
+    "result": "結果: <code>{{cmd}}</code>"
+  },
+  "addToProject": {
+    "title": "プロジェクトに追加",
+    "label_other": "{{count}} 台のサーバーの追加先プロジェクト",
+    "placeholder": "— プロジェクトを選択 —",
+    "noProjects": "先にサイドバーでプロジェクトを作成してください",
+    "partial": "{{ok}} 台を追加、失敗: {{failed}}",
+    "success": "サーバーをプロジェクトに追加しました",
+    "successDetail_other": "{{project}}: {{count}} 台のサーバー"
+  },
+  "select": "— 選択 —",
+  "identityKind": {
+    "key": "キー",
+    "password": "パスワード"
+  },
+  "test": {
+    "ok": "<b>接続しました</b> — レイテンシー {{latency}}",
+    "fail": "接続に失敗しました"
+  },
+  "form": {
+    "editTitle": "サーバー: {{name}}",
+    "newTitle": "新規サーバー",
+    "name": "名前",
+    "username": "ユーザー",
+    "host": "ホスト / IP",
+    "port": "ポート",
+    "auth": "認証",
+    "authMode": {
+      "keep": "現在の設定を維持",
+      "password": "パスワード",
+      "key": "秘密鍵",
+      "identity": "キーチェーンから"
+    },
+    "currentAuth": "現在の認証方式: {{method}}。シークレットは表示されません。",
+    "currentMethod": {
+      "password": "パスワード",
+      "key": "秘密鍵",
+      "identity": "キーチェーン（{{name}}）"
+    },
+    "passwordPlaceholder": "SSH パスワード",
+    "uploadKey": "ファイルから読み込む",
+    "passphrasePlaceholder": "鍵のパスフレーズ（ある場合）",
+    "keychainEmpty": "キーチェーンは空です。<link>キーを追加</link>",
+    "tagsHint": "Enter またはカンマで追加",
+    "projects": "プロジェクト",
+    "noProjects": "プロジェクトはまだありません",
+    "testTitle": "保存済みの設定をテスト",
+    "test": "接続をテスト",
+    "saveAndTest": "保存してテスト",
+    "errors": {
+      "name": "名前は必須です",
+      "host": "ホストは必須です",
+      "username": "ユーザーは必須です",
+      "password": "パスワードを入力してください",
+      "key": "秘密鍵を貼り付けるか、アップロードしてください",
+      "identity": "キーチェーンからキーを選択してください",
+      "noAuth": "認証方式が選択されていません"
+    },
+    "toast": {
+      "saved": "サーバーを保存しました",
+      "added": "サーバーを追加しました",
+      "keyTooLarge": "ファイルが大きすぎます。秘密鍵ではない可能性があります"
+    }
+  },
+  "import": {
+    "title": "サーバーの一括インポート",
+    "exampleHeader": "# name,host,port,username[,tags（; 区切り）]",
+    "formatHelp": "ServerInput の JSON 配列、または CSV: name,host,port,username[,tags（; 区切り）]",
+    "example": "例",
+    "file": "ファイル",
+    "identity": "キーチェーンのキー",
+    "identityHintJson": "auth フィールドのないエントリに使用されます",
+    "identityHintCsv": "CSV のすべてのサーバーに使用されます",
+    "keychainEmpty": "キーチェーンは空です — <link>キーを作成</link>",
+    "defaultUser": "デフォルトユーザー",
+    "defaultUserHint": "行にユーザー名がない場合に使用されます",
+    "extraTags": "すべてにタグを追加",
+    "addToProjects": "プロジェクトに追加",
+    "noProjects": "プロジェクトがありません",
+    "skipped": "スキップされたエントリ: {{n}}",
+    "col": {
+      "name": "名前",
+      "address": "アドレス",
+      "user": "ユーザー",
+      "tags": "タグ"
+    },
+    "authKeychain": "キーチェーン",
+    "more": "…ほか {{n}} 件",
+    "ready_other": "インポート準備完了: {{count}} 台のサーバー",
+    "pasteData": "インポートするデータを貼り付けてください",
+    "needIdentity": "— キーチェーンのキーを選択してください",
+    "submit": "インポート",
+    "successTitle": "インポートが完了しました",
+    "successDetail_other": "{{count}} 台のサーバーを追加しました",
+    "errors": {
+      "notObject": "#{{n}}: オブジェクトが必要です",
+      "noHostJson": "#{{n}}: host がありません",
+      "badPortJson": "#{{n}}: port が無効です",
+      "json": "無効な JSON: {{message}}",
+      "noHostLine": "{{n}} 行目: host がありません",
+      "badPortLine": "{{n}} 行目: 無効なポート「{{port}}」"
+    }
+  }
+}

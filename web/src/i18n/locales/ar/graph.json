@@ -1,0 +1,132 @@
+{
+  "list": {
+    "title": "المخططات",
+    "subtitle": "مخططات البنية التحتية: كيف ترتبط الخوادم والخدمات — واجهات API، وقواعد البيانات، وسلاسل VPN.",
+    "newGraph": "مخطط جديد",
+    "createGraph": "إنشاء مخطط",
+    "countInProject_zero": "لا توجد مخططات في المشروع",
+    "countInProject_one": "مخطط واحد في المشروع",
+    "countInProject_two": "مخططان في المشروع",
+    "countInProject_few": "{{count}} مخططات في المشروع",
+    "countInProject_many": "{{count}} مخططًا في المشروع",
+    "countInProject_other": "{{count}} مخطط في المشروع",
+    "emptyTitle": "لا توجد مخططات بعد",
+    "emptyProjectTitle": "لا توجد مخططات في هذا المشروع بعد",
+    "emptyText": "ارسم مخططًا: عُقد API وقواعد البيانات وVPN المرتبطة بخوادمك، والاتصالات بينها، والملاحظات.",
+    "nodes_zero": "لا توجد عُقد",
+    "nodes_one": "عقدة واحدة",
+    "nodes_two": "عقدتان",
+    "nodes_few": "{{count}} عُقد",
+    "nodes_many": "{{count}} عقدة",
+    "nodes_other": "{{count}} عقدة",
+    "edges_zero": "لا توجد اتصالات",
+    "edges_one": "اتصال واحد",
+    "edges_two": "اتصالان",
+    "edges_few": "{{count}} اتصالات",
+    "edges_many": "{{count}} اتصالًا",
+    "edges_other": "{{count}} اتصال",
+    "namePlaceholder": "مثال: الإنتاج — API وقواعد البيانات"
+  },
+  "confirm": {
+    "deleteTitle": "حذف المخطط؟",
+    "deleteMessage": "سيُحذف المخطط <b>{{name}}</b> مع كل عُقده واتصالاته وملاحظاته. لن تتأثر الخوادم."
+  },
+  "toast": {
+    "deleted": "تم حذف المخطط",
+    "deleteFailed": "تعذّر حذف المخطط",
+    "saveFailed": "لم يُحفظ المخطط"
+  },
+  "page": {
+    "notFound": "المخطط غير موجود",
+    "backToList": "كل المخططات",
+    "defaultSubtitle": "مخطط البنية التحتية"
+  },
+  "save": {
+    "saved": "تم الحفظ",
+    "saving": "جارٍ الحفظ…",
+    "error": "لم يُحفظ، جارٍ إعادة المحاولة…",
+    "conflict": "تم تغيير المخطط في نافذة أخرى",
+    "reload": "تحميل أحدث نسخة"
+  },
+  "editor": {
+    "node": "عقدة",
+    "nodeTitle": "عقدة: API، قاعدة بيانات، VPN…",
+    "servers": "الخوادم",
+    "serversTitle": "إضافة خوادم من اللوحة",
+    "note": "ملاحظة",
+    "noteTitle": "ملاحظة على اللوحة القماشية",
+    "emptyHint": "أضف عُقدًا أو خوادم، ثم اربطها بالسحب من نقطة على حافة العقدة.",
+    "newNodeLabel": "عقدة جديدة",
+    "serverLabel": "خادم"
+  },
+  "element": {
+    "serverDeleted": "الخادم محذوف",
+    "notePlaceholder": "نص الملاحظة…",
+    "noteEmpty": "انقر نقرًا مزدوجًا لكتابة ملاحظة"
+  },
+  "inspector": {
+    "graph": "المخطط",
+    "counts": "العُقد: {{nodes}} · الاتصالات: {{edges}}",
+    "helpTitle": "طريقة العمل",
+    "help": {
+      "connect": "الربط: اسحب من نقطة على حافة العقدة إلى عقدة أخرى.",
+      "select": "انقر على عقدة أو اتصال لعرض خصائصه وملاحظته هنا.",
+      "note": "ملاحظة اللوحة القماشية: انقر نقرًا مزدوجًا للتعديل.",
+      "openServer": "انقر نقرًا مزدوجًا على عقدة خادم لفتح الخادم.",
+      "delete": "يزيل Delete / Backspace العناصر المحددة.",
+      "shortcuts": "Shift+نقرة لتحديد عدة عُقد. ‏Ctrl+C / Ctrl+V للنسخ (حتى إلى مخطط آخر)، وCtrl+X للقص، وCtrl+A لتحديد الكل."
+    },
+    "defaultColor": "افتراضي",
+    "note": "ملاحظة",
+    "noteText": "النص",
+    "notePlaceholder": "مثال: «سلسلة VPN: RU ← NL ← DE، المفاتيح لدى أحمد»",
+    "deleteNote": "حذف الملاحظة",
+    "node": "عقدة",
+    "role": "الدور",
+    "server": "خادم اللوحة",
+    "serverHint": "يعرض الربط الحالة والحمل مباشرة على المخطط",
+    "notBound": "غير مرتبط",
+    "deletedServer": "(خادم محذوف)",
+    "openServer": "فتح {{name}}",
+    "nodeNotePlaceholder": "ما يجب معرفته عن هذه العقدة: المنافذ، الوصول، الخصوصيات…",
+    "deleteNode": "حذف العقدة",
+    "edge": "اتصال",
+    "edgeLabel": "التسمية",
+    "edgeLabelHint": "مثال: 5432/tcp، HTTPS، WireGuard",
+    "directed": "موجّه (سهم)",
+    "reverse": "عكس الاتجاه",
+    "edgeNotePlaceholder": "سبب ارتباطهما: سلسلة VPN، نسخ متماثل، مفتاح مشترك…",
+    "deleteEdge": "حذف الاتصال"
+  },
+  "roles": {
+    "server": "خادم",
+    "api": "API / الواجهة الخلفية",
+    "web": "ويب / الواجهة الأمامية",
+    "db": "قاعدة بيانات",
+    "cache": "ذاكرة تخزين مؤقت",
+    "queue": "قائمة انتظار",
+    "storage": "تخزين",
+    "lb": "موازن الحمل / وكيل",
+    "vpn": "VPN",
+    "internet": "الإنترنت / خدمة خارجية",
+    "other": "أخرى"
+  },
+  "edgeKinds": {
+    "link": "ارتباط",
+    "depends": "اعتمادية",
+    "cascade": "سلسلة",
+    "vpn": "نفق VPN",
+    "replication": "نسخ متماثل",
+    "other": "أخرى"
+  },
+  "picker": {
+    "title": "إضافة خوادم إلى المخطط",
+    "searchPlaceholder": "الاسم، العنوان، الوسم…",
+    "allProjects": "كل المشاريع",
+    "selectAll": "تحديد الكل ({{n}})",
+    "clearSelection": "إلغاء التحديد",
+    "nothingFound": "لم يُعثر على نتائج",
+    "alreadyOnGraph": "موجود على المخطط",
+    "addCount": "إضافة {{n}}"
+  }
+}

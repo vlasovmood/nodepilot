@@ -1,0 +1,174 @@
+# Publishes a GitHub Release when a vX.Y.Z tag is pushed (a tag with a suffix, e.g. v1.2.0-rc.1, becomes a pre-release).
+# Asset names must match what the panel's self-update looks for (crates/nodepilot-core/src/updates.rs, platform_asset):
+#   nodepilot-linux-x86_64, nodepilot-linux-aarch64, nodepilot-darwin-aarch64, nodepilot-darwin-x86_64,
+#   nodepilot-windows-x86_64.exe, plus SHA256SUMS and optional <asset>.sig files.
+name: release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    name: build (${{ matrix.asset }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-24.04
+            target: x86_64-unknown-linux-musl
+            asset: nodepilot-linux-x86_64
+            zig: true
+          - os: ubuntu-24.04
+            target: aarch64-unknown-linux-musl
+            asset: nodepilot-linux-aarch64
+            zig: true
+            cross: true
+          - os: windows-2022
+            target: x86_64-pc-windows-msvc
+            asset: nodepilot-windows-x86_64.exe
+            # Static CRT: the .exe runs without the Visual C++ redistributable.
+            rustflags: -C target-feature=+crt-static
+          - os: macos-14
+            target: aarch64-apple-darwin
+            asset: nodepilot-darwin-aarch64
+          - os: macos-14
+            target: x86_64-apple-darwin
+            asset: nodepilot-darwin-x86_64
+            cross: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check the tag matches the crate version
+        run: |
+          version=$(grep -m1 '^version' Cargo.toml | cut -d'"' -f2)
+          tag=${GITHUB_REF_NAME#v}
+          if [ "${tag%%-*}" != "${version%%-*}" ]; then
+            echo "::error::tag $GITHUB_REF_NAME does not match version $version in Cargo.toml"
+            exit 1
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Build web UI
+        run: cd web && npm ci && npm run build
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: ${{ matrix.target }}
+
+      - uses: mlugg/setup-zig@v2
+        if: matrix.zig
+      - name: Install cargo-zigbuild
+        if: matrix.zig
+        run: cargo install --locked cargo-zigbuild
+
+      - name: Build
+        env:
+          # The public key is embedded in the binary; only the private signing key is a secret.
+          NODEPILOT_UPDATE_PUBKEY: ${{ vars.NODEPILOT_UPDATE_PUBKEY }}
+          NODEPILOT_UPDATE_REPO: ${{ github.repository }}
+          RUSTFLAGS: ${{ matrix.rustflags }}
+        run: |
+          if [ "${{ matrix.zig }}" = "true" ]; then build=zigbuild; else build=build; fi
+          cargo $build --release --locked --target ${{ matrix.target }} -p nodepilot
+          bin=target/${{ matrix.target }}/release/nodepilot
+          [ -f "$bin.exe" ] && bin="$bin.exe"
+          mkdir -p dist
+          cp "$bin" "dist/${{ matrix.asset }}"
+
+      - name: Smoke test
+        # Cross-compiled binaries can't run on their build runner; the rest must start.
+        if: ${{ !matrix.cross }}
+        run: ./dist/${{ matrix.asset }} --version
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.asset }}
+          path: dist/${{ matrix.asset }}
+          if-no-files-found: error
+
+  release:
+    needs: build
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+
+      - name: Linux packaging (installer, systemd unit, TPM sealing script)
+        run: tar -czf dist/nodepilot-linux-packaging.tar.gz --owner=0 --group=0 packaging
+
+      - name: Checksums
+        run: cd dist && sha256sum nodepilot-* > SHA256SUMS && cat SHA256SUMS
+
+      - name: Sign (optional)
+        env:
+          SIGNING_KEY: ${{ secrets.NODEPILOT_SIGNING_KEY }}
+        if: env.SIGNING_KEY != ''
+        run: |
+          python3 -m pip install --quiet pynacl
+          python3 - <<'EOF'
+          import base64, glob, os
+          from nacl.signing import SigningKey
+          key = SigningKey(base64.b64decode(os.environ["SIGNING_KEY"]))
+          for f in glob.glob("dist/nodepilot-*"):
+              if f.endswith(".sig"):
+                  continue
+              sig = key.sign(open(f, "rb").read()).signature
+              open(f + ".sig", "w").write(base64.b64encode(sig).decode())
+          EOF
+
+      - name: Release notes
+        run: |
+          repo="${{ github.repository }}"
+          tag="${{ github.ref_name }}"
+          cat > notes.md <<EOF
+          ## Downloads
+
+          | Platform | File |
+          |---|---|
+          | Linux x86_64 (static, any distribution) | [\`nodepilot-linux-x86_64\`](https://github.com/$repo/releases/download/$tag/nodepilot-linux-x86_64) |
+          | Linux ARM64 (static) | [\`nodepilot-linux-aarch64\`](https://github.com/$repo/releases/download/$tag/nodepilot-linux-aarch64) |
+          | Windows x86_64 | [\`nodepilot-windows-x86_64.exe\`](https://github.com/$repo/releases/download/$tag/nodepilot-windows-x86_64.exe) |
+          | macOS Apple Silicon | [\`nodepilot-darwin-aarch64\`](https://github.com/$repo/releases/download/$tag/nodepilot-darwin-aarch64) |
+          | macOS Intel | [\`nodepilot-darwin-x86_64\`](https://github.com/$repo/releases/download/$tag/nodepilot-darwin-x86_64) |
+          | Linux installer, systemd unit, TPM script | [\`nodepilot-linux-packaging.tar.gz\`](https://github.com/$repo/releases/download/$tag/nodepilot-linux-packaging.tar.gz) |
+
+          Verify the download: \`sha256sum -c SHA256SUMS --ignore-missing\`.
+
+          Install on a Linux server (Ubuntu/Debian):
+
+          \`\`\`sh
+          tar -xzf nodepilot-linux-packaging.tar.gz
+          chmod +x nodepilot-linux-x86_64
+          sudo ./packaging/install.sh ./nodepilot-linux-x86_64
+          \`\`\`
+
+          macOS: the binary is not notarized, so run \`chmod +x nodepilot-darwin-* && xattr -d com.apple.quarantine nodepilot-darwin-*\` once.
+          Panels installed earlier can update from **Settings → Updates**.
+
+          EOF
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          body_path: notes.md
+          generate_release_notes: true
+          prerelease: ${{ contains(github.ref_name, '-') }}

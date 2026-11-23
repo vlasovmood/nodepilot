@@ -1,0 +1,240 @@
+{
+  "page": {
+    "title": "الخوادم",
+    "count_zero": "لا توجد خوادم",
+    "count_one": "خادم واحد",
+    "count_two": "خادمان",
+    "count_few": "{{count}} خوادم",
+    "count_many": "{{count}} خادمًا",
+    "count_other": "{{count}} خادم"
+  },
+  "loading": "جارٍ تحميل الخوادم…",
+  "toolbar": {
+    "filterPlaceholder": "تصفية: الاسم، العنوان، الوسم…",
+    "tagTitle": "التصفية حسب الوسم",
+    "allTags": "كل الوسوم",
+    "statusTitle": "التصفية حسب الحالة",
+    "anyStatus": "أي حالة",
+    "online": "متصل ({{n}})",
+    "offline": "غير متاح ({{n}})",
+    "unknown": "غير معروف ({{n}})",
+    "favorites": "★ المفضلة ({{n}})",
+    "view": "العرض",
+    "list": "قائمة",
+    "grid": "شبكة",
+    "import": "استيراد",
+    "addServer": "إضافة خادم"
+  },
+  "selection": {
+    "count": "المحدد: {{n}}",
+    "exec": "تشغيل أمر",
+    "toProject": "إضافة إلى مشروع",
+    "removeFromProject": "إزالة من المشروع",
+    "clear": "إلغاء التحديد"
+  },
+  "empty": {
+    "title": "لا توجد خوادم بعد",
+    "projectTitle": "لا توجد خوادم في هذا المشروع بعد",
+    "hint": "أضف خادمك الأول يدويًا أو استورد قائمة من CSV/JSON.",
+    "projectHint": "أضف خادمًا جديدًا، أو حدّد خوادم موجودة في «كل الخوادم» وانقر «إضافة إلى مشروع»."
+  },
+  "footer": {
+    "shown": "عرض {{shown}} من {{total}}",
+    "noMatch": "لا توجد خوادم مطابقة للمرشّح",
+    "selectHint": "Ctrl/Shift+نقرة للتحديد",
+    "statsUnavailable": "الإحصاءات غير متاحة",
+    "metrics": "المقاييس: {{time}}"
+  },
+  "confirm": {
+    "deleteOneTitle": "حذف الخادم؟",
+    "deleteManyTitle_zero": "لم يُحدَّد أي خادم للحذف",
+    "deleteManyTitle_one": "حذف خادم واحد؟",
+    "deleteManyTitle_two": "حذف خادمين؟",
+    "deleteManyTitle_few": "حذف {{count}} خوادم؟",
+    "deleteManyTitle_many": "حذف {{count}} خادمًا؟",
+    "deleteManyTitle_other": "حذف {{count}} خادم؟",
+    "deleteOneMessage": "ستتم إزالة الخادم <b>{{name}}</b> من اللوحة مع ملاحظاته ومهام النسخ الاحتياطي الخاصة به. لن يتأثر الجهاز نفسه.",
+    "deleteManyMessage": "سيُحذف: {{names}}. لن تتأثر الأجهزة نفسها.",
+    "deleteManyMessageMore": "سيُحذف: {{names}} و{{more}} غيرها. لن تتأثر الأجهزة نفسها.",
+    "deleteRequireText": "حذف",
+    "removeTitle": "إزالة من المشروع؟",
+    "removeMessage_zero": "لن تتم إزالة أي خادم من المشروع «{{project}}».",
+    "removeMessage_one": "ستتم إزالة خادم واحد من المشروع «{{project}}». سيبقى في اللوحة.",
+    "removeMessage_two": "ستتم إزالة خادمين من المشروع «{{project}}». سيبقيان في اللوحة.",
+    "removeMessage_few": "ستتم إزالة {{count}} خوادم من المشروع «{{project}}». ستبقى في اللوحة.",
+    "removeMessage_many": "ستتم إزالة {{count}} خادمًا من المشروع «{{project}}». ستبقى في اللوحة.",
+    "removeMessage_other": "ستتم إزالة {{count}} خادم من المشروع «{{project}}». ستبقى في اللوحة.",
+    "removeConfirm": "إزالة"
+  },
+  "toast": {
+    "deletePartial": "تم حذف {{ok}}، وفشل: {{failed}}",
+    "deletedOne": "تم حذف الخادم",
+    "deletedMany_zero": "لم يُحذف أي خادم",
+    "deletedMany_one": "تم حذف خادم واحد",
+    "deletedMany_two": "تم حذف خادمين",
+    "deletedMany_few": "تم حذف {{count}} خوادم",
+    "deletedMany_many": "تم حذف {{count}} خادمًا",
+    "deletedMany_other": "تم حذف {{count}} خادم",
+    "errors": "فشل: {{failed}}",
+    "removedFromProject": "تمت إزالة الخوادم من المشروع"
+  },
+  "table": {
+    "selectAll": "تحديد الكل",
+    "name": "الاسم",
+    "address": "العنوان",
+    "tags": "الوسوم",
+    "projects": "المشاريع",
+    "disk": "القرص",
+    "uptime": "مدة التشغيل",
+    "cores_zero": "لا توجد أنوية",
+    "cores_one": "نواة واحدة",
+    "cores_two": "نواتان",
+    "cores_few": "{{count}} أنوية",
+    "cores_many": "{{count}} نواة",
+    "cores_other": "{{count}} نواة"
+  },
+  "menu": {
+    "terminal": "الطرفية",
+    "edit": "تعديل"
+  },
+  "grid": {
+    "noData": "{{label}}: لا توجد بيانات",
+    "select": "تحديد",
+    "addFavorite": "إضافة إلى المفضلة",
+    "removeFavorite": "إزالة من المفضلة",
+    "offlineMark": "غير متاح",
+    "prev": "السابق",
+    "next": "التالي"
+  },
+  "bulkExec": {
+    "title_zero": "تشغيل أمر — لا توجد خوادم",
+    "title_one": "تشغيل أمر — خادم واحد",
+    "title_two": "تشغيل أمر — خادمان",
+    "title_few": "تشغيل أمر — {{count}} خوادم",
+    "title_many": "تشغيل أمر — {{count}} خادمًا",
+    "title_other": "تشغيل أمر — {{count}} خادم",
+    "result": "النتيجة: <code>{{cmd}}</code>"
+  },
+  "addToProject": {
+    "title": "إضافة إلى مشروع",
+    "label_zero": "المشروع (لم يُحدَّد أي خادم)",
+    "label_one": "المشروع لخادم واحد",
+    "label_two": "المشروع لخادمين",
+    "label_few": "المشروع لـ {{count}} خوادم",
+    "label_many": "المشروع لـ {{count}} خادمًا",
+    "label_other": "المشروع لـ {{count}} خادم",
+    "placeholder": "— اختر مشروعًا —",
+    "noProjects": "أنشئ مشروعًا في الشريط الجانبي أولًا",
+    "partial": "تمت إضافة {{ok}}، وفشل: {{failed}}",
+    "success": "تمت إضافة الخوادم إلى المشروع",
+    "successDetail_zero": "{{project}}: لا توجد خوادم",
+    "successDetail_one": "{{project}}: خادم واحد",
+    "successDetail_two": "{{project}}: خادمان",
+    "successDetail_few": "{{project}}: {{count}} خوادم",
+    "successDetail_many": "{{project}}: {{count}} خادمًا",
+    "successDetail_other": "{{project}}: {{count}} خادم"
+  },
+  "select": "— اختر —",
+  "identityKind": {
+    "key": "مفتاح",
+    "password": "كلمة مرور"
+  },
+  "test": {
+    "ok": "<b>تم الاتصال</b> — زمن الاستجابة {{latency}}",
+    "fail": "فشل الاتصال"
+  },
+  "form": {
+    "editTitle": "الخادم: {{name}}",
+    "newTitle": "خادم جديد",
+    "name": "الاسم",
+    "username": "المستخدم",
+    "host": "المضيف / IP",
+    "port": "المنفذ",
+    "auth": "المصادقة",
+    "authMode": {
+      "keep": "الإبقاء على الحالية",
+      "password": "كلمة مرور",
+      "key": "مفتاح خاص",
+      "identity": "من سلسلة المفاتيح"
+    },
+    "currentAuth": "الطريقة الحالية: {{method}}. لا تُعرض البيانات السرية أبدًا.",
+    "currentMethod": {
+      "password": "كلمة مرور",
+      "key": "مفتاح خاص",
+      "identity": "سلسلة المفاتيح ({{name}})"
+    },
+    "passwordPlaceholder": "كلمة مرور SSH",
+    "uploadKey": "تحميل من ملف",
+    "passphrasePlaceholder": "عبارة مرور المفتاح (إن وُجدت)",
+    "keychainEmpty": "سلسلة المفاتيح فارغة. <link>أضف مفتاحًا</link>",
+    "tagsHint": "اضغط Enter أو فاصلة للإضافة",
+    "projects": "المشاريع",
+    "noProjects": "لا توجد مشاريع بعد",
+    "testTitle": "اختبار الإعدادات المحفوظة",
+    "test": "اختبار الاتصال",
+    "saveAndTest": "حفظ واختبار",
+    "errors": {
+      "name": "الاسم مطلوب",
+      "host": "المضيف مطلوب",
+      "username": "المستخدم مطلوب",
+      "password": "أدخل كلمة مرور",
+      "key": "الصق مفتاحًا خاصًا أو ارفعه",
+      "identity": "اختر مفتاحًا من سلسلة المفاتيح",
+      "noAuth": "لم تُحدَّد طريقة مصادقة"
+    },
+    "toast": {
+      "saved": "تم حفظ الخادم",
+      "added": "تمت إضافة الخادم",
+      "keyTooLarge": "الملف أكبر من أن يكون مفتاحًا خاصًا"
+    }
+  },
+  "import": {
+    "title": "استيراد الخوادم دفعةً واحدة",
+    "exampleHeader": "# name,host,port,username[,tags مفصولة بـ ;]",
+    "formatHelp": "مصفوفة JSON من ServerInput أو CSV: name,host,port,username[,tags مفصولة بـ ;]",
+    "example": "مثال",
+    "file": "ملف",
+    "identity": "مفتاح من سلسلة المفاتيح",
+    "identityHintJson": "يُستخدم للإدخالات التي لا تحتوي على الحقل auth",
+    "identityHintCsv": "يُستخدم لكل الخوادم الواردة في CSV",
+    "keychainEmpty": "سلسلة المفاتيح فارغة — <link>أنشئ مفتاحًا</link>",
+    "defaultUser": "المستخدم الافتراضي",
+    "defaultUserHint": "يُستخدم عندما لا يحتوي السطر على اسم مستخدم",
+    "extraTags": "إضافة وسوم إلى الكل",
+    "addToProjects": "إضافة إلى المشاريع",
+    "noProjects": "لا توجد مشاريع",
+    "skipped": "الإدخالات المتخطاة: {{n}}",
+    "col": {
+      "name": "الاسم",
+      "address": "العنوان",
+      "user": "المستخدم",
+      "tags": "الوسوم"
+    },
+    "authKeychain": "سلسلة المفاتيح",
+    "more": "…و{{n}} غيرها",
+    "ready_zero": "لا توجد خوادم جاهزة للاستيراد",
+    "ready_one": "جاهز للاستيراد: خادم واحد",
+    "ready_two": "جاهز للاستيراد: خادمان",
+    "ready_few": "جاهز للاستيراد: {{count}} خوادم",
+    "ready_many": "جاهز للاستيراد: {{count}} خادمًا",
+    "ready_other": "جاهز للاستيراد: {{count}} خادم",
+    "pasteData": "الصق البيانات المراد استيرادها",
+    "needIdentity": "— اختر مفتاحًا من سلسلة المفاتيح",
+    "submit": "استيراد",
+    "successTitle": "اكتمل الاستيراد",
+    "successDetail_zero": "لم تُضَف أي خوادم",
+    "successDetail_one": "تمت إضافة خادم واحد",
+    "successDetail_two": "تمت إضافة خادمين",
+    "successDetail_few": "تمت إضافة {{count}} خوادم",
+    "successDetail_many": "تمت إضافة {{count}} خادمًا",
+    "successDetail_other": "تمت إضافة {{count}} خادم",
+    "errors": {
+      "notObject": "#{{n}}: يُتوقع كائن",
+      "noHostJson": "#{{n}}: الحقل host مفقود",
+      "badPortJson": "#{{n}}: منفذ غير صالح",
+      "json": "JSON غير صالح: {{message}}",
+      "noHostLine": "السطر {{n}}: الحقل host مفقود",
+      "badPortLine": "السطر {{n}}: منفذ غير صالح «{{port}}»"
+    }
+  }
+}

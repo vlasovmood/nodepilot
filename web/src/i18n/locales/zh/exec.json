@@ -1,0 +1,50 @@
+{
+  "page": {
+    "title": "批量执行",
+    "subtitle": "通过 SSH 在多台服务器上并行执行同一条命令。"
+  },
+  "targets": {
+    "title": "目标",
+    "servers": "服务器",
+    "project": "项目",
+    "selectProject": "— 选择项目 —",
+    "projectHint": "命令将在启动时对项目中的所有服务器执行。",
+    "search": "搜索服务器",
+    "allTags": "全部标签",
+    "onlyOnline": "仅在线",
+    "selectVisible": "选择当前显示项",
+    "clear": "清除",
+    "selected": "已选择 {{n}} 台",
+    "noServers": "暂无服务器"
+  },
+  "runs": {
+    "empty": "执行结果将显示在这里。最近 10 次执行记录会保留到页面刷新为止。",
+    "hide": "隐藏"
+  },
+  "form": {
+    "placeholder": "命令，例如 uptime && df -h /",
+    "run_other": "在 {{count}} 台服务器上执行",
+    "timeout": "超时（秒）",
+    "history": "命令历史",
+    "historyPlaceholder": "命令历史…",
+    "running": "执行中…所有服务器完成后将显示结果。",
+    "confirm": {
+      "title": "执行命令？",
+      "message_other": "该命令将在 {{count}} 台服务器上执行：",
+      "button": "执行"
+    }
+  },
+  "results": {
+    "success": "成功：{{n}}",
+    "failed": "失败：{{n}}",
+    "filterAll": "全部（{{n}}）",
+    "filterOk": "成功",
+    "filterFail": "失败",
+    "expandAll": "全部展开",
+    "collapseAll": "全部折叠",
+    "copyAll": "全部复制",
+    "noResults": "当前筛选条件下无结果",
+    "truncated": "输出已截断",
+    "emptyOutput": "无输出"
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "page": {
+    "title": "Серверы",
+    "count_one": "{{count}} в панели",
+    "count_few": "{{count}} в панели",
+    "count_many": "{{count}} в панели",
+    "count_other": "{{count}} в панели"
+  },
+  "loading": "Загрузка серверов…",
+  "toolbar": {
+    "filterPlaceholder": "Фильтр: имя, адрес, тег…",
+    "tagTitle": "Фильтр по тегу",
+    "allTags": "Все теги",
+    "statusTitle": "Фильтр по статусу",
+    "anyStatus": "Любой статус",
+    "online": "В сети ({{n}})",
+    "offline": "Недоступны ({{n}})",
+    "unknown": "Неизвестно ({{n}})",
+    "favorites": "★ Избранные ({{n}})",
+    "view": "Вид",
+    "list": "Список",
+    "grid": "Плитка",
+    "import": "Импорт",
+    "addServer": "Добавить сервер"
+  },
+  "selection": {
+    "count": "Выбрано: {{n}}",
+    "exec": "Выполнить команду",
+    "toProject": "В проект",
+    "removeFromProject": "Убрать из проекта",
+    "clear": "Снять выделение"
+  },
+  "empty": {
+    "title": "Серверов пока нет",
+    "projectTitle": "В проекте пока нет серверов",
+    "hint": "Добавьте первый сервер вручную или импортируйте список из CSV/JSON.",
+    "projectHint": "Добавьте новый сервер или выберите существующие в списке «Все серверы» и нажмите «В проект»."
+  },
+  "footer": {
+    "shown": "Показано {{shown}} из {{total}}",
+    "noMatch": "Нет серверов, подходящих под фильтр",
+    "selectHint": "Ctrl/Shift+клик — выделение",
+    "statsUnavailable": "Статистика недоступна",
+    "metrics": "Метрики: {{time}}"
+  },
+  "confirm": {
+    "deleteOneTitle": "Удалить сервер?",
+    "deleteManyTitle_one": "Удалить {{count}} сервер?",
+    "deleteManyTitle_few": "Удалить {{count}} сервера?",
+    "deleteManyTitle_many": "Удалить {{count}} серверов?",
+    "deleteManyTitle_other": "Удалить {{count}} сервера?",
+    "deleteOneMessage": "Сервер <b>{{name}}</b> будет удалён из панели вместе с его заметками и заданиями бекапа. Сам сервер не затрагивается.",
+    "deleteManyMessage": "Будут удалены: {{names}}. Сам сервер не затрагивается.",
+    "deleteManyMessageMore": "Будут удалены: {{names}} и ещё {{more}}. Сам сервер не затрагивается.",
+    "deleteRequireText": "удалить",
+    "removeTitle": "Убрать из проекта?",
+    "removeMessage_one": "{{count}} сервер будут убраны из проекта «{{project}}». Серверы останутся в панели.",
+    "removeMessage_few": "{{count}} сервера будут убраны из проекта «{{project}}». Серверы останутся в панели.",
+    "removeMessage_many": "{{count}} серверов будут убраны из проекта «{{project}}». Серверы останутся в панели.",
+    "removeMessage_other": "{{count}} сервера будут убраны из проекта «{{project}}». Серверы останутся в панели.",
+    "removeConfirm": "Убрать"
+  },
+  "toast": {
+    "deletePartial": "Удалено {{ok}}, ошибок: {{failed}}",
+    "deletedOne": "Сервер удалён",
+    "deletedMany_one": "Удалено {{count}} сервер",
+    "deletedMany_few": "Удалено {{count}} сервера",
+    "deletedMany_many": "Удалено {{count}} серверов",
+    "deletedMany_other": "Удалено {{count}} сервера",
+    "errors": "Ошибок: {{failed}}",
+    "removedFromProject": "Серверы убраны из проекта"
+  },
+  "table": {
+    "selectAll": "Выбрать все",
+    "name": "Имя",
+    "address": "Адрес",
+    "tags": "Теги",
+    "projects": "Проекты",
+    "disk": "Диск",
+    "uptime": "Аптайм",
+    "cores_one": "{{count}} ядро",
+    "cores_few": "{{count}} ядра",
+    "cores_many": "{{count}} ядер",
+    "cores_other": "{{count}} ядра"
+  },
+  "menu": {
+    "terminal": "Терминал",
+    "edit": "Редактировать"
+  },
+  "grid": {
+    "noData": "{{label}}: нет данных",
+    "select": "Выбрать",
+    "addFavorite": "В избранное",
+    "removeFavorite": "Убрать из избранного",
+    "offlineMark": "OFFLINE",
+    "prev": "Назад",
+    "next": "Вперёд"
+  },
+  "bulkExec": {
+    "title_one": "Выполнить команду — {{count}} сервер",
+    "title_few": "Выполнить команду — {{count}} сервера",
+    "title_many": "Выполнить команду — {{count}} серверов",
+    "title_other": "Выполнить команду — {{count}} сервера",
+    "result": "Результат: <code>{{cmd}}</code>"
+  },
+  "addToProject": {
+    "title": "Добавить в проект",
+    "label_one": "Проект для {{count}} сервера",
+    "label_few": "Проект для {{count}} серверов",
+    "label_many": "Проект для {{count}} серверов",
+    "label_other": "Проект для {{count}} сервера",
+    "placeholder": "— выберите проект —",
+    "noProjects": "Сначала создайте проект в боковой панели",
+    "partial": "Добавлено {{ok}}, ошибок: {{failed}}",
+    "success": "Серверы добавлены в проект",
+    "successDetail_one": "{{project}}: {{count}} сервер",
+    "successDetail_few": "{{project}}: {{count}} сервера",
+    "successDetail_many": "{{project}}: {{count}} серверов",
+    "successDetail_other": "{{project}}: {{count}} сервера"
+  },
+  "select": "— выберите —",
+  "identityKind": {
+    "key": "ключ",
+    "password": "пароль"
+  },
+  "test": {
+    "ok": "<b>Соединение установлено</b> — задержка {{latency}}",
+    "fail": "Не удалось подключиться"
+  },
+  "form": {
+    "editTitle": "Сервер: {{name}}",
+    "newTitle": "Новый сервер",
+    "name": "Имя",
+    "username": "Пользователь",
+    "host": "Хост / IP",
+    "port": "Порт",
+    "auth": "Аутентификация",
+    "authMode": {
+      "keep": "Не менять",
+      "password": "Пароль",
+      "key": "Приватный ключ",
+      "identity": "Из связки ключей"
+    },
+    "currentAuth": "Текущий способ: {{method}}. Секреты не отображаются.",
+    "currentMethod": {
+      "password": "пароль",
+      "key": "приватный ключ",
+      "identity": "связка ключей ({{name}})"
+    },
+    "passwordPlaceholder": "Пароль SSH",
+    "uploadKey": "Загрузить из файла",
+    "passphrasePlaceholder": "Пароль ключа (если есть)",
+    "keychainEmpty": "Связка ключей пуста. <link>Добавить ключ</link>",
+    "tagsHint": "Enter или запятая — добавить",
+    "projects": "Проекты",
+    "noProjects": "Проектов пока нет",
+    "testTitle": "Проверить сохранённые настройки",
+    "test": "Проверить соединение",
+    "saveAndTest": "Сохранить и проверить",
+    "errors": {
+      "name": "Укажите имя",
+      "host": "Укажите адрес",
+      "username": "Укажите пользователя",
+      "password": "Введите пароль",
+      "key": "Вставьте или загрузите приватный ключ",
+      "identity": "Выберите ключ из связки",
+      "noAuth": "Не выбран способ аутентификации"
+    },
+    "toast": {
+      "saved": "Сервер сохранён",
+      "added": "Сервер добавлен",
+      "keyTooLarge": "Файл слишком большой для приватного ключа"
+    }
+  },
+  "import": {
+    "title": "Массовый импорт серверов",
+    "exampleHeader": "# name,host,port,username[,tags через ;]",
+    "formatHelp": "JSON-массив ServerInput или CSV: name,host,port,username[,теги через ;]",
+    "example": "Пример",
+    "file": "Файл",
+    "identity": "Ключ из связки",
+    "identityHintJson": "Используется для записей без поля auth",
+    "identityHintCsv": "Используется для всех серверов из CSV",
+    "keychainEmpty": "Связка пуста — <link>создайте ключ</link>",
+    "defaultUser": "Пользователь по умолчанию",
+    "defaultUserHint": "Если username не указан в строке",
+    "extraTags": "Добавить теги всем",
+    "addToProjects": "Добавить в проекты",
+    "noProjects": "Проектов нет",
+    "skipped": "Пропущено записей: {{n}}",
+    "col": {
+      "name": "Имя",
+      "address": "Адрес",
+      "user": "Пользователь",
+      "tags": "Теги"
+    },
+    "authKeychain": "связка",
+    "more": "…и ещё {{n}}",
+    "ready_one": "Готово к импорту: {{count}} сервер",
+    "ready_few": "Готово к импорту: {{count}} сервера",
+    "ready_many": "Готово к импорту: {{count}} серверов",
+    "ready_other": "Готово к импорту: {{count}} сервера",
+    "pasteData": "Вставьте данные для импорта",
+    "needIdentity": "— выберите ключ из связки",
+    "submit": "Импортировать",
+    "successTitle": "Импорт завершён",
+    "successDetail_one": "Добавлено {{count}} сервер",
+    "successDetail_few": "Добавлено {{count}} сервера",
+    "successDetail_many": "Добавлено {{count}} серверов",
+    "successDetail_other": "Добавлено {{count}} сервера",
+    "errors": {
+      "notObject": "#{{n}}: ожидается объект",
+      "noHostJson": "#{{n}}: не указан host",
+      "badPortJson": "#{{n}}: неверный порт",
+      "json": "Ошибка JSON: {{message}}",
+      "noHostLine": "Строка {{n}}: не указан host",
+      "badPortLine": "Строка {{n}}: неверный порт «{{port}}»"
+    }
+  }
+}

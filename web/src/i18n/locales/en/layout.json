@@ -1,0 +1,68 @@
+{
+  "sidebar": {
+    "expand": "Expand menu",
+    "collapse": "Collapse menu",
+    "sections": {
+      "main": "Navigation",
+      "projects": "Projects",
+      "more": "More"
+    },
+    "newProject": "New project",
+    "createProject": "Create project",
+    "projectsLoadError": "Failed to load projects",
+    "darkMode": "Dark mode",
+    "nav": {
+      "customize": "Customize navigation",
+      "done": "Done",
+      "add": "Add",
+      "reset": "Reset",
+      "resetHint": "Restore the default items and order",
+      "showAll": "Show all",
+      "showLess": "Show less",
+      "hide": "Hide",
+      "show": "Show",
+      "remove": "Remove",
+      "missing": "Deleted",
+      "untitled": "Untitled",
+      "reorderHint": "Drag to reorder, or Alt+↑/↓",
+      "picker": {
+        "title": "Add to navigation",
+        "servers": "Servers",
+        "graphs": "Graphs",
+        "notes": "Notes",
+        "search": "Search…",
+        "empty": "Nothing found",
+        "nodes_one": "{{count}} node",
+        "nodes_other": "{{count}} nodes"
+      }
+    }
+  },
+  "nav": {
+    "servers": "Servers",
+    "graph": "Graph",
+    "terminal": "Terminal",
+    "identities": "Keys",
+    "backups": "Backups",
+    "notes": "Notes",
+    "api": "API",
+    "settings": "Settings",
+    "security": "Security",
+    "audit": "Audit log"
+  },
+  "user": {
+    "role": "Administrator",
+    "settings": "Settings",
+    "language": "Language",
+    "lightTheme": "Light theme",
+    "darkTheme": "Dark theme",
+    "logout": "Sign out"
+  },
+  "search": {
+    "placeholder": "Search…",
+    "hint": "Enter to open, ↑↓ to select"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "toServers": "Back to servers"
+  }
+}

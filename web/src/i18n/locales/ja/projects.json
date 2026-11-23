@@ -1,0 +1,24 @@
+{
+  "notFound": "プロジェクトが見つかりません",
+  "tabs": {
+    "servers": "サーバー",
+    "graphs": "グラフ",
+    "notes": "メモ"
+  },
+  "dialog": {
+    "newTitle": "新規プロジェクト",
+    "editTitle": "プロジェクトを編集",
+    "noColor": "色なし",
+    "customColor": "カスタムカラー"
+  },
+  "toast": {
+    "saved": "プロジェクトを保存しました",
+    "created": "プロジェクトを作成しました",
+    "deleted": "プロジェクトを削除しました",
+    "deleteFailed": "プロジェクトを削除できませんでした"
+  },
+  "confirm": {
+    "deleteTitle": "プロジェクトを削除しますか？",
+    "deleteMessage": "プロジェクト <b>{{name}}</b> を削除します。サーバーはパネルに残り、グループ化のみが解除されます。"
+  }
+}

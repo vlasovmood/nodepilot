@@ -1,0 +1,260 @@
+{
+  "page": {
+    "title": "API",
+    "subtitle": "واجهة REST API وخادم MCP الخاصان باللوحة: رموز الوصول، ومرجع نقاط النهاية، وربط وكلاء الذكاء الاصطناعي.",
+    "tabs": {
+      "tokens": "رموز الوصول",
+      "reference": "المرجع",
+      "mcp": "MCP"
+    }
+  },
+  "areas": {
+    "servers": {
+      "label": "الخوادم والإحصاءات",
+      "short": "الخوادم",
+      "description": "قائمة الخوادم وتفاصيلها، والمقاييس، واختبارات SSH"
+    },
+    "projects": {
+      "label": "المشاريع",
+      "short": "المشاريع",
+      "description": "المشاريع وخوادمها"
+    },
+    "identities": {
+      "label": "سلسلة المفاتيح",
+      "short": "المفاتيح",
+      "description": "كلمات المرور ومفاتيح SSH؛ لا تُعيد API البيانات السرية أبدًا"
+    },
+    "exec": {
+      "label": "الأوامر والطرفية",
+      "short": "الأوامر",
+      "description": "تشغيل الأوامر وجلسات الطرفية على الخوادم",
+      "danger": "يمكنه تشغيل أي أمر على الخوادم باسم مستخدم SSH الخاص بها"
+    },
+    "system": {
+      "label": "العمليات والخدمات",
+      "short": "النظام",
+      "description": "العمليات، وخدمات systemd، والسجلات، وإعادة التشغيل"
+    },
+    "files": {
+      "label": "الملفات",
+      "short": "الملفات",
+      "description": "ملفات الخوادم عبر SFTP"
+    },
+    "notes": {
+      "label": "الملاحظات",
+      "short": "الملاحظات",
+      "description": "ملاحظات Markdown في اللوحة"
+    },
+    "graphs": {
+      "label": "المخططات",
+      "short": "المخططات",
+      "description": "مخططات البنية التحتية"
+    },
+    "backups": {
+      "label": "النسخ الاحتياطية",
+      "short": "النسخ الاحتياطية",
+      "description": "وحدات تخزين النسخ الاحتياطية ومهامها وأرشيفاتها"
+    },
+    "admin": {
+      "label": "رموز وصول API",
+      "short": "رموز الوصول",
+      "description": "إصدار رموز وصول API وتعديلها وإبطالها",
+      "danger": "يمكنه إصدار رموز وصول جديدة (ضمن صلاحياته) وإبطال الرموز الموجودة"
+    }
+  },
+  "perm": {
+    "read": "قراءة",
+    "write": "كتابة",
+    "allowed": "مسموح",
+    "areaLevel": "{{area}}: {{level}}",
+    "full": "وصول كامل",
+    "readonly": "قراءة فقط",
+    "none": "بلا وصول",
+    "public": "عام",
+    "authenticated": "أي مستخدم مسجّل الدخول"
+  },
+  "tags": {
+    "auth": "تسجيل الدخول والجلسة",
+    "meta": "الخدمة",
+    "servers": "الخوادم",
+    "stats": "الإحصاءات",
+    "projects": "المشاريع",
+    "identities": "المفاتيح",
+    "exec": "الأوامر",
+    "terminalSessions": "جلسات الطرفية",
+    "system": "العمليات والخدمات",
+    "files": "الملفات",
+    "notes": "الملاحظات",
+    "graphs": "المخططات",
+    "backups": "النسخ الاحتياطية",
+    "tokens": "رموز وصول API",
+    "ai": "MCP / الذكاء الاصطناعي",
+    "other": "أخرى"
+  },
+  "tokens": {
+    "intro": "رموز وصول API مخصصة لتطبيقات الجوال والسكربتات وأدوات CLI ووكلاء الذكاء الاصطناعي (MCP). أرسل الرمز في الترويسة <code>{{header}}</code>.",
+    "tokenPlaceholder": "الرمز",
+    "introHint": "أصدر رمزًا منفصلًا لكل عميل وامنحه الصلاحيات التي يحتاجها فقط — وبذلك يمكنك إبطاله دون التأثير في غيره.",
+    "create": "إنشاء رمز وصول",
+    "emptyTitle": "لا توجد رموز وصول بعد",
+    "emptyText": "أنشئ رمز وصول لربط سكربت أو تطبيق أو وكيل ذكاء اصطناعي.",
+    "table": {
+      "name": "الاسم",
+      "access": "الوصول",
+      "created": "تاريخ الإنشاء",
+      "lastUsed": "آخر استخدام",
+      "expires": "تاريخ الانتهاء"
+    },
+    "never": "أبدًا",
+    "noExpiry": "بلا انتهاء",
+    "expired": "منتهي الصلاحية",
+    "confirm": {
+      "deleteTitle": "حذف رمز الوصول؟",
+      "deleteMessage": "سيفقد كل العملاء الذين يستخدمون الرمز <b>{{name}}</b> الوصول فورًا. لا يمكن التراجع عن ذلك."
+    },
+    "toast": {
+      "deleted": "تم حذف رمز الوصول",
+      "deleteFailed": "تعذّر حذف رمز الوصول",
+      "updated": "تم تحديث رمز الوصول"
+    },
+    "dialog": {
+      "newTitle": "رمز وصول API جديد",
+      "editTitle": "رمز الوصول «{{name}}»",
+      "nameHint": "مثال: iphone-app، ci-deploy، claude-code",
+      "expiry": "ينتهي بعد",
+      "expiryHint": "يُحتسب من الآن",
+      "keepExpiry": "دون تغيير",
+      "access": "الوصول",
+      "presetCustom": "مخصص",
+      "fullHint": "وصول للقراءة والكتابة إلى كل الأقسام، بما فيها الأقسام التي ستُضاف في إصدارات اللوحة المستقبلية.",
+      "readonlyHint": "وصول للقراءة إلى كل الأقسام باستثناء الأوامر/الطرفية ورموز وصول API. لا يمكن تغيير أي شيء — مناسب للمراقبة ولوحات المعلومات.",
+      "area": "القسم",
+      "allRead": "قراءة للكل",
+      "allWrite": "كتابة للكل",
+      "reset": "إعادة تعيين",
+      "levelNone": "لا شيء",
+      "levelRead": "قراءة",
+      "levelWrite": "كتابة",
+      "levelAllowed": "مسموح",
+      "emptyInfo": "رمز الوصول بلا صلاحيات يمكنه فقط التحقق من نفسه (/auth/me) والاتصال بـ MCP دون أي أدوات.",
+      "dangerWarning": "<b>{{area}}</b>: رمز الوصول {{risk}}."
+    },
+    "expiry": {
+      "never": "أبدًا",
+      "days_zero": "{{count}} يوم",
+      "days_one": "يوم واحد",
+      "days_two": "يومان",
+      "days_few": "{{count}} أيام",
+      "days_many": "{{count}} يومًا",
+      "days_other": "{{count}} يوم"
+    },
+    "created": {
+      "title": "تم إنشاء رمز الوصول",
+      "done": "لقد حفظت الرمز",
+      "warning": "انسخ الرمز الآن — فهو يُعرض مرة واحدة فقط. بعد ذلك يمكنك فقط إبطاله وإصدار رمز جديد.",
+      "validUntil": "صالح حتى {{date}}",
+      "noExpiry": "بلا انتهاء صلاحية",
+      "curlTitle": "اختبار باستخدام curl",
+      "claudeTitle": "الربط مع Claude Code (MCP)"
+    }
+  },
+  "reference": {
+    "loading": "جارٍ تحميل المواصفات…",
+    "baseUrl": "عنوان URL الأساسي",
+    "auth": "التفويض",
+    "endpoints_zero": "لا توجد نقاط نهاية",
+    "endpoints_one": "نقطة نهاية واحدة",
+    "endpoints_two": "نقطتا نهاية",
+    "endpoints_few": "{{count}} نقاط نهاية",
+    "endpoints_many": "{{count}} نقطة نهاية",
+    "endpoints_other": "{{count}} نقطة نهاية",
+    "specInfo": "OpenAPI {{version}} · {{endpoints}}. استخدم المواصفات لتوليد عميل لتطبيق جوال أو خدمة — <code>openapi-generator</code>، <code>swift-openapi-generator</code>، <code>orval</code>، <code>openapi-typescript</code>، وغيرها.",
+    "searchPlaceholder": "بحث: المسار، الطريقة، الوصف…",
+    "clear": "مسح",
+    "nothingFound": "لم يُعثر على نتائج",
+    "overviewHint": "اختر نقطة نهاية من القائمة لعرض معاملاتها ومخططاتها وإرسال طلب.",
+    "areasTitle": "مجالات الصلاحيات",
+    "areasTable": {
+      "area": "المجال",
+      "key": "المفتاح",
+      "contents": "يشمل"
+    },
+    "params": "المعاملات",
+    "paramsTable": {
+      "name": "الاسم",
+      "in": "الموضع",
+      "type": "النوع",
+      "description": "الوصف"
+    },
+    "required": "مطلوب",
+    "oneOfList": "أحد: {{values}}",
+    "requestBody": "نص الطلب",
+    "optional": "اختياري",
+    "rawBody": "بايتات الملف الخام (حتى حد الخادم)، دون غلاف JSON.",
+    "responses": "الاستجابات",
+    "errorShape": "{ \"error\": \"نص الخطأ\" }",
+    "switchingProtocols": "يتحول الاتصال إلى WebSocket.",
+    "tryIt": "جرّبه",
+    "wsInfo": "هذا WebSocket — لا يمكن استدعاؤه من المرجع. اتصل باستخدام عميل WebSocket (في المتصفح — مع ملف تعريف ارتباط الجلسة، وإلا فمرّر الرمز في المعامل <code>token</code>):",
+    "binaryInfo": "نص الطلب هو بايتات الملف الخام، لذا لا يمكن إرسال الطلب من هنا. استخدم أمر curl أدناه مع <code>--data-binary</code>.",
+    "downloadInfo": "الاستجابة عبارة عن ملف. افتح الرابط (يعمل بجلستك) أو استخدم أمر curl أدناه.",
+    "fillIn": "املأ: {{names}}",
+    "fillInSentence": "املأ: {{names}}",
+    "bodyJson": "نص الطلب (JSON)",
+    "example": "مثال",
+    "invalidJson": "JSON غير صالح: {{error}}",
+    "liveNote": "يُنفَّذ الطلب فعليًا بصلاحيات جلستك (وصول كامل).",
+    "emptyResponse": "استجابة فارغة",
+    "curlHint": "استبدل np_… برمز الوصول الخاص بك",
+    "curlFile": "ملف",
+    "requestFailed": "فشل الطلب: {{message}}",
+    "confirm": {
+      "title": "إرسال {{method}}؟",
+      "message": "سيُنفَّذ الطلب <code>{{request}}</code> فعليًا نيابةً عن جلستك.",
+      "power": "ستتم إعادة تشغيل الخادم أو إيقاف تشغيله.",
+      "logout": "ستنتهي جلستك."
+    }
+  },
+  "schema": {
+    "items": "العناصر: {{min}}…{{max}}",
+    "length": "الطول: {{min}}…{{max}}",
+    "writeOnly": "للكتابة فقط",
+    "readOnly": "للقراءة فقط",
+    "deprecated": "مُهمَل",
+    "oneOf": "أحد",
+    "anyOf": "أيٌّ من",
+    "mapKey": "{مفتاح}",
+    "anyObject": "كائن (أي حقول)",
+    "variant": "الخيار {{n}}: {{type}}",
+    "exampleTitle": "مثال",
+    "exampleBody": "النص",
+    "const": "القيمة <code>{{value}}</code>",
+    "enum": "أحد",
+    "default": "الافتراضي <code>{{value}}</code>",
+    "required": "مطلوب",
+    "requiredTitle": "حقل مطلوب",
+    "recursive": "تعاودي",
+    "recursiveTitle": "مرجع تعاودي — انظر أعلاه"
+  },
+  "mcp": {
+    "intro": "MCP بروتوكول مفتوح يمنح وكلاء الذكاء الاصطناعي (Claude Code وClaude Desktop وCursor وغيرها) مجموعة من «الأدوات» التي يستدعونها بأنفسهم. يتيح NodePilot ميزاته كخادم MCP: يمكن للوكيل عرض الإحصاءات، وتشغيل الأوامر، وتعديل الملفات، وإدارة الملاحظات والمخططات — ضمن صلاحيات رمز الوصول.",
+    "endpoint": "نقطة النهاية (Streamable HTTP، JSON-RPC 2.0)",
+    "jsonConfig": "إعدادات JSON للعميل",
+    "jsonConfigHint": "Claude Desktop وCursor وغيرها",
+    "stdio": "محليًا عبر stdio",
+    "stdioHint": "على الجهاز الذي يشغّل اللوحة",
+    "scopeInfo": "يرى الوكيل فقط الأدوات التي يسمح بها رمز الوصول الخاص به: رمز «قراءة فقط» لن يكشف أي أداة تغيّر البيانات. أنشئ رمز وصول منفصلًا للوكيل في تبويب <link>رموز الوصول</link> واستخدمه بدلًا من <code>np_…</code>.",
+    "tools": "الأدوات",
+    "toolCount_zero": "لا توجد أدوات",
+    "toolCount_one": "أداة واحدة",
+    "toolCount_two": "أداتان",
+    "toolCount_few": "{{count}} أدوات",
+    "toolCount_many": "{{count}} أداة",
+    "toolCount_other": "{{count}} أداة",
+    "searchPlaceholder": "البحث في الأدوات…",
+    "loading": "جارٍ طلب tools/list…",
+    "nothingFound": "لم يُعثر على نتائج",
+    "otherGroup": "أخرى",
+    "destructive": "يعدّل البيانات"
+  }
+}

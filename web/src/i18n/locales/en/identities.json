@@ -1,0 +1,54 @@
+{
+  "title": "Keys",
+  "subtitle": "Keychain: reusable SSH credentials (passwords and private keys) shared across servers.",
+  "add": "Add key",
+  "secretsInfo": "Secrets are stored only on the panel server and are never sent back to the browser. When editing, leave a field empty to keep its current value.",
+  "empty": {
+    "title": "The keychain is empty",
+    "text": "Add an SSH key or password and use it when adding or importing servers."
+  },
+  "table": {
+    "name": "Name",
+    "type": "Type",
+    "servers": "Servers",
+    "created": "Created"
+  },
+  "kind": {
+    "key": "Private key",
+    "password": "Password"
+  },
+  "dialog": {
+    "newTitle": "New key",
+    "editTitle": "Key: {{name}}"
+  },
+  "form": {
+    "name": "Name",
+    "type": "Type",
+    "password": "Password",
+    "privateKey": "Private key",
+    "keepEmpty": "Leave empty to keep unchanged",
+    "keyFormats": "OpenSSH / PEM",
+    "loadFromFile": "Load from file",
+    "passphrase": "Key passphrase",
+    "passphraseHint": "If the key is encrypted"
+  },
+  "validation": {
+    "nameRequired": "Enter a name",
+    "passwordRequired": "Enter a password",
+    "keyRequired": "Paste a private key"
+  },
+  "confirm": {
+    "deleteTitle": "Delete key?",
+    "deleteMessage": "“{{name}}” will be removed from the keychain."
+  },
+  "toast": {
+    "inUse": "Key is in use",
+    "inUseMessage_one": "It is used by {{count}} server. Change authentication on that server first.",
+    "inUseMessage_other": "It is used by {{count}} servers. Change authentication on those servers first.",
+    "deleted": "Key deleted",
+    "deleteFailed": "Failed to delete key",
+    "saved": "Key saved",
+    "added": "Key added",
+    "fileTooLarge": "File is too large to be a key"
+  }
+}

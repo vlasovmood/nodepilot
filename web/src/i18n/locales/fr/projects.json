@@ -1,0 +1,24 @@
+{
+  "notFound": "Projet introuvable",
+  "tabs": {
+    "servers": "Serveurs",
+    "graphs": "Graphes",
+    "notes": "Notes"
+  },
+  "dialog": {
+    "newTitle": "Nouveau projet",
+    "editTitle": "Modifier le projet",
+    "noColor": "Sans couleur",
+    "customColor": "Couleur personnalisée"
+  },
+  "toast": {
+    "saved": "Projet enregistré",
+    "created": "Projet créé",
+    "deleted": "Projet supprimé",
+    "deleteFailed": "Impossible de supprimer le projet"
+  },
+  "confirm": {
+    "deleteTitle": "Supprimer le projet ?",
+    "deleteMessage": "Le projet <b>{{name}}</b> sera supprimé. Les serveurs restent dans le panneau ; seul le regroupement est supprimé."
+  }
+}

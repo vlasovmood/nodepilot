@@ -1,0 +1,70 @@
+{
+  "sidebar": {
+    "expand": "Развернуть меню",
+    "collapse": "Свернуть меню",
+    "sections": {
+      "main": "Навигация",
+      "projects": "Проекты",
+      "more": "Ещё"
+    },
+    "newProject": "Новый проект",
+    "createProject": "Создать проект",
+    "projectsLoadError": "Ошибка загрузки проектов",
+    "darkMode": "Ночной режим",
+    "nav": {
+      "customize": "Настроить навигацию",
+      "done": "Готово",
+      "add": "Добавить",
+      "reset": "Сбросить",
+      "resetHint": "Вернуть пункты и порядок по умолчанию",
+      "showAll": "Показать полностью",
+      "showLess": "Свернуть",
+      "hide": "Скрыть",
+      "show": "Показать",
+      "remove": "Убрать",
+      "missing": "Удалено",
+      "untitled": "Без названия",
+      "reorderHint": "Перетаскивайте для сортировки или Alt+↑/↓",
+      "picker": {
+        "title": "Добавить в навигацию",
+        "servers": "Серверы",
+        "graphs": "Графы",
+        "notes": "Заметки",
+        "search": "Поиск…",
+        "empty": "Ничего не найдено",
+        "nodes_one": "{{count}} нода",
+        "nodes_few": "{{count}} ноды",
+        "nodes_many": "{{count}} нод",
+        "nodes_other": "{{count}} ноды"
+      }
+    }
+  },
+  "nav": {
+    "servers": "Серверы",
+    "graph": "Граф",
+    "terminal": "Терминал",
+    "identities": "Ключи",
+    "backups": "Бекапы",
+    "notes": "Заметки",
+    "api": "API",
+    "settings": "Настройки",
+    "security": "Безопасность",
+    "audit": "Журнал"
+  },
+  "user": {
+    "role": "Администратор",
+    "settings": "Настройки",
+    "language": "Язык",
+    "lightTheme": "Светлая тема",
+    "darkTheme": "Тёмная тема",
+    "logout": "Выйти"
+  },
+  "search": {
+    "placeholder": "Поиск…",
+    "hint": "Enter — открыть, ↑↓ — выбор"
+  },
+  "notFound": {
+    "title": "Страница не найдена",
+    "toServers": "К списку серверов"
+  }
+}

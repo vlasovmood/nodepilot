@@ -1,0 +1,164 @@
+{
+  "notFound": "الخادم غير موجود",
+  "updated": "آخر تحديث {{time}}",
+  "tabs": {
+    "overview": "نظرة عامة",
+    "terminal": "الطرفية",
+    "files": "الملفات",
+    "processes": "العمليات",
+    "services": "الخدمات",
+    "notes": "الملاحظات",
+    "backups": "النسخ الاحتياطية"
+  },
+  "header": {
+    "back": "العودة إلى الخوادم",
+    "test": "اختبار"
+  },
+  "toast": {
+    "connected": "تم الاتصال",
+    "latency": "زمن الاستجابة {{latency}}",
+    "connectFailed": "فشل الاتصال",
+    "testFailed": "فشل اختبار الاتصال",
+    "deleted": "تم حذف الخادم",
+    "deleteFailed": "تعذّر حذف الخادم"
+  },
+  "confirm": {
+    "deleteTitle": "حذف الخادم؟",
+    "deleteMessage": "ستتم إزالة الخادم <b>{{name}}</b> من اللوحة مع ملاحظاته ومهام النسخ الاحتياطي الخاصة به. لن يتأثر الجهاز نفسه."
+  },
+  "overview": {
+    "loading": "جارٍ جلب المقاييس…",
+    "unavailable": "المقاييس غير متاحة",
+    "lastError": "فشلت آخر عملية لجمع المقاييس",
+    "memory": "الذاكرة",
+    "network": "الشبكة",
+    "uptime": "مدة التشغيل",
+    "cores_zero": "لا توجد أنوية",
+    "cores_one": "نواة واحدة",
+    "cores_two": "نواتان",
+    "cores_few": "{{count}} أنوية",
+    "cores_many": "{{count}} نواة",
+    "cores_other": "{{count}} نواة",
+    "usedOf": "{{used}} من {{total}}",
+    "swapNone": "لا يوجد",
+    "loadSub": "5 د: {{l5}} · 15 د: {{l15}}",
+    "notCollected": "لم تُجمع أي مقاييس بعد",
+    "system": "النظام",
+    "hostname": "اسم المضيف",
+    "os": "نظام التشغيل",
+    "kernel": "النواة",
+    "cpuCores": "أنوية CPU",
+    "collectedAt": "وقت الجمع",
+    "disks": "الأقراص",
+    "noData": "لا توجد بيانات",
+    "disk": {
+      "mount": "نقطة التحميل",
+      "fs": "نظام الملفات",
+      "used": "المستخدم",
+      "usage": "الاستخدام"
+    }
+  },
+  "history": {
+    "title": "السجل",
+    "hours": "{{n}} س",
+    "days": "{{n}} ي",
+    "notEnough": "لا توجد بيانات كافية",
+    "notEnoughHint": "سيظهر السجل بعد بضع دورات من جمع المقاييس.",
+    "charts": {
+      "cpu": "CPU، %",
+      "memory": "الذاكرة، %",
+      "network": "الشبكة",
+      "load": "متوسط الحمل (1 د)",
+      "disk": "القرص، %"
+    },
+    "series": {
+      "disk": "القرص"
+    }
+  },
+  "hostKey": {
+    "title": "مفتاح المضيف (SSH)",
+    "pinnedHint": "تم تثبيته عند أول اتصال (TOFU). إذا تغيّر مفتاح الخادم (مثلًا بعد إعادة تثبيت نظام التشغيل)، فأعد تعيينه.",
+    "notPinned": "لم يُثبَّت أي مفتاح بعد — سيُحفظ عند أول اتصال ناجح.",
+    "forget": "نسيان مفتاح المضيف",
+    "confirmTitle": "نسيان مفتاح المضيف؟",
+    "confirmMessage": "عند الاتصال التالي ستثق اللوحة بالمفتاح الجديد دون تحقق. لا تفعل ذلك إلا إذا كنت متأكدًا من أن المفتاح تغيّر بشكل مشروع — وإلا فقد تتعرض لهجوم الوسيط (man-in-the-middle).",
+    "confirmText": "نسيان المفتاح",
+    "resetDone": "تمت إعادة تعيين مفتاح المضيف",
+    "resetDetail": "سيُثبَّت المفتاح الجديد عند الاتصال التالي",
+    "resetFailed": "تعذّرت إعادة تعيين مفتاح المضيف"
+  },
+  "power": {
+    "title": "الطاقة",
+    "hint": "تُنفَّذ الأوامر عبر SSH باسم المستخدم {{user}} (يتطلب root أو sudo دون كلمة مرور).",
+    "reboot": "إعادة التشغيل",
+    "shutdown": "إيقاف التشغيل",
+    "rebootTitle": "إعادة تشغيل الخادم؟",
+    "shutdownTitle": "إيقاف تشغيل الخادم؟",
+    "rebootMessage": "ستتم إعادة تشغيل الخادم {{name}} ({{host}}). ستنقطع كل الجلسات والعمليات.",
+    "shutdownMessage": "سيتم إيقاف تشغيل الخادم {{name}} ({{host}}). لن تتمكن من تشغيله مجددًا من اللوحة.",
+    "rebootSent": "تم إرسال أمر إعادة التشغيل",
+    "shutdownSent": "تم إرسال أمر إيقاف التشغيل",
+    "failed": "فشل تنفيذ الأمر"
+  },
+  "processes": {
+    "filterPlaceholder": "تصفية: الأمر، المستخدم، PID",
+    "autoRefresh": "تحديث تلقائي (5 ث)",
+    "loading": "جارٍ جلب العمليات…",
+    "user": "المستخدم",
+    "command": "الأمر",
+    "signal": "الإشارة",
+    "empty": "لا توجد عمليات",
+    "signals": {
+      "TERM": {
+        "label": "إنهاء (TERM)",
+        "hint": "إيقاف سلس"
+      },
+      "KILL": {
+        "label": "إنهاء قسري (KILL)",
+        "hint": "فوري، دون تنظيف"
+      },
+      "HUP": {
+        "label": "إعادة تحميل (HUP)",
+        "hint": "إعادة تحميل الإعدادات"
+      }
+    },
+    "confirmTitle": "إرسال SIG{{sig}}؟",
+    "confirmMessage": "العملية <b>{{pid}}</b> ({{user}}):",
+    "sent": "تم إرسال SIG{{sig}}",
+    "sendFailed": "تعذّر إرسال الإشارة"
+  },
+  "services": {
+    "filterPlaceholder": "التصفية حسب الاسم أو الوصف",
+    "filter": {
+      "all": "الكل",
+      "active": "نشطة ({{n}})",
+      "failed": "فاشلة ({{n}})",
+      "inactive": "غير نشطة"
+    },
+    "loading": "جارٍ جلب الخدمات…",
+    "service": "الخدمة",
+    "logs": "السجلات",
+    "empty": "لا توجد خدمات مطابقة للمرشّح",
+    "actions": {
+      "start": "تشغيل",
+      "stop": "إيقاف",
+      "restart": "إعادة التشغيل",
+      "reload": "إعادة تحميل الإعدادات",
+      "enable": "تفعيل التشغيل التلقائي",
+      "disable": "تعطيل التشغيل التلقائي"
+    },
+    "confirmTitle": "{{action}}: {{name}}؟",
+    "stopMessage": "سيتم إيقاف الخدمة. قد تتوقف التطبيقات التي تعتمد عليها.",
+    "done": "{{action}}: {{name}}",
+    "doneDetail": "تم",
+    "exitCode": "systemctl {{action}} {{name}}: رمز الخروج {{code}}",
+    "failed": "تعذّر تنفيذ {{action}}",
+    "lines_zero": "لا توجد أسطر",
+    "lines_one": "سطر واحد",
+    "lines_two": "سطران",
+    "lines_few": "{{count}} أسطر",
+    "lines_many": "{{count}} سطرًا",
+    "lines_other": "{{count}} سطر",
+    "logsEmpty": "السجل فارغ"
+  }
+}

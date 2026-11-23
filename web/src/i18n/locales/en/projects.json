@@ -1,0 +1,24 @@
+{
+  "notFound": "Project not found",
+  "tabs": {
+    "servers": "Servers",
+    "graphs": "Graphs",
+    "notes": "Notes"
+  },
+  "dialog": {
+    "newTitle": "New project",
+    "editTitle": "Edit project",
+    "noColor": "No color",
+    "customColor": "Custom color"
+  },
+  "toast": {
+    "saved": "Project saved",
+    "created": "Project created",
+    "deleted": "Project deleted",
+    "deleteFailed": "Failed to delete project"
+  },
+  "confirm": {
+    "deleteTitle": "Delete project?",
+    "deleteMessage": "Project <b>{{name}}</b> will be deleted. Servers stay in the panel; only the grouping is removed."
+  }
+}

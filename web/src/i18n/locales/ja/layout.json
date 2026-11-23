@@ -1,0 +1,67 @@
+{
+  "sidebar": {
+    "expand": "メニューを展開",
+    "collapse": "メニューを折りたたむ",
+    "sections": {
+      "main": "ナビゲーション",
+      "projects": "プロジェクト",
+      "more": "その他"
+    },
+    "newProject": "新規プロジェクト",
+    "createProject": "プロジェクトを作成",
+    "projectsLoadError": "プロジェクトを読み込めませんでした",
+    "darkMode": "ダークモード",
+    "nav": {
+      "customize": "ナビゲーションをカスタマイズ",
+      "done": "完了",
+      "add": "追加",
+      "reset": "リセット",
+      "resetHint": "既定の項目と順序に戻す",
+      "showAll": "すべて表示",
+      "showLess": "折りたたむ",
+      "hide": "非表示",
+      "show": "表示",
+      "remove": "削除",
+      "missing": "削除済み",
+      "untitled": "無題",
+      "reorderHint": "ドラッグまたは Alt+↑/↓ で並べ替え",
+      "picker": {
+        "title": "ナビゲーションに追加",
+        "servers": "サーバー",
+        "graphs": "グラフ",
+        "notes": "ノート",
+        "search": "検索…",
+        "empty": "見つかりません",
+        "nodes_other": "{{count}} ノード"
+      }
+    }
+  },
+  "nav": {
+    "servers": "サーバー",
+    "graph": "グラフ",
+    "terminal": "ターミナル",
+    "identities": "キー",
+    "backups": "バックアップ",
+    "notes": "メモ",
+    "api": "API",
+    "settings": "設定",
+    "security": "セキュリティ",
+    "audit": "監査ログ"
+  },
+  "user": {
+    "role": "管理者",
+    "settings": "設定",
+    "language": "言語",
+    "lightTheme": "ライトテーマ",
+    "darkTheme": "ダークテーマ",
+    "logout": "ログアウト"
+  },
+  "search": {
+    "placeholder": "検索…",
+    "hint": "Enter で開く、↑↓ で選択"
+  },
+  "notFound": {
+    "title": "ページが見つかりません",
+    "toServers": "サーバー一覧に戻る"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "page": {
+    "title": "Notizen",
+    "subtitle": "Alle Notizen im Panel: global, pro Projekt und pro Server. Angeheftete Notizen stehen oben."
+  },
+  "searchPlaceholder": "Notizen durchsuchen…",
+  "new": "Neue Notiz",
+  "defaultTitle": "Neue Notiz",
+  "empty": {
+    "title": "Noch keine Notizen",
+    "text": "Bewahren Sie hier Anleitungen, Runbooks und Notizen zur Infrastruktur auf. Markdown wird unterstützt."
+  },
+  "selectNote": "Wählen Sie eine Notiz aus",
+  "editor": {
+    "titlePlaceholder": "Titel",
+    "pin": "Anheften",
+    "unpin": "Lösen",
+    "links": "Verknüpft mit:",
+    "updated": "Aktualisiert {{time}}",
+    "bodyPlaceholder": "Markdown: # Überschrift, **fett**, `Code`, ```Blöcke```, Listen, Tabellen…",
+    "emptyNote": "Leere Notiz"
+  },
+  "confirm": {
+    "deleteTitle": "Notiz löschen?",
+    "deleteMessage": "„{{title}}“ wird dauerhaft gelöscht."
+  },
+  "toast": {
+    "createFailed": "Notiz konnte nicht erstellt werden",
+    "saved": "Notiz gespeichert",
+    "deleted": "Notiz gelöscht",
+    "deleteFailed": "Löschen fehlgeschlagen"
+  }
+}
