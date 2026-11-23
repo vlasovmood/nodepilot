@@ -50,7 +50,7 @@
     },
     "confirmDelete": {
       "title": "Delete job?",
-      "message": "The job “{{name}}” will be deleted. Archives it already created stay in the storage and in the history."
+      "message": "The job “{{name}}” and its run history will be deleted. Archive files stay in the storage, but the panel will no longer list them."
     },
     "encryption": {
       "none": "none",

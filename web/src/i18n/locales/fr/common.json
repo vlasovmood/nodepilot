@@ -87,7 +87,7 @@
       "monthly0300": "Le 1er de chaque mois à 03:00"
     },
     "errors": {
-      "fieldCount": "6 champs attendus : sec min heure jour mois jour_semaine (par ex. 0 0 3 * * *)",
+      "fieldCount": "Six champs attendus : sec min heure jour mois jour_semaine (ex. 0 0 3 * * *), ou une crontab classique à 5 champs (0 3 * * 1)",
       "invalidChars": "Caractères non valides dans l'expression"
     }
   },

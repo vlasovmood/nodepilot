@@ -39,7 +39,9 @@ Base path: `/api`. JSON everywhere unless stated otherwise. IDs are UUID strings
 Timestamps are RFC 3339 strings (UTC). Sizes are bytes.
 
 Errors: non-2xx status with body `{"error": "message"}`.
-Status codes: 400 bad input, 401 not authenticated, 404 not found, 409 conflict, 502 SSH/remote failure.
+Status codes: 400 bad input, 401 not authenticated (`{"two_factor_required": true}` when a login needs the 2FA code),
+403 the token lacks the permission, 404 not found, 409 conflict, 429 too many failed logins (with `Retry-After`),
+500 internal error, 502 SSH/remote failure.
 
 ## Auth
 
@@ -242,7 +244,9 @@ type Note = {
 ## Backups
 
 Storages are where archives go; jobs define what to back up, from which server, when.
-Archives can be encrypted with [age](https://age-encryption.org) (passphrase); decrypt with `age -d`.
+Archives can be encrypted with [age](https://age-encryption.org): with a passphrase stored in the panel, or to age public keys
+(`recipients`), which the panel itself cannot decrypt. Decrypt with `age -d` (passphrase) or `age -d -i key.txt` (recipients).
+Deleting a job also deletes its run history; archive files stay in the storage.
 
 | Method | Path | Body | Response |
 |---|---|---|---|
@@ -284,13 +288,19 @@ type BackupJob = {
   schedule: string | null;          // cron in UTC: 6 fields with seconds ("0 0 3 * * *" = daily 03:00; use day names: "0 0 4 * * Sun")
                                     // or classic 5-field crontab ("0 3 * * 1" = Mondays 03:00, 0 and 7 = Sunday)
   retention: number;                // keep last N successful archives, 0 = keep all
-  encrypt: boolean;                 // passphrase is write-only
+  encryption: "none" | "passphrase" | "recipients";
+  recipients: string[];             // age public keys (age1…) for "recipients"
+  encrypt: boolean;                 // deprecated: true when encryption != "none"; the passphrase is write-only
   enabled: boolean; next_run_at: string | null; last_run: BackupRun | null;
   created_at: string; updated_at: string;
 };
 type BackupJobInput = {
   name: string; server_id: string; storage_id: string; source: BackupSource;
-  schedule?: string | null; retention?: number; encrypt?: boolean; passphrase?: string; enabled?: boolean;
+  schedule?: string | null; retention?: number; enabled?: boolean;
+  encryption?: "none" | "passphrase" | "recipients";
+  passphrase?: string;              // for "passphrase"; omit to keep the stored one
+  recipients?: string[];            // for "recipients"
+  encrypt?: boolean;                // deprecated, use `encryption`
 };
 type BackupRun = {
   id: string; job_id: string; server_id: string; status: "running" | "success" | "failed";
@@ -303,7 +313,8 @@ type BackupRun = {
 
 `POST /api/mcp` — Model Context Protocol over HTTP (JSON-RPC 2.0 request in body, JSON response).
 Auth: `Authorization: Bearer <api token>`. Notifications (no `id`) return 202.
-Methods: `initialize`, `ping`, `tools/list`, `tools/call`. Tool list: see README.
+Methods: `initialize`, `ping`, `tools/list`, `tools/call`. `tools/list` returns only the tools the token may use;
+the full catalogue is in the [wiki](https://github.com/vlasovmood/nodepilot/wiki/MCP-and-AI-Agents).
 
 ## Graphs (infrastructure diagrams)
 

@@ -67,8 +67,8 @@ packaging/          systemd unit and installer for Ubuntu/Debian
 
 How NodePilot scales to hundreds of servers:
 - One long-lived SSH connection per server, shared by exec, stats, SFTP and terminals, with keepalive,
-  idle shutdown and a cap on concurrent connections.
-- Stats come from a single shell script run in a single exec, polled in parallel (32 workers by default).
+  idle shutdown and a limit on how many connections are set up at once.
+- Stats come from a single shell script run in a single exec, polled in parallel (32 at a time).
   Unreachable servers are polled with an increasing backoff.
 - Metric history lives in SQLite (WAL) and is downsampled to about 600 points per chart.
 - Bulk exec runs in parallel with a concurrency limit.
@@ -213,7 +213,8 @@ release notes. One click installs the update:
 1. The panel downloads the build for its platform.
 2. It checks the SHA-256 against `SHA256SUMS`.
 3. It verifies the Ed25519 signature, if the build set `NODEPILOT_UPDATE_PUBKEY`.
-4. It replaces the binary and keeps the previous one alongside as `nodepilot.old` for rollback.
+4. It replaces the binary and keeps the previous one alongside with an `.old` extension for rollback
+   (`nodepilot.old` with the standard Linux install).
 5. It restarts.
 
 The panel checks for updates in the background every 6 hours. Updates are installed only by hand.
@@ -221,7 +222,8 @@ The panel checks for updates in the background every 6 hours. Updates are instal
 - Repository: `NODEPILOT_UPDATE_REPO=owner/name` (release builds set it at build time). Without it, update
   checks are off.
 - `packaging/install.sh` puts the binary in `/var/lib/nodepilot/bin`, where the service can write.
-- In Docker the panel doesn't update itself. Pull a new image instead (`docker compose pull && docker compose up -d`).
+- In Docker the panel doesn't update itself. Rebuild the image from the new release and recreate the container
+  (`git pull && docker build -t nodepilot .`).
 - `.github/workflows/release.yml` builds releases when a `vX.Y.Z` tag is pushed.
 
 ## Contributing

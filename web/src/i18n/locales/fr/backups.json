@@ -50,7 +50,7 @@
     },
     "confirmDelete": {
       "title": "Supprimer la tâche ?",
-      "message": "La tâche « {{name}} » sera supprimée. Les archives qu'elle a déjà créées restent dans le stockage et dans l'historique."
+      "message": "La tâche « {{name}} » et son historique seront supprimés. Les fichiers d'archive restent dans le stockage, mais le panneau ne les affichera plus."
     },
     "encryption": {
       "none": "aucun",

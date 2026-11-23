@@ -37,10 +37,10 @@ export function describeCron(expr: string | null | undefined): string {
   return found ? found.label : expr
 }
 
-/** Light syntax check: 6 (or 7 with year) whitespace-separated fields of allowed characters. */
+/** Light syntax check: 6 (or 7 with year) fields, or a classic 5-field crontab; the backend does the full parse. */
 export function validateCron(expr: string): string | null {
   const parts = expr.trim().split(/\s+/)
-  if (parts.length < 6 || parts.length > 7) {
+  if (parts.length < 5 || parts.length > 7) {
     return i18n.t('common:cron.errors.fieldCount')
   }
   if (!parts.every((p) => /^[\w*/,\-?#LW]+$/.test(p))) return i18n.t('common:cron.errors.invalidChars')

@@ -87,7 +87,7 @@
       "monthly0300": "Monthly on the 1st at 03:00"
     },
     "errors": {
-      "fieldCount": "Expected 6 fields: sec min hour day month weekday (e.g. 0 0 3 * * *)",
+      "fieldCount": "Expected 6 fields: sec min hour day month weekday (e.g. 0 0 3 * * *), or a classic 5-field crontab (0 3 * * 1)",
       "invalidChars": "Invalid characters in expression"
     }
   },

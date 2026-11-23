@@ -27,6 +27,9 @@ struct State {
     /// Servers that got the key line, switched or not; rotation and revocation cover all of them.
     #[serde(default)]
     deployed: Vec<String>,
+    /// Earlier panel identities that servers still use because a rotation failed for them.
+    #[serde(default)]
+    retired: Vec<String>,
 }
 
 #[derive(Debug, Serialize, JsonSchema)]
@@ -117,6 +120,12 @@ fn remove_cmd(marker: &str) -> String {
     format!("if [ -f {f} ]; then sed -i.nodepilot.bak '/{MARKER_PREFIX}{marker}/d' {f}; fi")
 }
 
+/// Removes every panel key line except the current one (covers lines left by earlier failed rotations).
+fn remove_others_cmd(keep_marker: &str) -> String {
+    let f = "\"$HOME/.ssh/authorized_keys\"";
+    format!("if [ -f {f} ]; then sed -i.nodepilot.bak '/{MARKER_PREFIX}/{{/{MARKER_PREFIX}{keep_marker}/!d;}}' {f}; fi")
+}
+
 impl App {
     async fn panel_state(&self) -> Result<Option<State>> {
         let v: Option<String> = sqlx::query_scalar("SELECT value FROM settings WHERE key = 'panel_key'").fetch_optional(&self.db).await?;
@@ -183,7 +192,15 @@ impl App {
             .bind(now())
             .execute(&self.db)
             .await?;
-        Ok(State { identity_id: id, marker, public_key: public, allowed_from, created_at: now(), deployed: Vec::new() })
+        Ok(State {
+            identity_id: id,
+            marker,
+            public_key: public,
+            allowed_from,
+            created_at: now(),
+            deployed: Vec::new(),
+            retired: Vec::new(),
+        })
     }
 
     pub async fn create_panel_key(&self, input: PanelKeyInput) -> Result<PanelKeyInfo> {
@@ -307,14 +324,15 @@ impl App {
 
     /// Servers switched to the panel key (`true`) and those that only got the key line (`false`).
     async fn key_servers(&self, st: &State) -> Result<Vec<(String, String, bool)>> {
-        let mut out: Vec<(String, String, bool)> =
-            sqlx::query_as::<_, (String, String)>("SELECT id, name FROM servers WHERE identity_id = ? ORDER BY name")
-                .bind(&st.identity_id)
+        // Servers authenticating with the current panel key, or still with an earlier one after a failed rotation.
+        let mut out: Vec<(String, String, bool)> = Vec::new();
+        for identity in std::iter::once(&st.identity_id).chain(&st.retired) {
+            let rows: Vec<(String, String)> = sqlx::query_as("SELECT id, name FROM servers WHERE identity_id = ? ORDER BY name")
+                .bind(identity)
                 .fetch_all(&self.db)
-                .await?
-                .into_iter()
-                .map(|(id, name)| (id, name, true))
-                .collect();
+                .await?;
+            out.extend(rows.into_iter().map(|(id, name)| (id, name, true)));
+        }
         for id in &st.deployed {
             if out.iter().any(|(i, _, _)| i == id) {
                 continue;
@@ -337,7 +355,7 @@ impl App {
         // Keep every server under rotation/revocation, even where replacement fails (they keep the old line).
         new.deployed = servers.iter().map(|(id, _, _)| id.clone()).collect();
         let install = install_cmd(&line, &new.marker);
-        let remove_old = remove_cmd(&old.marker);
+        let remove_old = remove_others_cmd(&new.marker);
         let results: Vec<ServerOpResult> = futures::stream::iter(servers)
             .map(|(id, name, switched)| {
                 let (install, remove_old, new) = (install.clone(), remove_old.clone(), &new);
@@ -358,6 +376,20 @@ impl App {
             .buffered(CONCURRENCY)
             .collect()
             .await;
+        // Earlier keys that some server still uses stay listed, so the next rotation or a revoke covers them.
+        let mut retired = Vec::new();
+        for id in old.retired.iter().chain(std::iter::once(&old.identity_id)) {
+            if retired.contains(id) {
+                continue;
+            }
+            let used: i64 = sqlx::query_scalar("SELECT COUNT(*) FROM servers WHERE identity_id = ?").bind(id).fetch_one(&self.db).await?;
+            if used > 0 {
+                retired.push(id.clone());
+            } else if id != &old.identity_id {
+                sqlx::query("DELETE FROM identities WHERE id = ?").bind(id).execute(&self.db).await?;
+            }
+        }
+        new.retired = retired;
         self.save_panel_state(Some(&new)).await?;
         self.retire_identity(&old.identity_id, "retired").await?;
         Ok(results)
@@ -417,6 +449,10 @@ mod tests {
         let cmd = install_cmd(&line, "abc");
         assert!(cmd.contains("/nodepilot-panel-key:abc/d"));
         assert!(cmd.contains("'from=\"203.0.113.10,10.0.0.0/8\""));
+        assert_eq!(
+            remove_others_cmd("new1"),
+            "if [ -f \"$HOME/.ssh/authorized_keys\" ]; then sed -i.nodepilot.bak '/nodepilot-panel-key:/{/nodepilot-panel-key:new1/!d;}' \"$HOME/.ssh/authorized_keys\"; fi"
+        );
         assert_eq!(
             remove_cmd(""),
             "if [ -f \"$HOME/.ssh/authorized_keys\" ]; then sed -i.nodepilot.bak '/nodepilot-panel-key:/d' \"$HOME/.ssh/authorized_keys\"; fi"

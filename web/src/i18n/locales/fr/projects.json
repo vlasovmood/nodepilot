@@ -19,6 +19,6 @@
   },
   "confirm": {
     "deleteTitle": "Supprimer le projet ?",
-    "deleteMessage": "Le projet <b>{{name}}</b> sera supprimé. Les serveurs restent dans le panneau ; seul le regroupement est supprimé."
+    "deleteMessage": "Le projet <b>{{name}}</b> sera supprimé avec ses notes. Les serveurs restent dans le panneau et ses graphes sont conservés sans projet."
   }
 }

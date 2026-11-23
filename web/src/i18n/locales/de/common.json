@@ -87,7 +87,7 @@
       "monthly0300": "Monatlich am 1. um 03:00"
     },
     "errors": {
-      "fieldCount": "Erwartet werden 6 Felder: Sek. Min. Std. Tag Monat Wochentag (z. B. 0 0 3 * * *)",
+      "fieldCount": "Erwartet werden 6 Felder: Sek Min Std Tag Monat Wochentag (z. B. 0 0 3 * * *) oder ein klassischer 5-Feld-Crontab (0 3 * * 1)",
       "invalidChars": "Ungültige Zeichen im Ausdruck"
     }
   },

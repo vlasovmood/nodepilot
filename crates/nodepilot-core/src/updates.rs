@@ -267,7 +267,10 @@ impl App {
 
         let exe = std::env::current_exe().ok();
         let install_blocker = if in_container() {
-            Some("running in a container: update by pulling the new image (docker pull / docker compose pull)".to_owned())
+            Some(
+                "running in a container: rebuild the image from the new release (or pull a newer one) and recreate the container"
+                    .to_owned(),
+            )
         } else if exe.as_deref().and_then(Path::parent).is_none_or(|d| !dir_writable(d)) {
             Some(format!(
                 "the panel cannot write to {} — install it into a writable location (packaging/install.sh does this)",

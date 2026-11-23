@@ -19,6 +19,6 @@
   },
   "confirm": {
     "deleteTitle": "Projekt löschen?",
-    "deleteMessage": "Das Projekt <b>{{name}}</b> wird gelöscht. Die Server bleiben im Panel erhalten; nur die Gruppierung wird entfernt."
+    "deleteMessage": "Das Projekt <b>{{name}}</b> wird zusammen mit seinen Notizen gelöscht. Die Server bleiben im Panel, die Graphen bleiben ohne Projekt erhalten."
   }
 }

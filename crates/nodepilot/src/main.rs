@@ -68,6 +68,7 @@ enum UserCmd {
         password: String,
     },
     /// Reset 2FA (lost phone and recovery codes). Ends all of the user's sessions.
+    #[command(name = "reset-2fa", alias = "reset2fa")]
     Reset2fa { username: String },
     /// Change the password (ends all of the user's sessions).
     Passwd {
@@ -120,7 +121,7 @@ async fn main() -> anyhow::Result<()> {
             }
             app.spawn_background();
             nodepilot_web::serve(listen, app).await.with_context(|| {
-                format!("не удалось запустить панель на {listen} (порт занят? укажите другой через --listen или NODEPILOT_LISTEN)")
+                format!("cannot start the panel on {listen} (port in use? choose another one with --listen or NODEPILOT_LISTEN)")
             })?;
         }
         Command::Mcp { token } => {

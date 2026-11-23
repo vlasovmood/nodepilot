@@ -136,7 +136,7 @@ impl WithHtml for Response {
     }
 }
 
-const PLACEHOLDER: &str = r#"<!doctype html><html lang="ru"><meta charset="utf-8"><title>NodePilot</title>
+const PLACEHOLDER: &str = r#"<!doctype html><html lang="en"><meta charset="utf-8"><title>NodePilot</title>
 <body style="font-family:system-ui;max-width:640px;margin:40px auto;padding:0 16px">
-<h1>NodePilot</h1><p>API работает, но веб-интерфейс не собран. Выполните <code>npm install && npm run build</code> в каталоге <code>web/</code>
-и пересоберите бинарник.</p></body></html>"#;
+<h1>NodePilot</h1><p>The API is running, but the web UI was not built. Run <code>npm install && npm run build</code> in <code>web/</code>
+and rebuild the binary.</p></body></html>"#;

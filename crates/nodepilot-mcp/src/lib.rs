@@ -459,10 +459,17 @@ static TOOLS: &[Tool] = &[
         Backups,
         Write,
         BackupJobInput,
-        "Create a backup job. schedule is cron in UTC: 6 fields with seconds ('0 0 3 * * *' = daily 03:00, '0 0 4 * * Sun') or classic 5-field crontab ('0 3 * * 1' = Mondays 03:00); encrypt requires passphrase."
+        "Create a backup job. schedule is cron in UTC: 6 fields with seconds ('0 0 3 * * *' = daily 03:00, '0 0 4 * * Sun') or classic 5-field crontab ('0 3 * * 1' = Mondays 03:00); encryption: 'none', 'passphrase' (set passphrase) or 'recipients' (age public keys in recipients; the panel cannot decrypt those)."
     ),
     tool!("update_backup_job", Backups, Write, UpdateJob, "Change a backup job (secrets kept if omitted)."),
-    tool!("delete_backup_job", Backups, Write, JobId, "Delete a backup job (archives stay until deleted).", DESTRUCTIVE),
+    tool!(
+        "delete_backup_job",
+        Backups,
+        Write,
+        JobId,
+        "Delete a backup job and its run history. Archive files stay in the storage but are no longer listed.",
+        DESTRUCTIVE
+    ),
     tool!("run_backup", Backups, Write, JobId, "Start a backup job now (runs in background; poll list_backups)."),
     tool!("list_backups", Backups, Read, RunFilter, "Backup runs with status, size and errors."),
     tool!("delete_backup", Backups, Write, BackupId, "Delete a backup archive.", DESTRUCTIVE),

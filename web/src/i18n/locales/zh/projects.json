@@ -19,6 +19,6 @@
   },
   "confirm": {
     "deleteTitle": "删除项目？",
-    "deleteMessage": "将删除项目 <b>{{name}}</b>。服务器仍保留在面板中，仅移除分组。"
+    "deleteMessage": "项目 <b>{{name}}</b> 及其笔记将被删除。服务器仍保留在面板中，项目的图会保留，但不再属于任何项目。"
   }
 }

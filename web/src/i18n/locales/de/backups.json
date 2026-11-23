@@ -50,7 +50,7 @@
     },
     "confirmDelete": {
       "title": "Job löschen?",
-      "message": "Der Job „{{name}}“ wird gelöscht. Bereits erstellte Archive bleiben im Speicher und im Verlauf erhalten."
+      "message": "Der Job „{{name}}“ und sein Verlauf werden gelöscht. Die Archivdateien bleiben im Speicher, werden in der Oberfläche aber nicht mehr angezeigt."
     },
     "encryption": {
       "none": "keine",
